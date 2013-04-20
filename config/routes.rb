@@ -1,4 +1,7 @@
 Al::Application.routes.draw do
+  resources :statements
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

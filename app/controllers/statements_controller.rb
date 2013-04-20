@@ -14,6 +14,7 @@ class StatementsController < ApplicationController
   # GET /statements/1.json
   def show
     @statement = Statement.find(params[:id])
+    @agreements = @statement.agreements
 
     respond_to do |format|
       format.html # show.html.erb

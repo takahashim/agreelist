@@ -5,6 +5,19 @@
   <%= @statement.content %>
 </p>
 
+<% if @agreements.any? %>
+  <h3><%= pluralize(@statement.individuals.count, "seem") %> to agree:</h3>
+  <ol>
+    <% @agreements.each do |agreement| %>
+      <% individual = agreement.individual %>
+      <%= link_to(individual.name, individual_path(individual)) %>
+      <%= " - " %>
+      <%= link_to('source', agreement.url) %>
+      <br />
+    <% end %>
+  </ol>
+<% end %>
 
 <%= link_to 'Edit', edit_statement_path(@statement) %> |
 <%= link_to 'Back', statements_path %>
+

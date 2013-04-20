@@ -1,5 +1,6 @@
 Al::Application.routes.draw do
   resources :statements
+  resources :individuals, only: [:show, :destroy]
 
 
   # The priority is based upon order of creation:

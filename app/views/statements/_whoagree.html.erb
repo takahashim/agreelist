@@ -1,0 +1,9 @@
+  <ol>
+    <% @agreements.each do |agreement| %>
+      <% individual = agreement.individual %>
+      <%= link_to(individual.name, individual_path(individual)) %>
+       (<%= link_to('source', agreement.url) %>)
+      <%= link_to("delete", agreement, method: :delete, data: { confirm: "You sure?" }) %>
+      <br />
+    <% end %>
+  </ol>

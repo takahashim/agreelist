@@ -1,0 +1,9 @@
+<%= form_tag("/add_supporter", :method => "post") do %>
+  <%= label_tag(:new_supporter, "Name") %>
+  <%= text_field_tag(:new_supporter) %>
+  <%= label_tag(:source, "Source") %>
+  <%= text_field_tag(:source) %>
+  <%= hidden_field_tag(:statement_id, @statement.id) %>
+  <%= submit_tag("Add") %>
+<% end %>
+

@@ -1,6 +1,7 @@
 Al::Application.routes.draw do
   resources :statements
   resources :individuals, only: [:show, :destroy]
+  match '/add_supporter' => 'statements#add_supporter'
 
 
   # The priority is based upon order of creation:

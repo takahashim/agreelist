@@ -1,4 +1,10 @@
 class StatementsController < ApplicationController
+  def add_supporter
+    individual = Individual.find_by_name(params[:new_supporter]) || Individual.create(name: params[:new_supporter])
+    Agreement.create(statement_id: params[:statement_id], individual_id: individual.id, url: params[:source])
+
+    redirect_to statement_path(params[:statement_id])
+  end
   # GET /statements
   # GET /statements.json
   def index

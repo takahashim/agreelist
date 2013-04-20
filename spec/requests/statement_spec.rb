@@ -44,5 +44,21 @@ describe "Statement" do
       it { should have_link(individual.name, href: individual_path(individual)) }
       it { should have_link("source", href: agreement.url) }
     end
+
+    describe "with invalid info" do
+      it "whould not add an individual" do
+        expect { click_button "Add" }.not_to change(Agreement, :count)
+      end
+    end
+
+    describe "with valid info" do
+      before do
+        fill_in 'new_supporter', with: 'Batman'
+        fill_in 'source', with: 'http://'
+      end
+      it "would add an individual" do
+        expect { click_button "Add" }.to change(Agreement, :count)
+      end
+    end
   end
 end

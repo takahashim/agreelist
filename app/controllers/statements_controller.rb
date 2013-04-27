@@ -1,8 +1,11 @@
 class StatementsController < ApplicationController
   def add_supporter
     individual = Individual.find_by_name(params[:new_supporter]) || Individual.create(name: params[:new_supporter])
-    Agreement.create(statement_id: params[:statement_id], individual_id: individual.id, url: params[:source])
-
+    Agreement.create(
+      statement_id: params[:statement_id],
+      individual_id: individual.id,
+      url: params[:source],
+      extent: params[:add] == "Disagrees" ? 0 : 100)
     redirect_to statement_path(params[:statement_id])
   end
   # GET /statements
@@ -20,7 +23,8 @@ class StatementsController < ApplicationController
   # GET /statements/1.json
   def show
     @statement = Statement.find(params[:id])
-    @agreements = @statement.agreements
+    @agreements_in_favor = @statement.agreements_in_favor
+    @agreements_against = @statement.agreements_against
 
     respond_to do |format|
       format.html # show.html.erb

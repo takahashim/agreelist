@@ -11,12 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130420073700) do
+ActiveRecord::Schema.define(:version => 20130420152708) do
 
   create_table "agreements", :force => true do |t|
     t.string   "url"
     t.integer  "individual_id"
     t.integer  "statement_id"
+    t.integer  "extent"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end

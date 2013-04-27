@@ -1,14 +1,16 @@
+require 'faker'
+
 FactoryGirl.define do
   factory :statement do
-    content "the world is flat"
+    content { Faker::Lorem.sentence }
   end
 
   factory :individual do
-    name "Hec"
+    name { Faker::Name.name }
   end
 
   factory :agreement do
-    url "MyString"
+    url { Faker::Internet.url }
     statement
     individual
   end

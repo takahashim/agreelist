@@ -23,5 +23,4 @@ describe Agreement do
     before { @agreement.individual_id = nil }
     it { should_not be_valid }
   end
-
 end

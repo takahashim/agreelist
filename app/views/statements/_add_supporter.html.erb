@@ -1,4 +1,6 @@
 <%= form_tag("/add_supporter", :method => "post") do %>
+  <%= radio_button_tag :add, 'agreement' %> Agrees
+  <%= radio_button_tag :add, 'disagreement' %> Disagrees <br />
   <%= label_tag(:new_supporter, "Name") %>
   <%= text_field_tag(:new_supporter) %>
   <%= label_tag(:source, "Source") %>

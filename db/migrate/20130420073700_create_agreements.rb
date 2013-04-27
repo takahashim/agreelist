@@ -4,6 +4,7 @@ class CreateAgreements < ActiveRecord::Migration
       t.string :url
       t.integer :individual_id
       t.integer :statement_id
+      t.integer :extent
 
       t.timestamps
     end

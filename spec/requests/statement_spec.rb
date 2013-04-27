@@ -28,9 +28,9 @@ describe "Statement" do
   end
 
   describe "Show" do
-    let(:statement) { FactoryGirl.create(:statement) }
-    let!(:individual) { FactoryGirl.create(:individual, name: "batman") } 
-    let!(:agreement) { FactoryGirl.create(:agreement, url: "http://example.com", individual_id: individual.id, statement_id: statement.id) } 
+    #let(:statement) { create(:statement) }
+    #let!(:individual) { create(:individual, name: "batman") } 
+    statement = FactoryGirl.create(:statement)
  
     before { visit statement_path(statement) }
       
@@ -39,24 +39,30 @@ describe "Statement" do
     end
 
     describe "has individuals" do
+      individual = FactoryGirl.create(:individual)
+      agreement = FactoryGirl.create(:agreement, individual_id: individual.id, statement_id: statement.id, extent: 100)
+
       it { should have_content(individual.name) }
-      it { should have_content(statement.individuals.count) }
+      it { should have_content(statement.agreements_in_favor.size) }
+      it { should have_content(statement.agreements_against.size) }
       it { should have_link(individual.name, href: individual_path(individual)) }
       it { should have_link("source", href: agreement.url) }
     end
 
     describe "with invalid info" do
-      it "whould not add an individual" do
+      it "don't add an individual" do
         expect { click_button "Add" }.not_to change(Agreement, :count)
       end
     end
 
     describe "with valid info" do
       before do
-        fill_in 'new_supporter', with: 'Batman'
+        choose 'add_agreement'
+        fill_in 'new_supporter', with: 'Superman'
         fill_in 'source', with: 'http://'
       end
-      it "would add an individual" do
+
+      it "add an individual" do
         expect { click_button "Add" }.to change(Agreement, :count)
       end
     end

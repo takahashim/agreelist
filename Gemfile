@@ -10,6 +10,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'guard-rspec'
   gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 # Gems used only for assets and not required

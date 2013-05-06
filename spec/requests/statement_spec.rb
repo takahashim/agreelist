@@ -64,6 +64,18 @@ describe "Statement" do
 
       it "add an individual" do
         expect { click_button "Add" }.to change(Agreement, :count)
+        expect(Agreement.last.extent).to eq(100)
+      end
+    end
+
+    describe "disagrees" do
+      it "add someone who disagrees" do
+        choose 'add_disagreement'
+        fill_in 'new_supporter', with: 'Superman'
+        fill_in 'source', with: 'http://'
+
+        click_button "Add"
+        expect(Agreement.last.extent).to eq(0)
       end
     end
   end

@@ -6,12 +6,12 @@
 <div id="wrapper">
   <div id="leftcol">
     <% @agreements = @agreements_in_favor %>
-    <h3><%= @agreements_in_favor.size %> seem to agree:</h3>
+    <strong><%= @agreements_in_favor.size %> seem to agree:</strong>
     <%= render "statements/whoagree" %>
   </div>
   <div id="rightcol">
     <% @agreements = @agreements_against %>
-    <h3><%= @agreements_against.size %> seem to disagree:</h3>
+    <strong><%= @agreements_against.size %> seem to disagree:</strong>
     <%= render "statements/whoagree" %>
   </div>
 </div>

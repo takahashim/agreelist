@@ -1,0 +1,16 @@
+<h1><%= @individual.name %></h1>
+<strong>Seems to agree:</strong>
+<br />
+<% @agrees.each do |a| %>
+  <%= link_to a.content, statement_path(a) %>
+  <br />
+<% end %>
+
+<br />
+
+<strong>Seems to disagree:</strong>
+<br />
+<% @disagrees.each do |a| %>
+  <%= link_to a.content, statement_path(a) %>
+  <br />
+<% end %>

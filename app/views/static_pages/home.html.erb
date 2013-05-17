@@ -10,11 +10,15 @@
     </div>
   </div>
   
-  <div class="row">
-    <% @statements.each do |s| %>
-      <div class="span3">
-        <%= link_to(s.content, statement_path(s)) %>
-      </div>
-    <% end %> 
-  </div>
+  <% 2.times do |i| %>
+    <div class="row">
+      <% 3.times do |j| %>
+        <div class="span3">
+          <%= link_to(@statements[2*i + j].content, statement_path(@statements[2*i + j])) %>
+        </div>
+      <% end %> 
+    </div>
+    <br />
+  <% end %>
+
 </div>

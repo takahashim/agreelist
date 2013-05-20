@@ -20,6 +20,7 @@ describe "Home" do
       fill_in 'search', with: "The world is flat"
       click_button "Search"
       expect { response.should redirect_to("/search") }
+      should have_selector('h1', text: 'Search')
     end
   end
 end

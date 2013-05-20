@@ -14,6 +14,10 @@ class Statement < ActiveRecord::Base
   end
 
   def self.search(search)
-    self.where("content LIKE ?", "%#{search}%")
+    if search == nil || search == ""
+      []
+    else
+      self.where("content LIKE ?", "%#{search}%")
+    end
   end
 end

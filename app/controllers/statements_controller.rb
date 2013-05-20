@@ -1,6 +1,12 @@
 class StatementsController < ApplicationController
   def search
-    @statements = Statement.search(params[:search])
+    if params[:search].empty?
+      flash[:notice] = "The search can't be empty"
+      redirect_to "/"
+    else
+      @statements = Statement.search(params[:search])
+      @individuals = Individual.search(params[:search])
+    end
   end
 
   def add_supporter

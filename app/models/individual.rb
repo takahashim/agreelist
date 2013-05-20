@@ -16,4 +16,13 @@ class Individual < ActiveRecord::Base
   def disagrees
     agreements.select{ |a| a.extent == 0 }.map{ |i| i.statement }
   end
+  
+  def self.search(search)
+    if search == nil || search == ""
+      []
+    else
+      self.where("name LIKE ?", "%#{search}%")
+    end
+  end
+
 end

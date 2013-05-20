@@ -1,1 +1,25 @@
-<%= render @statements %>
+<h1>Search</h1>
+<% unless @statements.empty? and @individuals.empty? %>
+  Your search: <%= params[:search] %><br /><br />
+<% end %>
+
+<% unless @statements.empty? %>
+  Statements: <br />
+  <%= render @statements %>
+<% end %>
+
+<br />
+<% unless @individuals.empty? %>
+  Individuals: <br />
+  <% @individuals.each do |i| %>
+    <%= link_to(i.name, individual_path(i)) %><br />
+  <% end %>
+<% end %>
+
+<br />
+<% if @statements.empty? %>
+  Statements not found. Would you like to create the statement 
+  <strong><%= link_to(params[:search], statements_path(statement: {content: params[:search]}), :method => :post, :action => :create) %></strong>?
+<% end %>
+
+

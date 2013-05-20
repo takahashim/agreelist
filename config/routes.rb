@@ -6,6 +6,7 @@ Al::Application.routes.draw do
   resources :statements
   resources :individuals, only: [:show, :destroy]
   match '/add_supporter' => 'statements#add_supporter'
+  match '/search' => 'statements#search'
   resources :agreements, only: [:destroy]
 
   # The priority is based upon order of creation:

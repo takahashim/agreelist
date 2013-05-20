@@ -12,4 +12,8 @@ class Statement < ActiveRecord::Base
   def agreements_against
     agreements.select{ |a| a.extent == 0 }
   end
+
+  def self.search(search)
+    self.where("content LIKE ?", "%#{search}%")
+  end
 end

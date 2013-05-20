@@ -37,4 +37,9 @@ describe Statement do
     create(:agreement, extent: 0, statement_id: statement.id)
     expect(statement.agreements_in_favor).to eq [a]
   end
+
+  it "should search" do
+    s = create(:statement, content: "The world is flat")
+    expect(Statement.search("world")[0]).to eq s
+  end
 end

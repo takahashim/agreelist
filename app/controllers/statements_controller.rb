@@ -1,4 +1,8 @@
 class StatementsController < ApplicationController
+  def search
+    @statements = Statement.search(params[:search])
+  end
+
   def add_supporter
     individual = Individual.find_or_create(params[:new_supporter]) #Individual.find_by_name(params[:new_supporter]) || Individual.create(name: params[:new_supporter])
     Agreement.create(
@@ -8,6 +12,7 @@ class StatementsController < ApplicationController
       extent: params[:add] == "disagreement" ? 0 : 100)
     redirect_to statement_path(params[:statement_id])
   end
+
   # GET /statements
   # GET /statements.json
   def index

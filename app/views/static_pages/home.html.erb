@@ -14,15 +14,33 @@
     </div>
   </div>
   
-  <% 2.times do |i| %>
-    <div class="row">
-      <% 3.times do |j| %>
-        <div class="span3">
-          <%= link_to(@statements[2*i + j].content, statement_path(@statements[2*i + j])) %>
-        </div>
-      <% end %> 
+  <div class="row">
+    <div class="span3">
+      Barack Obama agrees that<br />
+      <%= link_to_statement "assault weapons should be banned" %>
     </div>
-    <br />
-  <% end %>
-
+    <div class="span3">
+      Ford disagrees that<br />
+      <%= link_to_statement "UK exit from the EU would be good for the UK" %>
+    </div>
+    <div class="span3">
+      Tim Berners-Lee agrees that<br />
+      <%= link_to_statement "big data brings new opportunities" %>
+    </div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="span3">
+      Jimmy Wales agrees that<br />
+      <%= link_to_statement "homeopathy should be illegal" %>
+    </div>
+    <div class="span3">
+      Richard Branson agrees that<br />
+      <%= link_to_statement "schools should encourage entrepreneurship" %>
+    </div>
+    <div class="span3">
+      The Royal Society agrees that<br />
+      <%= link_to_statement "The Italian scientists sentenced to be jailed for failing to warn of an earthquake in 2009 should be released" %>
+    </div>
+  </div>
 </div>

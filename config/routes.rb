@@ -1,5 +1,4 @@
 Al::Application.routes.draw do
-  
 
   root to: 'static_pages#home'
 
@@ -7,6 +6,7 @@ Al::Application.routes.draw do
   resources :individuals, only: [:show, :destroy]
   match '/add_supporter' => 'statements#add_supporter'
   match '/search' => 'statements#search'
+  match '/contact' => 'static_pages#contact'
   resources :agreements, only: [:destroy]
 
   # The priority is based upon order of creation:

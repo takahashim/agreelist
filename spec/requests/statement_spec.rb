@@ -20,10 +20,12 @@ describe "Statement" do
     end
 
     it "go to New and create" do
-      visit statements_path
-      click_link "New Statement"
+      #visit statements_path
+      #click_link "New Statement"
+      visit "/statements/new"
       fill_in "Content", with: "Yeah"
       expect{ click_button "Create Statement" }.to change(Statement, :count).by(1)
+      # it doesn't pass after removing f.label :content
     end
   end
 

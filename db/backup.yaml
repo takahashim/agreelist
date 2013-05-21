@@ -1,0 +1,3128 @@
+---
+:s:
+- !ruby/object:Statement
+  attributes:
+    id: 4
+    content: homeopathy should be illegal
+    created_at: 2013-05-15 11:45:16.981853000 Z
+    updated_at: 2013-05-15 11:45:16.981853000 Z
+- !ruby/object:Statement
+  attributes:
+    id: 5
+    content: The cost of tackling global warming is less than the risks and the costs
+      of doing nothing
+    created_at: 2013-05-15 11:45:17.719905000 Z
+    updated_at: 2013-05-15 11:45:17.719905000 Z
+- !ruby/object:Statement
+  attributes:
+    id: 6
+    content: Nobel Prize winner Liu Xiaobo and his wife should be released
+    created_at: 2013-05-15 11:45:18.525208000 Z
+    updated_at: 2013-05-15 11:45:18.525208000 Z
+- !ruby/object:Statement
+  attributes:
+    id: 9
+    content: banning assault weapons works
+    created_at: 2013-05-15 11:45:22.494029000 Z
+    updated_at: 2013-05-15 11:45:22.494029000 Z
+- !ruby/object:Statement
+  attributes:
+    id: 11
+    content: the map is not the territory
+    created_at: 2013-05-15 11:45:23.535243000 Z
+    updated_at: 2013-05-15 11:45:23.535243000 Z
+- !ruby/object:Statement
+  attributes:
+    id: 12
+    content: stocks are still undervalued
+    created_at: 2013-05-15 11:45:25.311830000 Z
+    updated_at: 2013-05-15 11:45:25.311830000 Z
+- !ruby/object:Statement
+  attributes:
+    id: 13
+    content: big data brings new opportunities
+    created_at: 2013-05-15 11:45:26.042158000 Z
+    updated_at: 2013-05-21 12:51:53.772000000 Z
+- !ruby/object:Statement
+  attributes:
+    id: 14
+    content: UK copyright should be modernised
+    created_at: 2013-05-15 11:45:30.106022000 Z
+    updated_at: 2013-05-15 11:45:30.106022000 Z
+- !ruby/object:Statement
+  attributes:
+    id: 15
+    content: make gun trafficking a federal crime
+    created_at: 2013-05-15 11:45:35.966480000 Z
+    updated_at: 2013-05-15 11:45:35.966480000 Z
+- !ruby/object:Statement
+  attributes:
+    id: 16
+    content: We should do something to tackle global warming
+    created_at: 2013-05-15 11:45:36.599006000 Z
+    updated_at: 2013-05-15 11:45:36.599006000 Z
+- !ruby/object:Statement
+  attributes:
+    id: 18
+    content: global warming is real
+    created_at: 2013-05-15 11:45:37.948693000 Z
+    updated_at: 2013-05-15 11:45:37.948693000 Z
+- !ruby/object:Statement
+  attributes:
+    id: 19
+    content: prosecute prohibited gun purchasers who ignore the law and try to buy
+      guns
+    created_at: 2013-05-15 11:45:40.534218000 Z
+    updated_at: 2013-05-15 11:45:40.534218000 Z
+- !ruby/object:Statement
+  attributes:
+    id: 20
+    content: gold open access is the way to go
+    created_at: 2013-05-15 11:45:41.161533000 Z
+    updated_at: 2013-05-15 11:45:41.161533000 Z
+- !ruby/object:Statement
+  attributes:
+    id: 22
+    content: UK exit from the EU would be good for the UK
+    created_at: 2013-05-15 11:45:49.883513000 Z
+    updated_at: 2013-05-15 11:45:49.883513000 Z
+- !ruby/object:Statement
+  attributes:
+    id: 23
+    content: Require every gun buyer to pass a criminal background check
+    created_at: 2013-05-15 11:45:58.452746000 Z
+    updated_at: 2013-05-15 11:45:58.452746000 Z
+- !ruby/object:Statement
+  attributes:
+    id: 24
+    content: schools should encourage entrepreneurship
+    created_at: 2013-05-15 11:46:00.252409000 Z
+    updated_at: 2013-05-15 11:46:00.252409000 Z
+- !ruby/object:Statement
+  attributes:
+    id: 25
+    content: require federal agencies to report records to nics
+    created_at: 2013-05-15 11:46:00.783829000 Z
+    updated_at: 2013-05-15 11:46:00.783829000 Z
+- !ruby/object:Statement
+  attributes:
+    id: 26
+    content: appoint an atf director - by recess appointment if necessary
+    created_at: 2013-05-15 11:46:01.324845000 Z
+    updated_at: 2013-05-15 11:46:01.324845000 Z
+- !ruby/object:Statement
+  attributes:
+    id: 27
+    content: The UN ITU should not take over the Internet governance
+    created_at: 2013-05-15 11:46:01.787126000 Z
+    updated_at: 2013-05-15 11:46:01.787126000 Z
+- !ruby/object:Statement
+  attributes:
+    id: 28
+    content: publicly funded research must be shared as broadly as possible
+    created_at: 2013-05-15 11:46:02.817781000 Z
+    updated_at: 2013-05-15 11:46:02.817781000 Z
+- !ruby/object:Statement
+  attributes:
+    id: 29
+    content: assault weapons should be banned
+    created_at: 2013-05-15 11:46:25.671561000 Z
+    updated_at: 2013-05-15 11:46:25.671561000 Z
+- !ruby/object:Statement
+  attributes:
+    id: 30
+    content: politicians should collaborate more
+    created_at: 2013-05-15 11:47:04.019200000 Z
+    updated_at: 2013-05-15 11:47:04.019200000 Z
+- !ruby/object:Statement
+  attributes:
+    id: 31
+    content: when one of the greatest violin players of the world plays inside a subway
+      station hardly anyone stops to appreciate the music
+    created_at: 2013-05-15 11:47:04.872233000 Z
+    updated_at: 2013-05-15 11:47:04.872233000 Z
+- !ruby/object:Statement
+  attributes:
+    id: 32
+    content: landmines should be banned
+    created_at: 2013-05-15 11:47:06.287843000 Z
+    updated_at: 2013-05-15 11:47:06.287843000 Z
+- !ruby/object:Statement
+  attributes:
+    id: 33
+    content: The Italian scientists sentenced to be jailed for failing to warn of
+      an earthquake in 2009 should be released
+    created_at: 2013-05-15 11:47:07.071310000 Z
+    updated_at: 2013-05-15 11:47:07.071310000 Z
+- !ruby/object:Statement
+  attributes:
+    id: 34
+    content: Some Spanish bankers deserve to go to jail
+    created_at: 2013-05-15 12:26:22.786167000 Z
+    updated_at: 2013-05-15 16:38:06.136126000 Z
+- !ruby/object:Statement
+  attributes:
+    id: 37
+    content: Bitcoin has almost no transaction costs
+    created_at: 2013-05-20 17:45:03.312848000 Z
+    updated_at: 2013-05-20 17:45:03.312848000 Z
+:i:
+- !ruby/object:Individual
+  attributes:
+    id: 1
+    name: BMW
+    created_at: 2013-05-15 11:45:10.209645000 Z
+    updated_at: 2013-05-15 11:45:10.209645000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 2
+    name: Enda Kenny
+    created_at: 2013-05-15 11:45:10.875497000 Z
+    updated_at: 2013-05-15 11:45:10.875497000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 3
+    name: Ford
+    created_at: 2013-05-15 11:45:11.420383000 Z
+    updated_at: 2013-05-15 11:45:11.420383000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 4
+    name: Tony Blair
+    created_at: 2013-05-15 11:45:12.016639000 Z
+    updated_at: 2013-05-15 11:45:12.016639000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 5
+    name: Chris Grayling
+    created_at: 2013-05-15 11:45:12.628850000 Z
+    updated_at: 2013-05-15 11:45:12.628850000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 6
+    name: Iain Duncan Smith
+    created_at: 2013-05-15 11:45:13.144893000 Z
+    updated_at: 2013-05-15 11:45:13.144893000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 7
+    name: Michael Gove
+    created_at: 2013-05-15 11:45:13.772903000 Z
+    updated_at: 2013-05-15 11:45:13.772903000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 8
+    name: Owen Paterson
+    created_at: 2013-05-15 11:45:14.310183000 Z
+    updated_at: 2013-05-15 11:45:14.310183000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 9
+    name: Sajid Javid
+    created_at: 2013-05-15 11:45:14.861994000 Z
+    updated_at: 2013-05-15 11:45:14.861994000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 10
+    name: Cantinflas
+    created_at: 2013-05-15 11:45:15.914966000 Z
+    updated_at: 2013-05-15 11:45:15.914966000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 12
+    name: Jimmy Wales
+    created_at: 2013-05-15 11:45:17.260998000 Z
+    updated_at: 2013-05-15 11:45:17.260998000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 13
+    name: Paul Krugman
+    created_at: 2013-05-15 11:45:17.964435000 Z
+    updated_at: 2013-05-15 11:45:17.964435000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 14
+    name: Dalai Lama
+    created_at: 2013-05-15 11:45:18.769756000 Z
+    updated_at: 2013-05-15 11:45:18.769756000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 15
+    name: Desmond Tutu
+    created_at: 2013-05-15 11:45:19.341363000 Z
+    updated_at: 2013-05-15 11:45:19.341363000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 16
+    name: Toni Morrison
+    created_at: 2013-05-15 11:45:19.919031000 Z
+    updated_at: 2013-05-15 11:45:19.919031000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 17
+    name: Demandaplan
+    created_at: 2013-05-15 11:45:20.694344000 Z
+    updated_at: 2013-05-15 11:45:20.694344000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 18
+    name: Zak Lutz
+    created_at: 2013-05-15 11:45:21.424803000 Z
+    updated_at: 2013-05-15 11:45:21.424803000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 19
+    name: Barack Obama
+    created_at: 2013-05-15 11:45:22.224827000 Z
+    updated_at: 2013-05-15 11:45:22.224827000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 20
+    name: Alex Seitz-Wald
+    created_at: 2013-05-15 11:45:22.772920000 Z
+    updated_at: 2013-05-15 11:45:22.772920000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 21
+    name: Alfred Korzybski
+    created_at: 2013-05-15 11:45:23.791963000 Z
+    updated_at: 2013-05-15 11:45:23.791963000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 22
+    name: Stephen Covey
+    created_at: 2013-05-15 11:45:24.308149000 Z
+    updated_at: 2013-05-15 11:45:24.308149000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 23
+    name: Tim Oreilly
+    created_at: 2013-05-15 11:45:24.845889000 Z
+    updated_at: 2013-05-15 11:45:24.845889000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 24
+    name: Alan Greenspan
+    created_at: 2013-05-15 11:45:25.496998000 Z
+    updated_at: 2013-05-15 11:45:25.496998000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 25
+    name: Deloitte
+    created_at: 2013-05-15 11:45:26.310982000 Z
+    updated_at: 2013-05-15 11:45:26.310982000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 26
+    name: Gartner
+    created_at: 2013-05-15 11:45:26.871691000 Z
+    updated_at: 2013-05-15 11:45:26.871691000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 27
+    name: Kevin Boudreau
+    created_at: 2013-05-15 11:45:27.364014000 Z
+    updated_at: 2013-05-15 11:45:27.364014000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 28
+    name: Mckinsey
+    created_at: 2013-05-15 11:45:27.968437000 Z
+    updated_at: 2013-05-15 11:45:27.968437000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 29
+    name: Microsoft
+    created_at: 2013-05-15 11:45:28.515106000 Z
+    updated_at: 2013-05-15 11:45:28.515106000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 30
+    name: Tim Berners-Lee
+    created_at: 2013-05-15 11:45:28.985263000 Z
+    updated_at: 2013-05-15 11:45:28.985263000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 31
+    name: World Economic Forum
+    created_at: 2013-05-15 11:45:29.521085000 Z
+    updated_at: 2013-05-15 11:45:29.521085000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 32
+    name: Alex Hern
+    created_at: 2013-05-15 11:45:30.367261000 Z
+    updated_at: 2013-05-15 11:45:30.367261000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 33
+    name: Coadec
+    created_at: 2013-05-15 11:45:30.803833000 Z
+    updated_at: 2013-05-15 11:45:30.803833000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 34
+    name: David Simth
+    created_at: 2013-05-15 11:45:31.239191000 Z
+    updated_at: 2013-05-15 11:45:31.239191000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 35
+    name: George Osborne
+    created_at: 2013-05-15 11:45:31.768169000 Z
+    updated_at: 2013-05-15 11:45:31.768169000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 36
+    name: Government Of The United Kingdom
+    created_at: 2013-05-15 11:45:32.236645000 Z
+    updated_at: 2013-05-15 11:45:32.236645000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 37
+    name: Jeremy Hunt (Politician)
+    created_at: 2013-05-15 11:45:32.714891000 Z
+    updated_at: 2013-05-15 11:45:32.714891000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 38
+    name: Robert Kiley
+    created_at: 2013-05-15 11:45:33.242983000 Z
+    updated_at: 2013-05-15 11:45:33.242983000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 39
+    name: Sara Kelly
+    created_at: 2013-05-15 11:45:33.810173000 Z
+    updated_at: 2013-05-15 11:45:33.810173000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 40
+    name: Tim Dickinson (Techfruit)
+    created_at: 2013-05-15 11:45:34.374404000 Z
+    updated_at: 2013-05-15 11:45:34.374404000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 41
+    name: Vince Cable
+    created_at: 2013-05-15 11:45:34.875559000 Z
+    updated_at: 2013-05-15 11:45:34.875559000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 42
+    name: Wellcome Trust
+    created_at: 2013-05-15 11:45:35.431772000 Z
+    updated_at: 2013-05-15 11:45:35.431772000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 43
+    name: Robert Bjork
+    created_at: 2013-05-15 11:45:37.432216000 Z
+    updated_at: 2013-05-15 11:45:37.432216000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 44
+    name: Mario J. Molina
+    created_at: 2013-05-15 11:45:38.188230000 Z
+    updated_at: 2013-05-15 11:45:38.188230000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 45
+    name: Richard Branson
+    created_at: 2013-05-15 11:45:39.015683000 Z
+    updated_at: 2013-05-15 11:45:39.015683000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 46
+    name: Royal Society
+    created_at: 2013-05-15 11:45:39.504157000 Z
+    updated_at: 2013-05-15 11:45:39.504157000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 47
+    name: Thomas L. Friedman
+    created_at: 2013-05-15 11:45:39.997404000 Z
+    updated_at: 2013-05-15 11:45:39.997404000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 48
+    name: David Willetts
+    created_at: 2013-05-15 11:45:41.453656000 Z
+    updated_at: 2013-05-15 11:45:41.453656000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 49
+    name: Doug Kell
+    created_at: 2013-05-15 11:45:41.968048000 Z
+    updated_at: 2013-05-15 11:45:41.968048000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 50
+    name: Janet Finch
+    created_at: 2013-05-15 11:45:42.900253000 Z
+    updated_at: 2013-05-15 11:45:42.900253000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 51
+    name: Mark Thorley
+    created_at: 2013-05-15 11:45:43.495262000 Z
+    updated_at: 2013-05-15 11:45:43.495262000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 52
+    name: Martin Hall
+    created_at: 2013-05-15 11:45:44.187141000 Z
+    updated_at: 2013-05-15 11:45:44.187141000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 53
+    name: Mike Taylor
+    created_at: 2013-05-15 11:45:44.712857000 Z
+    updated_at: 2013-05-15 11:45:44.712857000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 54
+    name: Stuart Shieber
+    created_at: 2013-05-15 11:45:45.231820000 Z
+    updated_at: 2013-05-15 11:45:45.231820000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 55
+    name: United Kingdom Government
+    created_at: 2013-05-15 11:45:45.726962000 Z
+    updated_at: 2013-05-15 11:45:45.726962000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 56
+    name: Martin Weller
+    created_at: 2013-05-15 11:45:46.264696000 Z
+    updated_at: 2013-05-15 11:45:46.264696000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 57
+    name: Peter Mandler
+    created_at: 2013-05-15 11:45:46.809291000 Z
+    updated_at: 2013-05-15 11:45:46.809291000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 58
+    name: Royal Historical Society
+    created_at: 2013-05-15 11:45:47.361891000 Z
+    updated_at: 2013-05-15 11:45:47.361891000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 59
+    name: Stevan Harnad
+    created_at: 2013-05-15 11:45:47.972612000 Z
+    updated_at: 2013-05-15 11:45:47.972612000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 60
+    name: Jack Lee (Policymic)
+    created_at: 2013-05-15 11:45:48.794960000 Z
+    updated_at: 2013-05-15 11:45:48.794960000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 61
+    name: Lindsey Graham
+    created_at: 2013-05-15 11:45:49.348133000 Z
+    updated_at: 2013-05-15 11:45:49.348133000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 62
+    name: Athanasios Orphanides
+    created_at: 2013-05-15 11:45:51.518421000 Z
+    updated_at: 2013-05-15 11:45:51.518421000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 63
+    name: BM Catalysts
+    created_at: 2013-05-15 11:45:52.032889000 Z
+    updated_at: 2013-05-15 11:45:52.032889000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 64
+    name: Daniel Godfrey
+    created_at: 2013-05-15 11:45:52.890002000 Z
+    updated_at: 2013-05-15 11:45:52.890002000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 65
+    name: Ken Clarke
+    created_at: 2013-05-15 11:45:54.065932000 Z
+    updated_at: 2013-05-15 11:45:54.065932000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 66
+    name: Kenneth Clarke
+    created_at: 2013-05-15 11:45:54.573471000 Z
+    updated_at: 2013-05-15 11:45:54.573471000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 67
+    name: Martin Sorrell
+    created_at: 2013-05-15 11:45:55.088582000 Z
+    updated_at: 2013-05-15 11:45:55.088582000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 68
+    name: Nick Clegg
+    created_at: 2013-05-15 11:45:55.543259000 Z
+    updated_at: 2013-05-15 11:45:55.543259000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 69
+    name: PwC
+    created_at: 2013-05-15 11:45:56.095521000 Z
+    updated_at: 2013-05-15 11:45:56.095521000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 70
+    name: Rob Mellor
+    created_at: 2013-05-15 11:45:56.614162000 Z
+    updated_at: 2013-05-15 11:45:56.614162000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 71
+    name: United States
+    created_at: 2013-05-15 11:45:57.364049000 Z
+    updated_at: 2013-05-15 11:45:57.364049000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 72
+    name: Wolfgang Schaeuble
+    created_at: 2013-05-15 11:45:57.921979000 Z
+    updated_at: 2013-05-15 11:45:57.921979000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 73
+    name: Dianne Feinstein
+    created_at: 2013-05-15 11:45:58.971489000 Z
+    updated_at: 2013-05-15 11:45:58.971489000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 74
+    name: Piers Morgan
+    created_at: 2013-05-15 11:45:59.727305000 Z
+    updated_at: 2013-05-15 11:45:59.727305000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 75
+    name: Vint Cerf
+    created_at: 2013-05-15 11:46:02.298348000 Z
+    updated_at: 2013-05-15 11:46:02.298348000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 76
+    name: Aaron Ciechanover
+    created_at: 2013-05-15 11:46:03.051241000 Z
+    updated_at: 2013-05-15 11:46:03.051241000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 77
+    name: Alfred G. Gilman
+    created_at: 2013-05-15 11:46:03.565085000 Z
+    updated_at: 2013-05-15 11:46:03.565085000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 78
+    name: Andrew V. Schally
+    created_at: 2013-05-15 11:46:04.085057000 Z
+    updated_at: 2013-05-15 11:46:04.085057000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 79
+    name: Andrew Z. Fire
+    created_at: 2013-05-15 11:46:04.603384000 Z
+    updated_at: 2013-05-15 11:46:04.603384000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 80
+    name: Avram Hershko
+    created_at: 2013-05-15 11:46:05.107798000 Z
+    updated_at: 2013-05-15 11:46:05.107798000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 81
+    name: Baruj Benacerraf
+    created_at: 2013-05-15 11:46:05.594391000 Z
+    updated_at: 2013-05-15 11:46:05.594391000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 82
+    name: Bengt I. Samuelsson
+    created_at: 2013-05-15 11:46:06.099187000 Z
+    updated_at: 2013-05-15 11:46:06.099187000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 83
+    name: Carol W. Greider
+    created_at: 2013-05-15 11:46:06.623448000 Z
+    updated_at: 2013-05-15 11:46:06.623448000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 84
+    name: David Baltimore
+    created_at: 2013-05-15 11:46:07.090441000 Z
+    updated_at: 2013-05-15 11:46:07.090441000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 85
+    name: David H. Hubel
+    created_at: 2013-05-15 11:46:07.571363000 Z
+    updated_at: 2013-05-15 11:46:07.571363000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 86
+    name: Douglas D. Osheroff
+    created_at: 2013-05-15 11:46:08.074189000 Z
+    updated_at: 2013-05-15 11:46:08.074189000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 87
+    name: Edmond H. Fischer
+    created_at: 2013-05-15 11:46:08.577463000 Z
+    updated_at: 2013-05-15 11:46:08.577463000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 88
+    name: Eric R. Kandel
+    created_at: 2013-05-15 11:46:09.154941000 Z
+    updated_at: 2013-05-15 11:46:09.154941000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 89
+    name: H. David Politzer
+    created_at: 2013-05-15 11:46:09.678912000 Z
+    updated_at: 2013-05-15 11:46:09.678912000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 90
+    name: Harold E. Varmus
+    created_at: 2013-05-15 11:46:10.213183000 Z
+    updated_at: 2013-05-15 11:46:10.213183000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 91
+    name: Hartmut Michel
+    created_at: 2013-05-15 11:46:10.723813000 Z
+    updated_at: 2013-05-15 11:46:10.723813000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 92
+    name: Irwin Rose
+    created_at: 2013-05-15 11:46:11.255573000 Z
+    updated_at: 2013-05-15 11:46:11.255573000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 93
+    name: Jack W. Szostak
+    created_at: 2013-05-15 11:46:11.772485000 Z
+    updated_at: 2013-05-15 11:46:11.772485000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 94
+    name: James Watson
+    created_at: 2013-05-15 11:46:12.653049000 Z
+    updated_at: 2013-05-15 11:46:12.653049000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 95
+    name: Jean-Marie Lehn
+    created_at: 2013-05-15 11:46:13.212215000 Z
+    updated_at: 2013-05-15 11:46:13.212215000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 96
+    name: Johann Deisenhofer
+    created_at: 2013-05-15 11:46:13.859139000 Z
+    updated_at: 2013-05-15 11:46:13.859139000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 97
+    name: John C. Mather
+    created_at: 2013-05-15 11:46:14.425499000 Z
+    updated_at: 2013-05-15 11:46:14.425499000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 98
+    name: Joseph E. Murray
+    created_at: 2013-05-15 11:46:14.971184000 Z
+    updated_at: 2013-05-15 11:46:14.971184000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 99
+    name: Kary B. Mullis
+    created_at: 2013-05-15 11:46:15.475376000 Z
+    updated_at: 2013-05-15 11:46:15.475376000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 100
+    name: Leland H. Hartwell
+    created_at: 2013-05-15 11:46:15.944498000 Z
+    updated_at: 2013-05-15 11:46:15.944498000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 101
+    name: Marshall W. Nirenberg
+    created_at: 2013-05-15 11:46:16.429055000 Z
+    updated_at: 2013-05-15 11:46:16.429055000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 102
+    name: Martin Chalfie
+    created_at: 2013-05-15 11:46:17.364813000 Z
+    updated_at: 2013-05-15 11:46:17.364813000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 103
+    name: Paul Berg
+    created_at: 2013-05-15 11:46:18.033031000 Z
+    updated_at: 2013-05-15 11:46:18.033031000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 104
+    name: Peter Agre
+    created_at: 2013-05-15 11:46:18.506754000 Z
+    updated_at: 2013-05-15 11:46:18.506754000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 105
+    name: Roald Hoffmann
+    created_at: 2013-05-15 11:46:19.139328000 Z
+    updated_at: 2013-05-15 11:46:19.139328000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 106
+    name: Robert F. Curl Jr.
+    created_at: 2013-05-15 11:46:19.718363000 Z
+    updated_at: 2013-05-15 11:46:19.718363000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 107
+    name: Robert H. Grubbs
+    created_at: 2013-05-15 11:46:20.271299000 Z
+    updated_at: 2013-05-15 11:46:20.271299000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 108
+    name: Roger D. Kornberg
+    created_at: 2013-05-15 11:46:20.781740000 Z
+    updated_at: 2013-05-15 11:46:20.781740000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 109
+    name: Rolf M. Zinkernagel
+    created_at: 2013-05-15 11:46:21.284019000 Z
+    updated_at: 2013-05-15 11:46:21.284019000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 110
+    name: Sheldon Glashow
+    created_at: 2013-05-15 11:46:21.830425000 Z
+    updated_at: 2013-05-15 11:46:21.830425000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 111
+    name: Sir Harold Kroto
+    created_at: 2013-05-15 11:46:22.372286000 Z
+    updated_at: 2013-05-15 11:46:22.372286000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 112
+    name: Sir Martin J. Evans
+    created_at: 2013-05-15 11:46:22.950610000 Z
+    updated_at: 2013-05-15 11:46:22.950610000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 113
+    name: Stanley Cohen
+    created_at: 2013-05-15 11:46:23.469647000 Z
+    updated_at: 2013-05-15 11:46:23.469647000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 114
+    name: Sydney Brenner
+    created_at: 2013-05-15 11:46:23.979966000 Z
+    updated_at: 2013-05-15 11:46:23.979966000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 115
+    name: Tim Hunt
+    created_at: 2013-05-15 11:46:24.550026000 Z
+    updated_at: 2013-05-15 11:46:24.550026000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 116
+    name: Walter Kohn
+    created_at: 2013-05-15 11:46:25.069083000 Z
+    updated_at: 2013-05-15 11:46:25.069083000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 117
+    name: Al Franken
+    created_at: 2013-05-15 11:46:25.939932000 Z
+    updated_at: 2013-05-15 11:46:25.939932000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 118
+    name: Amy Klobuchar
+    created_at: 2013-05-15 11:46:26.518468000 Z
+    updated_at: 2013-05-15 11:46:26.518468000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 119
+    name: Amy Poehler
+    created_at: 2013-05-15 11:46:27.096767000 Z
+    updated_at: 2013-05-15 11:46:27.096767000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 120
+    name: Angus King
+    created_at: 2013-05-15 11:46:27.723325000 Z
+    updated_at: 2013-05-15 11:46:27.723325000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 121
+    name: Aziz Ansari
+    created_at: 2013-05-15 11:46:28.321384000 Z
+    updated_at: 2013-05-15 11:46:28.321384000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 122
+    name: Barbara Boxer
+    created_at: 2013-05-15 11:46:29.290525000 Z
+    updated_at: 2013-05-15 11:46:29.290525000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 123
+    name: Barbara Mikulski
+    created_at: 2013-05-15 11:46:29.902289000 Z
+    updated_at: 2013-05-15 11:46:29.902289000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 124
+    name: Ben Cardin
+    created_at: 2013-05-15 11:46:30.466008000 Z
+    updated_at: 2013-05-15 11:46:30.466008000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 125
+    name: BeyoncÃ© Knowles
+    created_at: 2013-05-15 11:46:31.004632000 Z
+    updated_at: 2013-05-15 11:46:31.004632000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 126
+    name: Bill Nelson
+    created_at: 2013-05-15 11:46:31.493743000 Z
+    updated_at: 2013-05-15 11:46:31.493743000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 127
+    name: Bob Menendez
+    created_at: 2013-05-15 11:46:32.069901000 Z
+    updated_at: 2013-05-15 11:46:32.069901000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 128
+    name: Carey Mulligan
+    created_at: 2013-05-15 11:46:32.589791000 Z
+    updated_at: 2013-05-15 11:46:32.589791000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 129
+    name: Chris Murphy
+    created_at: 2013-05-15 11:46:33.144632000 Z
+    updated_at: 2013-05-15 11:46:33.144632000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 130
+    name: Chris Rock
+    created_at: 2013-05-15 11:46:33.663533000 Z
+    updated_at: 2013-05-15 11:46:33.663533000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 131
+    name: Chuck Schumer
+    created_at: 2013-05-15 11:46:34.148691000 Z
+    updated_at: 2013-05-15 11:46:34.148691000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 132
+    name: Claire Mccaskill
+    created_at: 2013-05-15 11:46:34.735030000 Z
+    updated_at: 2013-05-15 11:46:34.735030000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 133
+    name: Conan O'Brien
+    created_at: 2013-05-15 11:46:35.261880000 Z
+    updated_at: 2013-05-15 11:46:35.261880000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 134
+    name: Elizabeth Warren
+    created_at: 2013-05-15 11:46:36.009960000 Z
+    updated_at: 2013-05-15 11:46:36.009960000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 135
+    name: Frank Lautenberg
+    created_at: 2013-05-15 11:46:36.537096000 Z
+    updated_at: 2013-05-15 11:46:36.537096000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 136
+    name: Jack Reed
+    created_at: 2013-05-15 11:46:37.074206000 Z
+    updated_at: 2013-05-15 11:46:37.074206000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 137
+    name: Jamie Foxx
+    created_at: 2013-05-15 11:46:37.575710000 Z
+    updated_at: 2013-05-15 11:46:37.575710000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 138
+    name: Jason Bateman
+    created_at: 2013-05-15 11:46:38.119822000 Z
+    updated_at: 2013-05-15 11:46:38.119822000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 139
+    name: Jay Rockefeller
+    created_at: 2013-05-15 11:46:38.630290000 Z
+    updated_at: 2013-05-15 11:46:38.630290000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 140
+    name: Jeanne Shaheen
+    created_at: 2013-05-15 11:46:39.148882000 Z
+    updated_at: 2013-05-15 11:46:39.148882000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 141
+    name: Jeff Bingaman
+    created_at: 2013-05-15 11:46:39.669612000 Z
+    updated_at: 2013-05-15 11:46:39.669612000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 142
+    name: Jennifer Aniston
+    created_at: 2013-05-15 11:46:40.188985000 Z
+    updated_at: 2013-05-15 11:46:40.188985000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 143
+    name: Jeremy Renner
+    created_at: 2013-05-15 11:46:40.783966000 Z
+    updated_at: 2013-05-15 11:46:40.783966000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 144
+    name: Jessica Alba
+    created_at: 2013-05-15 11:46:41.303878000 Z
+    updated_at: 2013-05-15 11:46:41.303878000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 145
+    name: Joe Lieberman
+    created_at: 2013-05-15 11:46:41.830021000 Z
+    updated_at: 2013-05-15 11:46:41.830021000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 146
+    name: Joe Manchin
+    created_at: 2013-05-15 11:46:42.371804000 Z
+    updated_at: 2013-05-15 11:46:42.371804000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 147
+    name: John Kerry
+    created_at: 2013-05-15 11:46:42.886241000 Z
+    updated_at: 2013-05-15 11:46:42.886241000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 148
+    name: John Legend
+    created_at: 2013-05-15 11:46:43.487831000 Z
+    updated_at: 2013-05-15 11:46:43.487831000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 149
+    name: John Slattery
+    created_at: 2013-05-15 11:46:44.067203000 Z
+    updated_at: 2013-05-15 11:46:44.067203000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 150
+    name: Jon Hamm
+    created_at: 2013-05-15 11:46:44.544971000 Z
+    updated_at: 2013-05-15 11:46:44.544971000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 151
+    name: Julia Louis-Dreyfus
+    created_at: 2013-05-15 11:46:45.121418000 Z
+    updated_at: 2013-05-15 11:46:45.121418000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 152
+    name: Kirsten Gillibrand
+    created_at: 2013-05-15 11:46:45.634607000 Z
+    updated_at: 2013-05-15 11:46:45.634607000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 153
+    name: Leland Yee
+    created_at: 2013-05-15 11:46:46.147231000 Z
+    updated_at: 2013-05-15 11:46:46.147231000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 154
+    name: Maria Cantwell
+    created_at: 2013-05-15 11:46:46.686128000 Z
+    updated_at: 2013-05-15 11:46:46.686128000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 155
+    name: Mark Warner
+    created_at: 2013-05-15 11:46:47.210023000 Z
+    updated_at: 2013-05-15 11:46:47.210023000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 156
+    name: Michael Bloomberg
+    created_at: 2013-05-15 11:46:47.729761000 Z
+    updated_at: 2013-05-15 11:46:47.729761000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 157
+    name: Michael Nutter
+    created_at: 2013-05-15 11:46:48.273613000 Z
+    updated_at: 2013-05-15 11:46:48.273613000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 158
+    name: Nick Offerman
+    created_at: 2013-05-15 11:46:49.034416000 Z
+    updated_at: 2013-05-15 11:46:49.034416000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 159
+    name: Patty Murray
+    created_at: 2013-05-15 11:46:49.528701000 Z
+    updated_at: 2013-05-15 11:46:49.528701000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 160
+    name: Peter T. King
+    created_at: 2013-05-15 11:46:50.316581000 Z
+    updated_at: 2013-05-15 11:46:50.316581000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 161
+    name: Rahm Emanuel
+    created_at: 2013-05-15 11:46:51.071090000 Z
+    updated_at: 2013-05-15 11:46:51.071090000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 162
+    name: Rashida Jones
+    created_at: 2013-05-15 11:46:51.599406000 Z
+    updated_at: 2013-05-15 11:46:51.599406000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 163
+    name: Richard Blumenthal
+    created_at: 2013-05-15 11:46:52.160201000 Z
+    updated_at: 2013-05-15 11:46:52.160201000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 164
+    name: Richard Durbin
+    created_at: 2013-05-15 11:46:52.664455000 Z
+    updated_at: 2013-05-15 11:46:52.664455000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 165
+    name: Scott Brown
+    created_at: 2013-05-15 11:46:53.192760000 Z
+    updated_at: 2013-05-15 11:46:53.192760000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 166
+    name: Selena Gomez
+    created_at: 2013-05-15 11:46:53.767967000 Z
+    updated_at: 2013-05-15 11:46:53.767967000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 167
+    name: Sheldon Whitehouse
+    created_at: 2013-05-15 11:46:54.227546000 Z
+    updated_at: 2013-05-15 11:46:54.227546000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 168
+    name: Sherrod Brown
+    created_at: 2013-05-15 11:46:54.789576000 Z
+    updated_at: 2013-05-15 11:46:54.789576000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 169
+    name: Thomas Friedman
+    created_at: 2013-05-15 11:46:55.274877000 Z
+    updated_at: 2013-05-15 11:46:55.274877000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 170
+    name: Thomas Menino
+    created_at: 2013-05-15 11:46:55.771744000 Z
+    updated_at: 2013-05-15 11:46:55.771744000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 171
+    name: Tim O'Reilly
+    created_at: 2013-05-15 11:46:56.314927000 Z
+    updated_at: 2013-05-15 11:46:56.314927000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 172
+    name: Whoopi Goldberg
+    created_at: 2013-05-15 11:46:56.817773000 Z
+    updated_at: 2013-05-15 11:46:56.817773000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 173
+    name: Jim Risch
+    created_at: 2013-05-15 11:46:57.370672000 Z
+    updated_at: 2013-05-15 11:46:57.370672000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 174
+    name: Kelly Ayotte
+    created_at: 2013-05-15 11:46:57.898150000 Z
+    updated_at: 2013-05-15 11:46:57.898150000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 175
+    name: Lamar Alexander
+    created_at: 2013-05-15 11:46:58.350940000 Z
+    updated_at: 2013-05-15 11:46:58.350940000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 176
+    name: Louie Gohmert
+    created_at: 2013-05-15 11:46:59.156067000 Z
+    updated_at: 2013-05-15 11:46:59.156067000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 177
+    name: Marco Rubio
+    created_at: 2013-05-15 11:46:59.633875000 Z
+    updated_at: 2013-05-15 11:46:59.633875000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 178
+    name: Marion P. Hammer
+    created_at: 2013-05-15 11:47:00.227043000 Z
+    updated_at: 2013-05-15 11:47:00.227043000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 179
+    name: Mike Crapo
+    created_at: 2013-05-15 11:47:00.772198000 Z
+    updated_at: 2013-05-15 11:47:00.772198000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 180
+    name: Mike Enzi
+    created_at: 2013-05-15 11:47:01.367206000 Z
+    updated_at: 2013-05-15 11:47:01.367206000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 181
+    name: Richard Shelby
+    created_at: 2013-05-15 11:47:02.314182000 Z
+    updated_at: 2013-05-15 11:47:02.314182000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 182
+    name: Rob Portman
+    created_at: 2013-05-15 11:47:02.904558000 Z
+    updated_at: 2013-05-15 11:47:02.904558000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 183
+    name: Roy Blunt
+    created_at: 2013-05-15 11:47:03.453109000 Z
+    updated_at: 2013-05-15 11:47:03.453109000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 184
+    name: Conor Neill
+    created_at: 2013-05-15 11:47:05.174911000 Z
+    updated_at: 2013-05-15 11:47:05.174911000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 185
+    name: Joshua Bell
+    created_at: 2013-05-15 11:47:05.769519000 Z
+    updated_at: 2013-05-15 11:47:05.769519000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 186
+    name: Jody Williams
+    created_at: 2013-05-15 11:47:06.534413000 Z
+    updated_at: 2013-05-15 11:47:06.534413000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 187
+    name: National Academy Of Sciences
+    created_at: 2013-05-15 11:47:07.332138000 Z
+    updated_at: 2013-05-15 11:47:07.332138000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 188
+    name: Paul Nurse
+    created_at: 2013-05-15 11:47:07.887643000 Z
+    updated_at: 2013-05-15 11:47:07.887643000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 189
+    name: Ralph J. Cicerone
+    created_at: 2013-05-15 11:47:08.429417000 Z
+    updated_at: 2013-05-15 11:47:08.429417000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 190
+    name: Jesús Encinar
+    created_at: 2013-05-15 12:26:31.652644000 Z
+    updated_at: 2013-05-15 12:26:31.652644000 Z
+- !ruby/object:Individual
+  attributes:
+    id: 191
+    name: Jeremy Liew
+    created_at: 2013-05-20 17:48:31.099419000 Z
+    updated_at: 2013-05-20 17:48:31.099419000 Z
+:a:
+- !ruby/object:Agreement
+  attributes:
+    id: 12
+    url: http://www.reddit.com/r/skeptic/comments/17nmd1/jimmy_wales_wants_to_start_a_campaign_against/
+    individual_id: 12
+    statement_id: 4
+    extent: 100
+    created_at: 2013-05-15 11:45:17.445228000 Z
+    updated_at: 2013-05-15 11:45:17.445228000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 13
+    url: http://www.hamiltonpartners.co.uk/nobel-prize-winner-on-climate-change/
+    individual_id: 13
+    statement_id: 5
+    extent: 100
+    created_at: 2013-05-15 11:45:18.207431000 Z
+    updated_at: 2013-05-15 11:45:18.207431000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 14
+    url: http://www.guardian.co.uk/world/2012/dec/04/nobel-laureates-china-free-xiaobo
+    individual_id: 14
+    statement_id: 6
+    extent: 100
+    created_at: 2013-05-15 11:45:19.053643000 Z
+    updated_at: 2013-05-15 11:45:19.053643000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 15
+    url: http://www.change.org/petitions/chinese-leader-xi-jinping-release-imprisoned-nobel-peace-prize-winner-liu-xiaobo-and-wife-liu-xia-2
+    individual_id: 15
+    statement_id: 6
+    extent: 100
+    created_at: 2013-05-15 11:45:19.661880000 Z
+    updated_at: 2013-05-15 11:45:19.661880000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 16
+    url: http://www.guardian.co.uk/world/2012/dec/04/nobel-laureates-china-free-xiaobo
+    individual_id: 16
+    statement_id: 6
+    extent: 100
+    created_at: 2013-05-15 11:45:20.167276000 Z
+    updated_at: 2013-05-15 11:45:20.167276000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 19
+    url: http://www.salon.com/2012/12/26/banning_assault_weapons_works/
+    individual_id: 20
+    statement_id: 9
+    extent: 100
+    created_at: 2013-05-15 11:45:23.007749000 Z
+    updated_at: 2013-05-15 11:45:23.007749000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 20
+    url: http://en.wikipedia.org/wiki/The_map_is_not_the_territory
+    individual_id: 21
+    statement_id: 11
+    extent: 100
+    created_at: 2013-05-15 11:45:24.057927000 Z
+    updated_at: 2013-05-15 11:45:24.057927000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 21
+    url: http://books.google.es/books?id=4JAUkUM-EYUC&q=covey+%22the+map+is+not+the+territory%22&dq=covey+%22the+map+is+not+the+territory%22&hl=en&sa=X&ei=k4bYUOOPLYTBhAel4YCABQ&ved=0CDIQ6AEwAA
+    individual_id: 22
+    statement_id: 11
+    extent: 100
+    created_at: 2013-05-15 11:45:24.575310000 Z
+    updated_at: 2013-05-15 11:45:24.575310000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 22
+    url: http://www.linkedin.com/today/post/article/20121029141916-16553-language-is-a-map
+    individual_id: 23
+    statement_id: 11
+    extent: 100
+    created_at: 2013-05-15 11:45:25.110950000 Z
+    updated_at: 2013-05-15 11:45:25.110950000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 23
+    url: http://money.cnn.com/2013/03/15/investing/greenspan-irrational-exuberance/index.html?hpt=hp_t1
+    individual_id: 24
+    statement_id: 12
+    extent: 100
+    created_at: 2013-05-15 11:45:25.748205000 Z
+    updated_at: 2013-05-15 11:45:25.748205000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 24
+    url: http://www.deloitte.com/view/en_US/us/Services/additional-services/deloitte-analytics-service/603d2e86f4755310VgnVCM1000001a56f00aRCRD.htm
+    individual_id: 25
+    statement_id: 13
+    extent: 100
+    created_at: 2013-05-15 11:45:26.587436000 Z
+    updated_at: 2013-05-15 11:45:26.587436000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 25
+    url: http://www.gartner.com/it/page.jsp?id=2200815
+    individual_id: 26
+    statement_id: 13
+    extent: 100
+    created_at: 2013-05-15 11:45:27.106745000 Z
+    updated_at: 2013-05-15 11:45:27.106745000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 26
+    url: http://blogs.hbr.org/ideacast/2012/10/big-data-solves-big-problems.html
+    individual_id: 27
+    statement_id: 13
+    extent: 100
+    created_at: 2013-05-15 11:45:27.618883000 Z
+    updated_at: 2013-05-15 11:45:27.618883000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 27
+    url: http://www.mckinsey.com/insights/mgi/research/technology_and_innovation/big_data_the_next_frontier_for_innovation
+    individual_id: 28
+    statement_id: 13
+    extent: 100
+    created_at: 2013-05-15 11:45:28.229925000 Z
+    updated_at: 2013-05-15 11:45:28.229925000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 28
+    url: http://blogs.msdn.com/b/see/archive/2012/12/21/this-week-in-sustainability-big-data-energy-efficiency-and-climate-change-policy.aspx
+    individual_id: 29
+    statement_id: 13
+    extent: 100
+    created_at: 2013-05-15 11:45:28.781573000 Z
+    updated_at: 2013-05-15 11:45:28.781573000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 29
+    url: http://www.theodi.org/sites/default/files/Times%20OpEd%20TBL-NRS%20Final.pdf
+    individual_id: 30
+    statement_id: 13
+    extent: 100
+    created_at: 2013-05-15 11:45:29.244963000 Z
+    updated_at: 2013-05-15 11:45:29.244963000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 30
+    url: http://www.weforum.org/reports/personal-data-emergence-new-asset-class
+    individual_id: 31
+    statement_id: 13
+    extent: 100
+    created_at: 2013-05-15 11:45:29.788126000 Z
+    updated_at: 2013-05-15 11:45:29.788126000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 31
+    url: http://www.newstatesman.com/economics/2012/12/rejoice-its-finally-not-illegal-rip-cds
+    individual_id: 32
+    statement_id: 14
+    extent: 100
+    created_at: 2013-05-15 11:45:30.619414000 Z
+    updated_at: 2013-05-15 11:45:30.619414000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 32
+    url: http://www.coadec.com/welcoming-the-governments-modernising-copyright-report/
+    individual_id: 33
+    statement_id: 14
+    extent: 100
+    created_at: 2013-05-15 11:45:30.987278000 Z
+    updated_at: 2013-05-15 11:45:30.987278000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 33
+    url: https://twitter.com/avaragado/status/281722186866229248
+    individual_id: 34
+    statement_id: 14
+    extent: 100
+    created_at: 2013-05-15 11:45:31.473680000 Z
+    updated_at: 2013-05-15 11:45:31.473680000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 34
+    url: http://www.ipo.gov.uk/ipresponse-full.pdf
+    individual_id: 35
+    statement_id: 14
+    extent: 100
+    created_at: 2013-05-15 11:45:31.978167000 Z
+    updated_at: 2013-05-15 11:45:31.978167000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 35
+    url: http://www.ipo.gov.uk/ipresponse-full.pdf
+    individual_id: 36
+    statement_id: 14
+    extent: 100
+    created_at: 2013-05-15 11:45:32.488718000 Z
+    updated_at: 2013-05-15 11:45:32.488718000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 36
+    url: http://www.ipo.gov.uk/ipresponse-full.pdf
+    individual_id: 37
+    statement_id: 14
+    extent: 100
+    created_at: 2013-05-15 11:45:32.983012000 Z
+    updated_at: 2013-05-15 11:45:32.983012000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 37
+    url: http://www.wellcome.ac.uk/News/Media-office/Press-releases/2012/WTP041334.htm
+    individual_id: 38
+    statement_id: 14
+    extent: 100
+    created_at: 2013-05-15 11:45:33.502718000 Z
+    updated_at: 2013-05-15 11:45:33.502718000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 38
+    url: http://www.coadec.com/welcoming-the-governments-modernising-copyright-report/
+    individual_id: 39
+    statement_id: 14
+    extent: 100
+    created_at: 2013-05-15 11:45:34.082829000 Z
+    updated_at: 2013-05-15 11:45:34.082829000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 39
+    url: http://www.techfruit.com/2012/12/20/attempt-to-modernise-copyright-nulled-by-drm-protections/
+    individual_id: 40
+    statement_id: 14
+    extent: 100
+    created_at: 2013-05-15 11:45:34.615808000 Z
+    updated_at: 2013-05-15 11:45:34.615808000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 40
+    url: http://www.guardian.co.uk/technology/2012/dec/17/intellectual-property-crime-unit
+    individual_id: 41
+    statement_id: 14
+    extent: 100
+    created_at: 2013-05-15 11:45:35.139429000 Z
+    updated_at: 2013-05-15 11:45:35.139429000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 41
+    url: http://www.wellcome.ac.uk/News/Media-office/Press-releases/2012/WTP041334.htm
+    individual_id: 42
+    statement_id: 14
+    extent: 100
+    created_at: 2013-05-15 11:45:35.700529000 Z
+    updated_at: 2013-05-15 11:45:35.700529000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 42
+    url: http://www.demandaplan.org/issues
+    individual_id: 17
+    statement_id: 15
+    extent: 100
+    created_at: 2013-05-15 11:45:36.250319000 Z
+    updated_at: 2013-05-15 11:45:36.250319000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 43
+    url: http://www.hamiltonpartners.co.uk/nobel-prize-winner-on-climate-change/
+    individual_id: 13
+    statement_id: 16
+    extent: 100
+    created_at: 2013-05-15 11:45:36.842294000 Z
+    updated_at: 2013-05-15 11:45:36.842294000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 45
+    url: http://www.huffingtonpost.co.uk/2012/08/20/global-warming-mario-molina-extreme-weather_n_1811204.html
+    individual_id: 44
+    statement_id: 18
+    extent: 100
+    created_at: 2013-05-15 11:45:38.463530000 Z
+    updated_at: 2013-05-15 11:45:38.463530000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 46
+    url: http://www.hamiltonpartners.co.uk/nobel-prize-winner-on-climate-change/
+    individual_id: 13
+    statement_id: 18
+    extent: 100
+    created_at: 2013-05-15 11:45:38.724976000 Z
+    updated_at: 2013-05-15 11:45:38.724976000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 47
+    url: http://www.time.com/time/health/article/0,8599,1950662,00.html
+    individual_id: 45
+    statement_id: 18
+    extent: 100
+    created_at: 2013-05-15 11:45:39.261086000 Z
+    updated_at: 2013-05-15 11:45:39.261086000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 48
+    url: http://www.publications.parliament.uk/pa/ld200506/ldselect/ldeconaf/12/12we24.htm
+    individual_id: 46
+    statement_id: 18
+    extent: 100
+    created_at: 2013-05-15 11:45:39.770847000 Z
+    updated_at: 2013-05-15 11:45:39.770847000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 49
+    url: http://mobile.nytimes.com/2012/12/23/opinion/sunday/friedman-send-in-the-clowns.xml
+    individual_id: 47
+    statement_id: 18
+    extent: 100
+    created_at: 2013-05-15 11:45:40.257004000 Z
+    updated_at: 2013-05-15 11:45:40.257004000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 50
+    url: http://www.demandaplan.org/issues
+    individual_id: 17
+    statement_id: 19
+    extent: 100
+    created_at: 2013-05-15 11:45:40.788023000 Z
+    updated_at: 2013-05-15 11:45:40.788023000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 51
+    url: http://www.guardian.co.uk/science/2012/jul/15/free-access-british-scientific-research
+    individual_id: 48
+    statement_id: 20
+    extent: 100
+    created_at: 2013-05-15 11:45:41.707464000 Z
+    updated_at: 2013-05-15 11:45:41.707464000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 52
+    url: http://news.bis.gov.uk/Press-Releases/Government-to-open-up-publicly-funded-research-67d1d.aspx
+    individual_id: 49
+    statement_id: 20
+    extent: 100
+    created_at: 2013-05-15 11:45:42.310208000 Z
+    updated_at: 2013-05-15 11:45:42.310208000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 53
+    url: http://news.bis.gov.uk/Press-Releases/Government-to-open-up-publicly-funded-research-67d1d.aspx
+    individual_id: 36
+    statement_id: 20
+    extent: 100
+    created_at: 2013-05-15 11:45:42.606072000 Z
+    updated_at: 2013-05-15 11:45:42.606072000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 54
+    url: http://www.researchinfonet.org/publish/finch/
+    individual_id: 50
+    statement_id: 20
+    extent: 100
+    created_at: 2013-05-15 11:45:43.189677000 Z
+    updated_at: 2013-05-15 11:45:43.189677000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 55
+    url: http://blogs.rcuk.ac.uk/2012/10/24/rcuk-open-access-policy-our-preference-for-gold/
+    individual_id: 51
+    statement_id: 20
+    extent: 100
+    created_at: 2013-05-15 11:45:43.934047000 Z
+    updated_at: 2013-05-15 11:45:43.934047000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 56
+    url: http://uksg.metapress.com/content/e062u112h295h114/fulltext.html
+    individual_id: 52
+    statement_id: 20
+    extent: 100
+    created_at: 2013-05-15 11:45:44.445597000 Z
+    updated_at: 2013-05-15 11:45:44.445597000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 57
+    url: http://www.guardian.co.uk/discussion/comment-permalink/15697124
+    individual_id: 53
+    statement_id: 20
+    extent: 100
+    created_at: 2013-05-15 11:45:44.905870000 Z
+    updated_at: 2013-05-15 11:45:44.905870000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 58
+    url: http://www.richardpoynder.co.uk/Shieber_Interview.pdf
+    individual_id: 54
+    statement_id: 20
+    extent: 100
+    created_at: 2013-05-15 11:45:45.450626000 Z
+    updated_at: 2013-05-15 11:45:45.450626000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 59
+    url: http://news.bis.gov.uk/Press-Releases/Government-to-open-up-publicly-funded-research-67d1d.aspx
+    individual_id: 55
+    statement_id: 20
+    extent: 100
+    created_at: 2013-05-15 11:45:45.996200000 Z
+    updated_at: 2013-05-15 11:45:45.996200000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 60
+    url: http://blog.okfn.org/2012/10/22/the-great-open-access-swindle/
+    individual_id: 56
+    statement_id: 20
+    extent: 0
+    created_at: 2013-05-15 11:45:46.547397000 Z
+    updated_at: 2013-05-15 11:45:46.547397000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 61
+    url: http://www.thebookseller.com/sites/default/files/docs/OA_letter_for_Observer.pdf
+    individual_id: 57
+    statement_id: 20
+    extent: 0
+    created_at: 2013-05-15 11:45:47.059771000 Z
+    updated_at: 2013-05-15 11:45:47.059771000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 62
+    url: http://www.thebookseller.com/sites/default/files/docs/OA_letter_for_Observer.pdf
+    individual_id: 58
+    statement_id: 20
+    extent: 0
+    created_at: 2013-05-15 11:45:47.638395000 Z
+    updated_at: 2013-05-15 11:45:47.638395000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 63
+    url: http://blogs.lse.ac.uk/impactofsocialsciences/2012/07/04/why-the-uk-should-not-heed-the-finch-report/
+    individual_id: 59
+    statement_id: 20
+    extent: 0
+    created_at: 2013-05-15 11:45:48.225841000 Z
+    updated_at: 2013-05-15 11:45:48.225841000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 66
+    url: http://www.telegraph.co.uk/news/politics/9825074/Tory-ministers-may-vote-against-staying-in-EU-if-Cameron-fails-to-claw-back-powers.html
+    individual_id: 5
+    statement_id: 22
+    extent: 100
+    created_at: 2013-05-15 11:45:50.135799000 Z
+    updated_at: 2013-05-15 11:45:50.135799000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 67
+    url: http://www.telegraph.co.uk/news/politics/9825074/Tory-ministers-may-vote-against-staying-in-EU-if-Cameron-fails-to-claw-back-powers.html
+    individual_id: 6
+    statement_id: 22
+    extent: 100
+    created_at: 2013-05-15 11:45:50.428912000 Z
+    updated_at: 2013-05-15 11:45:50.428912000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 68
+    url: http://www.telegraph.co.uk/news/politics/9825074/Tory-ministers-may-vote-against-staying-in-EU-if-Cameron-fails-to-claw-back-powers.html
+    individual_id: 7
+    statement_id: 22
+    extent: 100
+    created_at: 2013-05-15 11:45:50.712252000 Z
+    updated_at: 2013-05-15 11:45:50.712252000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 69
+    url: http://www.telegraph.co.uk/news/politics/9825074/Tory-ministers-may-vote-against-staying-in-EU-if-Cameron-fails-to-claw-back-powers.html
+    individual_id: 8
+    statement_id: 22
+    extent: 100
+    created_at: 2013-05-15 11:45:50.974710000 Z
+    updated_at: 2013-05-15 11:45:50.974710000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 70
+    url: http://www.telegraph.co.uk/news/politics/9825074/Tory-ministers-may-vote-against-staying-in-EU-if-Cameron-fails-to-claw-back-powers.html
+    individual_id: 9
+    statement_id: 22
+    extent: 100
+    created_at: 2013-05-15 11:45:51.276356000 Z
+    updated_at: 2013-05-15 11:45:51.276356000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 71
+    url: http://www.telegraph.co.uk/finance/comment/ambroseevans_pritchard/9841005/Catastrophic-EU-exit-would-leave-City-defenceless-against-regulatory-attack.html
+    individual_id: 62
+    statement_id: 22
+    extent: 0
+    created_at: 2013-05-15 11:45:51.761954000 Z
+    updated_at: 2013-05-15 11:45:51.761954000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 72
+    url: http://www.nytimes.com/2013/02/13/business/global/britains-risk-filled-choice.html?pagewanted=all
+    individual_id: 63
+    statement_id: 22
+    extent: 0
+    created_at: 2013-05-15 11:45:52.281055000 Z
+    updated_at: 2013-05-15 11:45:52.281055000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 73
+    url: http://www.telegraph.co.uk/finance/newsbysector/industry/9813184/Ford-and-BMW-warn-against-UK-exit-from-EU-as-David-Cameron-readies-historic-speech.html
+    individual_id: 1
+    statement_id: 22
+    extent: 0
+    created_at: 2013-05-15 11:45:52.548813000 Z
+    updated_at: 2013-05-15 11:45:52.548813000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 74
+    url: http://www.ft.com/cms/s/0/9b55b270-66e2-11e2-a805-00144feab49a.html#axzz2NRqUt6gq
+    individual_id: 64
+    statement_id: 22
+    extent: 0
+    created_at: 2013-05-15 11:45:53.148196000 Z
+    updated_at: 2013-05-15 11:45:53.148196000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 75
+    url: http://www.independent.ie/national-news/uk-exit-from-eu-would-be-catastrophic-warns-kenny-3355794.html
+    individual_id: 2
+    statement_id: 22
+    extent: 0
+    created_at: 2013-05-15 11:45:53.440337000 Z
+    updated_at: 2013-05-15 11:45:53.440337000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 76
+    url: http://www.telegraph.co.uk/finance/newsbysector/industry/9813184/Ford-and-BMW-warn-against-UK-exit-from-EU-as-David-Cameron-readies-historic-speech.html
+    individual_id: 3
+    statement_id: 22
+    extent: 0
+    created_at: 2013-05-15 11:45:53.766592000 Z
+    updated_at: 2013-05-15 11:45:53.766592000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 77
+    url: http://www.bbc.co.uk/news/uk-politics-21269658
+    individual_id: 65
+    statement_id: 22
+    extent: 0
+    created_at: 2013-05-15 11:45:54.321753000 Z
+    updated_at: 2013-05-15 11:45:54.321753000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 78
+    url: http://www.guardian.co.uk/politics/2013/jan/31/kenneth-clarke-inconceivable-pm-eu
+    individual_id: 66
+    statement_id: 22
+    extent: 0
+    created_at: 2013-05-15 11:45:54.814509000 Z
+    updated_at: 2013-05-15 11:45:54.814509000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 79
+    url: http://www.huffingtonpost.com/2013/01/23/uk-eu-referendum-vote-david-cameron-in-out-vote-2015_n_2531591.html
+    individual_id: 67
+    statement_id: 22
+    extent: 0
+    created_at: 2013-05-15 11:45:55.322935000 Z
+    updated_at: 2013-05-15 11:45:55.322935000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 80
+    url: http://www.bbc.co.uk/news/uk-politics-21177614
+    individual_id: 68
+    statement_id: 22
+    extent: 0
+    created_at: 2013-05-15 11:45:55.827441000 Z
+    updated_at: 2013-05-15 11:45:55.827441000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 81
+    url: http://www.ft.com/cms/s/0/9b55b270-66e2-11e2-a805-00144feab49a.html#axzz2NRqUt6gq
+    individual_id: 69
+    statement_id: 22
+    extent: 0
+    created_at: 2013-05-15 11:45:56.363962000 Z
+    updated_at: 2013-05-15 11:45:56.363962000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 82
+    url: http://www.ft.com/cms/s/0/9b55b270-66e2-11e2-a805-00144feab49a.html#axzz2NRqUt6gq
+    individual_id: 70
+    statement_id: 22
+    extent: 0
+    created_at: 2013-05-15 11:45:56.838575000 Z
+    updated_at: 2013-05-15 11:45:56.838575000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 83
+    url: http://www.dailymail.co.uk/news/article-2268918/Tony-Blair-warns-leaving-European-Union.html
+    individual_id: 4
+    statement_id: 22
+    extent: 0
+    created_at: 2013-05-15 11:45:57.113960000 Z
+    updated_at: 2013-05-15 11:45:57.113960000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 84
+    url: http://www.huffingtonpost.com/2013/01/23/uk-eu-referendum-vote-david-cameron-in-out-vote-2015_n_2531591.html
+    individual_id: 71
+    statement_id: 22
+    extent: 0
+    created_at: 2013-05-15 11:45:57.637292000 Z
+    updated_at: 2013-05-15 11:45:57.637292000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 85
+    url: http://uk.reuters.com/article/2013/03/09/uk-europe-germany-britain-idUKBRE92806220130309
+    individual_id: 72
+    statement_id: 22
+    extent: 0
+    created_at: 2013-05-15 11:45:58.170268000 Z
+    updated_at: 2013-05-15 11:45:58.170268000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 86
+    url: http://www.demandaplan.org/issues
+    individual_id: 17
+    statement_id: 23
+    extent: 100
+    created_at: 2013-05-15 11:45:58.711742000 Z
+    updated_at: 2013-05-15 11:45:58.711742000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 87
+    url: http://www.feinstein.senate.gov/public/index.cfm/assault-weapons
+    individual_id: 73
+    statement_id: 23
+    extent: 100
+    created_at: 2013-05-15 11:45:59.211190000 Z
+    updated_at: 2013-05-15 11:45:59.211190000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 88
+    url: http://www.policymic.com/articles/21402/assault-weapons-ban-won-t-work-why-we-need-smarter-not-more-gun-control-laws
+    individual_id: 60
+    statement_id: 23
+    extent: 100
+    created_at: 2013-05-15 11:45:59.479434000 Z
+    updated_at: 2013-05-15 11:45:59.479434000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 89
+    url: https://twitter.com/piersmorgan/status/283266883745099777
+    individual_id: 74
+    statement_id: 23
+    extent: 100
+    created_at: 2013-05-15 11:46:00.011083000 Z
+    updated_at: 2013-05-15 11:46:00.011083000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 90
+    url: http://www.bbc.co.uk/schoolreport/21793396
+    individual_id: 45
+    statement_id: 24
+    extent: 100
+    created_at: 2013-05-15 11:46:00.510724000 Z
+    updated_at: 2013-05-15 11:46:00.510724000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 91
+    url: http://www.demandaplan.org/issues
+    individual_id: 17
+    statement_id: 25
+    extent: 100
+    created_at: 2013-05-15 11:46:01.045150000 Z
+    updated_at: 2013-05-15 11:46:01.045150000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 92
+    url: http://www.demandaplan.org/issues
+    individual_id: 17
+    statement_id: 26
+    extent: 100
+    created_at: 2013-05-15 11:46:01.578531000 Z
+    updated_at: 2013-05-15 11:46:01.578531000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 93
+    url: http://www.bbc.co.uk/news/technology-20594779
+    individual_id: 30
+    statement_id: 27
+    extent: 100
+    created_at: 2013-05-15 11:46:02.040526000 Z
+    updated_at: 2013-05-15 11:46:02.040526000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 94
+    url: http://googleblog.blogspot.co.uk/2012/12/keep-internet-free-and-open.html
+    individual_id: 75
+    statement_id: 27
+    extent: 100
+    created_at: 2013-05-15 11:46:02.567468000 Z
+    updated_at: 2013-05-15 11:46:02.567468000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 95
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 76
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:03.275543000 Z
+    updated_at: 2013-05-15 11:46:03.275543000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 96
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 77
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:03.782535000 Z
+    updated_at: 2013-05-15 11:46:03.782535000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 97
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 78
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:04.343702000 Z
+    updated_at: 2013-05-15 11:46:04.343702000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 98
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 79
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:04.872650000 Z
+    updated_at: 2013-05-15 11:46:04.872650000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 99
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 80
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:05.333953000 Z
+    updated_at: 2013-05-15 11:46:05.333953000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 100
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 81
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:05.844418000 Z
+    updated_at: 2013-05-15 11:46:05.844418000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 101
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 82
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:06.364501000 Z
+    updated_at: 2013-05-15 11:46:06.364501000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 102
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 83
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:06.843424000 Z
+    updated_at: 2013-05-15 11:46:06.843424000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 103
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 84
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:07.294191000 Z
+    updated_at: 2013-05-15 11:46:07.294191000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 104
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 85
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:07.821870000 Z
+    updated_at: 2013-05-15 11:46:07.821870000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 105
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 86
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:08.327234000 Z
+    updated_at: 2013-05-15 11:46:08.327234000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 106
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 87
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:08.846416000 Z
+    updated_at: 2013-05-15 11:46:08.846416000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 107
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 88
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:09.396464000 Z
+    updated_at: 2013-05-15 11:46:09.396464000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 108
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 89
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:09.926622000 Z
+    updated_at: 2013-05-15 11:46:09.926622000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 109
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 90
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:10.471126000 Z
+    updated_at: 2013-05-15 11:46:10.471126000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 110
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 91
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:10.977159000 Z
+    updated_at: 2013-05-15 11:46:10.977159000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 111
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 92
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:11.512520000 Z
+    updated_at: 2013-05-15 11:46:11.512520000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 112
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 93
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:12.006777000 Z
+    updated_at: 2013-05-15 11:46:12.006777000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 113
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 94
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:12.967403000 Z
+    updated_at: 2013-05-15 11:46:12.967403000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 114
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 95
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:13.438150000 Z
+    updated_at: 2013-05-15 11:46:13.438150000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 115
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 96
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:14.107191000 Z
+    updated_at: 2013-05-15 11:46:14.107191000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 116
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 97
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:14.686494000 Z
+    updated_at: 2013-05-15 11:46:14.686494000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 117
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 98
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:15.222370000 Z
+    updated_at: 2013-05-15 11:46:15.222370000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 118
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 99
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:15.765132000 Z
+    updated_at: 2013-05-15 11:46:15.765132000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 119
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 100
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:16.194173000 Z
+    updated_at: 2013-05-15 11:46:16.194173000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 120
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 101
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:17.007953000 Z
+    updated_at: 2013-05-15 11:46:17.007953000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 121
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 102
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:17.814838000 Z
+    updated_at: 2013-05-15 11:46:17.814838000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 122
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 103
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:18.235043000 Z
+    updated_at: 2013-05-15 11:46:18.235043000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 123
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 104
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:18.847131000 Z
+    updated_at: 2013-05-15 11:46:18.847131000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 124
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 105
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:19.465906000 Z
+    updated_at: 2013-05-15 11:46:19.465906000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 125
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 106
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:20.004229000 Z
+    updated_at: 2013-05-15 11:46:20.004229000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 126
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 107
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:20.538453000 Z
+    updated_at: 2013-05-15 11:46:20.538453000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 127
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 108
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:21.049272000 Z
+    updated_at: 2013-05-15 11:46:21.049272000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 128
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 109
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:21.535899000 Z
+    updated_at: 2013-05-15 11:46:21.535899000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 129
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 110
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:22.113356000 Z
+    updated_at: 2013-05-15 11:46:22.113356000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 130
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 111
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:22.660768000 Z
+    updated_at: 2013-05-15 11:46:22.660768000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 131
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 112
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:23.212761000 Z
+    updated_at: 2013-05-15 11:46:23.212761000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 132
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 113
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:23.703771000 Z
+    updated_at: 2013-05-15 11:46:23.703771000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 133
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 114
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:24.255932000 Z
+    updated_at: 2013-05-15 11:46:24.255932000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 134
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 115
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:24.809345000 Z
+    updated_at: 2013-05-15 11:46:24.809345000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 135
+    url: http://www.taxpayeraccess.org/issues/frpaa/frpaa_supporters/nobelists_2009.shtml
+    individual_id: 116
+    statement_id: 28
+    extent: 100
+    created_at: 2013-05-15 11:46:25.403545000 Z
+    updated_at: 2013-05-15 11:46:25.403545000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 136
+    url: http://www.postbulletin.com/news/stories/Al%20Franken.php?id=1518291
+    individual_id: 117
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:26.252811000 Z
+    updated_at: 2013-05-15 11:46:26.252811000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 137
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 118
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:26.786065000 Z
+    updated_at: 2013-05-15 11:46:26.786065000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 138
+    url: http://www.huffingtonpost.com/2012/12/21/demand-a-plan-psa-beyonce-video_n_2347504.html#slide=1885673
+    individual_id: 119
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:27.393549000 Z
+    updated_at: 2013-05-15 11:46:27.393549000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 139
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 120
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:28.043526000 Z
+    updated_at: 2013-05-15 11:46:28.043526000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 140
+    url: http://www.huffingtonpost.com/2012/12/21/demand-a-plan-psa-beyonce-video_n_2347504.html#slide=1885673
+    individual_id: 121
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:28.618125000 Z
+    updated_at: 2013-05-15 11:46:28.618125000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 141
+    url: http://www.reuters.com/article/2012/12/18/us-usa-shooting-connecticut-obama-idUSBRE8BH10W20121218
+    individual_id: 19
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:28.913756000 Z
+    updated_at: 2013-05-15 11:46:28.913756000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 142
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 122
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:29.600716000 Z
+    updated_at: 2013-05-15 11:46:29.600716000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 143
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 123
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:30.158290000 Z
+    updated_at: 2013-05-15 11:46:30.158290000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 144
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 124
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:30.720994000 Z
+    updated_at: 2013-05-15 11:46:30.720994000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 145
+    url: http://www.huffingtonpost.com/2012/12/21/demand-a-plan-psa-beyonce-video_n_2347504.html#slide=1885673
+    individual_id: 125
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:31.248402000 Z
+    updated_at: 2013-05-15 11:46:31.248402000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 146
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 126
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:31.787612000 Z
+    updated_at: 2013-05-15 11:46:31.787612000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 147
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 127
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:32.330931000 Z
+    updated_at: 2013-05-15 11:46:32.330931000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 148
+    url: http://www.huffingtonpost.com/2012/12/21/demand-a-plan-psa-beyonce-video_n_2347504.html#slide=1885673
+    individual_id: 128
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:32.847102000 Z
+    updated_at: 2013-05-15 11:46:32.847102000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 149
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 129
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:33.402469000 Z
+    updated_at: 2013-05-15 11:46:33.402469000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 150
+    url: http://www.huffingtonpost.com/2012/12/21/demand-a-plan-psa-beyonce-video_n_2347504.html#slide=1885673
+    individual_id: 130
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:33.921718000 Z
+    updated_at: 2013-05-15 11:46:33.921718000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 151
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 131
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:34.434179000 Z
+    updated_at: 2013-05-15 11:46:34.434179000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 152
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 132
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:34.994287000 Z
+    updated_at: 2013-05-15 11:46:34.994287000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 153
+    url: http://www.huffingtonpost.com/2012/12/21/demand-a-plan-psa-beyonce-video_n_2347504.html#slide=1885673
+    individual_id: 133
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:35.513782000 Z
+    updated_at: 2013-05-15 11:46:35.513782000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 154
+    url: http://www.feinstein.senate.gov/public/index.cfm/assault-weapons
+    individual_id: 73
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:35.757929000 Z
+    updated_at: 2013-05-15 11:46:35.757929000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 155
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 134
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:36.276922000 Z
+    updated_at: 2013-05-15 11:46:36.276922000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 156
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 135
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:36.804604000 Z
+    updated_at: 2013-05-15 11:46:36.804604000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 157
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 136
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:37.315661000 Z
+    updated_at: 2013-05-15 11:46:37.315661000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 158
+    url: http://www.huffingtonpost.com/2012/12/21/demand-a-plan-psa-beyonce-video_n_2347504.html#slide=1885673
+    individual_id: 137
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:37.859646000 Z
+    updated_at: 2013-05-15 11:46:37.859646000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 159
+    url: http://www.huffingtonpost.com/2012/12/21/demand-a-plan-psa-beyonce-video_n_2347504.html#slide=1885673
+    individual_id: 138
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:38.378972000 Z
+    updated_at: 2013-05-15 11:46:38.378972000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 160
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 139
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:38.890801000 Z
+    updated_at: 2013-05-15 11:46:38.890801000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 161
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 140
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:39.409674000 Z
+    updated_at: 2013-05-15 11:46:39.409674000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 162
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 141
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:39.913166000 Z
+    updated_at: 2013-05-15 11:46:39.913166000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 163
+    url: http://www.huffingtonpost.com/2012/12/21/demand-a-plan-psa-beyonce-video_n_2347504.html#slide=1885673
+    individual_id: 142
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:40.441045000 Z
+    updated_at: 2013-05-15 11:46:40.441045000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 164
+    url: http://www.huffingtonpost.com/2012/12/21/demand-a-plan-psa-beyonce-video_n_2347504.html#slide=1885673
+    individual_id: 143
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:41.060624000 Z
+    updated_at: 2013-05-15 11:46:41.060624000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 165
+    url: http://www.huffingtonpost.com/2012/12/21/demand-a-plan-psa-beyonce-video_n_2347504.html#slide=1885673
+    individual_id: 144
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:41.546118000 Z
+    updated_at: 2013-05-15 11:46:41.546118000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 166
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 145
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:42.108445000 Z
+    updated_at: 2013-05-15 11:46:42.108445000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 167
+    url: http://www.telegraph.co.uk/news/worldnews/northamerica/usa/9751588/Connecticut-school-shooting-two-US-Senators-call-for-assault-weapons-ban.html
+    individual_id: 146
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:42.626683000 Z
+    updated_at: 2013-05-15 11:46:42.626683000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 168
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 147
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:43.196150000 Z
+    updated_at: 2013-05-15 11:46:43.196150000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 169
+    url: http://www.huffingtonpost.com/2012/12/21/demand-a-plan-psa-beyonce-video_n_2347504.html#slide=1885673
+    individual_id: 148
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:43.750382000 Z
+    updated_at: 2013-05-15 11:46:43.750382000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 170
+    url: http://www.huffingtonpost.com/2012/12/21/demand-a-plan-psa-beyonce-video_n_2347504.html#slide=1885673
+    individual_id: 149
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:44.268196000 Z
+    updated_at: 2013-05-15 11:46:44.268196000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 171
+    url: http://www.huffingtonpost.com/2012/12/21/demand-a-plan-psa-beyonce-video_n_2347504.html#slide=1885673
+    individual_id: 150
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:44.837070000 Z
+    updated_at: 2013-05-15 11:46:44.837070000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 172
+    url: http://www.huffingtonpost.com/2012/12/21/demand-a-plan-psa-beyonce-video_n_2347504.html#slide=1885673
+    individual_id: 151
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:45.373963000 Z
+    updated_at: 2013-05-15 11:46:45.373963000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 173
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 152
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:45.884832000 Z
+    updated_at: 2013-05-15 11:46:45.884832000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 174
+    url: http://latimesblogs.latimes.com/california-politics/2013/01/tough-gun-control.html
+    individual_id: 153
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:46.388379000 Z
+    updated_at: 2013-05-15 11:46:46.388379000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 175
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 154
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:46.965594000 Z
+    updated_at: 2013-05-15 11:46:46.965594000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 176
+    url: http://www.telegraph.co.uk/news/worldnews/northamerica/usa/9751588/Connecticut-school-shooting-two-US-Senators-call-for-assault-weapons-ban.html
+    individual_id: 155
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:47.450632000 Z
+    updated_at: 2013-05-15 11:46:47.450632000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 177
+    url: http://www.demandaplan.org/blog/2012-12-statement-of-mayor-michael-r-bloomberg-on-president
+    individual_id: 156
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:48.003911000 Z
+    updated_at: 2013-05-15 11:46:48.003911000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 178
+    url: http://www.huffingtonpost.com/2012/12/26/michael-nutter-nra_n_2366214.html
+    individual_id: 157
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:48.642300000 Z
+    updated_at: 2013-05-15 11:46:48.642300000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 179
+    url: http://www.huffingtonpost.com/2012/12/21/demand-a-plan-psa-beyonce-video_n_2347504.html#slide=1885673
+    individual_id: 158
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:49.283280000 Z
+    updated_at: 2013-05-15 11:46:49.283280000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 180
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 159
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:49.782929000 Z
+    updated_at: 2013-05-15 11:46:49.782929000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 181
+    url: http://krugman.blogs.nytimes.com/2012/12/15/whistling-past-the-gun-lobby/
+    individual_id: 13
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:50.082495000 Z
+    updated_at: 2013-05-15 11:46:50.082495000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 182
+    url: http://www.addictinginfo.org/2013/01/03/republican-rep-peter-king-doesnt-know-why-people-need-assault-weapons-video/
+    individual_id: 160
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:50.576294000 Z
+    updated_at: 2013-05-15 11:46:50.576294000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 183
+    url: https://twitter.com/piersmorgan/status/283222443630415872
+    individual_id: 74
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:50.828870000 Z
+    updated_at: 2013-05-15 11:46:50.828870000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 184
+    url: http://facethepolitics.com/2012/12/rahm-emanuel-calls-for-nationwide-assault-weapons-ban/
+    individual_id: 161
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:51.321580000 Z
+    updated_at: 2013-05-15 11:46:51.321580000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 185
+    url: http://www.huffingtonpost.com/2012/12/21/demand-a-plan-psa-beyonce-video_n_2347504.html#slide=1885673
+    individual_id: 162
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:51.841927000 Z
+    updated_at: 2013-05-15 11:46:51.841927000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 186
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 163
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:52.426477000 Z
+    updated_at: 2013-05-15 11:46:52.426477000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 187
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 164
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:52.914394000 Z
+    updated_at: 2013-05-15 11:46:52.914394000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 188
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 165
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:53.458458000 Z
+    updated_at: 2013-05-15 11:46:53.458458000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 189
+    url: http://www.huffingtonpost.com/2012/12/21/demand-a-plan-psa-beyonce-video_n_2347504.html#slide=1885673
+    individual_id: 166
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:53.976222000 Z
+    updated_at: 2013-05-15 11:46:53.976222000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 190
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 167
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:54.520899000 Z
+    updated_at: 2013-05-15 11:46:54.520899000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 191
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 168
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:55.031682000 Z
+    updated_at: 2013-05-15 11:46:55.031682000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 192
+    url: http://mobile.nytimes.com/2012/12/23/opinion/sunday/friedman-send-in-the-clowns.xml
+    individual_id: 169
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:55.532704000 Z
+    updated_at: 2013-05-15 11:46:55.532704000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 193
+    url: http://www.demandaplan.org/blog/2012-12-statement-of-mayor-michael-r-bloomberg-on-president
+    individual_id: 170
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:56.031760000 Z
+    updated_at: 2013-05-15 11:46:56.031760000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 194
+    url: https://twitter.com/timoreilly/status/281834930563080193
+    individual_id: 171
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:56.574504000 Z
+    updated_at: 2013-05-15 11:46:56.574504000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 195
+    url: http://www.huffingtonpost.com/2012/12/18/whoopi-goldberg-gun-control_n_2325318.html
+    individual_id: 172
+    statement_id: 29
+    extent: 100
+    created_at: 2013-05-15 11:46:57.070739000 Z
+    updated_at: 2013-05-15 11:46:57.070739000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 196
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 173
+    statement_id: 29
+    extent: 0
+    created_at: 2013-05-15 11:46:57.638584000 Z
+    updated_at: 2013-05-15 11:46:57.638584000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 197
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 174
+    statement_id: 29
+    extent: 0
+    created_at: 2013-05-15 11:46:58.099580000 Z
+    updated_at: 2013-05-15 11:46:58.099580000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 198
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 175
+    statement_id: 29
+    extent: 0
+    created_at: 2013-05-15 11:46:58.611375000 Z
+    updated_at: 2013-05-15 11:46:58.611375000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 199
+    url: https://twitter.com/GrahamBlog/status/285420883680587776
+    individual_id: 61
+    statement_id: 29
+    extent: 0
+    created_at: 2013-05-15 11:46:58.903244000 Z
+    updated_at: 2013-05-15 11:46:58.903244000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 200
+    url: http://thinkprogress.org/justice/2013/01/04/1399921/louie-gohmert-hammers/
+    individual_id: 176
+    statement_id: 29
+    extent: 0
+    created_at: 2013-05-15 11:46:59.414452000 Z
+    updated_at: 2013-05-15 11:46:59.414452000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 201
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 177
+    statement_id: 29
+    extent: 0
+    created_at: 2013-05-15 11:46:59.925986000 Z
+    updated_at: 2013-05-15 11:46:59.925986000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 202
+    url: http://thinkprogress.org/politics/2013/01/04/1400621/former-nra-president-banning-assault-weapons-is-like-banning-people-of-color
+    individual_id: 178
+    statement_id: 29
+    extent: 0
+    created_at: 2013-05-15 11:47:00.510077000 Z
+    updated_at: 2013-05-15 11:47:00.510077000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 203
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 179
+    statement_id: 29
+    extent: 0
+    created_at: 2013-05-15 11:47:01.092495000 Z
+    updated_at: 2013-05-15 11:47:01.092495000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 204
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 180
+    statement_id: 29
+    extent: 0
+    created_at: 2013-05-15 11:47:01.936923000 Z
+    updated_at: 2013-05-15 11:47:01.936923000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 205
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 181
+    statement_id: 29
+    extent: 0
+    created_at: 2013-05-15 11:47:02.599284000 Z
+    updated_at: 2013-05-15 11:47:02.599284000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 206
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 182
+    statement_id: 29
+    extent: 0
+    created_at: 2013-05-15 11:47:03.193538000 Z
+    updated_at: 2013-05-15 11:47:03.193538000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 207
+    url: http://www.motherjones.com/politics/2012/12/senate-assault-weapons-ban-newtown
+    individual_id: 183
+    statement_id: 29
+    extent: 0
+    created_at: 2013-05-15 11:47:03.727315000 Z
+    updated_at: 2013-05-15 11:47:03.727315000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 208
+    url: http://www.virgin.com/richard-branson/blog/collaborate-vs-collaborate
+    individual_id: 45
+    statement_id: 30
+    extent: 100
+    created_at: 2013-05-15 11:47:04.309791000 Z
+    updated_at: 2013-05-15 11:47:04.309791000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 209
+    url: http://www.nytimes.com/2013/01/13/opinion/sunday/friedman-collaborate-vs-collaborate.html?emc=tnt&tntemail0=y&_r=2&
+    individual_id: 169
+    statement_id: 30
+    extent: 100
+    created_at: 2013-05-15 11:47:04.609792000 Z
+    updated_at: 2013-05-15 11:47:04.609792000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 210
+    url: http://ed.ted.com/lessons/what-aristotle-and-joshua-bell-can-teach-us-about-persuasion-conor-neill
+    individual_id: 184
+    statement_id: 31
+    extent: 100
+    created_at: 2013-05-15 11:47:05.430684000 Z
+    updated_at: 2013-05-15 11:47:05.430684000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 211
+    url: http://ed.ted.com/lessons/what-aristotle-and-joshua-bell-can-teach-us-about-persuasion-conor-neill
+    individual_id: 185
+    statement_id: 31
+    extent: 100
+    created_at: 2013-05-15 11:47:06.048967000 Z
+    updated_at: 2013-05-15 11:47:06.048967000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 212
+    url: http://news.yahoo.com/nobel-laureate-urges-u-join-landmine-treaty-135954740.html
+    individual_id: 186
+    statement_id: 32
+    extent: 100
+    created_at: 2013-05-15 11:47:06.783554000 Z
+    updated_at: 2013-05-15 11:47:06.783554000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 213
+    url: http://royalsociety.org/news/2012/italian-earthquake-scientists/
+    individual_id: 187
+    statement_id: 33
+    extent: 100
+    created_at: 2013-05-15 11:47:07.590538000 Z
+    updated_at: 2013-05-15 11:47:07.590538000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 214
+    url: http://royalsociety.org/news/2012/italian-earthquake-scientists/
+    individual_id: 188
+    statement_id: 33
+    extent: 100
+    created_at: 2013-05-15 11:47:08.111917000 Z
+    updated_at: 2013-05-15 11:47:08.111917000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 215
+    url: http://royalsociety.org/news/2012/italian-earthquake-scientists/
+    individual_id: 189
+    statement_id: 33
+    extent: 100
+    created_at: 2013-05-15 11:47:08.738730000 Z
+    updated_at: 2013-05-15 11:47:08.738730000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 216
+    url: http://royalsociety.org/news/2012/italian-earthquake-scientists/
+    individual_id: 46
+    statement_id: 33
+    extent: 100
+    created_at: 2013-05-15 11:47:08.999108000 Z
+    updated_at: 2013-05-15 11:47:08.999108000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 217
+    url: https://twitter.com/JesusEncinar/status/332920808605364224
+    individual_id: 190
+    statement_id: 34
+    extent: 100
+    created_at: 2013-05-15 12:26:31.944867000 Z
+    updated_at: 2013-05-15 12:26:31.944867000 Z
+- !ruby/object:Agreement
+  attributes:
+    id: 218
+    url: http://techcrunch.com/2013/04/05/why-do-vcs-care-about-bitcoin/
+    individual_id: 191
+    statement_id: 37
+    extent: 100
+    created_at: 2013-05-20 17:48:31.506985000 Z
+    updated_at: 2013-05-20 17:48:31.506985000 Z

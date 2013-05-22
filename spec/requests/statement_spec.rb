@@ -14,12 +14,12 @@ describe "Statement" do
 
   describe "New" do
     
-    it "link to New should be present" do
+    it "links to New should be present" do
       visit statements_path
       should have_link("New Statement")
     end
 
-    it "go to New and create" do
+    it "goes to New and create" do
       #visit statements_path
       #click_link "New Statement"
       visit "/statements/new"
@@ -52,7 +52,7 @@ describe "Statement" do
     end
 
     describe "with invalid info" do
-      it "don't add an individual" do
+      it "doesn't add an individual" do
         expect { click_button "Add" }.not_to change(Agreement, :count)
       end
     end
@@ -64,14 +64,14 @@ describe "Statement" do
         fill_in 'source', with: 'http://'
       end
 
-      it "add an individual" do
+      it "adds an individual" do
         expect { click_button "Add" }.to change(Agreement, :count)
         expect(Agreement.last.extent).to eq(100)
       end
     end
 
     describe "disagrees" do
-      it "add someone who disagrees" do
+      it "adds someone who disagrees" do
         choose 'add_disagreement'
         fill_in 'new_supporter', with: 'Superman'
         fill_in 'source', with: 'http://'

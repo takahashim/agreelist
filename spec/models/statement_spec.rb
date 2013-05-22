@@ -17,7 +17,7 @@ describe Statement do
     end
   end
 
-  describe "when statement is too long" do
+  describe "shouldn't be created when statement is too long" do
     before { statement.content = "h" * 141 }
     it { should_not be_valid }
   end

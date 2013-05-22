@@ -15,11 +15,11 @@ describe Agreement do
   it { should respond_to(:statement_id) }
   it { should respond_to(:individual_id) }
 
-  describe "when statement_id is not present" do
+  describe "shouldn't be created when statement_id is not present" do
     before { @agreement.statement_id = nil }
     it { should_not be_valid }
   end
-  describe "when individual_id is not present" do
+  describe "shouldn't be created when individual_id is not present" do
     before { @agreement.individual_id = nil }
     it { should_not be_valid }
   end

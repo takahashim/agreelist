@@ -14,6 +14,6 @@ class Statement < ActiveRecord::Base
   end
 
   def self.search(search)
-    search.empty? ? [] : self.where("content LIKE ?", "%#{search}%")
+    search.blank? ? [] : self.where("content LIKE ?", "%#{search}%")
   end
 end

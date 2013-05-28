@@ -1,5 +1,5 @@
 class Individual < ActiveRecord::Base
-  attr_accessible :name, :tag_list
+  attr_accessible :name, :tag_list, :twitter
   has_many :agreements, dependent: :destroy
   has_many :statements, :through => :agreements
   has_many :taggings

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130420152708) do
+ActiveRecord::Schema.define(:version => 20130528103621) do
 
   create_table "agreements", :force => true do |t|
     t.string   "url"
@@ -32,6 +32,22 @@ ActiveRecord::Schema.define(:version => 20130420152708) do
 
   create_table "statements", :force => true do |t|
     t.string   "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "taggings", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "individual_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "taggings", ["individual_id"], :name => "index_taggings_on_individual_id"
+  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

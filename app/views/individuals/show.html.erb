@@ -1,16 +1,32 @@
 <h1><%= @individual.name %></h1>
+<% if @individual.tags.size > 0 %>
+  Tags:
+  <%= raw links_to_tags(@individual) %> - 
+<% end %>
+<%= link_to("Edit", edit_individual_path) %>
+<br />
+
 <strong>Seems to agree:</strong>
 <br />
-<% @agrees.each do |a| %>
-  <%= link_to a.content, statement_path(a) %>
-  <br />
+<% if @agrees.empty? %>
+  None
+<% else %>
+  <% @agrees.each do |a| %>
+    <%= link_to a.content, statement_path(a) %>
+    <br />
+  <% end %>
 <% end %>
 
 <br />
 
 <strong>Seems to disagree:</strong>
 <br />
-<% @disagrees.each do |a| %>
-  <%= link_to a.content, statement_path(a) %>
-  <br />
+
+<% if @disagrees.empty? %>
+  None
+<% else %>
+  <% @disagrees.each do |a| %>
+    <%= link_to a.content, statement_path(a) %>
+    <br />
+  <% end %>
 <% end %>

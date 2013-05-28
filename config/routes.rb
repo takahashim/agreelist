@@ -3,7 +3,7 @@ Al::Application.routes.draw do
   root to: 'static_pages#home'
 
   resources :statements
-  resources :individuals, only: [:show, :destroy]
+  resources :individuals, only: [:show, :edit, :update, :destroy]
   match '/add_supporter' => 'statements#add_supporter'
   match '/search' => 'statements#search'
   match '/contact' => 'static_pages#contact'

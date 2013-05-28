@@ -30,11 +30,6 @@ class Individual < ActiveRecord::Base
   end
 
   def self.search(search)
-    if search == nil || search == ""
-      []
-    else
-      self.where("name LIKE ?", "%#{search}%")
-    end
+    search.blank? ? [] : self.where("content LIKE ?", "%#{search}%")
   end
-
 end

@@ -1,11 +1,18 @@
 class Individual < ActiveRecord::Base
-  attr_accessible :name, :tag_list, :twitter
+  attr_accessible :name, :tag_list, :twitter, :picture
+  has_attached_file :picture
   has_many :agreements, dependent: :destroy
   has_many :statements, :through => :agreements
   has_many :taggings
   has_many :tags, :through => :taggings
 
   validates :name, :presence => true
+
+  before_save :update_picture_from_twitter
+  
+  def update_picture_from_twitter
+    self.picture = open("http://api.twitter.com/1/users/profile_image/#{twitter}.png?size=bigger", allow_unsafe_redirects: true) if twitter
+  end
 
   def self.find_or_create(name)
     self.find_by_name(name) || self.create(name: name)

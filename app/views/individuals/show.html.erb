@@ -1,10 +1,12 @@
 <h1><%= @individual.name %></h1>
-<% if @individual.tags.size > 0 %>
-  Tags:
-  <%= raw links_to_tags(@individual) %> - 
-<% end %>
+<%= image_tag @individual.picture.url %>
 <%= link_to("Edit", edit_individual_path) %>
 <br />
+<% if @individual.tags.size > 0 %>
+  Tags:
+  <%= links_to_tags(@individual) %> 
+  <br />
+<% end %>
 
 <strong>Seems to agree:</strong>
 <br />
@@ -30,3 +32,4 @@
     <br />
   <% end %>
 <% end %>
+

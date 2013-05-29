@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130528130713) do
+ActiveRecord::Schema.define(:version => 20130528185303) do
 
   create_table "agreements", :force => true do |t|
     t.string   "url"
@@ -26,9 +26,13 @@ ActiveRecord::Schema.define(:version => 20130528130713) do
 
   create_table "individuals", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
     t.string   "twitter"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
   create_table "statements", :force => true do |t|

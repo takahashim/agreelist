@@ -11,7 +11,7 @@ class Individual < ActiveRecord::Base
   before_save :update_picture_from_twitter
   
   def update_picture_from_twitter
-    self.picture = open("http://api.twitter.com/1/users/profile_image/#{twitter}.png?size=bigger", allow_unsafe_redirects: true) if twitter
+    self.picture = open("http://api.twitter.com/1/users/profile_image/#{twitter}.png?size=bigger", allow_unsafe_redirects: true) unless twitter.blank?
   end
 
   def self.find_or_create(name)

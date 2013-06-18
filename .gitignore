@@ -14,3 +14,5 @@
 /log/*.log
 /tmp
 *.swp
+
+/config/initializers/app_environment_variables.rb

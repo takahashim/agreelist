@@ -5,7 +5,7 @@ This is the code behind http://AgreeList.com
 Install
 -------
 ```ruby
-git clone git://github.com/AgreeList/al.git
+git clone git://github.com/AgreeList/agreelist-on-rails.git
 cd al
 bundle install
 ```

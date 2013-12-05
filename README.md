@@ -6,7 +6,7 @@ Install
 -------
 ```ruby
 git clone git://github.com/AgreeList/agreelist-on-rails.git
-cd al
+cd agreelist-on-rails
 bundle install
 ```
 

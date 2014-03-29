@@ -3,28 +3,28 @@
 <h1><%= @statement.content %></h1>
 
 <% if @agreements_in_favor.any? || @agreements_against.any? %>
-  <div class="container">
-    <div class="row">
-      <div class="span5">
-        <% @agreements = @agreements_in_favor %>
-        <strong><%= @agreements_in_favor.size %> seem to agree:</strong>
-        <%= render "statements/whoagree" %>
-      </div>
-      <div class="span5">
-        <% @agreements = @agreements_against %>
-        <strong><%= @agreements_against.size %> seem to disagree:</strong>
-        <%= render "statements/whoagree" %>
-      </div>
-    </div>
+<div id="wrapper">
+  <div id="leftcol">
+    <% @agreements = @agreements_in_favor %>
+    <strong><%= @agreements_in_favor.size %> seem to agree:</strong>
+    <%= render "statements/whoagree" %>
   </div>
-<% end %>
-
-<div id="add">
-  Add someone else:
-  <%= render "statements/add_supporter" %>
+  <div id="rightcol">
+    <% @agreements = @agreements_against %>
+    <strong><%= @agreements_against.size %> seem to disagree:</strong>
+    <%= render "statements/whoagree" %>
+  </div>
 </div>
-<br />
+<% end %>
+<div id="add">
+Add someone else:
+<%= render "statements/add_supporter" %>
+</div>
 
+
+
+
+<br />
 <%= link_to 'Edit', edit_statement_path(@statement) %> |
 <%= link_to 'Back', root_path %>
 

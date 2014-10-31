@@ -5,11 +5,7 @@ This is the code behind http://AgreeList.com
 Install
 -------
 ```ruby
-git clone git://github.com/AgreeList/agreelist-on-rails.git
-cd agreelist-on-rails
+git clone git://github.com/HectorPerez/AgreeList.git
+cd AgreeList
 bundle install
 ```
-
-License
-=======
-MIT License.

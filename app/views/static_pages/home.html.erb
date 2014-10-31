@@ -8,20 +8,20 @@
     <div class="span9">
       <%= form_tag("/search", :method => "post") do %>
         <%= text_field_tag(:search) %>
-        <%= submit_tag("Search") %> or 
+        <%= submit_tag("Search") %> or
         <%= link_to("Create a new statement", new_statement_path) %>
       <% end %>
     </div>
   </div>
-  
+
   <div class="row">
     <div class="span3">
       Barack Obama agrees that<br />
       <%= link_to_statement "assault weapons should be banned" %>
     </div>
     <div class="span3">
-      Ford disagrees that<br />
-      <%= link_to_statement "UK exit from the EU would be good for the UK" %>
+      Ford agrees that<br />
+      <%= link_to_statement "UK exit from the EU would be bad for the UK" %>
     </div>
     <div class="span3">
       Tim Berners-Lee agrees that<br />

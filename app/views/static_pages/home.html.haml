@@ -1,20 +1,24 @@
 .jumbotron
-  %h1 Wanna know who agree on something?
+  %h1{align: "center"} Wanna know who agree on something?
 
 %br
 
 .content
-  .row{align: "center"}
-    .span9
+  .row-fluid{align: "center"}
+    .span12
       = form_tag("/search", :method => "post") do
         = text_field_tag(:search)
         = submit_tag("Search")
         or
         = link_to("Create a new statement", new_statement_path)
 
-  .media
-    %a{class: "pull-left", href: "#"}
-      = image_tag "http://localhost:3000/system/individuals/pictures/000/000/001/original/stringio.txt?1416741761"
-    .media-body
-      %h4.media-heading Ford
-      UK exit from the EU would be bad for the UK
+  .row-fluid
+    - @statements.each do |statement|
+      - individual = statement.individuals.first
+      .span4
+        .media
+          %a{class: "pull-left", href: "#"}
+            = image_tag individual.picture.url
+          .media-body
+            %h4.media-heading= link_to individual.name, individual_path(individual)
+            = link_to statement.content, statement_path(statement)

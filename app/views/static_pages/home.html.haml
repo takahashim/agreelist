@@ -1,0 +1,20 @@
+.jumbotron
+  %h1 Wanna know who agree on something?
+
+%br
+
+.content
+  .row{align: "center"}
+    .span9
+      = form_tag("/search", :method => "post") do
+        = text_field_tag(:search)
+        = submit_tag("Search")
+        or
+        = link_to("Create a new statement", new_statement_path)
+
+  .media
+    %a{class: "pull-left", href: "#"}
+      = image_tag "http://localhost:3000/system/individuals/pictures/000/000/001/original/stringio.txt?1416741761"
+    .media-body
+      %h4.media-heading Ford
+      UK exit from the EU would be bad for the UK

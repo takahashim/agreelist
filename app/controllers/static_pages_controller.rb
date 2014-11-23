@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-    @statements = Statement.joins(:agreements).where("agreements.id is not null").limit(6)
+    @statements = [1, 3, 4, 5, 6, 7].map{ |s| Statement.find(s) }
   end
 
   def contact

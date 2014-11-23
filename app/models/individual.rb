@@ -8,14 +8,14 @@ class Individual < ActiveRecord::Base
 
   validates :name, :presence => true
 
-  # before_save :update_picture_from_twitter
+  before_save :update_picture_from_twitter
 
-  # def update_picture_from_twitter
-  #   unless twitter.blank?
-  #     url = Twitter.user(twitter).attrs[:profile_image_url_https]
-  #     self.picture = open(url)
-  #   end
-  # end
+  def update_picture_from_twitter
+    unless twitter.blank?
+      url = Twitter.user(twitter).attrs[:profile_image_url_https]
+      self.picture = open(url)
+    end
+  end
 
   def self.find_or_create(name)
     self.find_by_name(name) || self.create(name: name)

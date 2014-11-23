@@ -1,4 +1,5 @@
 class IndividualsController < ApplicationController
+  http_basic_authenticate_with name: "hector", password: "perez", only: ["edit", "update"]
 
   def show
     @individual = Individual.find(params[:id])

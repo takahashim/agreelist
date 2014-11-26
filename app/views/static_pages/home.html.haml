@@ -13,12 +13,8 @@
         = link_to("Create a new statement", new_statement_path)
 
   .row-fluid
-    - @statements.each do |statement|
-      - individual = statement.individuals.first
-      .span4
-        .media
-          %a{class: "pull-left", href: "#"}
-            = image_tag individual.picture.url
-          .media-body
-            %h4.media-heading= link_to individual.name, individual_path(individual)
-            = link_to statement.content, statement_path(statement)
+    - @statements[0..2].each do |statement|
+      = render partial: "row", locals: { statement: statement }
+  .row-fluid
+    - @statements[3..5].each do |statement|
+      = render partial: "row", locals: { statement: statement }

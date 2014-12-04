@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.11'
 gem 'bootstrap-sass'
 gem "paperclip"
+gem 'aws-sdk'
 gem "twitter"
 gem "haml-rails"
 

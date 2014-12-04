@@ -1,12 +1,17 @@
 class Individual < ActiveRecord::Base
   attr_accessible :name, :tag_list, :twitter, :picture
-  has_attached_file :picture
+  has_attached_file :picture, styles: {
+    thumb: '100x100>',
+    square: '200x200#',
+    medium: '300x300>'
+  }
   has_many :agreements, dependent: :destroy
   has_many :statements, :through => :agreements
   has_many :taggings
   has_many :tags, :through => :taggings
 
   validates :name, :presence => true
+  validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
 
   before_save :update_picture_from_twitter
 

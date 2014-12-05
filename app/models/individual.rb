@@ -17,7 +17,7 @@ class Individual < ActiveRecord::Base
 
   def update_picture_from_twitter
     unless twitter.blank?
-      url = Twitter.user(twitter).attrs[:profile_image_url_https]
+      url = Twitter.user(twitter).profile_image_url_https(:original)
       self.picture = open(url)
     end
   end

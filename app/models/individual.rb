@@ -1,6 +1,6 @@
 class Individual < ActiveRecord::Base
   attr_accessible :name, :tag_list, :twitter, :picture
-  has_attached_file :picture, styles: {
+  has_attached_file :picture, s3_host_name: "agreelist.s3.amazonaws.com", styles: {
     thumb: '100x100>',
     square: '200x200#',
     medium: '300x300>'

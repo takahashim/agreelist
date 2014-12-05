@@ -1,5 +1,5 @@
 <h1><%= @individual.name %></h1>
-<%= image_tag @individual.picture.url(:medium) %>
+<%= image_tag @individual.picture.url(:square) %>
 <%= link_to("Edit", edit_individual_path) %>
 <br />
 <% if @individual.tags.size > 0 %>

@@ -13,8 +13,8 @@
         = link_to("Create a new statement", new_statement_path)
 
   .row-fluid
-    - @statements[0..2].each do |statement|
-      = render partial: "row", locals: { statement: statement }
+    - 3.times do |i|
+      = render partial: "row", locals: { statement: @statements[i], individual: @individuals[i] }
   .row-fluid
-    - @statements[3..5].each do |statement|
-      = render partial: "row", locals: { statement: statement }
+    - 3.times do |i|
+      = render partial: "row", locals: { statement: @statements[i + 3], individual: @individuals[i + 3] }

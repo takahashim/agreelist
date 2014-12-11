@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
-    @statements = [1, 3, 4, 5, 6, 7].map{ |s| Statement.find(s) }
-    # @statements = [1, 2, 3, 1, 2, 3].map{ |s| Statement.find(s) }
+    @statements = [1, 3, 8, 5, 6, 7].map{ |s| Statement.find(s) }
+    @individuals = [5, 6, 1, 18, 17, 11].map{ |i| Individual.find(i) }
   end
 
   def contact

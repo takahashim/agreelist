@@ -1,13 +1,12 @@
 #ol
   - @agreements.each do |agreement|
     - individual = agreement.individual
-    #ol
-      .media
-        %a{class: "pull-left", href: "#"}
-          = image_tag(individual.picture.url(:thumb), class: "picture") if individual.twitter
-        .media-body
-          = link_to(individual.name, individual_path(individual))
-          #br
-          = link_to agreement.short_url, agreement.url
+    .media
+      %a{href: "#"}
+        = image_tag(individual.picture.url(:thumb), class: "picture") if individual.twitter
+      .media-body
+        = link_to(individual.name, individual_path(individual))
+        #br
+        = link_to agreement.short_url, agreement.url
     = link_to("delete", agreement, method: :delete, data: { confirm: "You sure?" })
     #br

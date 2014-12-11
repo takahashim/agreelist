@@ -11,7 +11,6 @@ gem "haml-rails"
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'rspec-rails'
   gem 'guard-rspec'
   gem 'factory_girl_rails'
@@ -37,9 +36,7 @@ group :test do
   gem 'capybara'
 end
 
-group :production do
-  gem 'pg', '0.12.2'
-end
+gem 'pg', '0.12.2'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

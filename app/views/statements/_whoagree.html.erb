@@ -1,7 +1,7 @@
   <ol>
     <% @agreements.each do |agreement| %>
       <% individual = agreement.individual %>
-      <%= image_tag individual.picture.url if individual.twitter %>
+      <%= image_tag individual.picture.url(:thumb) if individual.twitter %>
       <%= link_to(individual.name, individual_path(individual)) %>
        (<%= link_to('source', agreement.url) %>)
       <%= link_to("delete", agreement, method: :delete, data: { confirm: "You sure?" }) %>

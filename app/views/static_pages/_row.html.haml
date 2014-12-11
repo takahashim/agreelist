@@ -1,7 +1,7 @@
 .span4
   .media
     %a{class: "pull-left", href: "#"}
-      = image_tag(individual.picture.url(:thumb), class: "homepage-picture")
+      = image_tag(individual.picture.url(:thumb), class: "picture")
     .media-body
       %h4.media-heading= link_to individual.name, individual_path(individual)
       = link_to statement.content, statement_path(statement)

@@ -3,7 +3,7 @@
     - individual = agreement.individual
     .media
       %a{href: "#"}
-        = image_tag(individual.picture.url(:thumb), class: "picture") if individual.twitter
+        = image_tag(individual.picture.url(:thumb), class: "picture")
       .media-body
         = link_to(individual.name, individual_path(individual))
         #br

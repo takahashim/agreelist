@@ -5,17 +5,18 @@
 %br
 
 .content
-  .row-fluid{align: "center"}
-    .span12
-      = form_tag("/search", :method => "post") do
-        = text_field_tag(:search)
-        = submit_tag("Search")
-        or
-        = link_to("Create a new statement", new_statement_path)
+  #statements
+    .row-fluid{align: "center"}
+      .span12
+        = form_tag("/search", :method => "post") do
+          = text_field_tag(:search)
+          = submit_tag("Search")
+          or
+          = link_to("Create a new statement", new_statement_path)
 
-  .row-fluid
-    - 3.times do |i|
-      = render partial: "row", locals: { statement: @statements[i], individual: @individuals[i] }
-  .row-fluid
-    - 3.times do |i|
-      = render partial: "row", locals: { statement: @statements[i + 3], individual: @individuals[i + 3] }
+    .row-fluid
+      - 3.times do |i|
+        = render partial: "row", locals: { statement: @statements[i], individual: @individuals[i] }
+    .row-fluid
+      - 3.times do |i|
+        = render partial: "row", locals: { statement: @statements[i + 3], individual: @individuals[i + 3] }

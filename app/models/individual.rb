@@ -16,7 +16,7 @@ class Individual < ActiveRecord::Base
   before_save :update_picture_from_twitter
 
   def update_picture_from_twitter
-    unless twitter.blank?
+    if Rails.env == "production" && twitter.present?
       url = Twitter.user(twitter).profile_image_url_https(:original)
       self.picture = open(url)
     end

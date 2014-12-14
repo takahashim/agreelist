@@ -63,7 +63,7 @@ class StatementsController < ApplicationController
   # POST /statements
   # POST /statements.json
   def create
-    @statement = Statement.new(params[:statement])
+    @statement = Statement.new(params.require(:statement).permit(:content))
 
     respond_to do |format|
       if @statement.save
@@ -82,7 +82,7 @@ class StatementsController < ApplicationController
     @statement = Statement.find(params[:id])
 
     respond_to do |format|
-      if @statement.update_attributes(params[:statement])
+      if @statement.update_attributes(params.require(:statement).permit(:content))
         format.html { redirect_to @statement, notice: 'Statement was successfully updated.' }
         format.json { head :no_content }
       else

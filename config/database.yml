@@ -15,3 +15,14 @@ test:
   username: hector
   password: contrh
   host: localhost
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: agreelist
+  pool: 5
+  username: hector
+  password: contrh
+  host: localhost
+
+

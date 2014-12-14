@@ -4,7 +4,7 @@ Al::Application.routes.draw do
 
   resources :statements
   resources :individuals, only: [:show, :edit, :update, :destroy]
-  match '/add_supporter' => 'statements#add_supporter', via: :get
+  match '/add_supporter' => 'statements#add_supporter', via: [:get, :post]
   match '/search' => 'statements#search', via: :get
   match '/contact' => 'static_pages#contact', via: :get
   resources :agreements, only: [:destroy]

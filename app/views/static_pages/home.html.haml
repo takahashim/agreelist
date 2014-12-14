@@ -1,19 +1,14 @@
 .jumbotron
   %h1{align: "center"} Liquid Democracy
   %h5{align: "center"} mix of direct & representative democracy
+  .text-center
+    = button_to "/", class: "btn btn-primary btn-lg" do
+      Join
 
 %br
 
 .content
   #statements
-    .row-fluid{align: "center"}
-      .span12
-        = form_tag("/search", :method => "post") do
-          = text_field_tag(:search)
-          = submit_tag("Search")
-          or
-          = link_to("Create a new statement", new_statement_path)
-
     .row-fluid
       - 3.times do |i|
         = render partial: "row", locals: { statement: @statements[i], individual: @individuals[i] }

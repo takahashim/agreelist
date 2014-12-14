@@ -14,5 +14,8 @@
     %section.main-container
       = render 'layouts/header'
       - flash.each do |key, value|
-        .alert{class: "alert-#{key}"}= value
+        - if key == "notice"
+          .alert.alert-success= value
+        - elsif key == "error"
+          .alert.alert-danger= value
       = yield

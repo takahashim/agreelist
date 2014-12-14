@@ -3,12 +3,12 @@ class StaticPagesController < ApplicationController
     @email = Email.new
   end
 
-  def leave_email
+  def send_email
     email = Email.new(params.require(:email).permit(:email))
     if email.save
       redirect_to :root, notice: "Your email has been saved"
     else
-      redirect_to :root, notice: "Sorry, there has been a problem. Try again later."
+      redirect_to :root, error: "Sorry, there has been a problem. Try again later."
     end
   end
 

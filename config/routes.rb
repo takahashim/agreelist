@@ -8,7 +8,7 @@ Al::Application.routes.draw do
   match '/search' => 'statements#search', via: :get
   match '/contact' => 'static_pages#contact', via: :get
   match '/join' => 'static_pages#join', via: :get
-  match '/emails' => 'static_pages#leave_email', via: :post
+  match '/emails' => 'static_pages#send_email', via: :post
   resources :agreements, only: [:destroy]
 
   # The priority is based upon order of creation:

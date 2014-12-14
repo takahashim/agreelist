@@ -1,0 +1,6 @@
+.jumbotron
+  .text-center
+    %h3 Email:
+    = form_for @email do |f|
+      = f.text_field :email, size: 30
+      = f.submit "Send"

@@ -1,6 +1,9 @@
 require 'faker'
 
-FactoryGirl.define do
+FactoryGirl.define do  factory :email do
+    email "MyString"
+  end
+
   factory :statement do
     content { Faker::Lorem.sentence }
   end

@@ -3,8 +3,7 @@
     %h1 Liquid Democracy
     %h5 mix of direct & representative democracy
     %br
-    = button_to "/", class: "btn btn-primary btn-lg" do
-      Join
+    = button_to "Join", "/join", class: "btn btn-primary btn-lg", method: :get
 
 #statements
   .container

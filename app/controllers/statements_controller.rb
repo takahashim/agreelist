@@ -11,7 +11,7 @@ class StatementsController < ApplicationController
   end
 
   def add_supporter
-    individual = Individual.find_or_create(params.permit(:new_supporter)) #Individual.find_by_name(params[:new_supporter]) || Individual.create(name: params[:new_supporter])
+    individual = Individual.find_or_create(params.require(:new_supporter)) #Individual.find_by_name(params[:new_supporter]) || Individual.create(name: params[:new_supporter])
     Agreement.create(
       statement_id: params[:statement_id],
       individual_id: individual.id,

@@ -1,19 +1,16 @@
-%p#notice= notice
-
-%h1= @statement.content
-
-- if @agreements_in_favor.any? || @agreements_against.any?
-  #wrapper
-    #leftcol
-      - @agreements = @agreements_in_favor
-      #strong= @agreements_in_favor.size
-      seem to agree:
-      = render "statements/whoagree"
-    #rightcol
-      - @agreements = @agreements_against
-      #strong= @agreements_against.size
-      seem to disagree:
-      = render "statements/whoagree"
-#add
-  Add someone else:
-  = render "statements/add_supporter"
+.container
+  %p#notice= notice
+  %h1= @statement.content
+  - if @agreements_in_favor.any? || @agreements_against.any?
+    #wrapper
+      #leftcol
+        - @agreements = @agreements_in_favor
+        = "#{@agreements_in_favor.size} seem to agree:"
+        = render "statements/whoagree"
+      #rightcol
+        - @agreements = @agreements_against
+        = "#{@agreements_against.size} seem to disagree:"
+        = render "statements/whoagree"
+  #add
+    Add someone else:
+    = render "statements/add_supporter"

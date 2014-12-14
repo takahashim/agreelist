@@ -4,9 +4,9 @@ Al::Application.routes.draw do
 
   resources :statements
   resources :individuals, only: [:show, :edit, :update, :destroy]
-  match '/add_supporter' => 'statements#add_supporter'
-  match '/search' => 'statements#search'
-  match '/contact' => 'static_pages#contact'
+  match '/add_supporter' => 'statements#add_supporter', via: :get
+  match '/search' => 'statements#search', via: :get
+  match '/contact' => 'static_pages#contact', via: :get
   resources :agreements, only: [:destroy]
 
   # The priority is based upon order of creation:

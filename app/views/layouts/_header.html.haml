@@ -2,6 +2,7 @@
   .navbar-inner
     .container
       = link_to "AgreeList", root_path, id: "logo"
-      %nav
-        %ul.nav.pull-right
+      .navbar-collapse.collapse.navbar-responsive-collapse
+        %ul.nav.navbar-nav.pull-right
+          %li= link_to "Developers", "http://github.com/HectorPerez/AgreeList"
           %li= link_to "Contact", "/contact"

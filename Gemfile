@@ -6,6 +6,7 @@ gem "paperclip"
 gem 'aws-sdk'
 gem "twitter"
 gem "haml-rails"
+gem 'pry'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -34,6 +35,7 @@ gem 'jquery-rails'
 
 group :test do
   gem 'capybara'
+  gem 'database_cleaner'
 end
 
 gem 'pg', '0.12.2'

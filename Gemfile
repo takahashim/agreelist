@@ -54,3 +54,5 @@ gem 'pg', '0.12.2'
 
 # To use debugger
 # gem 'debugger'
+
+gem 'rails_12factor', group: :production

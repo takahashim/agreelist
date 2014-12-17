@@ -15,7 +15,7 @@ class IndividualsController < ApplicationController
     @individual = Individual.find(params[:id])
 
     respond_to do |format|
-      if @individual.update_attributes(params[:individual])
+      if @individual.update_attributes(params.require(:individual).permit(:name, :twitter))
         format.html { redirect_to @individual, notice: 'Statement was successfully updated.' }
         format.json { head :no_content }
       else

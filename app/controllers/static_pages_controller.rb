@@ -21,7 +21,7 @@ class StaticPagesController < ApplicationController
       end
     else
       @statements = [1, 3, 8, 5, 6, 7, 9, 13, 14].map{ |s| Statement.find(s) }
-      @individuals = [5, 6, 1, 18, 17, 12, 19, 23, 24].map{ |i| Individual.find(i) }
+      @individuals = [5, 9, 1, 18, 17, 12, 20, 23, 24].map{ |i| Individual.find(i) }
     end
   end
 

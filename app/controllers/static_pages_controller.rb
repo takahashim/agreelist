@@ -15,13 +15,13 @@ class StaticPagesController < ApplicationController
   def home
     if Rails.env == "test"
       @statements, @individuals = [], []
-      6.times do
+      9.times do
         @statements << Statement.first
         @individuals << Individual.first
       end
     else
-      @statements = [1, 3, 8, 5, 6, 7].map{ |s| Statement.find(s) }
-      @individuals = [5, 6, 1, 18, 17, 12].map{ |i| Individual.find(i) }
+      @statements = [1, 3, 8, 5, 6, 7, 9, 13, 14].map{ |s| Statement.find(s) }
+      @individuals = [5, 6, 1, 18, 17, 12, 19, 23, 24].map{ |i| Individual.find(i) }
     end
   end
 

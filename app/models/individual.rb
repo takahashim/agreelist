@@ -16,7 +16,7 @@ class Individual < ActiveRecord::Base
 
   def update_picture_from_twitter
     if Rails.env == "production" && twitter.present?
-      url = @twitter_client.user(twitter).profile_image_url_https(:original)
+      url = twitter_client.user(twitter).profile_image_url_https(:original)
       self.picture = open(url)
     end
   end
@@ -47,4 +47,15 @@ class Individual < ActiveRecord::Base
     search.blank? ? [] : self.where("content LIKE ?", "%#{search}%")
   end
 
+  private
+
+  def twitter_client
+    # this was in initializers/twitter.rb but heroku didn't find it
+    Twitter::REST::Client.new do |config|
+      config.consumer_key = ENV['TWITTER_CONSUMER_KEY']
+      config.consumer_secret = ENV['TWITTER_CONSUMER_SECRET']
+      config.access_token = ENV['TWITTER_OAUTH_TOKEN']
+      config.access_token_secret = ENV['TWITTER_OAUTH_TOKEN_SECRET']
+    end
+  end
 end

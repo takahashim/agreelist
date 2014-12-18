@@ -8,4 +8,12 @@ class Agreement < ActiveRecord::Base
   def short_url
     url.gsub(/.*http:\/\//,'').gsub(/.*www\./,'')[0..15] + "..."
   end
+
+  def disagree?
+    extent == 0
+  end
+
+  def agree?
+    extent == 100
+  end
 end

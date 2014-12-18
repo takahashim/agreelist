@@ -16,7 +16,7 @@ class Individual < ActiveRecord::Base
 
   def update_picture_from_twitter
     if Rails.env == "production" && twitter.present?
-      url = Twitter.user(twitter).profile_image_url_https(:original)
+      url = @twitter_client.user(twitter).profile_image_url_https(:original)
       self.picture = open(url)
     end
   end

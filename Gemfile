@@ -38,7 +38,7 @@ group :test do
   gem 'database_cleaner'
 end
 
-gem 'pg', '0.12.2'
+gem 'pg', '0.15.1'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

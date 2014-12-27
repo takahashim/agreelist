@@ -14,6 +14,14 @@ class Individual < ActiveRecord::Base
 
   before_save :update_picture_from_twitter
 
+  def self.create_with_omniauth(auth)
+    create! do |user|
+      # user.provider = auth["provider"]
+      user.uid = auth["uid"]
+      user.name = auth["info"]["name"]
+    end
+  end
+
   def update_picture_from_twitter
     if Rails.env == "production" && twitter.present?
       url = twitter_client.user(twitter).profile_image_url_https(:original)

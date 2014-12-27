@@ -4,3 +4,7 @@
     = form_for @email do |f|
       = f.text_field :email, size: 30
       = f.submit "Send"
+- if current_user
+  = link_to "Sign Out", signout_path
+- else
+  = link_to "Sign in with Twitter", "/auth/twitter"

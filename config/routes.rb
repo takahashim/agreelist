@@ -1,6 +1,6 @@
 Al::Application.routes.draw do
 
-  root to: 'static_pages#home'
+  root to: 'static_pages#home',via: :get
 
   resources :statements
   resources :individuals, only: [:show, :edit, :update, :destroy]
@@ -9,6 +9,8 @@ Al::Application.routes.draw do
   match '/contact' => 'static_pages#contact', via: :get
   match '/join' => 'static_pages#join', via: :get
   match '/emails' => 'static_pages#send_email', via: :post
+  match "/auth/twitter/callback" => 'sessions#create', via: [:get, :post]
+  match "/signout" => "sessions#destroy", as: :signout, via: :delete
   resources :agreements, only: [:destroy]
 
   # The priority is based upon order of creation:

@@ -8,6 +8,8 @@ gem "twitter"
 gem "haml-rails"
 gem 'pry'
 
+gem 'omniauth-twitter'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

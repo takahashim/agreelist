@@ -10,7 +10,7 @@ Al::Application.routes.draw do
   match '/join' => 'static_pages#join', via: :get
   match '/emails' => 'static_pages#send_email', via: :post
   match "/auth/twitter/callback" => 'sessions#create', via: [:get, :post]
-  match "/signout" => "sessions#destroy", as: :signout, via: :delete
+  match "/signout" => "sessions#destroy", as: :signout, via: :get
   resources :agreements, only: [:destroy]
 
   # The priority is based upon order of creation:

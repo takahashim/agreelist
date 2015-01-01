@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141227111904) do
+ActiveRecord::Schema.define(version: 20141227222841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20141227111904) do
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.string   "uid"
+    t.integer  "followers_count"
   end
 
   create_table "statements", force: true do |t|

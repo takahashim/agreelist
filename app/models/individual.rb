@@ -20,6 +20,7 @@ class Individual < ActiveRecord::Base
       user.uid = auth["uid"]
       user.twitter = auth["info"]["nickname"]
       user.name = auth["info"]["name"]
+      user.followers_count = auth["extra"]["raw_info"]["followers_count"]
     end
   end
 

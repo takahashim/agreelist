@@ -3,7 +3,12 @@
     %h1 Liquid Democracy
     %h5 mix of direct & representative democracy
     %br
-    = link_to image_tag("twitter-login.png"), "/auth/twitter"
+    - if current_user
+      = form_for(@statement) do |f|
+        = f.text_field :content, size: "50"
+        = f.submit "New statement"
+    - else
+      = link_to image_tag("twitter-login.png"), "/auth/twitter"
 
 %section#info
   .container

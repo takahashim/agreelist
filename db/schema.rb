@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150101143528) do
+ActiveRecord::Schema.define(version: 20150101150719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,12 +26,6 @@ ActiveRecord::Schema.define(version: 20150101143528) do
   end
 
   add_index "agreements", ["statement_id", "created_at"], name: "index_agreements_on_statement_id_and_created_at", using: :btree
-
-  create_table "emails", force: true do |t|
-    t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "individuals", force: true do |t|
     t.string   "name"

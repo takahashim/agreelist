@@ -12,6 +12,7 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
   <div class="field">
@@ -19,10 +20,10 @@
     <%= f.text_field :twitter %>
   </div>
   <div class="field">
-    <%= f.label :tag_list %>
-    <%= f.text_field :tag_list %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Continue" %>
   </div>
 <% end %>

@@ -11,6 +11,7 @@
         - @agreements = @agreements_against
         = "#{@agreements_against.size} seem to disagree:"
         = render "statements/whoagree"
+- if signed_in?
   #add
     Add someone else:
     = render "statements/add_supporter"

@@ -14,14 +14,10 @@ class IndividualsController < ApplicationController
   def update
     @individual = Individual.find(params[:id])
 
-    respond_to do |format|
-      if @individual.update_attributes(params.require(:individual).permit(:name, :twitter, :email))
-        format.html { redirect_to @individual, notice: 'Statement was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @individual.errors, status: :unprocessable_entity }
-      end
+    if @individual.update_attributes(params.require(:individual).permit(:name, :twitter, :email))
+      redirect_to root_path, notice: 'Successfully updated.'
+    else
+      render action: "edit"
     end
   end
 

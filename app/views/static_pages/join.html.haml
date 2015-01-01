@@ -1,10 +1,8 @@
 .jumbotron
   .text-center
+    %h2= current_user.name
+    %h3= "@#{current_user.twitter}"
     %h3 Email:
-    = form_for @email do |f|
+    = form_for @individual do |f|
       = f.text_field :email, size: 30
       = f.submit "Send"
-- if current_user
-  = link_to "Sign Out", signout_path
-- else
-  = link_to "Sign in with Twitter", "/auth/twitter"

@@ -1,15 +1,6 @@
 class StaticPagesController < ApplicationController
   def join
-    @email = Email.new
-  end
-
-  def send_email
-    email = Email.new(params.require(:email).permit(:email))
-    if email.save
-      redirect_to :root, notice: "Your email has been saved"
-    else
-      redirect_to :root, error: "Sorry, there has been a problem. Try again later."
-    end
+    @individual = current_user
   end
 
   def home

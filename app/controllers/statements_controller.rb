@@ -1,5 +1,6 @@
 class StatementsController < ApplicationController
-  http_basic_authenticate_with name: "hector", password: "perez", only: [:add_supporter, :create, :destroy, :update]
+  before_action :login_required, only: [:add_supporter, :destroy, :create]
+
   def search
     if params[:search].empty?
       flash[:notice] = "The search can't be empty"

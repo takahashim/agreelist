@@ -15,4 +15,8 @@ class ApplicationController < ActionController::Base
   def admin?
     current_user.try(:twitter) == "arpahector"
   end
+
+  def login_required
+    redirect_to "/", notice: "login required" unless signed_in?
+  end
 end

@@ -1,5 +1,5 @@
 class IndividualsController < ApplicationController
-  http_basic_authenticate_with name: "hector", password: "perez", only: ["edit", "update"]
+  before_action :login_required, only: :update
 
   def show
     @individual = Individual.find(params[:id])

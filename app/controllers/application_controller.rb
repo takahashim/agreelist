@@ -19,4 +19,8 @@ class ApplicationController < ActionController::Base
   def login_required
     redirect_to "/", notice: "login required" unless signed_in?
   end
+
+  def admin_required
+    redirect_to "/", notice: "admin required" unless admin?
+  end
 end

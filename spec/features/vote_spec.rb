@@ -3,8 +3,8 @@ require 'spec_helper'
 feature 'disagree' do
   before do
     statement = Statement.create(content: "aaa")
+    login
     visit "/statements/#{statement.id}"
-    http_login
   end
 
   scenario 'adds someone who disagrees' do
@@ -16,7 +16,8 @@ feature 'disagree' do
     expect(Agreement.last.disagree?).to eq(true)
   end
 
-  def http_login
-    page.driver.browser.basic_authorize("hector", "perez")
+  def login
+    Individual.create(name: "Hector", twitter: "arpahector")
+    visit "/auth/twitter"
   end
 end

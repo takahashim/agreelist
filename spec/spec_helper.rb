@@ -50,3 +50,12 @@ RSpec.configure do |config|
     end
   end
 end
+
+OmniAuth.config.test_mode = true
+OmniAuth.config.mock_auth[:twitter] = {
+  "uid" => '1337',
+  "provider" => 'twitter',
+  "info" => {
+    "nickname" => 'arpahector'
+  }
+}

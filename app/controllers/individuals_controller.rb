@@ -1,5 +1,5 @@
 class IndividualsController < ApplicationController
-  before_action :login_required, only: :update
+  before_action :admin_required, only: :update
 
   def show
     @individual = Individual.find(params[:id])

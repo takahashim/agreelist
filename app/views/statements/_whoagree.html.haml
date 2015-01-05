@@ -8,5 +8,5 @@
         = link_to(individual.name, individual_path(individual))
         #br
         = link_to agreement.short_url, agreement.url
-    = link_to("delete", agreement, method: :delete, data: { confirm: "You sure?" })
+    = link_to("delete", agreement, method: :delete, data: { confirm: "You sure?" }) if admin?
     #br

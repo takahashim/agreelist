@@ -1,5 +1,5 @@
 class IndividualsController < ApplicationController
-  before_action :admin_required, only: :update
+  before_action :login_required, only: :update
 
   def show
     @individual = Individual.find(params[:id])
@@ -14,12 +14,14 @@ class IndividualsController < ApplicationController
   def update
     @individual = Individual.find(params[:id])
 
-    if @individual.update_attributes(params.require(:individual).permit(:name, :twitter, :email))
-      redirect_to root_path, notice: 'Successfully updated.'
+    if @individual == current_user || admin?
+      if @individual.update_attributes(params.require(:individual).permit(:name, :twitter, :email))
+        redirect_to root_path, notice: 'Successfully updated.'
+      else
+        render action: "edit"
+      end
     else
-      render action: "edit"
+      redirect_to root_path, notice: "You can't edit other user's profile"
     end
   end
-
-
 end

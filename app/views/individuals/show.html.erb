@@ -1,6 +1,6 @@
 <h1><%= @individual.name %></h1>
 <%= image_tag @individual.picture.url(:square) %>
-<%= link_to("Edit", edit_individual_path) %>
+<%= link_to("Edit", edit_individual_path) if @individual == current_user || admin? %>
 <br />
 
 <strong>Seems to agree:</strong>

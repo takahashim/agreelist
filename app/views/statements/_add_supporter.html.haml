@@ -4,10 +4,13 @@
   = radio_button_tag :add, 'disagreement'
   Disagrees
   %br
-  = label_tag(:new_supporter, "Name")
-  = text_field_tag(:new_supporter)
-  = label_tag(:source, "Source")
-  = text_field_tag(:source)
+  = label_tag(:new_supporter, "Name:")
+  %br
+  = text_field_tag(:new_supporter,"", size: 30)
+  %br
+  = label_tag(:source, "Source or more info url:")
+  %br
+  = text_field_tag(:source, "http://", size: 60)
   = hidden_field_tag(:statement_id, @statement.id)
   = submit_tag("Add")
 

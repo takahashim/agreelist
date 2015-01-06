@@ -10,6 +10,8 @@
         = "#{@agreements_against.size} seem to disagree:"
         = render partial: "whoagree", locals: { agreements: @agreements_against }
 - if signed_in?
-  #add
-    Add someone else:
-    = render partial: "add_supporter"
+  .container
+    .text-center
+      #add
+        Add someone else:
+        = render partial: "add_supporter"

@@ -5,11 +5,11 @@
     #wrapper
       #leftcol
         = "#{@agreements_in_favor.size} seem to agree:"
-        = render partial: "statements/whoagree", locals: { agreements: @agreements_in_favor }
+        = render partial: "whoagree", locals: { agreements: @agreements_in_favor }
       #rightcol
         = "#{@agreements_against.size} seem to disagree:"
-        = render partial: "statements/whoagree", locals: { agreements: @agreements_against }
+        = render partial: "whoagree", locals: { agreements: @agreements_against }
 - if signed_in?
   #add
     Add someone else:
-    = render "statements/add_supporter"
+    = render partial: "add_supporter"

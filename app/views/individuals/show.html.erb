@@ -2,11 +2,6 @@
 <%= image_tag @individual.picture.url(:square) %>
 <%= link_to("Edit", edit_individual_path) %>
 <br />
-<% if @individual.tags.size > 0 %>
-  Tags:
-  <%= links_to_tags(@individual) %>
-  <br />
-<% end %>
 
 <strong>Seems to agree:</strong>
 <br />

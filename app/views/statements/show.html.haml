@@ -4,13 +4,11 @@
   - if @agreements_in_favor.any? || @agreements_against.any?
     #wrapper
       #leftcol
-        - @agreements = @agreements_in_favor
         = "#{@agreements_in_favor.size} seem to agree:"
-        = render "statements/whoagree"
+        = render partial: "statements/whoagree", locals: { agreements: @agreements_in_favor }
       #rightcol
-        - @agreements = @agreements_against
         = "#{@agreements_against.size} seem to disagree:"
-        = render "statements/whoagree"
+        = render partial: "statements/whoagree", locals: { agreements: @agreements_against }
 - if signed_in?
   #add
     Add someone else:

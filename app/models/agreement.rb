@@ -6,7 +6,7 @@ class Agreement < ActiveRecord::Base
   belongs_to :individual
 
   def short_url
-    url.gsub(/.*http:\/\//,'').gsub(/.*www\./,'')[0..15] + "..." if url.present?
+    url.gsub(/.*http:\/\//,'').gsub(/.*www\./,'')[0..15] + "..."
   end
 
   def disagree?

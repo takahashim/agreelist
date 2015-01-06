@@ -7,6 +7,9 @@
       .media-body
         = link_to(individual.name, individual_path(individual))
         #br
-        = link_to agreement.short_url, agreement.url
+        - if agreement.url.present? && agreement.url != "http://"
+          = link_to agreement.short_url, agreement.url
+        - else
+          %br
     = link_to("delete", agreement, method: :delete, data: { confirm: "You sure?" }) if admin?
     #br

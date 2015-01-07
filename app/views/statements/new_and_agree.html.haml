@@ -1,0 +1,7 @@
+.jumbotron.text-center
+  %h3 Write a controversial statement you'd like to convince others about:
+  %br
+  %br
+  = form_for @statement, url: { action: :create_and_agree } do |f|
+    = f.text_field :content, size: 80
+    = f.submit "Next"

@@ -31,7 +31,7 @@ class IndividualsController < ApplicationController
   private
 
   def load_individual
-    @individual = Individual.find(params[:id])
+    @individual = Individual.find_by_twitter(params[:id])
   end
 
   def same_user_required

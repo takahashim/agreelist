@@ -64,6 +64,10 @@ class Individual < ActiveRecord::Base
     search.blank? ? [] : self.where("content LIKE ?", "%#{search}%")
   end
 
+  def to_param
+    twitter
+  end
+
   private
 
   def twitter_client

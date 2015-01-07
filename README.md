@@ -1,6 +1,6 @@
 AgreeList
 =============
-This is the code behind http://AgreeList.com
+This is the code behind http://www.AgreeList.com
 
 Install
 -------
@@ -9,3 +9,6 @@ git clone git://github.com/HectorPerez/AgreeList.git
 cd AgreeList
 bundle install
 ```
+License
+-------
+MIT

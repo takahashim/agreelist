@@ -1,6 +1,24 @@
 class StatementsController < ApplicationController
   before_action :login_required, only: [:add_supporter, :destroy, :create]
 
+  def new_and_agree
+    @statement = Statement.new
+  end
+
+  def create_and_agree
+    @statement = Statement.new(params.require(:statement).permit(:content))
+
+    if @statement.save
+      Agreement.create(
+        statement: @statement,
+        individual: current_user,
+        extent: 100)
+      redirect_to @statement, notice: 'Statement was successfully create'
+    else
+      render action: "new"
+    end
+  end
+
   def search
     if params[:search].empty?
       flash[:notice] = "The search can't be empty"
@@ -66,14 +84,10 @@ class StatementsController < ApplicationController
   def create
     @statement = Statement.new(params.require(:statement).permit(:content))
 
-    respond_to do |format|
-      if @statement.save
-        format.html { redirect_to @statement, notice: 'Statement was successfully created.' }
-        format.json { render json: @statement, status: :created, location: @statement }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @statement.errors, status: :unprocessable_entity }
-      end
+    if @statement.save
+      redirect_to @statement, notice: 'Statement was successfully create'
+    else
+      render action: "new"
     end
   end
 

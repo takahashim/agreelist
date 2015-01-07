@@ -3,6 +3,8 @@ Al::Application.routes.draw do
   root to: 'static_pages#home',via: :get
 
   resources :statements
+  match '/statement' => 'statements#new_and_agree', via: :get
+  match '/statements/create_and_agree', via: :post
   resources :individuals, only: [:show, :edit, :update, :destroy]
   match '/add_supporter' => 'statements#add_supporter', via: [:get, :post]
   match '/search' => 'statements#search', via: :get

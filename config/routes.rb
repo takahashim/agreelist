@@ -5,6 +5,7 @@ Al::Application.routes.draw do
   resources :statements
   match '/statement' => 'statements#new_and_agree', via: :get
   match '/statements/create_and_agree', via: :post
+  match '/save_email' => 'individuals#save_email', via: :post
   resources :individuals, only: [:show, :edit, :update, :destroy]
   match '/add_supporter' => 'statements#add_supporter', via: [:get, :post]
   match '/search' => 'statements#search', via: :get

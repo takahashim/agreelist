@@ -5,7 +5,7 @@
       %a{href: "#"}
         = image_tag(individual.picture.url(:thumb), class: "picture")
       .media-body
-        = link_to(individual.name, individual_path(individual))
+        = link_to(individual.name || individual.twitter, individual_path(individual))
         #br
         - if agreement.url.present? && agreement.url != "http://"
           = link_to agreement.short_url, agreement.url

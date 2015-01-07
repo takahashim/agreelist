@@ -9,10 +9,11 @@ class Individual < ActiveRecord::Base
   has_many :taggings
   has_many :tags, :through => :taggings
 
-  validates :name, :presence => true
+  validates :twitter, :presence => true
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
 
   before_save :update_picture_from_twitter
+  before_save :update_name_from_twitter
 
   def self.create_with_omniauth(auth)
     create! do |user|
@@ -24,6 +25,12 @@ class Individual < ActiveRecord::Base
     end
   end
 
+  def update_name_from_twitter
+   if Rails.env == "production" && twitter.present?
+      self.name = twitter_client.user(twitter).name
+    end
+  end
+
   def update_picture_from_twitter
     if Rails.env == "production" && twitter.present?
       url = twitter_client.user(twitter).profile_image_url_https(:original)
@@ -31,8 +38,8 @@ class Individual < ActiveRecord::Base
     end
   end
 
-  def self.find_or_create(name)
-    self.find_by_name(name) || self.create(name: name)
+  def self.find_or_create(twitter)
+    self.find_by_twitter(twitter) || self.create(twitter: twitter)
   end
 
   def agrees

@@ -9,3 +9,7 @@ git clone git://github.com/HectorPerez/AgreeList.git
 cd AgreeList
 bundle install
 ```
+
+Developers
+-------
+Hector Perez

@@ -8,7 +8,6 @@ Al::Application.routes.draw do
   match '/save_email' => 'individuals#save_email', via: :post
   resources :individuals, only: [:edit, :update, :destroy]
   match '/add_supporter' => 'statements#add_supporter', via: [:get, :post]
-  match '/search' => 'statements#search', via: :get
   match '/contact' => 'static_pages#contact', via: :get
   match '/join' => 'static_pages#join', via: :get
   match '/emails' => 'static_pages#send_email', via: :post

@@ -20,16 +20,6 @@ class StatementsController < ApplicationController
     end
   end
 
-  def search
-    if params[:search].empty?
-      flash[:notice] = "The search can't be empty"
-      redirect_to "/"
-    else
-      @statements = Statement.search(params[:search])
-      @individuals = Individual.search(params[:search])
-    end
-  end
-
   def add_supporter
     individual = Individual.find_or_create(params.require(:new_supporter)) #Individual.find_by_name(params[:new_supporter]) || Individual.create(name: params[:new_supporter])
     Agreement.create(

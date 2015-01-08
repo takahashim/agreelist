@@ -4,9 +4,7 @@
     %h5 Convince others of a controversial issue: Show them who agree and why.
     %br
     - if current_user
-      = form_for(@statement) do |f|
-        = f.text_field :content, size: "50"
-        = f.submit "New statement"
+      = link_to "New statement", "/statement", class: "btn btn-primary"
     - else
       = link_to image_tag("twitter-login.png"), "/auth/twitter"
 

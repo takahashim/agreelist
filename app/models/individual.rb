@@ -39,7 +39,7 @@ class Individual < ActiveRecord::Base
   end
 
   def self.find_or_create(twitter)
-    self.find_by_twitter(twitter) || self.create(twitter: twitter)
+    self.find_by_twitter(twitter.downcase) || self.create(twitter: twitter.downcase)
   end
 
   def agrees

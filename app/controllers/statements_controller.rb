@@ -1,5 +1,6 @@
 class StatementsController < ApplicationController
-  before_action :login_required, only: [:add_supporter, :destroy, :create]
+  before_action :login_required, only: [:add_supporter, :create]
+  before_action :admin_required, only: :destroy
 
   def search
     if params[:search].empty?

@@ -19,7 +19,7 @@ class Individual < ActiveRecord::Base
     create! do |user|
       # user.provider = auth["provider"]
       user.uid = auth["uid"]
-      user.twitter = auth["info"]["nickname"]
+      user.twitter = auth["info"]["nickname"].downcase
       user.name = auth["info"]["name"]
       user.followers_count = auth["extra"]["raw_info"]["followers_count"]
     end

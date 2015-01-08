@@ -1,0 +1,18 @@
+Do you know someone else who agree/disagree? Add them now:
+= form_tag("/add_supporter", :method => "post") do
+  %br
+  = label_tag(:new_supporter, "Her/his twitter username:")
+  %br
+  = text_field_tag(:new_supporter,"", size: 30)
+  %br
+  = radio_button_tag :add, 'agreement'
+  Agrees
+  = radio_button_tag :add, 'disagreement'
+  Disagrees
+  %br
+  = label_tag(:source, "Source or more info url:")
+  %br
+  = text_field_tag(:source, "http://", size: 60)
+  = hidden_field_tag(:statement_id, @statement.id)
+  = submit_tag("Add")
+

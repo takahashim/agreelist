@@ -1,7 +1,7 @@
 .jumbotron
   .text-center
     %h1 Liquid Democracy
-    %h5 mix of direct & representative democracy
+    %h5 Convince others of a controversial issue: Show them who agree and why.
     %br
     - if current_user
       = form_for(@statement) do |f|
@@ -30,7 +30,3 @@
     .row
       - 3.times do |i|
         = render partial: "row", locals: { statement: @statements[i + 6], individual: @individuals[i + 6] }
-
-#footer
-  .text-center
-    = link_to("feedback@agreelist.com", "mailto:feedback@agreelist.com")

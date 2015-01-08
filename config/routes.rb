@@ -3,7 +3,10 @@ Al::Application.routes.draw do
   root to: 'static_pages#home',via: :get
 
   resources :statements
-  resources :individuals, only: [:show, :edit, :update, :destroy]
+  match '/statement' => 'statements#new_and_agree', via: :get
+  match '/statements/create_and_agree', via: :post
+  match '/save_email' => 'individuals#save_email', via: :post
+  resources :individuals, only: [:edit, :update, :destroy]
   match '/add_supporter' => 'statements#add_supporter', via: [:get, :post]
   match '/search' => 'statements#search', via: :get
   match '/contact' => 'static_pages#contact', via: :get
@@ -12,6 +15,7 @@ Al::Application.routes.draw do
   match "/auth/twitter/callback" => 'sessions#create', via: [:get, :post]
   match "/signout" => "sessions#destroy", as: :signout, via: :get
   resources :agreements, only: [:destroy]
+  match '/:id' => 'individuals#show', :as => :profile, via: :get
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

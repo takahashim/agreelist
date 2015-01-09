@@ -1,16 +1,23 @@
-- if (agree && current_user.in_favor?(@statement)) || (!agree && current_user.against?(@statement))
-  - if agree
-    = "People who agree (#{@agreements_in_favor.size})"
-  - else
-    = "People who disagree (#{@agreements_against.size})"
-  = link_to "Remove me", "/agreements/#{Agreement.where(statement: @statement, individual: current_user).first.id}", method: :delete
-- else
-  = form_tag("/add_supporter", method: "post") do
-    = hidden_field_tag :add, agree ? "agreement" : "disagreement"
-    = hidden_field_tag :new_supporter, current_user.twitter
-    = hidden_field_tag(:statement_id, @statement.id)
+- if signed_in?
+  - if (agree && current_user.in_favor?(@statement)) || (!agree && current_user.against?(@statement))
     - if agree
       = "People who agree (#{@agreements_in_favor.size})"
     - else
       = "People who disagree (#{@agreements_against.size})"
-    = submit_tag("Add me", class: "btn btn-primary")
+    = link_to "Remove me", "/agreements/#{Agreement.where(statement: @statement, individual: current_user).first.id}", method: :delete
+  - else
+    = form_tag("/add_supporter", method: "post") do
+      = hidden_field_tag :add, agree ? "agreement" : "disagreement"
+      = hidden_field_tag :new_supporter, current_user.twitter
+      = hidden_field_tag(:statement_id, @statement.id)
+      - if agree
+        = "People who agree (#{@agreements_in_favor.size})"
+      - else
+        = "People who disagree (#{@agreements_against.size})"
+      = submit_tag("Add me", class: "btn btn-primary")
+- else
+  - if agree
+    = "People who agree (#{@agreements_in_favor.size})"
+  - else
+    = "People who disagree (#{@agreements_against.size})"
+

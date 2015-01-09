@@ -68,7 +68,19 @@ class Individual < ActiveRecord::Base
     twitter
   end
 
+  def in_favor?(statement)
+    agreements(statement).where(extent: 100).first.present?
+  end
+
+  def against?(statement)
+    agreements(statement).where(extent: 0).first.present?
+  end
+
   private
+
+  def agreements(statement)
+    Agreement.where(statement_id: statement.id).where(individual_id: self.id)
+  end
 
   def twitter_client
     # this was in initializers/twitter.rb but heroku didn't find it

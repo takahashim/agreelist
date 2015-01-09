@@ -3,10 +3,10 @@
   - if @agreements_in_favor.any? || @agreements_against.any?
     #wrapper
       #leftcol
-        = "People who agree (#{@agreements_in_favor.size})"
+        = render partial: "add_me", locals: { agree: true }
         = render partial: "whoagree", locals: { agreements: @agreements_in_favor }
       #rightcol
-        = "People who disagree (#{@agreements_against.size})"
+        = render partial: "add_me", locals: { agree: false }
         = render partial: "whoagree", locals: { agreements: @agreements_against }
 - if signed_in?
   .container

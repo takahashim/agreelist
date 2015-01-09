@@ -7,10 +7,12 @@ class Statement < ActiveRecord::Base
   def agreements_in_favor
     agreements.select{ |a| a.extent == 100 }
   end
+  alias_method :supporters, :agreements_in_favor
 
   def agreements_against
     agreements.select{ |a| a.extent == 0 }
   end
+  alias_method :detractors, :agreements_against
 
   def self.search(search)
     search.blank? ? [] : self.where("content LIKE ?", "%#{search}%")

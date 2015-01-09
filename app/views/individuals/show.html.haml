@@ -6,18 +6,21 @@
 %strong Agrees:
 %br
 - if @agrees.empty?
+  %br
   None
 - else
   - @agrees.each do |a|
     = link_to a.content, statement_path(a)
+    = "(#{a.supporters.size} people agree vs #{a.detractors.size} people disagree)"
     %br
 %br
 
 %strong Disagrees:
-
 - if @disagrees.empty?
+  %br
   None
 - else
   - @disagrees.each do |a|
     = link_to a.content, statement_path(a)
+    = "(#{a.supporters.size} people agree vs #{a.detractors.size} people disagree)"
     %br

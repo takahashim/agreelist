@@ -13,8 +13,4 @@ class Statement < ActiveRecord::Base
     agreements.select{ |a| a.extent == 0 }
   end
   alias_method :detractors, :agreements_against
-
-  def self.search(search)
-    search.blank? ? [] : self.where("content LIKE ?", "%#{search}%")
-  end
 end

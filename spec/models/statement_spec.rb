@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Statement do
   let(:statement) { create(:statement) }
   let(:individual) { create(:individual) }
-  
+
   subject { statement }
 
   it { should respond_to(:individuals) }
@@ -21,7 +21,7 @@ describe Statement do
     before { statement.content = "h" * 141 }
     it { should_not be_valid }
   end
-  
+
   it "returns agreements in favor" do
     a = create(:agreement, extent: 100, statement_id: statement.id)
     expect(statement.agreements_in_favor).to eq [a]
@@ -36,10 +36,5 @@ describe Statement do
     a = create(:agreement, extent: 100, statement_id: statement.id)
     create(:agreement, extent: 0, statement_id: statement.id)
     expect(statement.agreements_in_favor).to eq [a]
-  end
-
-  it "should search" do
-    s = create(:statement, content: "The world is flat")
-    expect(Statement.search("world")[0]).to eq s
   end
 end

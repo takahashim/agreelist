@@ -10,6 +10,7 @@ FactoryGirl.define do  factory :email do
 
   factory :individual do
     name { Faker::Name.name }
+    twitter { Faker::Internet.user_name }
   end
 
   factory :agreement do

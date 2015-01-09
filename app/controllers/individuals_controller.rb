@@ -1,7 +1,6 @@
 class IndividualsController < ApplicationController
   before_action :login_required, only: [:update, :save_email]
   before_action :load_individual, except: :save_email
-  before_action :same_user_required, only: :save_email
   before_action :admin_required, only: :update
 
   def show
@@ -32,9 +31,5 @@ class IndividualsController < ApplicationController
 
   def load_individual
     @individual = Individual.find_by_twitter(params[:id])
-  end
-
-  def same_user_required
-    redirect_to root_path, notice: "You can't edit other user's profile"  if @individual != current_user && !admin?
   end
 end

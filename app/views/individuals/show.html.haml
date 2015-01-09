@@ -1,0 +1,23 @@
+%h1= @individual.name
+= image_tag @individual.picture.url(:square)
+= link_to("Edit", edit_individual_path) if admin?
+%br
+
+%strong Agrees:
+%br
+- if @agrees.empty?
+  None
+- else
+  - @agrees.each do |a|
+    = link_to a.content, statement_path(a)
+    %br
+%br
+
+%strong Disagrees:
+
+- if @disagrees.empty?
+  None
+- else
+  - @disagrees.each do |a|
+    = link_to a.content, statement_path(a)
+    %br

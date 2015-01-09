@@ -3,7 +3,7 @@ require 'spec_helper'
 describe do
   before do
     Statement.create(content: "aaa")
-    Individual.create(name: "bbbb")
+    Individual.create(name: "bbbb", twitter: "ccc")
   end
 
   feature "title" do

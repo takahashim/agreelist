@@ -3,6 +3,6 @@ class LogMailer < ActionMailer::Base
 
   def log_email(text)
     @text = text
-    mail(to: "hi@hectorperezarenas.com", subject: text)
+    mail(to: "hecpeare@gmail.com", subject: text)
   end
 end

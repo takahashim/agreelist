@@ -11,8 +11,8 @@ class StaticPagesController < ApplicationController
         @individuals << Individual.first
       end
     else
-      @statements = [1, 13, 8, 5, 6, 7, 15, 16, 24].map{ |s| Statement.find(s) }
-      @individuals = [5, 23, 1, 18, 17, 12, 25, 27, 38].map{ |i| Individual.find(i) }
+      @statements = [15, 13, 8, 5, 6, 7, 1, 16, 24].map{ |s| Statement.find(s) }
+      @individuals = [25, 23, 1, 18, 17, 12, 5, 27, 38].map{ |i| Individual.find(i) }
     end
     @statement = Statement.new if current_user
   end

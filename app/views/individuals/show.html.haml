@@ -1,7 +1,7 @@
 .container
   %h1
     = @individual.name
-    = link_to "Delegate", "/delegate", class: "btn btn-primary" if signed_in?
+    = link_to "Delegate", "/delegate", class: "btn btn-primary" if signed_in? && @individual != current_user
   = image_tag @individual.picture.url(:square)
   = link_to("Edit", edit_individual_path) if admin?
   %br

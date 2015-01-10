@@ -4,7 +4,6 @@ class Agreement < ActiveRecord::Base
 
   belongs_to :statement
   belongs_to :individual
-  has_many :vias, through: :delegation
 
   def short_url
     url.gsub(/.*http:\/\//,'').gsub(/.*www\./,'')[0..15] + "..."

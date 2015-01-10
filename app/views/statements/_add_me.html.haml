@@ -2,9 +2,10 @@
   - if (agree && current_user.in_favor?(@statement)) || (!agree && current_user.against?(@statement))
     - if agree
       = "People who agree (#{@agreements_in_favor.size})"
+      = link_to "Remove me", "/agreements/#{Agreement.where(statement: @statement, individual: current_user, extent: 100).first.id}", method: :delete
     - else
       = "People who disagree (#{@agreements_against.size})"
-    = link_to "Remove me", "/agreements/#{Agreement.where(statement: @statement, individual: current_user).first.id}", method: :delete
+      = link_to "Remove me", "/agreements/#{Agreement.where(statement: @statement, individual: current_user, extent: 0).first.id}", method: :delete
   - else
     = form_tag("/add_supporter", method: "post") do
       = hidden_field_tag :add, agree ? "agreement" : "disagreement"

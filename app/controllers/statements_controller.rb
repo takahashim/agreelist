@@ -9,6 +9,7 @@ class StatementsController < ApplicationController
   def create_and_agree
     @statement = Statement.new(params.require(:statement).permit(:content))
 
+    LogMailer.log_email("@#{current_user.twitter} has created '#{@statement.content}'").deliver
     if @statement.save
       Agreement.create(
         statement: @statement,
@@ -23,7 +24,7 @@ class StatementsController < ApplicationController
   def add_supporter
     individual = Individual.find_or_create(params.require(:new_supporter)) #Individual.find_by_name(params[:new_supporter]) || Individual.create(name: params[:new_supporter])
     statement = Statement.find(params[:statement_id])
-    LogMailer.log_email("@#{current_user.twitter} added the supporter #{individual.name} (@#{individual.twitter}) to '#{statement.content}'").deliver
+    LogMailer.log_email("@#{current_user.twitter} added #{individual.name} (@#{individual.twitter}) to '#{statement.content}'").deliver
     Agreement.create(
       statement_id: params[:statement_id],
       individual_id: individual.id,

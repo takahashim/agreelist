@@ -1,6 +1,6 @@
 class StatementsController < ApplicationController
   before_action :login_required, only: [:add_supporter, :create]
-  before_action :admin_required, only: :destroy
+  before_action :admin_required, only: [:edit, :update, :destroy]
 
   def new_and_agree
     @statement = Statement.new

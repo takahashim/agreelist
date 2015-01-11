@@ -22,6 +22,8 @@ class StatementsController < ApplicationController
 
   def add_supporter
     individual = Individual.find_or_create(params.require(:new_supporter)) #Individual.find_by_name(params[:new_supporter]) || Individual.create(name: params[:new_supporter])
+    statement = Statement.find(params[:statement_id])
+    LogMailer.log_email("@#{current_user.twitter} added the supporter #{individual.name} (@#{individual.twitter}) to '#{statement.content}'").deliver
     Agreement.create(
       statement_id: params[:statement_id],
       individual_id: individual.id,

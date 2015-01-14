@@ -7,13 +7,14 @@ class StatementsController < ApplicationController
   end
 
   def create_and_agree
-    @statement = Statement.new(params.require(:statement).permit(:content))
+    @statement = Statement.new(content: params[:content])
 
-    LogMailer.log_email("@#{current_user.twitter} has created '#{@statement.content}'").deliver
+    individual = Individual.find(params[:individual_id])
+    LogMailer.log_email("@#{current_user.twitter} has created '#{@statement.content}' and added @#{individual.twitter}").deliver
     if @statement.save
       Agreement.create(
         statement: @statement,
-        individual: current_user,
+        individual_id: params[:individual_id],
         extent: 100)
       redirect_to @statement, notice: 'Statement was successfully created'
     else

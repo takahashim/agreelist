@@ -15,6 +15,7 @@ class StatementsController < ApplicationController
       Agreement.create(
         statement: @statement,
         individual_id: params[:individual_id],
+        url: params[:url],
         extent: 100)
       redirect_to params[:back_url] == "created_statement" ? @statement : params[:back_url], notice: 'Statement was successfully created'
     else

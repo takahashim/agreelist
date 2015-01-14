@@ -34,8 +34,16 @@
       %br
       %br
       = form_tag("/statements/create_and_agree") do |f|
+        Statement:
+        %br
         = text_field_tag :content, "", size: 80
+        %br
+        %br
+        Source or more info url:
+        %br
+        = text_field_tag :url, "http://", size: 80
+
         = hidden_field_tag :individual_id, @individual.id
         = hidden_field_tag :back_url, "/#{@individual.twitter}"
-        = submit_tag "Add"
+        = submit_tag "Add", class: "btn btn-primary"
 

@@ -1,14 +1,16 @@
-Do you know someone else who agree/disagree? Add them now:
+%h3 Do you know someone else who agree/disagree? Add them now:
 = form_tag("/add_supporter", :method => "post") do
   %br
   = label_tag(:new_supporter, "Her/his twitter username:")
   %br
   = text_field_tag(:new_supporter,"", size: 30)
   %br
+  %br
   = radio_button_tag :add, 'agreement'
   Agrees
   = radio_button_tag :add, 'disagreement'
   Disagrees
+  %br
   %br
   = label_tag(:source, "Source or more info url:")
   %br

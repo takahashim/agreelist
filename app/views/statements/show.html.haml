@@ -1,15 +1,16 @@
 .container
   %h1= @statement.content
-  - if @agreements_in_favor.any? || @agreements_against.any?
-    #wrapper
-      #leftcol
-        = render partial: "add_me", locals: { agree: true }
-        = render partial: "whoagree", locals: { agreements: @agreements_in_favor }
-      #rightcol
-        = render partial: "add_me", locals: { agree: false }
-        = render partial: "whoagree", locals: { agreements: @agreements_against }
+  #wrapper
+    #leftcol
+      = render partial: "add_me", locals: { agree: true }
+      = render partial: "whoagree", locals: { agreements: @agreements_in_favor }
+    #rightcol
+      = render partial: "add_me", locals: { agree: false }
+      = render partial: "whoagree", locals: { agreements: @agreements_against }
 - if signed_in?
   .container
-    .text-center
+    .textcenter
       #add
-        = render partial: "add_supporter"
+        %br
+        .jumbotron
+          = render partial: "add_supporter"

@@ -16,7 +16,7 @@ class StatementsController < ApplicationController
         statement: @statement,
         individual_id: params[:individual_id],
         extent: 100)
-      redirect_to @statement, notice: 'Statement was successfully created'
+      redirect_to params[:back_url] == "created_statement" ? @statement : params[:back_url], notice: 'Statement was successfully created'
     else
       render action: "new"
     end

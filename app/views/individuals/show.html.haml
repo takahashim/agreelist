@@ -28,3 +28,15 @@
       = link_to a.content, statement_path(a)
       = "(#{a.supporters.size} people agree vs #{a.detractors.size} people disagree)"
       %br
+  .jumbotron
+    %h3
+      Write a new statement agreed by
+      = @individual.name
+    %br
+    %br
+    = form_tag("/statements/create_and_agree") do |f|
+      = text_field_tag :content, "", size: 80
+      = hidden_field_tag :individual_id, @individual.id
+      = hidden_field_tag :back_url, "/#{@individual.twitter}"
+      = submit_tag "Next"
+

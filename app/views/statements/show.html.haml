@@ -7,10 +7,9 @@
     #rightcol
       = render partial: "add_me", locals: { agree: false }
       = render partial: "whoagree", locals: { agreements: @agreements_against }
-- if signed_in?
-  .container
-    .textcenter
-      #add
-        %br
-        .jumbotron
-          = render partial: "add_supporter"
+.container
+  .textcenter
+    #add
+      %br
+      .jumbotron
+        = render partial: "add_supporter"

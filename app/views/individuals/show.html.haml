@@ -1,7 +1,11 @@
 .container
   %h1
     = @individual.name
-    = link_to "Delegate", "#", class: "btn btn-primary", onclick: "alert('Sorry, delegation is not implemented yet.')" if signed_in? && @individual != current_user
+    - if signed_in?
+      = link_to "Delegate", "", class: "btn btn-primary", onclick: "alert('Sorry, delegation is not implemented yet.')" if @individual != current_user
+    - else
+      = link_to "Delegate", "", class: "btn btn-primary", onclick: "alert('Sign in required.')"
+
   = image_tag @individual.picture.url(:square)
   = link_to("Edit", edit_individual_path) if admin?
   %br
@@ -26,24 +30,25 @@
       = link_to a.content, statement_path(a)
       = "(#{a.supporters.size} people agree vs #{a.detractors.size} people disagree)"
       %br
-  - if signed_in?
-    .jumbotron
-      %h3
-        Write a new statement agreed by
-        = @individual.name
+  .jumbotron
+    %h3
+      Write a new statement agreed by
+      = @individual.name
+    %br
+    %br
+    = form_tag("/statements/create_and_agree") do |f|
+      Statement:
+      %br
+      = text_field_tag :content, "", size: 80
       %br
       %br
-      = form_tag("/statements/create_and_agree") do |f|
-        Statement:
-        %br
-        = text_field_tag :content, "", size: 80
-        %br
-        %br
-        Source or more info url:
-        %br
-        = text_field_tag :url, "http://", size: 80
+      Source or more info url:
+      %br
+      = text_field_tag :url, "http://", size: 80
 
-        = hidden_field_tag :individual_id, @individual.id
-        = hidden_field_tag :back_url, "/#{@individual.twitter}"
+      = hidden_field_tag :individual_id, @individual.id
+      = hidden_field_tag :back_url, "/#{@individual.twitter}"
+      - if signed_in?
         = submit_tag "Add", class: "btn btn-primary"
-
+      - else
+        = link_to "Add", "", class: "btn btn-primary", onclick: "alert('Sign in required.')"

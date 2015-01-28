@@ -5,7 +5,6 @@
       .navbar-collapse.collapse.navbar-responsive-collapse
         %ul.nav.navbar-nav.pull-right
           %li= link_to "New", "/statement" if current_user
-          %li= link_to "Politicians", "/#politicians"
           %li= link_to "Profile", profile_path(current_user.twitter) if current_user
           %li= link_to "Sign in with Twitter", "/auth/twitter" unless current_user
           %li= link_to "Contact", "/contact"

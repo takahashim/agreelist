@@ -1,9 +1,7 @@
 .jumbotron
   .text-center
     %h1 Liquid Democracy
-    %h5
-      Mix of direct and representative democracy for citizens and
-      = link_to "new politicians", "#politicians"
+    %h5 Mix of direct and representative democracy
     %br
     - if current_user
       = link_to "New statement", "/statement", class: "btn btn-primary"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150101150719) do
+ActiveRecord::Schema.define(version: 20150130194959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,16 +21,23 @@ ActiveRecord::Schema.define(version: 20150101150719) do
     t.integer  "individual_id"
     t.integer  "statement_id"
     t.integer  "extent"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   add_index "agreements", ["statement_id", "created_at"], name: "index_agreements_on_statement_id_and_created_at", using: :btree
 
-  create_table "individuals", force: true do |t|
-    t.string   "name"
+  create_table "delegations", force: true do |t|
+    t.integer  "representative_id"
+    t.integer  "represented_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "individuals", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.string   "twitter"
     t.string   "picture_file_name"
     t.string   "picture_content_type"
@@ -43,15 +50,18 @@ ActiveRecord::Schema.define(version: 20150101150719) do
 
   create_table "statements", force: true do |t|
     t.string   "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "hashed_id"
   end
+
+  add_index "statements", ["hashed_id"], name: "index_statements_on_hashed_id", using: :btree
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"
     t.integer  "individual_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   add_index "taggings", ["individual_id"], name: "index_taggings_on_individual_id", using: :btree
@@ -59,6 +69,13 @@ ActiveRecord::Schema.define(version: 20150101150719) do
 
   create_table "tags", force: true do |t|
     t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "via", force: true do |t|
+    t.integer  "agreement_id"
+    t.integer  "individual_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

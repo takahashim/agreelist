@@ -1,6 +1,7 @@
 class StatementsController < ApplicationController
   before_action :login_required, only: [:add_supporter, :create, :create_and_agree]
   before_action :admin_required, only: [:edit, :update, :destroy]
+  before_action :find_statement, only: [:show, :destroy, :update, :edit]
 
   def new_and_agree
     @statement = Statement.new
@@ -32,7 +33,7 @@ class StatementsController < ApplicationController
       individual_id: individual.id,
       url: params[:source],
       extent: params[:add] == "disagreement" ? 0 : 100)
-    redirect_to statement_path(params[:statement_id])
+    redirect_to statement_path(statement)
   end
 
   # GET /statements
@@ -49,7 +50,6 @@ class StatementsController < ApplicationController
   # GET /statements/1
   # GET /statements/1.json
   def show
-    @statement = Statement.find(params[:id])
     @agreements_in_favor = @statement.agreements_in_favor
     @agreements_against = @statement.agreements_against
 
@@ -72,7 +72,6 @@ class StatementsController < ApplicationController
 
   # GET /statements/1/edit
   def edit
-    @statement = Statement.find(params[:id])
   end
 
   # POST /statements
@@ -90,8 +89,6 @@ class StatementsController < ApplicationController
   # PUT /statements/1
   # PUT /statements/1.json
   def update
-    @statement = Statement.find(params[:id])
-
     respond_to do |format|
       if @statement.update_attributes(params.require(:statement).permit(:content))
         format.html { redirect_to @statement, notice: 'Statement was successfully updated.' }
@@ -106,12 +103,17 @@ class StatementsController < ApplicationController
   # DELETE /statements/1
   # DELETE /statements/1.json
   def destroy
-    @statement = Statement.find(params[:id])
     @statement.destroy
 
     respond_to do |format|
       format.html { redirect_to statements_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def find_statement
+    @statement = Statement.find_by_hashed_id(params[:id].split("-").last)
   end
 end

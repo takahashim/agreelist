@@ -1,21 +1,21 @@
 .jumbotron
   .text-center
-    %h1 Liquid Democracy
-    %h5 Convince others of a controversial issue: Show them who agree and why.
+    %h1 Wanna know who agree?
+    %h5 Among your friends and among people you admire
     %br
     - if current_user
-      = link_to "New statement", "/statement", class: "btn btn-primary"
+      = link_to "New question", "/statement", class: "btn btn-primary"
     - else
       = link_to image_tag("twitter-login.png"), "/auth/twitter"
 
 %section#info
   .container
     .col-md-4
-      %h3 1. When you elect an online representative, you vote whatever s/he votes.
+      %h3 1. Ask a yes/no question
     .col-md-4
-      %h3 2. But if you vote on concrete issues, your vote counts instead.
+      %h3 2. Share it on Twitter
     .col-md-4
-      %h3 3. Change your representative/s at any time.
+      %h3 3. People gather who agree
 
 #statements
   .container

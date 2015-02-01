@@ -4,7 +4,7 @@ feature 'disagree' do
   before do
     statement = Statement.create(content: "aaa")
     login
-    visit "/statements/#{statement.id}"
+    visit statement_path(statement)
   end
 
   scenario 'adds someone who disagrees' do

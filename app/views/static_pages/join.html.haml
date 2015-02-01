@@ -4,6 +4,6 @@
     %h3 Email:
     = form_for @individual, url: { action: :save_email, controller: :individuals }, method: :post do |f|
       = f.text_field :email, size: 30
-      = f.submit "Send", class: "btn btn-primary"
+      = f.submit "Next", class: "btn btn-primary"
       or
       = link_to "skip", "/statement"

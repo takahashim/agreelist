@@ -28,6 +28,15 @@
     .row
       - 3.times do |i|
         = render partial: "row", locals: { statement: @statements[i + 6], individual: @individuals[i + 6] }
+
+.jumbotron
+  .text-center
+    %h1 Not just quotes
+    %h3
+      If Barack Obama says that climate change is a threat, we can add him to the list of people who agree that climate change is real.
+      %br
+      %br
+      = image_tag "climate-change.jpg"
 .jumbotron
   .text-center
     %h1 Liquid Democracy

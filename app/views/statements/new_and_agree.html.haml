@@ -1,3 +1,12 @@
+- if @statement.errors.any?
+  #error_explanation.alert.alert-danger
+    %h2
+      = pluralize(@statement.errors.count, "error")
+      prohibited this statement from being saved:
+      %ul
+        - @statement.errors.full_messages.each do |msg|
+          %li= msg
+
 .jumbotron.text-center
   %h3 Write a yes/no question or a controversial statement you'd like to convince others about:
   %br

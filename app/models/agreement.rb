@@ -5,6 +5,7 @@ class Agreement < ActiveRecord::Base
   belongs_to :statement
   belongs_to :individual
 
+  before_create :generate_hashed_id
   after_create :rm_opposite_agreement
 
   def short_url
@@ -19,6 +20,10 @@ class Agreement < ActiveRecord::Base
     extent == 100
   end
 
+  def to_param
+    self.hashed_id
+  end
+
   private
 
   def rm_opposite_agreement
@@ -28,5 +33,11 @@ class Agreement < ActiveRecord::Base
 
   def opposite_extent
     extent == 100 ? 0 : 100
+  end
+  def generate_hashed_id
+    self.hashed_id = loop do
+      token = SecureRandom.urlsafe_base64.gsub("-", "_")
+      break token unless Agreement.where('hashed_id' => token).first.present?
+    end
   end
 end

@@ -23,7 +23,7 @@ class Statement < ActiveRecord::Base
 
   def generate_hashed_id
     self.hashed_id = loop do
-      token = SecureRandom.urlsafe_base64.gsub("-", "_")
+      token = SecureRandom.urlsafe_base64[0,12].downcase.gsub("-", "a").gsub("_", "b")
       break token unless Statement.where('hashed_id' => token).first.present?
     end
   end

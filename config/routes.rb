@@ -1,6 +1,6 @@
 Al::Application.routes.draw do
   root to: 'static_pages#home', via: :get
-  resources :statements do
+  resources :statements, path: "s" do
     collection do
       post 'create_and_agree'
     end

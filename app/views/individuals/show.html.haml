@@ -1,11 +1,5 @@
 .container
-  %h1
-    = @individual.name
-    - if signed_in?
-      = link_to "Elect", "", class: "btn btn-primary", onclick: "alert('Sorry, delegation is not implemented yet.')" if @individual != current_user
-    - else
-      = link_to "Elect", "", class: "btn btn-primary", onclick: "alert('Sign in required.')"
-
+  %h1= @individual.name
   = image_tag @individual.picture.url(:square)
   = link_to("Edit", edit_individual_path) if admin?
   %br

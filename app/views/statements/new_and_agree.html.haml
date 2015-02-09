@@ -11,7 +11,7 @@
   %h3 Write a yes/no question or a controversial statement you'd like to convince others about:
   %br
   %br
-  = form_tag("/statements/create_and_agree") do |f|
+  = form_tag("/s/create_and_agree") do |f|
     = text_field_tag :content, "", size: 80
     = hidden_field_tag :individual_id, current_user.id
     = hidden_field_tag :back_url, "created_statement"

@@ -9,7 +9,7 @@ describe do
   feature "title" do
     scenario "should have h1" do
       visit "/"
-      expect(page).to have_selector('h1', text: 'Who agree?')
+      expect(page).to have_selector('h1', text: 'Do you agree?')
     end
   end
 

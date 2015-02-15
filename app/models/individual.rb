@@ -13,7 +13,7 @@ class Individual < ActiveRecord::Base
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
 
   before_save :update_picture_from_twitter
-  before_save :update_name_from_twitter
+  before_save :update_name_from_twitter if self.twitter != "gmc"
 
   def self.create_with_omniauth(auth)
     create! do |user|

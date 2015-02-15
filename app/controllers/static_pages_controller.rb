@@ -12,14 +12,7 @@ class StaticPagesController < ApplicationController
       end
     else
       @statements = urls.map{ |s| Statement.find_by_hashed_id(s.split("-").last) }
-      @individuals = []
-      @statements.each do |s|
-        if @individuals.include?(s.individuals.first)
-          @individuals << s.individuals[1]
-        else
-          @individuals << s.individuals.first
-        end
-      end
+      @individuals = twitters.map{ |t| Individual.find_by_twitter(t) }
     end
     @statement = Statement.new if current_user
   end
@@ -40,5 +33,9 @@ class StaticPagesController < ApplicationController
        http://www.agreelist.com/s/go-with-your-gut-rx54xxorby6y
        http://www.agreelist.com/s/don-t-give-up-olyhqve6j6sf
        http://www.agreelist.com/s/set-goals-4m7m7oidosa8)
+  end
+
+  def twitters
+    %w(reidhoffman edyson elonmusk paulg petercohan gmc tferriss richardbranson dilbert_daily)
   end
 end

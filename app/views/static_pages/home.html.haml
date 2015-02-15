@@ -1,7 +1,7 @@
 .jumbotron
   .text-center
-    %h1 Do you agree?
-    %h5 Learn what the world thinks on things that matter to you.
+    %h1 Advice for entrepreneurs
+    %h5 Learn what the world thinks on things that matter to you
 
     %br
     - if current_user
@@ -12,7 +12,7 @@
 %section#info
   .container
     .col-md-4
-      %h3 1. Ask a yes/no question
+      %h3 1. Ask a yes/no question or write a statement
     .col-md-4
       %h3 2. Share it on Twitter
     .col-md-4
@@ -29,18 +29,3 @@
     .row
       - 3.times do |i|
         = render partial: "row", locals: { statement: @statements[i + 6], individual: @individuals[i + 6] }
-
-.jumbotron
-  .text-center
-    %h1 Insightful commentary on global issues
-    %h3
-      When
-      = link_to "Barack Obama", "/barackobama"
-      says that climate change is a threat,
-    %h3
-      we also add him to the list of people who agree that
-      = link_to "climate change is real.", "/s/climate-change-is-real-hpqmamhydk4m"
-      %br
-      %br
-      =# image_tag "climate-change.jpg"
-      = image_tag("people.gif")

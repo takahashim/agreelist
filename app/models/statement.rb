@@ -2,8 +2,10 @@ class Statement < ActiveRecord::Base
   has_many :agreements, dependent: :destroy
   has_many :individuals, :through => :agreements
 
+  acts_as_taggable
+
   validates :content, presence: true, length: { maximum: 140 }
-  before_create :generate_hashed_id
+  before_create :generate_hashed_id, :set_entrepreneurship_tag
 
   def agreements_in_favor
     agreements.select{ |a| a.extent == 100 }
@@ -26,5 +28,9 @@ class Statement < ActiveRecord::Base
       token = SecureRandom.urlsafe_base64[0,12].downcase.gsub("-", "a").gsub("_", "b")
       break token unless Statement.where('hashed_id' => token).first.present?
     end
+  end
+
+  def set_entrepreneurship_tag
+    self.tag_list.add("entrepreneurship")
   end
 end

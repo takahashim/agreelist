@@ -3,6 +3,9 @@ class StaticPagesController < ApplicationController
     @individual = current_user
   end
 
+  def polarb
+  end
+
   def home
     if Rails.env == "test"
       @statements, @individuals = [], []

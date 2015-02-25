@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
     @individual = current_user
   end
 
-  def polarb
+  def polar
   end
 
   def home

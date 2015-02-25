@@ -6,8 +6,6 @@ class Individual < ActiveRecord::Base
   }
   has_many :agreements, dependent: :destroy
   has_many :statements, :through => :agreements
-  has_many :taggings
-  has_many :tags, :through => :taggings
 
   validates :twitter, :presence => true
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
@@ -48,16 +46,6 @@ class Individual < ActiveRecord::Base
 
   def disagrees
     agreements.select{ |a| a.extent == 0 }.map{ |i| i.statement }
-  end
-
-  def tag_list
-    tags.map(&:name).join(", ")
-  end
-
-  def tag_list=(names)
-    self.tags = names.split(",").map do |n|
-      Tag.where(name: n.strip).first_or_create!
-    end
   end
 
   def self.search(search)

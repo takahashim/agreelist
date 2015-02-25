@@ -1,9 +1,8 @@
 .jumbotron
   .text-center
-    %h2= current_user.name
-    %h3 Email:
+    %h3 Wanna know when people agree/disagree with your advice? Write your email:
     = form_for @individual, url: { action: :save_email, controller: :individuals }, method: :post do |f|
       = f.text_field :email, size: 30
       = f.submit "Next", class: "btn btn-primary"
       or
-      = link_to "skip", "/statement"
+      = link_to "skip", "/"

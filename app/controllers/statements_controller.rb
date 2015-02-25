@@ -10,15 +10,14 @@ class StatementsController < ApplicationController
   def create_and_agree
     @statement = Statement.new(content: params[:content])
 
-    individual = Individual.find(params[:individual_id])
-    LogMailer.log_email("@#{current_user.twitter} has created '#{@statement.content}' and added @#{individual.twitter}").deliver
+    LogMailer.log_email("@#{current_user.twitter} has created '#{@statement.content}'").deliver
     if @statement.save
       Agreement.create(
         statement: @statement,
-        individual_id: params[:individual_id],
+        individual: current_user,
         url: params[:url],
         extent: 100)
-      redirect_to params[:back_url] == "created_statement" ? @statement : params[:back_url], notice: 'Statement was successfully created'
+      redirect_to current_user.email.present? ? "/" : "/join"
     else
       render action: "new_and_agree"
     end

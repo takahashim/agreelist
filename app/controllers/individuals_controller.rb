@@ -21,7 +21,7 @@ class IndividualsController < ApplicationController
 
   def save_email
     if current_user.update_attributes(params.require(:individual).permit(:email))
-      redirect_to "/statement", notice: 'Email saved.'
+      redirect_to "/", notice: 'Email saved.'
     else
       render action: "edit"
     end

@@ -13,8 +13,6 @@
   %br
   = form_tag("/s/create_and_agree") do |f|
     = text_field_tag :content, "", size: 80
-    = hidden_field_tag :individual_id, current_user.id
-    = hidden_field_tag :back_url, "created_statement"
     = submit_tag "Next", class: "btn btn-primary"
     or
     = link_to "skip", root_path

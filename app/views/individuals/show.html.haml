@@ -36,9 +36,10 @@
       = text_field_tag :content, "", size: 80
       %br
       %br
-      Source or more info url:
-      %br
-      = text_field_tag :url, "http://", size: 80
+      - if current_user != @individual
+        Source or more info url:
+        %br
+        = text_field_tag :url, "http://", size: 80
 
       = hidden_field_tag :individual_id, @individual.id
       = hidden_field_tag :back_url, "/#{@individual.twitter}"

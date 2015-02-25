@@ -15,6 +15,6 @@ Al::Application.routes.draw do
   match "/auth/twitter/callback" => 'sessions#create', via: [:get, :post]
   get "/signout" => "sessions#destroy", as: :signout
   resources :agreements, only: [:destroy]
-  get '/polar' => 'static_pages#polar'
+  get '/test' => 'static_pages#polar'
   get '/:id' => 'individuals#show', :as => :profile
 end

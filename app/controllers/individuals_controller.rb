@@ -21,7 +21,7 @@ class IndividualsController < ApplicationController
 
   def save_email
     if current_user.update_attributes(params.require(:individual).permit(:email))
-      redirect_to params[:back] ? Statement.find_by_hashed_id(params[:back].keys.first) : "/", notice: 'Email saved.'
+      redirect_to params[:back].try(:keys).try(:first).try(:present?) ? Statement.find_by_hashed_id(params[:back].keys.first) : "/", notice: 'Email saved.'
     else
       render action: "edit"
     end

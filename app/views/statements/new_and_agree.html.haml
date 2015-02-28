@@ -8,11 +8,11 @@
           %li= msg
 
 .jumbotron.text-center
-  %h3 Give your advice for entrepreneurs
-  %br
-  %br
+  %h3 Give your advice for entrepreneurs:
   = form_tag("/s/create_and_agree") do |f|
     = text_field_tag :content, "", size: 80
+    %br
+    %br
     = submit_tag "Next", class: "btn btn-primary"
     or
     = link_to "skip", root_path

@@ -17,7 +17,7 @@ class StatementsController < ApplicationController
         individual: current_user,
         url: params[:url],
         extent: 100)
-      redirect_to current_user.email.present? ? (params[:back_url] || "/") : "/join"
+      redirect_to current_user.email.present? ? (params[:back_url] || @statement) : "/join?back=#{@statement.hashed_id}"
     else
       render action: "new_and_agree"
     end

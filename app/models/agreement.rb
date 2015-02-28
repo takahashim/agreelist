@@ -7,6 +7,8 @@ class Agreement < ActiveRecord::Base
 
   before_create :generate_hashed_id
   after_create :rm_opposite_agreement
+  after_save :update_entrepreneurship_statements_count
+  after_destroy :update_entrepreneurship_statements_count
 
   def short_url
     url.gsub(/.*http:\/\//,'').gsub(/.*www\./,'')[0..15] + "..."
@@ -39,5 +41,10 @@ class Agreement < ActiveRecord::Base
       token = SecureRandom.urlsafe_base64.gsub("-", "_")
       break token unless Agreement.where('hashed_id' => token).first.present?
     end
+  end
+
+  def update_entrepreneurship_statements_count
+    individual.entrepreneurship_statements_count = self.individual.statements.tagged_with("entrepreneurship").size
+    individual.save
   end
 end

@@ -17,7 +17,7 @@ module Friends
     end
 
     def agreelist_users
-      Individual.all.map(&:twitter)
+      Individual.where("entrepreneurship_statements_count > 0").map(&:twitter)
     end
   end
 end

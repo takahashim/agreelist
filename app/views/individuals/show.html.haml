@@ -25,25 +25,26 @@
       = "(#{a.supporters.size} people agree vs #{a.detractors.size} people disagree)"
       %br
   .jumbotron
-    %h3
-      Write a new statement agreed by
-      = @individual.name
-    %br
-    %br
-    = form_tag("/s/create_and_agree") do |f|
-      Statement:
+    = form_tag("/s/create_and_agree", class: "form-horizontal") do |f|
       %br
-      = text_field_tag :content, "", size: 80
-      %br
-      %br
-      - if current_user != @individual
-        Source or more info url:
-        %br
-        = text_field_tag :url, "http://", size: 80
+      .form-group
+        %h3.text-center
+          Write a new statement agreed by
+          = @individual.name
 
-      = hidden_field_tag :individual_id, @individual.id
-      = hidden_field_tag :back_url, "/#{@individual.twitter}"
-      - if signed_in?
-        = submit_tag "Add", class: "btn btn-primary"
-      - else
-        = link_to "Add", "", class: "btn btn-primary", onclick: "alert('Sign in required.')"
+        .col-sm-1
+        .col-sm-10
+          = text_field_tag :content, "", placeholder: "Statement", class: "form-control"
+          - if current_user != @individual
+            %br
+            Source or more info url:
+            %br
+            = text_field_tag :url, "", placeholder: "http:// where it's clear that #{@individual.name} agrees", class: "form-control"
+
+          = hidden_field_tag :individual_id, @individual.id
+          = hidden_field_tag :back_url, "/#{@individual.twitter}"
+      .text-center
+        - if signed_in?
+          = submit_tag "Add", class: "btn btn-primary"
+        - else
+          = link_to "Add", "", class: "btn btn-primary", onclick: "alert('Sign in required.')"

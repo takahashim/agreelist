@@ -9,10 +9,11 @@
 
 .jumbotron.text-center
   %h3 Give your advice for entrepreneurs:
-  = form_tag("/s/create_and_agree") do |f|
-    = text_field_tag :content, "", size: 80
-    %br
-    %br
+  = form_tag("/s/create_and_agree", class: "form-horizontal") do |f|
+    .form-group
+      .col-sm-2
+      .col-sm-8
+        = text_field_tag :content, "", class: "form-control", placeholder: "Advice"
     = submit_tag "Next", class: "btn btn-primary"
     or
     = link_to "skip", root_path

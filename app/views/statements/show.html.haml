@@ -1,10 +1,10 @@
 .container
   %h1= @statement.content
-  #wrapper
-    #leftcol
+  .row
+    .col-md-6
       = render partial: "add_me", locals: { agree: true }
       = render partial: "whoagree", locals: { agreements: @agreements_in_favor }
-    #rightcol
+    .col-md-6
       = render partial: "add_me", locals: { agree: false }
       = render partial: "whoagree", locals: { agreements: @agreements_against }
 .container
@@ -15,11 +15,11 @@
         = render partial: "add_supporter"
   %h3 Other statements
   .row
-    .col-xs-6
+    .col-md-6
       - @related_statements[0..2].each do |related|
         = link_to related.content, related
         %br
-    .col-xs-6
+    .col-md-6
       - @related_statements[3..5].each do |related|
         = link_to related.content, related
         %br

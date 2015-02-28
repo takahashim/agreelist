@@ -10,8 +10,10 @@
   background-color: red;
 }
 
-.row {
-  padding-bottom: 10px;
+@media (min-width: 990px) {
+  .row {
+    padding-bottom: 10px;
+  }
 }
 
 #info {
@@ -24,6 +26,6 @@
 
 @media (max-width: 991px) {
   .home_txt {
-    padding-bottom: 70px;
+    height: 110px;
   }
 }

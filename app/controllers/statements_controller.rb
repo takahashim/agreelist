@@ -51,6 +51,7 @@ class StatementsController < ApplicationController
   def show
     @agreements_in_favor = @statement.agreements_in_favor
     @agreements_against = @statement.agreements_against
+    @related_statements = Statement.where.not(id: @statement.id).tagged_with("entrepreneurship").limit(6)
 
     respond_to do |format|
       format.html # show.html.erb

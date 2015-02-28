@@ -2,8 +2,11 @@
   .text-center
     %h3 Wanna know when people agree/disagree with your advice? Write your email:
     = form_for @individual, url: { action: :save_email, controller: :individuals }, method: :post do |f|
-      = f.text_field :email, size: 30
-      = hidden_field :back, params[:back]
+      .form-group
+        .col-sm-2
+        .col-sm-8
+        = f.text_field :email, placeholder: "your@email.com", size: 30
+        = hidden_field :back, params[:back]
       = f.submit "Next", class: "btn btn-primary"
       or
       = link_to "skip", params[:back] ? Statement.find_by_hashed_id(params[:back]) : "/"

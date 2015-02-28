@@ -1,7 +1,7 @@
 .col-md-4
-  .media
+  .home_pic
     %a{class: "pull-left", href: "/#{individual.twitter}"}
       = image_tag(individual.picture.url(:thumb), class: "picture")
-    .media-body
-      %h4.media-heading= link_to individual.name, profile_path(individual)
-      = link_to statement.content, statement_path(statement)
+  .home_txt
+    %h4.media-heading= link_to individual.name, profile_path(individual)
+    = link_to statement.content, statement_path(statement)

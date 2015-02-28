@@ -2,7 +2,7 @@
   - agreements.each do |agreement|
     - individual = agreement.individual
     .media
-      %a{href: "#"}
+      %a{href: "/#{individual.twitter}"}
         = image_tag(individual.picture.url(:thumb), class: "picture")
       .media-body
         = link_to(individual.name || individual.twitter, profile_path(individual))

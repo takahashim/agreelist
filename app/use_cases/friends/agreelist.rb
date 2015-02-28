@@ -1,9 +1,9 @@
 module Friends
   class Agreelist
-    attr_reader :user
+    attr_reader :twitter
 
-    def initialize(user)
-      @user = user
+    def initialize(twitter)
+      @twitter = twitter
     end
 
     def find
@@ -13,7 +13,7 @@ module Friends
     private
 
     def friends_on_twitter
-      ::Friends::OnTwitter.new.retrieve(user.twitter)
+      ::Friends::OnTwitter.new.retrieve(twitter)
     end
 
     def agreelist_users

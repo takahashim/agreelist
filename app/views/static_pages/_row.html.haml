@@ -1,6 +1,6 @@
 .col-md-4
   .media
-    %a{class: "pull-left", href: "#"}
+    %a{class: "pull-left", href: "/#{individual.twitter}"}
       = image_tag(individual.picture.url(:thumb), class: "picture")
     .media-body
       %h4.media-heading= link_to individual.name, profile_path(individual)

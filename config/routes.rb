@@ -16,5 +16,8 @@ Al::Application.routes.draw do
   get "/signout" => "sessions#destroy", as: :signout
   resources :agreements, only: [:destroy]
   get '/test' => 'static_pages#polar'
+
+  get "/auth/failure" => redirect("/")
+
   get '/:id' => 'individuals#show', :as => :profile
 end

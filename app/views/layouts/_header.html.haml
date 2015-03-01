@@ -1,6 +1,12 @@
-%header.navbar.navbar-fixed-top.navbar-inverse
-  .navbar-inner
-    .container
+%nav.navbar.navbar-fixed-top.navbar-inverse
+  .container-fluid
+    .navbar-inner
+      %button{type: "button", class: "navbar-toggle collapsed", "data-toggle" => "collapse", "data-target" => "#bs-example-navbar-collapse1"}
+        %span{class: "sr-only"}
+          Toggle navigation
+        %span{class: "icon-bar"}
+        %span{class: "icon-bar"}
+        %span{class: "icon-bar"}
       = link_to "AgreeList", root_path, id: "logo"
       .navbar-collapse.collapse.navbar-responsive-collapse
         %ul.nav.navbar-nav.pull-right

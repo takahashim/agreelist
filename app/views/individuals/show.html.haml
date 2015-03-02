@@ -1,6 +1,8 @@
 .container
   %h1= @individual.name
   = image_tag @individual.picture.url(:square)
+  = link_to "@#{@individual.twitter}", "http://www.twitter.com/#{@individual.twitter}"
+  = @individual.description
   = link_to("Edit", edit_individual_path) if admin?
   %br
 

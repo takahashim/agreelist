@@ -10,8 +10,7 @@ class Individual < ActiveRecord::Base
   validates :twitter, :presence => true
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
 
-  before_save :update_picture_from_twitter
-  before_save :update_name_from_twitter
+  before_save :update_profile_from_twitter
 
   def self.create_with_omniauth(auth)
     create! do |user|
@@ -23,15 +22,12 @@ class Individual < ActiveRecord::Base
     end
   end
 
-  def update_name_from_twitter
-   if Rails.env == "production" && twitter.present? && twitter != "gmc"
-      self.name = twitter_client.user(twitter).name
-    end
-  end
-
-  def update_picture_from_twitter
+  def update_profile_from_twitter
     if Rails.env == "production" && twitter.present?
-      url = twitter_client.user(twitter).profile_image_url_https(:original)
+      user = twitter_client.user(twitter)
+      self.name = user.name if twitter != "gmc"
+      self.description = user.description
+      url = user.profile_image_url_https(:original)
       self.picture = open(url)
     end
   end

@@ -64,7 +64,7 @@ class StatementsController < ApplicationController
       @agreements_against = @statement.agreements_against(order: params[:order], category_id: category_id)
     end
     @agreements_count = @agreements_in_favor.size + @agreements_against.size
-    @percentage_in_favor = @agreements_in_favor.size * 100 / @agreements_count if @agreements_count > 0
+    @percentage_in_favor = (@agreements_in_favor.size * 100.0 / @agreements_count).round if @agreements_count > 0
     @related_statements = Statement.where.not(id: @statement.id).tagged_with(@statement.tags.first).limit(6)
 
     @comment = Comment.new

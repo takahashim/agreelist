@@ -22,17 +22,17 @@
       |
       = link_to "Votes", statement_path(@statement, order: nil)
     - else
-      = link_to "Date", statement_path(@statement, order: "date")
-      |
       Votes
+      |
+      = link_to "Date", statement_path(@statement, order: "date")
   .row
     .col-sm-6
       .add_me
-        %h4= @agreements_count > 0 ? "Who agrees (#{@percentage_in_favor}% of #{pluralize(@agreements_count, 'vote')}):" : "None disagrees yet"
+        %h4= @agreements_count > 0 ? "Who agrees (#{@percentage_in_favor}% of #{pluralize(@agreements_count, 'opinion')}):" : "None disagrees yet"
       = render partial: "whoagree", locals: { agreements: @agreements_in_favor }
     .col-sm-6
       .add_me
-        %h4= @agreements_count > 0 ? "Who disagrees (#{100 - @percentage_in_favor}% of #{pluralize(@agreements_count, 'vote')}):" : "None disagrees yet"
+        %h4= @agreements_count > 0 ? "Who disagrees (#{100 - @percentage_in_favor}% of #{pluralize(@agreements_count, 'opinion')}):" : "None disagrees yet"
       = render partial: "whoagree", locals: { agreements: @agreements_against }
 .container
   #comments
@@ -57,7 +57,7 @@
   .modal-dialog
     .modal-content
       .modal-header.text-center
-        %h3 Login with Twitter to vote
+        %h3 Login with Twitter to give your opinion
       .modal-body.text-center
         = link_to image_tag("twitter-login.png"), "/auth/twitter", id: "vote-twitter-login"
         or

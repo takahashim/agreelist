@@ -29,6 +29,7 @@ class Statement < ActiveRecord::Base
     a = agreements.where(extent: (agree_or_disagree == :agree ? 100 : 0)).includes(:individual).includes(:upvotes)
     a = a.where(reason_category_id: args[:category_id]) if args[:category_id]
     a = a.where(reason_category_id: nil) if args[:filter_by] == :non_categorized
+    a = a.joins("left outer join individuals on agreements.individual_id = individuals.id").joins("left outer join professions p on p.id = individuals.profession_id").where("p.name = ?", args[:profession]) if args[:profession]
     if args[:order] == "date"
       a.sort_by{ |a| - a.created_at.to_i }
     else

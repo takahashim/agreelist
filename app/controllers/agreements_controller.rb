@@ -42,6 +42,7 @@ class AgreementsController < ApplicationController
       voter = MagicVoter.new(email: params[:email].try(:strip),
                              name: twitter ? nil : params[:name],
                              twitter: twitter,
+                             profession_id: params[:profession_id],
                              current_user: current_user,
                              adding_myself: params[:add] == "myself"
                             ).find_or_create!

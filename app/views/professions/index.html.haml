@@ -1,0 +1,18 @@
+.container
+  %h1 Professions
+
+  %table{class: "table"}
+    %thead
+      %th Name
+      %th
+      %th
+    %tbody
+      - @professions.each do |profession|
+        %tr
+          %td= link_to profession.name, edit_profession_path(profession)
+          %td= link_to "Edit", edit_profession_path(profession)
+          %td= link_to 'Delete', profession, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+  %br
+
+  = link_to 'New profession', new_profession_path

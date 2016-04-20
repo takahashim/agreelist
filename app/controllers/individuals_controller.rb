@@ -12,8 +12,11 @@ class IndividualsController < ApplicationController
   end
 
   def update
-    if @individual.update_attributes(params.require(:individual).permit(:name, :twitter, :email, :bio, :picture_from_url, :ranking))
-      redirect_to(params[:back_url].gsub(" ", "+") || root_path, notice: 'Successfully updated.')
+    if @individual.update_attributes(params.require(:individual).permit(:name, :twitter, :email, :bio, :picture_from_url, :ranking, :profession_id))
+      respond_to do |format|
+        format.json { render status: 200, json: @individual }
+        format.html { redirect_to(params[:back_url].gsub(" ", "+") || root_path, notice: 'Successfully updated.') }
+      end
     else
       render action: "edit"
     end

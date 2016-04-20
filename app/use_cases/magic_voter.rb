@@ -1,6 +1,6 @@
 class MagicVoter
   attr_accessor :voter
-  attr_reader :name, :twitter, :email, :current_user, :adding_myself
+  attr_reader :name, :twitter, :email, :current_user, :adding_myself, :profession_id
 
   def initialize(args)
     @email = args[:email]
@@ -8,6 +8,7 @@ class MagicVoter
     @name = args[:name]
     @current_user = args[:current_user]
     @adding_myself = args[:adding_myself]
+    @profession_id = args[:profession_id]
   end
 
   def find_or_create!
@@ -21,6 +22,7 @@ class MagicVoter
   def find_or_create_voter
     self.voter = find_or_build_voter
     self.voter.name = name if name.present?
+    self.voter.profession_id = profession_id if profession_id.present?
     self.voter.email = email if adding_myself && email.present?
     self.voter.save!
   end

@@ -16,8 +16,7 @@
           = link_to("delete", agreement, method: :delete, data: { confirm: "You sure?" })
           |
           = link_to("thouch", touch_path(agreement, back_url: statement_path(agreement.statement)), method: :post)
-        %br
-        %br
+        = render partial: "profession_select", locals: { individual: individual, agreement: agreement }
         %i= agreement.reason
         - if individual == current_user
           - if agreement.reason.present?

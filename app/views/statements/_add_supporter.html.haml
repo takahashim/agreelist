@@ -15,6 +15,11 @@
     %br
   %br
   = text_field_tag(:biography, "", class: "form-control", placeholder: "Short biography (taken from Twitter if used)", maxlength: 100)
+  - if has_profession_rights?
+    Profession:
+    = select_tag :profession_id, options_from_collection_for_select(Profession.all, "id", "name"), include_blank: true
+    = link_to "Edit professions", professions_path
+    %br
   %br
   = text_field_tag(:picture_from_url, "", class: "form-control", placeholder: "Photo url (taken from Twitter if used)", maxlength: 254)
   %br

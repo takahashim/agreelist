@@ -11,7 +11,7 @@ function statements_observers() {
     var reason_category = $(this).find('option:selected').val();
     var agreement_id = $(this).attr("agreement_id");
     var data_form = $('form[id="edit_agreement_' + agreement_id + '"]');
-    
+
     $.ajax({
       type : 'PUT',
       async : false,
@@ -22,6 +22,24 @@ function statements_observers() {
     })
     .fail(function(){
       alert("Error saving the category");
+    });
+  });
+
+  $(".profession").change(function() {
+    var individual_hashed_id = $(this).attr("individual_hashed_id");
+    var individual_id = $(this).attr("individual_id");
+    var data_form = $('form[id="edit_individual_' + individual_id + '"]');
+
+    $.ajax({
+      type : 'PUT',
+      async : false,
+      url : "/individuals/" + individual_hashed_id,
+      data : data_form.serialize(),
+      dataType: "json",
+      contentType : "application/x-www-form-urlencoded;charset=utf-8"
+    })
+    .fail(function(){
+      alert("Error saving the profession");
     });
   });
 }

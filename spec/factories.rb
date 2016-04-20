@@ -34,4 +34,8 @@ FactoryGirl.define do
     statement
     individual
   end
+
+  factory :profession do
+    name { Faker::Name.name }
+  end
 end

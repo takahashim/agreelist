@@ -13,6 +13,20 @@ feature 'voting', js: true do
       visit statement_path(statement)
     end
 
+    scenario 'adds reason category' do
+      fill_in 'name', with: "Cesar Perez"
+      select "Politics", from: "reason_category_id"
+      click_button "Agree"
+      expect(Agreement.last.reason_category.name).to eq "Politics"
+    end
+
+    scenario 'adds profession' do
+      fill_in 'name', with: "Cesar Perez"
+      select "Politician", from: "profession_id"
+      click_button "Agree"
+      expect(Agreement.last.individual.profession.name).to eq "Politician"
+    end
+
     scenario "agree" do
       click_link "Agree"
       click_button "Save"
@@ -105,6 +119,7 @@ feature 'voting', js: true do
       click_button "Agree"
       expect(Individual.all.order(:twitter).map(&:twitter)).to eq %w(arpahector seed)
     end
+
   end
 
   private
@@ -112,6 +127,8 @@ feature 'voting', js: true do
   def seed_data
     @statement = create(:statement)
     create(:agreement, statement: @statement, individual: create(:individual, twitter: "seed"), extent: 100)
+    create(:reason_category, name: "Politics")
+    create(:profession, name: "Politician")
   end
 
   def login

@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  helper_method :current_user, :signed_in?, :admin?, :has_admin_category_rights?, :main_statement, :has_profession_rights?
+  helper_method :current_user, :signed_in?, :admin?, :has_admin_category_rights?, :main_statement, :has_profession_rights?, :has_update_individual_rights?
   private
 
   def current_user
@@ -20,6 +20,10 @@ class ApplicationController < ActionController::Base
   end
 
   def has_profession_rights?
+    has_admin_category_rights?
+  end
+
+  def has_update_individual_rights? # required for professions because it calls individuals controller #update
     has_admin_category_rights?
   end
 

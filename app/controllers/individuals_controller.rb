@@ -1,7 +1,7 @@
 class IndividualsController < ApplicationController
   before_action :login_required, only: [:update, :save_email]
   before_action :load_individual, except: :save_email
-  before_action :admin_required, only: :update
+  before_action :has_update_individual_rights?, only: :update
 
   def show
     @agrees = @individual.agrees

@@ -3,7 +3,8 @@
     %h1
       = @statement.content
       = link_to "", "https://twitter.com/share", "class" => "twitter-share-button", "data-url" => "#{root_url}s/#{@statement.hashed_id}", "data-text" => "#{@statement.content} See who agrees on #AgreeList", "data-size" => "large", "data-count" => "none", id: "twitter-share"
-    %p= render partial: "professions"
+    - if main_statement == @statement
+      %p= render partial: "professions"
     = link_to "Add an opinion leader", "#gather", class: "btn btn-primary"
     %p
       = render partial: "agreements/voting_buttons", locals: { back_url: statement_path(@statement, order: params[:order]) }

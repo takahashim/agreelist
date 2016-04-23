@@ -24,11 +24,19 @@ feature "professions", js: true do
     end
   end
 
+  scenario "should filter per profession" do
+    visit statement_path(statement)
+    expect(page).to have_content("2 opinions")
+    click_link "Politicians"
+    expect(page).to have_content("1 opinion")
+  end
+
   def seed_data
     @statement = create(:statement)
-    create(:agreement, statement: @statement, individual: create(:individual), extent: 100)
-    Profession.create(name: "Politician")
+    politician = Profession.create(name: "Politician")
     Profession.create(name: "Scientist")
+    create(:agreement, statement: @statement, individual: create(:individual, profession: politician), extent: 100)
+    create(:agreement, statement: @statement, individual: create(:individual), extent: 100)
   end
 
   def login

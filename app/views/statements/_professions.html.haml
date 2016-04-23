@@ -1,0 +1,10 @@
+= link_to "Politicians", statement_path(@statement, profession: "Politician", order: params[:order])
+|
+= link_to "Business people", statement_path(@statement, profession: "Business person", order: params[:order])
+|
+= link_to "Economists", statement_path(@statement, profession: "Economist", order: params[:order])
+|
+= link_to "Scientists", statement_path(@statement, profession: "Scientist", order: params[:order])
+- if params["profession"]
+  |
+  = link_to "All", statement_path(@statement, order: params[:order])

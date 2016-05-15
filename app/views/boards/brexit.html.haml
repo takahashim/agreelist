@@ -27,8 +27,10 @@
   .modal-dialog
     .modal-content
       .modal-header.text-center
-        %h3 Login with Twitter to give your opinion
+        %h3 Log in to give your opinion
       .modal-body.text-center
         = link_to image_tag("twitter-login.png"), "/auth/twitter?back_to=/brexit", id: "vote-twitter-login"
-        or
+        %h3 No Twitter?
+        = link_to "Log in with your email", login_path, class: "btn btn-primary"
+        |
         = link_to "Back", "#", "data-dismiss" => "modal"

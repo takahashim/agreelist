@@ -1,6 +1,21 @@
 class SessionsController < ApplicationController
   rescue_from ActionController::RedirectBackError, with: :redirect_to_default
+
+  def new
+  end
+
   def create
+    individual = Individual.find_by_email(params[:email])
+    if individual.authenticate(params[:password])
+      session[:user_id] = individual.id
+      redirect_to params[:back_url] || root_url, :notice => "Logged in!"
+    else
+      flash.now.alert = "Invalid email or password"
+      render "new"
+    end
+  end
+
+  def create_with_twitter
     auth = request.env["omniauth.auth"]
     user = Individual.find_by_twitter(auth["info"]["nickname"].downcase) || Individual.create_with_omniauth(auth)
     session[:user_id] = user.id

@@ -1,7 +1,21 @@
 class IndividualsController < ApplicationController
   before_action :login_required, only: [:update, :save_email]
-  before_action :load_individual, except: :save_email
+  before_action :load_individual, except: [:save_email, :new, :create]
   before_action :has_update_individual_rights?, only: :update
+
+  def new
+    @individual = Individual.new
+  end
+
+  def create
+    @individual = Individual.new(params.require(:individual).permit(:email, :password, :password_confirmation, :is_user))
+    if @individual.save
+      session[:user_id] = @individual.id
+      redirect_to params[:back_url] || root_path
+    else
+      render action: :new
+    end
+  end
 
   def show
     @agrees = @individual.agrees

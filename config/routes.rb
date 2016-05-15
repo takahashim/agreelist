@@ -1,4 +1,5 @@
 Al::Application.routes.draw do
+
   root to: redirect("/brexit")
   get "/new", to: "new#index", as: :new
   get "/brexit", to: "boards#brexit", as: :brexit_board
@@ -18,7 +19,8 @@ Al::Application.routes.draw do
   get '/entrepreneurs', to: 'static_pages#advice_for_entrepreneurs'
   post '/save_email' => 'individuals#save_email'
   post '/statements/quick' => 'statements#quick_create'
-  resources :individuals, only: [:edit, :update, :destroy]
+  resources :individuals, only: [:edit, :update, :destroy, :create]
+  get 'signup', to: 'individuals#new', as: :signup
   match '/add_supporter' => 'agreements#add_supporter', via: [:get, :post]
 
   get '/contact' => 'static_pages#contact'
@@ -27,8 +29,11 @@ Al::Application.routes.draw do
   get '/about' => 'static_pages#about'
   get '/faq' => 'static_pages#faq'
 
-  match "/auth/twitter/callback" => 'sessions#create', via: [:get, :post]
+  match "/auth/twitter/callback" => 'sessions#create_with_twitter', via: [:get, :post]
+  get "/login" => "sessions#new", as: :login
   get "/signout" => "sessions#destroy", as: :signout
+  resources :reset_password, only: [:new, :create, :edit, :update]
+  resources :sessions, only: :create
   resources :agreements, only: [:destroy, :update] do
     member do
       post 'upvote'

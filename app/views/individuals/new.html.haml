@@ -21,6 +21,7 @@
     = f.hidden_field :is_user, value: true
     %p
       .actions
+        = f.hidden_field :back_url, params[:back_url]
         = f.submit "Sign up", class: "btn btn-primary"
     %h3
       Already a user?

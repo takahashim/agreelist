@@ -12,7 +12,7 @@ class IndividualsController < ApplicationController
     if @individual.save
       @individual.send_activation_email
       session[:user_id] = @individual.id
-      redirect_to params[:back_url] || root_path
+      redirect_to edit_individual_path(@individual, back_url: params[:back_url] || root_path)
     else
       render action: :new
     end
@@ -39,10 +39,15 @@ class IndividualsController < ApplicationController
   end
 
   def update
-    if @individual.update_attributes(params.require(:individual).permit(:name, :twitter, :email, :bio, :picture_from_url, :ranking, :profession_id))
+    if admin?
+      result = @individual.update_attributes(params.require(:individual).permit(:name, :twitter, :email, :bio, :picture_from_url, :ranking, :profession_id))
+    else
+      result = @individual.update_attributes(params.require(:individual).permit(:name, :bio, :picture_from_url, :profession_id))
+    end
+    if result
       respond_to do |format|
         format.json { render status: 200, json: @individual }
-        format.html { redirect_to(params[:back_url].gsub(" ", "+") || root_path, notice: 'Successfully updated.') }
+        format.html { redirect_to(params[:back_url].present? ? params[:back_url].gsub(" ", "+") : "/#{@individual.to_param}", notice: 'Successfully updated.') }
       end
     else
       render action: "edit"

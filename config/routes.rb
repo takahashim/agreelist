@@ -19,7 +19,11 @@ Al::Application.routes.draw do
   get '/entrepreneurs', to: 'static_pages#advice_for_entrepreneurs'
   post '/save_email' => 'individuals#save_email'
   post '/statements/quick' => 'statements#quick_create'
-  resources :individuals, only: [:edit, :update, :destroy, :create]
+  resources :individuals, only: [:edit, :update, :destroy, :create] do
+    member do
+      get :activation
+    end
+  end
   get 'signup', to: 'individuals#new', as: :signup
   match '/add_supporter' => 'agreements#add_supporter', via: [:get, :post]
 

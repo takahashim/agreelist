@@ -12,6 +12,11 @@ feature 'signup' do
     fill_in :individual_password_confirmation, with: 'password'
     click_button "Sign up"
     expect(page).to have_content("Sign Out")
+
+    expect(ActionMailer::Base.deliveries.last).not_to be nil
+    activation_link = ActionMailer::Base.deliveries.last.body.raw_source.scan(/http.*activation/).first
+    visit activation_link
+    expect(page).to have_content("Your account has been activated")
   end
 
   scenario "should NOT signup if password confirmation doesnt match" do

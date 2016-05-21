@@ -29,7 +29,7 @@ class Individual < ActiveRecord::Base
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, if: :is_user
 
 
-  before_create :update_followers_count, :generate_hashed_id
+  before_create :update_followers_count, :generate_hashed_id, :generate_activation_digest
   before_save :update_profile_from_twitter
   before_save :downcase_email
 
@@ -156,10 +156,10 @@ class Individual < ActiveRecord::Base
     self.email = email.try(:downcase)
   end
 
-  #def create_activation_digest
-  #  self.activation_token  = Individual.new_token
-  #  self.activation_digest = Individual.digest(activation_token)
-  #end
+  def generate_activation_digest
+   self.activation_token  = Individual.new_token
+   self.activation_digest = Individual.digest(activation_token)
+  end
 
   def self.digest(token)
     Digest::SHA1.hexdigest(token.to_s)

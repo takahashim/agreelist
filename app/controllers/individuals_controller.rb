@@ -10,10 +10,23 @@ class IndividualsController < ApplicationController
   def create
     @individual = Individual.new(params.require(:individual).permit(:email, :password, :password_confirmation, :is_user))
     if @individual.save
+      @individual.send_activation_email
       session[:user_id] = @individual.id
       redirect_to params[:back_url] || root_path
     else
       render action: :new
+    end
+  end
+
+  def activation
+    @individual = Individual.find_by_activation_digest(params[:id])
+    if @individual
+      @individual.activate
+      flash[:notice] = "Your account has been activated"
+      redirect_to root_path
+    else
+      flash[:notice] = "Error activating your account"
+      redirect_to current_user ? root_path : login_path
     end
   end
 

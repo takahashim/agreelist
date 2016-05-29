@@ -17,4 +17,4 @@
         = submit_tag "Log in", class: "btn btn-primary"
     %h3
       New to AgreeList?
-      = link_to "Sign up!", signup_path, class: "btn btn-primary"
+      = link_to "Sign up!", signup_path(back_url: params[:back_url]), class: "btn btn-primary"

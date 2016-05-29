@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature 'forgot' do
   before do
-    create(:individual, email: "my@email.com", is_user: true, password: "pass", password_confirmation: "pass")
+    create(:individual, email: "my@email.com", is_user: true, password: "password", password_confirmation: "password")
     seed_data
   end
 

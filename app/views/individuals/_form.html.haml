@@ -1,9 +1,6 @@
 = form_for(@individual) do |f|
   - if @individual.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@individual.errors.count, "error")
-        prohibited this individual from being saved:
+    .error_messages.alert.alert-danger
       %ul
       - @individual.errors.full_messages.each do |msg|
         %li= msg

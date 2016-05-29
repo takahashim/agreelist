@@ -1,0 +1,20 @@
+.container
+  %h3
+    = link_to image_tag("twitter-login.png"), "/auth/twitter?back_to=#{params[:back_to]}"
+    or with your email:
+  = form_tag sessions_path do
+    .field
+      = label_tag :email
+      = text_field_tag :email, "", class: "form-control"
+    .field
+      = label_tag :password
+      = "-"
+      = link_to "Forgot?", new_reset_password_path
+      = text_field_tag :password, "", class: "form-control"
+    %p
+      .actions
+        = hidden_field_tag :back_url, params[:back_url]
+        = submit_tag "Log in", class: "btn btn-primary"
+    %h3
+      New to AgreeList?
+      = link_to "Sign up!", signup_path, class: "btn btn-primary"

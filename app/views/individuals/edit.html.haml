@@ -1,7 +1,8 @@
 .container
   .jumbotron
     %h2.text-center
-      = @individual.name
+      Please update your profile
+      = @individual.name if @individual.name.present?
       = link_to "Follow #{@individual.twitter}", "https://twitter.com/#{@individual.twitter}", class: "twitter-follow-button", "data-show-count" => "true", "data-size" => "large" if @individual.twitter.present?
     %br
     = render 'form'

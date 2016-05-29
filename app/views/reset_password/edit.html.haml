@@ -1,0 +1,11 @@
+.container
+  %h3 Choose your new password
+  = form_for :reset_password, url: reset_password_path(@key), method: :put do |f|
+    .field
+      = f.label :password
+      = f.password_field :password, class: "form-control"
+    .field
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation, class: "form-control"
+    .actions
+      = f.submit "Save password", class: "btn btn-primary"

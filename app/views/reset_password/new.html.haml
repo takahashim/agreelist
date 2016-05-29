@@ -1,0 +1,9 @@
+.container
+  %h3 Reset your password
+  = form_for :forgot, url: "/reset_password", method: :create do |f|
+    .field
+      = f.label :email
+      = f.text_field :email, class: "form-control"
+    %p
+      .actions
+        = f.submit "Reset password", class: "btn btn-primary"

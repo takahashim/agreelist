@@ -6,9 +6,9 @@
       %h1.media-heading
         = @individual.name
         = link_to "Follow #{@individual.twitter}", "https://twitter.com/#{@individual.twitter}", class: "twitter-follow-button", "data-show-count" => "true", "data-size" => "large" if @individual.twitter.present?
-      %br
-      = @individual.bio.present? ? @individual.bio : @individual.description
-  = link_to("Edit", edit_individual_path) if admin?
+      = link_to("Edit Profile", edit_individual_path, class: "btn btn-primary") if admin? || current_user == @individual
+
+      %p= @individual.bio.present? ? @individual.bio : @individual.description
   %br
 
   %strong Agrees:

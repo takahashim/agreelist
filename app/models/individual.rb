@@ -1,6 +1,9 @@
 require "open-uri"
 
 class Individual < ActiveRecord::Base
+  attr_accessor :is_user, :reset_token, :activation_token
+  has_secure_password(validations: false)
+
   nilify_blanks only: [:twitter]
   has_attached_file :picture, s3_host_name: "s3-eu-west-1.amazonaws.com", :default_url => '/assets/missing-:style.jpg', styles: {
     mini: "50x50#",
@@ -17,9 +20,18 @@ class Individual < ActiveRecord::Base
 
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
   validates_uniqueness_of :twitter, allow_nil: true
+  validates_confirmation_of :password, if: :password_is_present?
+  validates :password, length: { minimum: 6, if: :password_is_present? }
 
-  before_create :update_followers_count, :generate_hashed_id
+  validates_presence_of :password, on: :create, if: :is_user
+  validates_presence_of :email, on: :create, if: :is_user
+  validates_uniqueness_of :email, if: :is_user
+  validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, if: :is_user
+
+
+  before_create :update_followers_count, :generate_hashed_id, :generate_activation_digest
   before_save :update_profile_from_twitter
+  before_save :downcase_email
 
   def self.create_with_omniauth(auth)
     create! do |user|
@@ -30,6 +42,25 @@ class Individual < ActiveRecord::Base
       user.email = auth["info"]["email"]
       user.followers_count = auth["extra"]["raw_info"]["followers_count"] unless Rails.env == "test"
     end
+  end
+
+  def create_reset_digest
+    self.reset_token = Individual.new_token
+    update_attribute(:reset_digest,  Individual.digest(reset_token))
+    update_attribute(:reset_sent_at, Time.zone.now)
+  end
+
+  def send_password_reset_email
+    IndividualMailer.password_reset(self).deliver
+  end
+
+  def activate
+    update_attribute(:activated,    true)
+    update_attribute(:activated_at, Time.zone.now)
+  end
+
+  def send_activation_email
+    IndividualMailer.account_activation(self).deliver
   end
 
   def update_profile_from_twitter
@@ -121,4 +152,24 @@ class Individual < ActiveRecord::Base
     end
   end
 
+  def downcase_email
+    self.email = email.try(:downcase)
+  end
+
+  def generate_activation_digest
+   self.activation_token  = Individual.new_token
+   self.activation_digest = Individual.digest(activation_token)
+  end
+
+  def self.digest(token)
+    Digest::SHA1.hexdigest(token.to_s)
+  end
+
+  def self.new_token
+    SecureRandom.urlsafe_base64
+  end
+
+  def password_is_present?
+    password.present?
+  end
 end

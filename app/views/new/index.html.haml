@@ -48,18 +48,22 @@
   .modal-dialog
     .modal-content
       .modal-header.text-center
-        %h3 Login with Twitter to vote
+        %h3 Log in to vote
       .modal-body.text-center
         = link_to image_tag("twitter-login.png"), "/auth/twitter", id: "vote-twitter-login"
+        %h3 No Twitter?
+        = link_to "Log in with your email", login_path(back_url: request.original_url), class: "btn btn-primary"
         or
         = link_to "Back", "#", "data-dismiss" => "modal"
 #loginToCreate.modal.fade{role: "dialog"}
   .modal-dialog
     .modal-content
       .modal-header.text-center
-        %h3 Login with Twitter to post
+        %h3 Login in to post
       .modal-body.text-center
         = link_to image_tag("twitter-login.png"), "/auth/twitter", id: "create-twitter-login"
+        %h3 No Twitter?
+        = link_to "Log in with your email", login_path(back_url: request.original_url), class: "btn btn-primary"
         or
         = link_to "Back", "#", "data-dismiss" => "modal"
 

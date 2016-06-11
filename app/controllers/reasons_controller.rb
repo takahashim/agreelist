@@ -1,6 +1,6 @@
 class ReasonsController < ApplicationController
   def edit
-    @agreement = Agreement.find(params[:id])
+    @agreement = Agreement.find_by_hashed_id(params[:id])
   end
 
   def update

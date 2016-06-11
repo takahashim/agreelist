@@ -7,7 +7,7 @@
         = image_tag(individual.picture.url(:thumb), class: "picture media-object")
       .media-body
         %h4.media-heading
-          %span.name= link_to(individual.name.present? ? individual.name : individual.twitter || "user-#{individual.hashed_id}", "/#{individual.to_param}")
+          %span.name= link_to(individual.name.present? ? individual.name : individual.twitter || "user-#{individual.hashed_id}", agreement_path(agreement))
         #br
         = individual.bio.present? ? individual.bio : individual.description
         - if admin?
@@ -34,5 +34,8 @@
             = link_to "Upvote", upvote_agreement_path(agreement), method: :post
           - else
             = link_to "Upvote (#{agreement.upvotes.size})", upvote_agreement_path(agreement), method: :post
+          - if agreement.agreement_comments.size > 0
+            ·
+            = link_to pluralize(agreement.agreement_comments.size, "comment"), agreement_path(agreement)
         = render partial: "reason_category_select", locals: { agreement: agreement }
     #br

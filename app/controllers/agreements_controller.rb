@@ -30,7 +30,7 @@ class AgreementsController < ApplicationController
   def destroy
     statement = @agreement.statement
     @agreement.destroy
-    redirect_to statement_path(statement)
+    redirect_to params[:back_url] || statement_path(statement)
   end
 
   def add_supporter
@@ -62,6 +62,11 @@ class AgreementsController < ApplicationController
     end
   end
 
+  def show
+    @agreement = Agreement.find_by_hashed_id(params[:id])
+    @agreement_comment = AgreementComment.new
+  end
+
   private
 
   def spam? # real people have name and surname separated by a space
@@ -85,7 +90,7 @@ class AgreementsController < ApplicationController
   end
 
   def find_agreement
-    @agreement = Agreement.find(params[:id])
+    @agreement = Agreement.find_by_hashed_id(params[:id])
   end
 
   def redirect_to_default

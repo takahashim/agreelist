@@ -38,6 +38,7 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'selenium-webdriver'
+  gem 'rack_session_access'
 end
 
 gem 'pg', '0.17.1'

@@ -1,0 +1,50 @@
+.container
+  - individual = @agreement.individual
+  .media
+    .media-left
+      = image_tag(individual.picture.url(:thumb), class: "picture media-object")
+    .media-body
+      %h4.media-heading
+        %span.name
+          = link_to(individual.name || individual.twitter || "user-#{individual.hashed_id}", "/#{individual.to_param}")
+          = @agreement.extent == 100 ? "agrees:" : "disagrees:"
+          = link_to @agreement.statement.content, statement_path(@agreement.statement)
+      %span.bio
+        %p= individual.bio.present? ? individual.bio : individual.description
+      %span.reason
+        %p= @agreement.reason
+      %span
+        - if admin?
+          = link_to "edit", edit_individual_path(individual) + "?back_url=#{request.url}"
+          |
+          = link_to("delete", @agreement, method: :delete, data: { confirm: "You sure?" })
+          |
+          = link_to("thouch", touch_path(@agreement, back_url: "/new"), method: :post)
+  - if @agreement.agreement_comments.size == 0
+    %h3 No comments yet
+  - else
+    %h3 Comments:
+    - @agreement.agreement_comments.each do |comment|
+      .media
+        .media-left
+          = image_tag(comment.individual.picture.url(:mini), class: "picture media-object")
+        .media-body
+          %h3.media-heading
+            %span.name
+              = link_to(comment.individual.name || individual.twitter || "user-#{individual.hashed_id}", "/#{individual.to_param}")
+          %p.comment
+            = comment.content
+  - if current_user
+    = form_for @agreement_comment do |f|
+      = f.hidden_field :individual_id, value: current_user.id
+      = f.hidden_field :agreement_id, value: @agreement.id
+      .field
+        = f.label :new_comment
+        = f.text_field :content, class: "form-control"
+      %p
+        .actions
+          = f.submit "Send", class: "btn btn-primary"
+          ·
+          = link_to "Back", url_for(:back)
+  - else
+    = link_to "Log in to comment", login_path(back_url: request.original_url)

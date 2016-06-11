@@ -22,25 +22,28 @@
           = image_tag(individual.picture.url(:mini), class: "picture media-object")
         .media-body
           %h4.media-heading
-            %span.name= link_to(individual.name || individual.twitter, "/#{individual.to_param}")
-            = agreement.extent == 100 ? "agrees:" : "disagrees:"
-            = link_to agreement.statement.content, statement_path(agreement.statement)
-          %span.source
-            = individual.bio.present? ? individual.bio : individual.description
+            - text = "#{individual.name || individual.twitter || 'user-' + individual.hashed_id} #{agreement.extent == 100 ? "agrees" : "disagrees"}: #{agreement.statement.content}"
+            %span.name= link_to(text, agreement_path(agreement))
+          %span.reason
+            = agreement.reason
           %span
             - if admin?
               = link_to "edit", edit_individual_path(individual) + "?back_url=#{request.url}"
               |
-              = link_to("delete", agreement, method: :delete, data: { confirm: "You sure?" })
+              = link_to("delete", agreement_path(agreement, back_url: request.original_url), method: :delete, data: { confirm: "You sure?" })
               |
               = link_to("thouch", touch_path(agreement, back_url: "/new"), method: :post)
           %br
           - if current_user
-            = link_to(image_tag("agree.png", class: "vote-icon"), vote_path(statement_id: agreement.statement_id, vote: 'agree', back_url: new_path), method: :post, class: "vote_link")
-            = link_to(image_tag("disagree.png", class: "vote-icon"), vote_path(statement_id: agreement.statement_id, vote: 'disagree', back_url: new_path), method: :post, class: "vote_link")
+            = link_to("agree", vote_path(statement_id: agreement.statement_id, vote: 'agree', back_url: new_path), method: :post, class: "vote_link")
+            ·
+            = link_to("disagree", vote_path(statement_id: agreement.statement_id, vote: 'disagree', back_url: new_path), method: :post, class: "vote_link")
           - else
             = link_to(image_tag("agree.png", class: "vote-icon"), "#", "data-toggle" => "modal", "data-target" => "#myModal", vote: "agree", statement_id: agreement.statement_id, class: "vote", back_url: new_path)
             = link_to(image_tag("disagree.png", class: "vote-icon"), "#", "data-toggle" => "modal", "data-target" => "#myModal", vote: "disagree", statement_id: agreement.statement_id, class: "vote", back_url: new_path)
+          - if agreement.agreement_comments.size > 0
+            ·
+            = link_to pluralize(agreement.agreement_comments.size, "comment"), agreement_path(agreement)
   %br
   .text-center
     = paginate @agreements

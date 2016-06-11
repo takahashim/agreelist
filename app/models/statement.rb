@@ -30,6 +30,7 @@ class Statement < ActiveRecord::Base
     a = a.where(reason_category_id: args[:category_id]) if args[:category_id]
     a = a.where(reason_category_id: nil) if args[:filter_by] == :non_categorized
     a = a.joins("left outer join individuals on agreements.individual_id = individuals.id").joins("left outer join professions p on p.id = individuals.profession_id").where("p.name = ?", args[:profession]) if args[:profession]
+    a = a.includes(:agreement_comments)
     if args[:order] == "date"
       a.sort_by{ |a| - a.created_at.to_i }
     else

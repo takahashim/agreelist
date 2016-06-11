@@ -10,6 +10,7 @@ Al::Application.routes.draw do
       post 'create_and_agree'
     end
   end
+  resources :agreement_comments, only: :create
   resources :comments, only: :create
   resources :votes, only: :create
   resources :reason_categories, except: :show
@@ -38,7 +39,7 @@ Al::Application.routes.draw do
   get "/signout" => "sessions#destroy", as: :signout
   resources :reset_password, only: [:new, :create, :edit, :update]
   resources :sessions, only: :create
-  resources :agreements, only: [:destroy, :update] do
+  resources :agreements, path: "a", only: [:show, :destroy, :update] do
     member do
       post 'upvote'
     end

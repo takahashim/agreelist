@@ -5,6 +5,7 @@ class Agreement < ActiveRecord::Base
   belongs_to :statement
   belongs_to :individual
   belongs_to :reason_category
+  has_many :agreement_comments
   has_many :upvotes
 
   before_create :generate_hashed_id
@@ -22,6 +23,10 @@ class Agreement < ActiveRecord::Base
 
   def agree?
     extent == 100
+  end
+
+  def to_param
+    self.hashed_id
   end
 
   private
@@ -43,6 +48,7 @@ class Agreement < ActiveRecord::Base
   def opposite_extent
     extent == 100 ? 0 : 100
   end
+
   def generate_hashed_id
     self.hashed_id = loop do
       token = SecureRandom.urlsafe_base64.gsub("-", "_")

@@ -3,7 +3,7 @@
     .jumbotron
       %h1 AgreeList
       %h2 The social network where you add influencer's opinions
-      = link_to "Create an issue or statement", "", class: "btn btn-primary btn-lg"
+      = link_to "Create an issue or statement", new_statement_path, class: "btn btn-primary btn-lg"
       %h3
         Our first issue was:
         %p= link_to("BREXIT (#{main_statement.agreements.size} opinions)", "/brexit")

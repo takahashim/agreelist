@@ -1,4 +1,5 @@
 class Statement < ActiveRecord::Base
+  MAXIMUM_LENGTH = 90
   has_many :agreements, dependent: :destroy
   has_many :individuals, :through => :agreements
   has_many :comments
@@ -6,7 +7,7 @@ class Statement < ActiveRecord::Base
 
   acts_as_taggable
 
-  validates :content, presence: true, length: { maximum: 140 }
+  validates :content, presence: true, length: { maximum: MAXIMUM_LENGTH }
   before_create :generate_hashed_id, :set_entrepreneurship_tag
 
   def agreements_in_favor(args = {})

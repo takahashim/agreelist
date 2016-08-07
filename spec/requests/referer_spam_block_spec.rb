@@ -29,7 +29,6 @@ describe "Referer blacklist", type: :request do
   describe "direct request" do
     it "is not blocked" do
       get root_path
-
       expect(response).to redirect_to("/brexit")
     end
   end

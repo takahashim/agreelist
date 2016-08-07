@@ -10,6 +10,7 @@ feature 'voting', js: true do
   context 'logged user' do
     before do
       login
+      visit brexit_board_path
     end
 
     scenario "agree" do

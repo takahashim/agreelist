@@ -1,30 +1,36 @@
 #home.container.text-center
-  .jumbotron
-    %h1 AgreeList
-    %h2 The social network where you add influencer's opinions
-    - @influencers.each do |influencer|
-      = image_tag(influencer.picture.url(:thumb), class: "picture") if influencer
-    %br
-    %br
-    = link_to "Join", signup_path, class: "btn btn-primary btn-lg"
-  .row
-    .col-md-4
-      %h4 Find who agrees/disagrees
-      Bombarded with opinions? Find who agrees and why on something to make up your mind.
-      %p= image_tag "https://s3-eu-west-1.amazonaws.com/agreelist/agree-disagree.jpg"
-    .col-md-4
-      %h4 Filter per profession, country, university
-      Use Google BigQuery and Wikidata (Wikipedia's structured database) together with AgreeList's datasets.
-      %p= image_tag "https://s3-eu-west-1.amazonaws.com/agreelist/wikidata.png"
+  - if current_user
+    .jumbotron
+      %h1 AgreeList
+      %h2 The social network where you add influencer's opinions
+      = link_to "Create an issue or statement", "", class: "btn btn-primary btn-lg"
+      %h3
+        Our first issue was:
+        %p= link_to("BREXIT (#{main_statement.agreements.size} opinions)", "/brexit")
+      %p= link_to(image_tag("https://s3-eu-west-1.amazonaws.com/agreelist/brexit.png"), "/brexit")
+      %p
+        - @brexit_influencers.each do |influencer|
+          = image_tag(influencer.picture.url(:thumb), class: "picture") if influencer
+  - else
+    .jumbotron
+      %h1 AgreeList
+      %h2 The social network where you add influencer's opinions
+      - @influencers.each do |influencer|
+        = image_tag(influencer.picture.url(:thumb), class: "picture") if influencer
+      %br
+      %br
+      = link_to "Join", signup_path, class: "btn btn-primary btn-lg"
+    .row
+      .col-md-4
+        %h4 Find who agrees/disagrees
+        Bombarded with opinions? Find who agrees and why on something to make up your mind.
+        %p= image_tag "https://s3-eu-west-1.amazonaws.com/agreelist/agree-disagree.jpg"
+      .col-md-4
+        %h4 Filter per profession, country, university
+        Use Google BigQuery and Wikidata (Wikipedia's structured database) together with AgreeList's datasets.
+        %p= image_tag "https://s3-eu-west-1.amazonaws.com/agreelist/wikidata.png"
 
-    .col-md-4
-      %h4 Public data
-      Download AgreeList's data of which public figures agree on what and why from our site or use Google BigQuery.
-      %p= image_tag "https://s3-eu-west-1.amazonaws.com/agreelist/bigquery.png", id: "home-bigquery-img"
-  / .row
-  /   .col-md-4
-  /   .col-md-4
-  /     %h3
-  /       Example:
-  /       = link_to("BREXIT", "/brexit")
-  /     = link_to(image_tag("https://s3-eu-west-1.amazonaws.com/agreelist/brexit.png"), "/brexit")
+      .col-md-4
+        %h4 Public data
+        Download AgreeList's data of which public figures agree on what and why from our site or use Google BigQuery.
+        %p= image_tag "https://s3-eu-west-1.amazonaws.com/agreelist/bigquery.png", id: "home-bigquery-img"

@@ -37,3 +37,8 @@
   margin:0 auto;
 }
 /* ---------- end home page background --------------- */
+
+#home-bigquery-img {
+  padding-top: 40px;
+  width: 100%;
+}

@@ -67,6 +67,6 @@ class IndividualsController < ApplicationController
   private
 
   def load_individual
-    @individual = Individual.find_by_twitter(params[:id]) || Individual.find_by_hashed_id(params[:id].gsub("user-", ""))
+    @individual = Individual.where('lower(twitter) = ?', params[:id].downcase).first || Individual.find_by_hashed_id(params[:id].gsub("user-", ""))
   end
 end

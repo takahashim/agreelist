@@ -30,11 +30,11 @@
   .row
     .col-sm-6
       .add_me
-        %h4= @agreements_count > 0 ? "Who agrees (#{@percentage_in_favor}% of #{pluralize(@agreements_count, 'opinion')}):" : "None disagrees yet"
+        %h4= @agreements_count > 0 ? "Who agrees (#{@percentage_in_favor}% of #{pluralize(@agreements_count, 'opinion')}):" : "Nobody agrees yet"
       = render partial: "whoagree", locals: { agreements: @agreements_in_favor }
     .col-sm-6
       .add_me
-        %h4= @agreements_count > 0 ? "Who disagrees (#{100 - @percentage_in_favor}% of #{pluralize(@agreements_count, 'opinion')}):" : "None disagrees yet"
+        %h4= @agreements_count > 0 ? "Who disagrees (#{100 - @percentage_in_favor}% of #{pluralize(@agreements_count, 'opinion')}):" : "Nobody disagrees yet"
       = render partial: "whoagree", locals: { agreements: @agreements_against }
 .container
   #comments

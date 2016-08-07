@@ -17,6 +17,7 @@
 
 $(document).ready(function() {
   statements_observers();
+  sessions_observers();
 
   $(".vote").click(function(event) {
     var vote = $(this).attr("vote");

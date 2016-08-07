@@ -1,8 +1,12 @@
 .container
-  %h3
-    = link_to image_tag("twitter-login.png"), "/auth/twitter?back_to=#{params[:back_to]}"
-    or Sign Up with your email:
-
+  %h5 Do you have a Twitter account?
+  %p
+    = radio_button_tag :login_with, "twitter"
+    = "Yes, log in with Twitter"
+    = link_to image_tag("twitter-login.png"), "/auth/twitter?back_url=#{params["back_url"]}", id: "twitter-login"
+  %p
+    = radio_button_tag :login_with, "email"
+    = "No, log in with my email account:"
   = form_for @individual do |f|
     - if @individual.errors.any?
       .error_messages

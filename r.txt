@@ -1,0 +1,73 @@
+                     Prefix Verb     URI Pattern                           Controller#Action
+                       root GET      /                                     static_pages#home
+                        new GET      /new(.:format)                        new#index
+               brexit_board GET      /brexit(.:format)                     boards#brexit
+              boards_brexit GET      /boards/brexit(.:format)              redirect(301, /brexit)
+                    results POST     /results(.:format)                    home#save_email
+create_and_agree_statements POST     /s/create_and_agree(.:format)         statements#create_and_agree
+                 statements GET      /s(.:format)                          statements#index
+                            POST     /s(.:format)                          statements#create
+              new_statement GET      /s/new(.:format)                      statements#new
+             edit_statement GET      /s/:id/edit(.:format)                 statements#edit
+                  statement GET      /s/:id(.:format)                      statements#show
+                            PATCH    /s/:id(.:format)                      statements#update
+                            PUT      /s/:id(.:format)                      statements#update
+                            DELETE   /s/:id(.:format)                      statements#destroy
+         agreement_comments POST     /agreement_comments(.:format)         agreement_comments#create
+                   comments POST     /comments(.:format)                   comments#create
+                      votes POST     /votes(.:format)                      votes#create
+          reason_categories GET      /reason_categories(.:format)          reason_categories#index
+                            POST     /reason_categories(.:format)          reason_categories#create
+        new_reason_category GET      /reason_categories/new(.:format)      reason_categories#new
+       edit_reason_category GET      /reason_categories/:id/edit(.:format) reason_categories#edit
+            reason_category PATCH    /reason_categories/:id(.:format)      reason_categories#update
+                            PUT      /reason_categories/:id(.:format)      reason_categories#update
+                            DELETE   /reason_categories/:id(.:format)      reason_categories#destroy
+                professions GET      /professions(.:format)                professions#index
+                            POST     /professions(.:format)                professions#create
+             new_profession GET      /professions/new(.:format)            professions#new
+            edit_profession GET      /professions/:id/edit(.:format)       professions#edit
+                 profession PATCH    /professions/:id(.:format)            professions#update
+                            PUT      /professions/:id(.:format)            professions#update
+                            DELETE   /professions/:id(.:format)            professions#destroy
+                edit_reason GET      /reasons/:id/edit(.:format)           reasons#edit
+                     reason PATCH    /reasons/:id(.:format)                reasons#update
+                            PUT      /reasons/:id(.:format)                reasons#update
+                       vote POST     /vote(.:format)                       new#vote
+              entrepreneurs GET      /entrepreneurs(.:format)              static_pages#advice_for_entrepreneurs
+                 save_email POST     /save_email(.:format)                 individuals#save_email
+           statements_quick POST     /statements/quick(.:format)           statements#quick_create
+      activation_individual GET      /individuals/:id/activation(.:format) individuals#activation
+                individuals POST     /individuals(.:format)                individuals#create
+            edit_individual GET      /individuals/:id/edit(.:format)       individuals#edit
+                 individual PATCH    /individuals/:id(.:format)            individuals#update
+                            PUT      /individuals/:id(.:format)            individuals#update
+                            DELETE   /individuals/:id(.:format)            individuals#destroy
+                     signup GET      /signup(.:format)                     individuals#new
+              add_supporter GET|POST /add_supporter(.:format)              agreements#add_supporter
+                    contact GET      /contact(.:format)                    static_pages#contact
+                       join GET      /join(.:format)                       static_pages#join
+                     emails POST     /emails(.:format)                     static_pages#send_email
+                      about GET      /about(.:format)                      static_pages#about
+                        faq GET      /faq(.:format)                        static_pages#faq
+      auth_twitter_callback GET|POST /auth/twitter/callback(.:format)      sessions#create_with_twitter
+                      login GET      /login(.:format)                      sessions#new
+                    signout GET      /signout(.:format)                    sessions#destroy
+       reset_password_index POST     /reset_password(.:format)             reset_password#create
+         new_reset_password GET      /reset_password/new(.:format)         reset_password#new
+        edit_reset_password GET      /reset_password/:id/edit(.:format)    reset_password#edit
+             reset_password PATCH    /reset_password/:id(.:format)         reset_password#update
+                            PUT      /reset_password/:id(.:format)         reset_password#update
+                   sessions POST     /sessions(.:format)                   sessions#create
+           upvote_agreement POST     /a/:id/upvote(.:format)               agreements#upvote
+                  agreement GET      /a/:id(.:format)                      agreements#show
+                            PATCH    /a/:id(.:format)                      agreements#update
+                            PUT      /a/:id(.:format)                      agreements#update
+                            DELETE   /a/:id(.:format)                      agreements#destroy
+                       test GET      /test(.:format)                       static_pages#polar
+               auth_failure GET      /auth/failure(.:format)               redirect(301, /)
+                      touch POST     /touch/:id(.:format)                  agreements#touch
+                      email POST     /email(.:format)                      static_pages#email
+                      terms GET      /terms(.:format)                      static_pages#terms
+                    privacy GET      /privacy(.:format)                    static_pages#privacy
+                    profile GET      /:id(.:format)                        individuals#show

@@ -18,7 +18,7 @@ class StaticPagesController < ApplicationController
   end
 
   def home
-
+    @influencers = Individual.where(twitter: %w(barackobama StephenHawking8 HillaryClinton))
   end
 
   def about

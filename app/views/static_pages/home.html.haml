@@ -1,11 +1,8 @@
 #home.container.text-center
   .jumbotron
     %h1 The social network where you add influencer's opinions
+    - @influencers.each do |influencer|
+      = image_tag(influencer.picture.url(:thumb), class: "picture") if influencer
     %br
     %br
-    = form_tag "/email", role: "form" do
-      .form-group
-        = text_field_tag "email",  "", class: "form-control", placeholder: "Email"
-        %br
-        = text_area_tag "comment",  "", class: "form-control", placeholder: "Comment"
-      = submit_tag "Send", class: "btn btn-primary btn-default"
+    = link_to "Join", signup_path, class: "btn btn-primary"

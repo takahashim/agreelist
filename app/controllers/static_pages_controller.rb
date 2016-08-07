@@ -18,7 +18,7 @@ class StaticPagesController < ApplicationController
   end
 
   def home
-    @influencers = Individual.where(twitter: %w(barackobama StephenHawking8 HillaryClinton))
+    @influencers = Individual.where("lower(twitter) in (?)", %w(barackobama stephenhawking8 hillaryclinton pontifex oprah))
   end
 
   def about

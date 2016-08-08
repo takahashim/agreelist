@@ -22,14 +22,14 @@ describe "Referer blacklist", type: :request do
     it "is not blocked" do
       get root_path, {}, { "HTTP_REFERER" => "google.com" }
 
-      expect(response).to redirect_to("/brexit")
+      expect(response).not_to be_redirect
     end
   end
 
   describe "direct request" do
     it "is not blocked" do
       get root_path
-      expect(response).to redirect_to("/brexit")
+      expect(response).not_to be_redirect
     end
   end
 end

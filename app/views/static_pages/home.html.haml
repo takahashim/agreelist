@@ -34,6 +34,21 @@
         %h4 Public data
         Download AgreeList's data of which public figures agree on what and why from our site or use Google BigQuery.
         %p= image_tag "https://s3-eu-west-1.amazonaws.com/agreelist/bigquery.png", id: "home-bigquery-img"
+    %h2 What we are not
+    .row
+      .col-md-4
+        %h4 Petitions
+        Petitions are useful to show support, but on AgreeList you find people who disagree as well.
+        %p= image_tag "https://s3-eu-west-1.amazonaws.com/agreelist/petitions.jpg"
+      .col-md-4
+        %h4 Polls
+        Polls are anonymous. On AgreeList you see the names of all the people who agree and disagree.
+        %p= image_tag "https://s3-eu-west-1.amazonaws.com/agreelist/polls.png", id: "home-polls-img"
+      .col-md-4
+        %h4 Wikipedia
+        Wikipedia is great for facts, but we deal with opinions - and for facts that aren't believed by all society yet.
+        %p= image_tag "https://s3-eu-west-1.amazonaws.com/agreelist/wikipedia.jpeg", id: "home-wikipedia-img"
+
 - if current_user
   .text-center
     %h2 Other examples (advice for entrepreneurs):

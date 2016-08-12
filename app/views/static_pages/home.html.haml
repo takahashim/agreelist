@@ -5,12 +5,17 @@
       %h2 The social network where you add influencer's opinions
       = link_to "Create an issue or statement", new_statement_path, class: "btn btn-primary btn-lg"
       %h3
-        Our first issue was:
+        Our first featured issue was:
         %p= link_to("BREXIT (#{main_statement.agreements.size} opinions)", "/brexit")
       %p= link_to(image_tag("https://s3-eu-west-1.amazonaws.com/agreelist/brexit.png"), "/brexit")
       %p
         - @brexit_influencers.each do |influencer|
           = image_tag(influencer.picture.url(:thumb), class: "picture") if influencer
+      %p= link_to "Browse new issues", new_path
+      %p
+        Follow us on Twitter:
+        = link_to "@arpahector", "http://www.twitter.com/arpahector"
+        = link_to "@emilieesposito", "http://www.twitter.com/emilieesposito"
   - else
     .jumbotron
       %h1 AgreeList

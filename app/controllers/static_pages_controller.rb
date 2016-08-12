@@ -18,7 +18,6 @@ class StaticPagesController < ApplicationController
   end
 
   def home
-    binding.pry
     if current_user
       @brexit_influencers = Individual.where("lower(twitter) in (?)", %w(barackobama lagarde stephenhawking8 realdonaldtrump borisjohnson richardbranson billgates)).order(:ranking, :followers_count)
     else

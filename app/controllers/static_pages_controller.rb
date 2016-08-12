@@ -20,7 +20,6 @@ class StaticPagesController < ApplicationController
   def home
     if current_user
       @brexit_influencers = Individual.where("lower(twitter) in (?)", %w(barackobama lagarde stephenhawking8 realdonaldtrump borisjohnson richardbranson billgates))
-      advice_for_entrepreneurs
     else
       @influencers = Individual.where("lower(twitter) in (?)", %w(barackobama stephenhawking8 hillaryclinton pontifex billgates oprah elonmusk))
     end

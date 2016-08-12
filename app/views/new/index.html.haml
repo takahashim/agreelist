@@ -11,6 +11,11 @@
   %h3
     Discover new opinions
     %span{class: "small"}
+      |
+      - if params[:all].present?
+        = link_to "Back", new_path
+      - else
+        = link_to "Show all", new_path(all: 1)
       | Featured: 
       = link_to "Brexit", "/brexit", class: "button"
     

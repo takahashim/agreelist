@@ -19,9 +19,9 @@ class StaticPagesController < ApplicationController
 
   def home
     if current_user
-      @brexit_influencers = Individual.where("lower(twitter) in (?)", %w(barackobama lagarde stephenhawking8 realdonaldtrump borisjohnson richardbranson billgates)).order(:ranking, :followers_count)
+      @brexit_influencers = Individual.where("lower(twitter) in (?)", %w(barackobama lagarde stephenhawking8 realdonaldtrump borisjohnson richardbranson billgates)).order(ranking: :desc, followers_count: :desc)
     else
-      @influencers = Individual.where("lower(twitter) in (?)", %w(barackobama stephenhawking8 hillaryclinton pontifex billgates oprah elonmusk)).order(:ranking, :followers_count)
+      @influencers = Individual.where("lower(twitter) in (?)", %w(barackobama stephenhawking8 hillaryclinton pontifex billgates oprah elonmusk)).order(ranking: :desc, followers_count: :desc)
     end
   end
 

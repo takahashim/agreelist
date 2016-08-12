@@ -48,6 +48,7 @@ class AgreementsController < ApplicationController
                             ).find_or_create!
       voter.bio = params[:biography] if params[:biography].present?
       voter.picture_from_url = params[:picture_from_url] if params[:picture_from_url].present?
+      voter.wikipedia = params[:wikipedia]
       voter.save
       statement = Statement.find(params[:statement_id])
       LogMailer.log_email("@#{current_user.try(:twitter)}, email: #{params[:email]}, ip: #{request.remote_ip} added #{voter.name} (@#{voter.try(:twitter)}) to '#{statement.content}'").deliver

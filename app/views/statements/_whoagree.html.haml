@@ -34,8 +34,13 @@
             = link_to "Upvote", upvote_agreement_path(agreement), method: :post
           - else
             = link_to "Upvote (#{agreement.upvotes.size})", upvote_agreement_path(agreement), method: :post
+          ·
           - if agreement.agreement_comments.size > 0
-            ·
             = link_to pluralize(agreement.agreement_comments.size, "comment"), agreement_path(agreement)
+          - else
+            = link_to "New comment", agreement_path(agreement)
+          - if agreement.individual.wikipedia
+            ·
+            = link_to "Wikipedia", agreement.individual.wikipedia
         = render partial: "reason_category_select", locals: { agreement: agreement }
     #br

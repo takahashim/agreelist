@@ -11,6 +11,11 @@
         = f.label :name
       .col-sm-8
         = f.text_field :name, class: "form-control"
+    .row
+      .col-sm-2
+        = f.label :wikipedia_page
+      .col-sm-8
+        = f.text_field :wikipedia, class: "form-control"
     - if admin?
       .row
         .col-sm-2

@@ -2,16 +2,16 @@
   - if current_user
     .jumbotron
       %h1 AgreeList
-      %h2 The social network where you add influencer's opinions
-      = link_to "Create an issue or statement", new_statement_path, class: "btn btn-primary btn-lg"
+      %h2 The social network where you add influencers' opinions
+      = link_to "Create a statement", new_statement_path, class: "btn btn-primary btn-lg"
       %h3
-        Our first featured issue was:
+        Our first featured topic was:
         %p= link_to("BREXIT (#{main_statement.agreements.size} opinions)", "/brexit")
       %p= link_to(image_tag("https://s3-eu-west-1.amazonaws.com/agreelist/brexit.png"), "/brexit")
       %p
         - @brexit_influencers.each do |influencer|
           = image_tag(influencer.picture.url(:thumb), class: "picture") if influencer
-      %p= link_to "Browse new issues", new_path
+      %p= link_to "Browse new opinions", new_path
       %p
         Follow us on Twitter:
         = link_to "@arpahector", "http://www.twitter.com/arpahector"
@@ -19,11 +19,11 @@
   - else
     .jumbotron
       %h1 AgreeList
-      %h2 The social network where you add influencer's opinions
+      %h2 The social network where you add influencers' opinions
       - @influencers.each do |influencer|
         = image_tag(influencer.picture.url(:thumb), class: "picture") if influencer
-      %br
-      %br
+      %h2
+        %i More opinions, better decisions
       = link_to "Join", signup_path, class: "btn btn-primary btn-lg"
     .row
       .col-md-4
@@ -36,20 +36,20 @@
         %p= image_tag "https://s3-eu-west-1.amazonaws.com/agreelist/wikidata.png"
 
       .col-md-4
-        %h4 Public data
+        %h4 Countribute to public data
         Download AgreeList's data of which public figures agree on what and why from our site or use Google BigQuery.
         %p= image_tag "https://s3-eu-west-1.amazonaws.com/agreelist/bigquery.png", id: "home-bigquery-img"
     %h2 What we are not
     .row
       .col-md-4
         %h4 Petitions
-        Petitions are useful to show support, but on AgreeList you find people who disagree as well.
+        Petitions are useful to show support, but on AgreeList you find diversity of opinions.
         %p= image_tag "https://s3-eu-west-1.amazonaws.com/agreelist/petitions.jpg"
       .col-md-4
         %h4 Polls
-        Polls are anonymous. On AgreeList you see the names of all the people who agree and disagree.
+        Polls are anonymous and easily biased. On AgreeList you can understand the people you trust.
         %p= image_tag "https://s3-eu-west-1.amazonaws.com/agreelist/polls.png", id: "home-polls-img"
       .col-md-4
         %h4 Wikipedia
-        Wikipedia is great for facts, but we deal with opinions - and for facts that aren't believed by all society yet.
+        Wikipedia focuses on facts. We track opinions and favour constructive debates.
         %p= image_tag "https://s3-eu-west-1.amazonaws.com/agreelist/wikipedia.jpeg", id: "home-wikipedia-img"

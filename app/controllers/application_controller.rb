@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def admin?
-    current_user.try(:twitter) == "arpahector"
+    %w(arpahector emilieesposito).include?(current_user.try(:twitter).downcase)
   end
 
   def has_admin_category_rights?

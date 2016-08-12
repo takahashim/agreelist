@@ -5,8 +5,7 @@ Al::Application.routes.draw do
   get "/brexit", to: "boards#brexit", as: :brexit_board
   get "/boards/brexit" => redirect("/brexit")
   post '/results' => 'home#save_email'
-  get "/new_issue_or_statement" => 'statements#new', as: :new_statement
-  resources :statements, path: "s", except: "new" do
+  resources :statements, path: "s" do
     collection do
       post 'create_and_agree'
     end

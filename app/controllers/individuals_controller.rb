@@ -41,9 +41,9 @@ class IndividualsController < ApplicationController
   def update
     params[:individual][:name] = nil if params[:individual][:name] == ""
     if admin?
-      result = @individual.update_attributes(params.require(:individual).permit(:name, :twitter, :email, :bio, :picture_from_url, :ranking, :profession_id))
+      result = @individual.update_attributes(params.require(:individual).permit(:name, :twitter, :email, :bio, :picture_from_url, :ranking, :profession_id, :wikipedia))
     else
-      result = @individual.update_attributes(params.require(:individual).permit(:name, :bio, :picture_from_url, :profession_id))
+      result = @individual.update_attributes(params.require(:individual).permit(:name, :bio, :picture_from_url, :profession_id, :wikipedia))
     end
     if result
       respond_to do |format|

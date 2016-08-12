@@ -1,6 +1,10 @@
 class NewController < ApplicationController
   def index
-    @agreements = Agreement.order(updated_at: :desc).page(params[:page] || 1).per(50).includes(:statement).includes(:individual)
+    if params[:all]
+      @agreements = Agreement.order(updated_at: :desc).page(params[:page] || 1).per(50).includes(:statement).includes(:individual)
+    else
+      @agreements = Agreement.select('DISTINCT ON (statement_id) statement_id, id, updated_at, individual_id, extent, hashed_id, reason').order("statement_id, updated_at DESC").page(params[:page] || 1).per(50).includes(:statement).includes(:individual)
+    end
     @statement = Statement.new
   end
 

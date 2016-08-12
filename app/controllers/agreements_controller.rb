@@ -58,7 +58,7 @@ class AgreementsController < ApplicationController
         url: params[:source],
         reason: params[:comment],
         reason_category_id: params[:reason_category_id],
-        extent: params[:commit] == "Disagree" ? 0 : 100)
+        extent: params[:commit] == "She/he disagrees" ? 0 : 100)
       redirect_to :back, notice: "Done"
     end
   end

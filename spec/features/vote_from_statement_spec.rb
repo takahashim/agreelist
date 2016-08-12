@@ -16,14 +16,14 @@ feature 'voting', js: true do
     scenario 'adds reason category' do
       fill_in 'name', with: "Cesar Perez"
       select "Politics", from: "reason_category_id"
-      click_button "Agree"
+      click_button "She/he agrees"
       expect(Agreement.last.reason_category.name).to eq "Politics"
     end
 
     scenario 'adds profession' do
       fill_in 'name', with: "Cesar Perez"
       select "Politician", from: "profession_id"
-      click_button "Agree"
+      click_button "She/he agrees"
       expect(Agreement.last.individual.profession.name).to eq "Politician"
     end
 
@@ -44,13 +44,13 @@ feature 'voting', js: true do
     scenario 'adds someone who disagrees' do
       fill_in 'name', with: 'Hector Perez'
 
-      click_button "Disagree"
+      click_button "She/he disagree"
       expect(Agreement.last.disagree?).to eq(true)
     end
 
     scenario 'adds someone who disagrees with its twitter' do
       fill_in 'name', with: "@arpahector"
-      click_button "Disagree"
+      click_button "She/he disagree"
       expect(Individual.last.twitter).to eq "arpahector"
     end
   end
@@ -79,7 +79,7 @@ feature 'voting', js: true do
     scenario 'adds someone who disagrees' do
       fill_in 'name', with: 'Hector Perez'
 
-      click_button "Disagree"
+      click_button "She/he disagree"
       expect(Agreement.last.disagree?).to eq(true)
     end
 
@@ -87,14 +87,14 @@ feature 'voting', js: true do
       fill_in 'name', with: 'Hector Perez'
       fill_in 'comment', with: 'Because...'
 
-      click_button "Disagree"
+      click_button "She/he disagree"
       expect(Agreement.last.reason).to eq "Because..."
     end
 
     scenario 'bio' do
       fill_in 'name', with: "Hector Perez"
       fill_in 'biography', with: "Hero"
-      click_button "Agree"
+      click_button "She/he agrees"
       expect(page).to have_text('Hero')
     end
 
@@ -103,20 +103,20 @@ feature 'voting', js: true do
       fill_in 'source', with: 'http://...'
       fill_in 'email', with: 'hhh@jjj.com'
 
-      expect{ click_button "Agree" }.to change{ Individual.count }.by(2)
+      expect{ click_button "She/he agrees" }.to change{ Individual.count }.by(2)
     end
 
     scenario 'adds someone who disagrees with its twitter' do
       fill_in 'name', with: "@arpahector"
-      click_button "Disagree"
+      click_button "She/he disagree"
       expect(Individual.last.twitter).to eq "arpahector"
     end
 
     scenario 'adds two times the same @user' do
       fill_in 'name', with: "@arpahector"
-      click_button "Agree"
+      click_button "She/he agrees"
       fill_in 'name', with: "@arpahector"
-      click_button "Agree"
+      click_button "She/he agrees"
       expect(Individual.all.order(:twitter).map(&:twitter)).to eq %w(arpahector seed)
     end
 

@@ -31,7 +31,7 @@ feature 'voting', js: true do
     scenario 'add someone who disagrees' do
       fill_in 'name', with: 'Hector Perez'
 
-      click_button "Disagree"
+      click_button "She/he disagree"
       expect(Agreement.last.disagree?).to eq(true)
     end
 
@@ -39,20 +39,20 @@ feature 'voting', js: true do
       fill_in 'name', with: 'Hector Perez'
       fill_in 'source', with: 'http://...'
 
-      expect{ click_button "Agree" }.to change{ Individual.count }.by(1)
+      expect{ click_button "She/he agrees" }.to change{ Individual.count }.by(1)
     end
 
     scenario 'add someone who disagrees with its twitter' do
       fill_in 'name', with: "@arpahector"
-      click_button "Disagree"
+      click_button "She/he disagree"
       expect(Individual.last.twitter).to eq "arpahector"
     end
 
     scenario 'add two times the same @user' do
       fill_in 'name', with: "@arpahector"
-      click_button "Agree"
+      click_button "She/he agrees"
       fill_in 'name', with: "@arpahector"
-      click_button "Agree"
+      click_button "She/he agrees"
       expect(Individual.all.order(:twitter).map(&:twitter)).to eq %w(arpahector seed)
     end
   end
@@ -83,7 +83,7 @@ feature 'voting', js: true do
     scenario 'add someone who disagrees' do
       fill_in 'name', with: 'Hector Perez'
 
-      click_button "Disagree"
+      click_button "She/he disagree"
       expect(Agreement.last.disagree?).to eq(true)
     end
 
@@ -92,20 +92,20 @@ feature 'voting', js: true do
       fill_in 'source', with: 'http://...'
       fill_in 'email', with: 'hhh@jjj.com'
 
-      expect{ click_button "Agree" }.to change{ Individual.count }.by(2)
+      expect{ click_button "She/he agrees" }.to change{ Individual.count }.by(2)
     end
 
     scenario 'add someone who disagrees with its twitter' do
       fill_in 'name', with: "@arpahector"
-      click_button "Disagree"
+      click_button "She/he disagree"
       expect(Individual.last.twitter).to eq "arpahector"
     end
 
     scenario 'add two times the same @user' do
       fill_in 'name', with: "@arpahector"
-      click_button "Agree"
+      click_button "She/he agrees"
       fill_in 'name', with: "@arpahector"
-      click_button "Agree"
+      click_button "She/he agrees"
       expect(Individual.all.order(:twitter).map(&:twitter)).to eq %w(arpahector seed)
     end
   end

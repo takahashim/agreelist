@@ -8,7 +8,7 @@ feature 'spam filter' do
     # real people have name and surname separated by a space
     visit statement_path(statement)
     fill_in 'name', with: "Spammer"
-    click_button "Agree"
+    click_button "She/he agrees"
     expect(page).to have_text "Your message has to be approved because it seemed spam."
   end
 end

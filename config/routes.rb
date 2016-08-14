@@ -10,6 +10,8 @@ Al::Application.routes.draw do
       post 'create_and_agree'
     end
   end
+  get "/contact" => "static_pages#contact"
+  post "/contact" => "static_pages#contact_send_email"
   resources :agreement_comments, only: :create
   resources :comments, only: :create
   resources :votes, only: :create

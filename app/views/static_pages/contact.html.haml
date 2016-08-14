@@ -1,2 +1,19 @@
-.text-center
-  You can contact by email:
+.container
+  %h1 Contact
+  = form_tag do
+    Your name:
+    %p= text_field_tag :name, current_user.try(:name), class: "form-control"
+    Your email:
+    %p= text_field_tag :email, current_user.try(:email), class: "form-control"
+    Your phone (optional):
+    %p= text_field_tag :phone, "", class: "form-control"
+    Subject:
+    %p= text_field_tag :subject, params["subject"], class: "form-control"
+    Body:
+    %p= text_area_tag :body, params["body"], class: "form-control", rows: 7
+    = hidden_field_tag :back_url, params["back_url"]
+    = submit_tag "Send", class: "btn btn-primary"
+    or
+    = link_to "Back", params[:back_url] || root_path
+    = "- You can also contact us at"
+    = link_to "feedback@agreelist.com", "mailto://feedback@agreelist.com"

@@ -1,5 +1,14 @@
 class StaticPagesController < ApplicationController
   before_action :statements_to_vote, only: :advice_for_entrepreneurs
+  def contact
+  end
+
+  def contact_send_email
+    ContactMailer.contact(current_user, params).deliver
+    flash[:notice] = "Done. We'll reply soon. If not, you can email us directly to feedback@agreelist.com or via Twitter at @arpahector"
+    redirect_to params[:back_url] || root_path
+  end
+
   def join
     @individual = current_user
   end
@@ -47,10 +56,6 @@ class StaticPagesController < ApplicationController
     end
     @contents = contents
   end
-
-  def contact
-  end
-
   private
 
   def statements_to_vote

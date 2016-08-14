@@ -1,0 +1,12 @@
+<%= @body %>
+
+Details from sender:
+<%= "Name: #{@args[:name]}" %>
+<%= "Email: #{@args[:email]}" %>
+<%= "Phone: #{@args[:phone]}" %>
+<% if @individual.present? %>
+User logged in as:
+<%= @individual.name%>
+<%= "@#{@individual.twitter}" %>
+<%= @individual.email %>
+<% end %>

@@ -21,14 +21,14 @@
   .text-center
     .row
       .col-md-4
-        %h4= link_to("Net neutrality", statement_path("3xznohtiknyb"))
-        %p= link_to(image_tag("https://s3-eu-west-1.amazonaws.com/agreelist/net-neutrality.png", class: "home-img"), statement_path("3xznohtiknyb"))
-      .col-md-4
         %h4= link_to("BREXIT", "/brexit")
         %p= link_to(image_tag("https://s3-eu-west-1.amazonaws.com/agreelist/brexit.png", class: "home-img"), "/brexit")
       .col-md-4
         %h4= link_to("Assault weapons", statement_path("bawuigugn8sz"))
         %p= link_to(image_tag("https://s3-eu-west-1.amazonaws.com/agreelist/assault-weapon.jpg", class: "home-img"), statement_path("bawuigugn8sz"))
+      .col-md-4
+        %h4= link_to("Net neutrality", statement_path("3xznohtiknyb"))
+        %p= link_to(image_tag("https://s3-eu-west-1.amazonaws.com/agreelist/net-neutrality.png", class: "home-img"), statement_path("3xznohtiknyb"))
   - @agreements.each do |agreement|
     - individual = agreement.individual
     .row.col-md-12

@@ -1,13 +1,15 @@
 .container
-  #new-statement.row.col-md-12
-    = form_tag("/s/create_and_agree", class: "form-horizontal") do |f|
-      #new-statement-content
-        = text_field_tag :content, "", class: "form-control", placeholder: "Write a statement you agree with to hear what others think"
-      #new-statement-button
-        - if current_user
-          = submit_tag "Create", class: "btn btn-primary", id: "create-question"
-        - else
-          = link_to "Create", "#", class: "button btn btn-primary", id: "create-question", "data-toggle" => "modal", "data-target" => "#loginToCreate"
+  #new-statement.row
+    .col-md-2
+    .col-md-8
+      = form_tag("/s/create_and_agree", class: "form-horizontal") do |f|
+        #new-statement-content
+          = text_field_tag :content, "", class: "form-control", placeholder: "Write a topic you agree with"
+        #new-statement-button
+          - if current_user
+            = submit_tag "Create", class: "btn btn-primary", id: "create-question"
+          - else
+            = link_to "Create", "#", class: "button btn btn-primary", id: "create-question", "data-toggle" => "modal", "data-target" => "#loginToCreate"
   %h3
     Discover new opinions
     %span{class: "small"}
@@ -16,9 +18,17 @@
         = link_to "Back", new_path
       - else
         = link_to "Show all", new_path(all: 1)
-      | Featured: 
-      = link_to "Brexit", "/brexit", class: "button"
-    
+  .text-center
+    .row
+      .col-md-4
+        %h4= link_to("Net neutrality", statement_path("3xznohtiknyb"))
+        %p= link_to(image_tag("https://s3-eu-west-1.amazonaws.com/agreelist/net-neutrality.jpg", class: "home-img"), statement_path("3xznohtiknyb"))
+      .col-md-4
+        %h4= link_to("BREXIT", "/brexit")
+        %p= link_to(image_tag("https://s3-eu-west-1.amazonaws.com/agreelist/brexit.png", class: "home-img"), "/brexit")
+      .col-md-4
+        %h4= link_to("Assault weapons", statement_path("bawuigugn8sz"))
+        %p= link_to(image_tag("https://s3-eu-west-1.amazonaws.com/agreelist/assault-weapon.jpg", class: "home-img"), statement_path("bawuigugn8sz"))
   - @agreements.each do |agreement|
     - individual = agreement.individual
     .row.col-md-12

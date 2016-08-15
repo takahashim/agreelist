@@ -14,7 +14,9 @@
     .row
       .col-sm-2
         = f.label :wikipedia_page
-      .col-sm-8
+      .col-sm-2
+        = link_to "search name on WP", "https://en.wikipedia.org/w/index.php?search=#{@individual.name}"
+      .col-sm-6
         = f.text_field :wikipedia, class: "form-control"
     - if admin?
       .row

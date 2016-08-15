@@ -38,7 +38,7 @@
         .media-body
           %h4.media-heading
             - text = "#{individual.name || individual.twitter || 'user-' + individual.hashed_id} #{agreement.extent == 100 ? "agrees" : "disagrees"}: #{agreement.statement.content}"
-            %span.name= link_to(text, agreement_path(agreement))
+            %span.name= link_to(text, statement_path(agreement.statement))
           %span.reason
             = agreement.reason
           %span

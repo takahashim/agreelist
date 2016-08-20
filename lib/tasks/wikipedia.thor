@@ -12,19 +12,14 @@ class Wikipedia < Thor
   end
 
   desc "import",
-       "import from wikipedia"
+       "import from wikipedia; e.g. thor wikipedia:import_data https://s3-eu-west-1.amazonaws.com/agreelist/tmp/remain.txt remain"
 
-  def import_data
+  def import_data(url, remain_or_leave)
     require './config/environment'
-    #require 'net/http'
-	  # IO.foreach("../wp-brexit-supporters.txt") do |line|
-    refs = {}
     count = 0
     statement = Statement.find_by_hashed_id("sblrlc9vgxp7")
-    uri = URI('https://s3-eu-west-1.amazonaws.com/agreelist/tmp/remain.txt')
-    extent = 0
-    text = Net::HTTP.get(uri)
-    #text.split("\n").each do |line|
+    extent = (remain_or_leave == "remain" ? 0 : 100)
+    text = Net::HTTP.get(URI(url))
     #IO.foreach("../remain.txt") do |line|
     text.split("\n").each do |line|
       wikipedia_line = WikipediaLine.new(line)

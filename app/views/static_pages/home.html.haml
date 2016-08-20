@@ -19,7 +19,7 @@
   - else
     .jumbotron
       %h1 AgreeList
-      %h2 The social network where you add influencers' opinions
+      %h2 The social network that gathers influencers' opinions
       - @influencers.each do |influencer|
         = image_tag(influencer.picture.url(:thumb), class: "picture") if influencer
       %h2

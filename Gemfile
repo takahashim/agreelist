@@ -39,6 +39,8 @@ group :test do
   gem 'database_cleaner'
   gem 'selenium-webdriver'
   gem 'rack_session_access'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 gem 'pg', '0.17.1'

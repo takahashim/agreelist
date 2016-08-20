@@ -1,8 +1,9 @@
 class WikipediaLine
-  attr_reader :line, :wikidata_id, :bio, :label
+  attr_reader :line, :wikidata_id, :bio, :label, :default_source
 
-  def initialize(line)
-    @line = line
+  def initialize(args)
+    @line = args[:line]
+    @default_source = args[:default_source]
   end
 
   def read
@@ -14,6 +15,7 @@ class WikipediaLine
       rescue
       end
     end
+    self
   end
 
   def twitter
@@ -26,7 +28,7 @@ class WikipediaLine
   end
 
   def source
-    line.scan(/url=([^\|]*)/).flatten.first || default_source
+    line.scan(/url=([^\|]*)/).flatten.first.try(:strip) || default_source
   end
 
   private
@@ -41,9 +43,5 @@ class WikipediaLine
 
   def between_brackets
     @between_brackets ||= line.scan(/\[\[([^\]]*)\]\]/).flatten.first
-  end
-
-  def default_source
-    "https://en.wikipedia.org/wiki/Endorsements_in_the_United_Kingdom_European_Union_membership_referendum,_2016"
   end
 end

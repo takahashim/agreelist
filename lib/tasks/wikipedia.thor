@@ -22,7 +22,7 @@ class Wikipedia < Thor
     text = Net::HTTP.get(URI(url))
     #IO.foreach("../remain.txt") do |line|
     text.split("\n").each do |line|
-      wikipedia_line = WikipediaLine.new(line)
+      wikipedia_line = WikipediaLine.new(line: line, default_source: "https://en.wikipedia.org/wiki/Endorsements_in_the_United_Kingdom_European_Union_membership_referendum,_2016")
       wikipedia_line.read
       if wikipedia_line.wikidata_id
         count = count + 1

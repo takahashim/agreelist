@@ -11,10 +11,13 @@ class Wikipedia < Thor
     end
   end
 
-  desc "import",
-       "import from wikipedia; e.g. thor wikipedia:import_data https://s3-eu-west-1.amazonaws.com/agreelist/tmp/remain.txt remain"
+  desc "brexit_import",
+       "import Brexit supporters/detractors from wikipedia"
+  # Examples:
+  # thor wikipedia:brexit_import https://s3-eu-west-1.amazonaws.com/agreelist/tmp/remain.txt remain
+  # thor wikipedia:brexit_import https://s3-eu-west-1.amazonaws.com/agreelist/tmp/leave.txt leave
 
-  def import_data(url, remain_or_leave)
+  def brexit_import(url, remain_or_leave)
     require './config/environment'
     count = 0
     statement = Statement.find_by_hashed_id("sblrlc9vgxp7")

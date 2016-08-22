@@ -19,6 +19,9 @@ class Wikipedia < Thor
 
   def brexit_import(url, remain_or_leave)
     require './config/environment'
+    puts "update wikidata ids first"
+    update_wikidata_ids_from_wikipedia_urls
+
     count = 0
     statement = Statement.find_by_hashed_id("sblrlc9vgxp7")
     extent = (remain_or_leave == "remain" ? 0 : 100)

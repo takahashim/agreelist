@@ -11,7 +11,7 @@ feature 'reason', js: true do
     click_link "Agree"
     click_link "vote-twitter-login"
     click_button "Save"
-    click_link "Why do you agree? Add a reason"
+    click_link "Why do you agree?"
     fill_in :agreement_reason, with: "Because..."
     click_button "Save"
     expect(Agreement.last.reason).to eq "Because..."

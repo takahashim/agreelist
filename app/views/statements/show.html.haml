@@ -39,6 +39,8 @@
       .add_me
         %h4= @agreements_count > 0 ? "Who disagrees (#{100 - @percentage_in_favor}% of #{pluralize(@agreements_count, 'opinion')}):" : "Nobody disagrees yet"
       = render partial: "whoagree", locals: { agreements: @agreements_against }
+.text-center
+  = paginate (@agreements_in_favor.size > @agreements_against.size ? @agreements_in_favor : @agreements_against)
 .container
   #comments
     - if @comments.size > 0 && @statement.id != 7 # brexit

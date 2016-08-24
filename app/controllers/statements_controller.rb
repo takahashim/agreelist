@@ -56,15 +56,17 @@ class StatementsController < ApplicationController
   # GET /statements/1.json
   def show
     if params[:c] == "Others"
-      @agreements_in_favor = @statement.agreements_in_favor(order: params[:order], filter_by: :non_categorized, profession: params[:profession])
-      @agreements_against = @statement.agreements_against(order: params[:order], filter_by: :non_categorized, profession: params[:profession])
+      @agreements_in_favor = @statement.agreements_in_favor(order: params[:order], filter_by: :non_categorized, profession: params[:profession], page: params[:page])
+      @agreements_against = @statement.agreements_against(order: params[:order], filter_by: :non_categorized, profession: params[:profession], page: params[:page])
     else
       category_id = ReasonCategory.find_by_name(params[:c]).try(:id)
-      @agreements_in_favor = @statement.agreements_in_favor(order: params[:order], category_id: category_id, profession: params[:profession])
-      @agreements_against = @statement.agreements_against(order: params[:order], category_id: category_id, profession: params[:profession])
+      @agreements_in_favor = @statement.agreements_in_favor(order: params[:order], category_id: category_id, profession: params[:profession], page: params[:page])
+      @agreements_against = @statement.agreements_against(order: params[:order], category_id: category_id, profession: params[:profession], page: params[:page])
     end
-    @agreements_count = @agreements_in_favor.size + @agreements_against.size
-    @percentage_in_favor = (@agreements_in_favor.size * 100.0 / @agreements_count).round if @agreements_count > 0
+    supporters_count = @statement.supporters_count(profession: params[:profession])
+    detractors_count = @statement.detractors_count(profession: params[:profession])
+    @agreements_count = supporters_count + detractors_count
+    @percentage_in_favor = (supporters_count * 100.0 / @agreements_count).round if @agreements_count > 0
     @related_statements = Statement.where.not(id: @statement.id).tagged_with(@statement.tags.first).limit(6)
 
     @comment = Comment.new

@@ -99,7 +99,7 @@ class Individual < ActiveRecord::Base
         if e.message.scan(/User has been suspended/).any?
           LogMailer.log_email("twitter @#{self.twitter} has been suspended").deliver
         else
-          LogMailer.log_email("error updating profile from twitter: #{e.message}; backtrace: #{e.backtrace}").deliver
+          LogMailer.log_email("error updating profile from twitter (user.id: #{self.id}): #{e.message}; backtrace: #{e.backtrace}").deliver
         end
       end
     end

@@ -15,8 +15,8 @@ class Export < Thor
 
     CSV.open("individuals.csv", "wb") do |csv|
       puts "Exporting individuals"
-      Individual.select(:id, :name, :twitter, :bio, :followers_count).find_each do |i|
-        csv << [i.id, i.name, i.twitter, i.bio, i.followers_count]
+      Individual.select(:id, :wikidata_id, :name, :twitter, :bio, :followers_count).find_each do |i|
+        csv << [i.id, i.wikidata_id, i.name, i.twitter, i.bio, i.followers_count]
         puts i.id
       end
     end

@@ -56,7 +56,7 @@ class AgreementsController < ApplicationController
         statement_id: params[:statement_id],
         individual_id: voter.id,
         url: params[:source],
-        reason: params[:comment],
+        reason: params[:comment].present? ? params[:comment] : nil,
         reason_category_id: params[:reason_category_id],
         extent: params[:commit] == "She/he disagrees" ? 0 : 100)
       redirect_to :back, notice: "Done"

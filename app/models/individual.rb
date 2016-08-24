@@ -70,9 +70,13 @@ class Individual < ActiveRecord::Base
     wikidata = Wikidata::Item.find_by_title(title)
     begin
       self.wikidata_id = wikidata.id
+    end
+
+    begin
       tw = wikidata.claims_for_property_id("P2002").first
       self.twitter = tw.mainsnak.value.data_hash.string if tw
-    rescue
+    rescue => e
+      LogMailer.log_email("error updating twitter @#{self.twitter} from wikidata: #{e.message}; backtrace: #{e.backtrace}").deliver
     end
   end
 

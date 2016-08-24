@@ -66,19 +66,21 @@ class Individual < ActiveRecord::Base
 
   def update_wikidata_id_and_twitter
     # if Rails.env == "production" && wikipedia.present?
-    title = self.wikipedia.gsub(/https:\/\/.*wikipedia.org\/wiki\//, "")
-    wikidata = Wikidata::Item.find_by_title(title)
-    begin
-      self.wikidata_id = wikidata.id
-    rescue
-    end
-
-    if wikidata_id
+    if self.wikipedia
+      title = self.wikipedia.gsub(/https:\/\/.*wikipedia.org\/wiki\//, "")
+      wikidata = Wikidata::Item.find_by_title(title)
       begin
-        tw = wikidata.claims_for_property_id("P2002").first
-        self.twitter = tw.mainsnak.value.data_hash.string if tw
-      rescue => e
-        LogMailer.log_email("error updating twitter @#{self.twitter} from wikidata: #{e.message}; backtrace: #{e.backtrace}").deliver
+        self.wikidata_id = wikidata.id
+      rescue
+      end
+
+      if wikidata_id
+        begin
+          tw = wikidata.claims_for_property_id("P2002").first
+          self.twitter = tw.mainsnak.value.data_hash.string if tw
+        rescue => e
+          LogMailer.log_email("error updating twitter @#{self.twitter} from wikidata: #{e.message}; backtrace: #{e.backtrace}").deliver
+        end
       end
     end
   end

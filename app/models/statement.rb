@@ -35,7 +35,7 @@ class Statement < ActiveRecord::Base
     if args[:order] == "date"
       a.sort_by{ |a| - a.created_at.to_i }
     else
-      a.sort_by{ |a| [- a.upvotes.size, a.individual.email.present? ? 1 : 0, - ranking(a)] }
+      a.sort_by{ |a| [- a.upvotes.size, a.individual.email.present? ? 1 : 0, a.reason.present? ? 0 : 1, - ranking(a)] }
     end
   end
 

@@ -30,7 +30,8 @@ class Individual < ActiveRecord::Base
 
 
   before_create :update_followers_count, :generate_hashed_id, :generate_activation_digest
-  before_save :update_profile_from_twitter
+  before_save :update_wikidata_id_and_twitter, if: :wikipedia_changed?
+  before_save :update_profile_from_twitter, if: :twitter_changed?
   before_save :downcase_email
 
   def self.create_with_omniauth(auth)
@@ -61,6 +62,18 @@ class Individual < ActiveRecord::Base
 
   def send_activation_email
     IndividualMailer.account_activation(self).deliver
+  end
+
+  def update_wikidata_id_and_twitter
+    # if Rails.env == "production" && wikipedia.present?
+    title = self.wikipedia.gsub(/https:\/\/.*wikipedia.org\/wiki\//, "")
+    wikidata = Wikidata::Item.find_by_title(title)
+    begin
+      self.wikidata_id = wikidata.id
+      tw = wikidata.claims_for_property_id("P2002").first
+      self.twitter = tw.mainsnak.value.data_hash.string if tw
+    rescue
+    end
   end
 
   def update_profile_from_twitter

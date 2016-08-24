@@ -1,0 +1,146 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://www.wikidata.org/w/api.php?action=wbgetentities&format=json&languages=en&sites=enwiki&titles=Paul%20Nurse
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 301
+      message: TLS Redirect
+    headers:
+      Server:
+      - Varnish
+      Location:
+      - https://www.wikidata.org/w/api.php?action=wbgetentities&sites=enwiki&format=json&languages=en&titles=Paul%20Nurse
+      Content-Length:
+      - '0'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Sat, 20 Aug 2016 16:14:26 GMT
+      X-Varnish:
+      - '1199796095'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      Connection:
+      - close
+      X-Cache:
+      - cp3031 int
+      X-Cache-Status:
+      - int
+      Set-Cookie:
+      - GeoIP=GB:H9:London:51.51:-0.09:v4; Path=/; secure; Domain=.wikidata.org
+      - WMF-Last-Access=20-Aug-2016;Path=/;HttpOnly;secure;Expires=Wed, 21 Sep 2016
+        12:00:00 GMT
+      X-Client-Ip:
+      - 95.149.7.202
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Sat, 20 Aug 2016 16:14:26 GMT
+- request:
+    method: get
+    uri: https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&languages=en&sites=enwiki&titles=Paul%20Nurse
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Cookie:
+      - WMF-Last-Access=20-Aug-2016;Path=/;HttpOnly;secure;Expires=Wed, 21 Sep 2016
+        12:00:00 GMT; GeoIP=GB:H9:London:51.51:-0.09:v4
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 20 Aug 2016 16:14:26 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Server:
+      - mw1289.eqiad.wmnet
+      X-Powered-By:
+      - HHVM/3.12.1
+      X-Content-Type-Options:
+      - nosniff
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      P3p:
+      - CP="This is not a P3P policy! See https://www.wikidata.org/wiki/Special:CentralAutoLogin/P3P
+        for more info."
+      X-Frame-Options:
+      - DENY
+      Vary:
+      - Accept-Encoding
+      Backend-Timing:
+      - D=58765 t=1471709666272991
+      X-Varnish:
+      - 1633959643, 3166746074, 1199797375
+      Via:
+      - 1.1 varnish, 1.1 varnish, 1.1 varnish
+      Age:
+      - '0'
+      X-Cache:
+      - cp1054 pass, cp3043 pass, cp3031 pass
+      X-Cache-Status:
+      - pass
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Analytics:
+      - ns=-1;special=Badtitle;WMF-Last-Access=20-Aug-2016;https=1
+      X-Client-Ip:
+      - 95.149.7.202
+    body:
+      encoding: UTF-8
+      string: '{"entities":{"Q219716":{"pageid":214594,"ns":0,"title":"Q219716","lastrevid":365575276,"modified":"2016-08-17T17:29:22Z","type":"item","id":"Q219716","labels":{"en":{"language":"en","value":"Paul
+        Nurse"}},"descriptions":{"en":{"language":"en","value":"British biochemist"}},"aliases":{"en":[{"language":"en","value":"alien
+        and drepedador"},{"language":"en","value":"Paul M. Nurse"}]},"claims":{"P21":[{"mainsnak":{"snaktype":"value","property":"P21","datavalue":{"value":{"entity-type":"item","numeric-id":6581097,"id":"Q6581097"},"type":"wikibase-entityid"},"datatype":"wikibase-item"},"type":"statement","id":"q219716$6BB7E14A-F149-4855-B561-D8077FC2285E","rank":"normal","references":[{"hash":"39f3ce979f9d84a0ebf09abe1702bf22326695e9","snaks":{"P143":[{"snaktype":"value","property":"P143","datavalue":{"value":{"entity-type":"item","numeric-id":169514,"id":"Q169514"},"type":"wikibase-entityid"},"datatype":"wikibase-item"}]},"snaks-order":["P143"]},{"hash":"50f57a3dbac4708ce4ae4a827c0afac7fcdb4a5c","snaks":{"P143":[{"snaktype":"value","property":"P143","datavalue":{"value":{"entity-type":"item","numeric-id":11920,"id":"Q11920"},"type":"wikibase-entityid"},"datatype":"wikibase-item"}]},"snaks-order":["P143"]}]}],"P244":[{"mainsnak":{"snaktype":"value","property":"P244","datavalue":{"value":"n83210976","type":"string"},"datatype":"external-id"},"type":"statement","id":"q219716$66E57454-1FAA-499D-8F92-58D945D41DD3","rank":"normal","references":[{"hash":"7eb64cf9621d34c54fd4bd040ed4b61a88c4a1a0","snaks":{"P143":[{"snaktype":"value","property":"P143","datavalue":{"value":{"entity-type":"item","numeric-id":328,"id":"Q328"},"type":"wikibase-entityid"},"datatype":"wikibase-item"}]},"snaks-order":["P143"]},{"hash":"004ec6fbee857649acdbdbad4f97b2c8571df97b","snaks":{"P143":[{"snaktype":"value","property":"P143","datavalue":{"value":{"entity-type":"item","numeric-id":48183,"id":"Q48183"},"type":"wikibase-entityid"},"datatype":"wikibase-item"}]},"snaks-order":["P143"]}]}],"P214":[{"mainsnak":{"snaktype":"value","property":"P214","datavalue":{"value":"13695505","type":"string"},"datatype":"external-id"},"type":"statement","id":"q219716$FD3F9AA5-EFF4-43F3-A578-8F61749FFB55","rank":"normal","references":[{"hash":"7eb64cf9621d34c54fd4bd040ed4b61a88c4a1a0","snaks":{"P143":[{"snaktype":"value","property":"P143","datavalue":{"value":{"entity-type":"item","numeric-id":328,"id":"Q328"},"type":"wikibase-entityid"},"datatype":"wikibase-item"}]},"snaks-order":["P143"]},{"hash":"004ec6fbee857649acdbdbad4f97b2c8571df97b","snaks":{"P143":[{"snaktype":"value","property":"P143","datavalue":{"value":{"entity-type":"item","numeric-id":48183,"id":"Q48183"},"type":"wikibase-entityid"},"datatype":"wikibase-item"}]},"snaks-order":["P143"]}]}],"P213":[{"mainsnak":{"snaktype":"value","property":"P213","datavalue":{"value":"0000
+        0000 8427 5394","type":"string"},"datatype":"external-id"},"type":"statement","id":"q219716$C5FD14B7-D5FD-4B00-99FA-746342029A20","rank":"normal","references":[{"hash":"500bf0768a4645f1e00ad451f904d3a010fa43ae","snaks":{"P143":[{"snaktype":"value","property":"P143","datavalue":{"value":{"entity-type":"item","numeric-id":423048,"id":"Q423048"},"type":"wikibase-entityid"},"datatype":"wikibase-item"}]},"snaks-order":["P143"]}]}],"P166":[{"mainsnak":{"snaktype":"value","property":"P166","datavalue":{"value":{"entity-type":"item","numeric-id":10855271,"id":"Q10855271"},"type":"wikibase-entityid"},"datatype":"wikibase-item"},"type":"statement","id":"q219716$385B3852-4E05-4E83-BE0A-D57E17DAE7C7","rank":"normal","references":[{"hash":"f70116eac7f49194478b3025330bfd8dcffa3c69","snaks":{"P143":[{"snaktype":"value","property":"P143","datavalue":{"value":{"entity-type":"item","numeric-id":8447,"id":"Q8447"},"type":"wikibase-entityid"},"datatype":"wikibase-item"}]},"snaks-order":["P143"]}]},{"mainsnak":{"snaktype":"value","property":"P166","datavalue":{"value":{"entity-type":"item","numeric-id":15631401,"id":"Q15631401"},"type":"wikibase-entityid"},"datatype":"wikibase-item"},"type":"statement","id":"Q219716$0F31E53D-5018-458C-9FC9-4B01496FBD36","rank":"normal"},{"mainsnak":{"snaktype":"value","property":"P166","datavalue":{"value":{"entity-type":"item","numeric-id":999734,"id":"Q999734"},"type":"wikibase-entityid"},"datatype":"wikibase-item"},"type":"statement","qualifiers":{"P585":[{"snaktype":"value","property":"P585","hash":"d11b6cb71a4838ac2b35bbd799ef5bc1cddd98a9","datavalue":{"value":{"time":"+1998-01-01T00:00:00Z","timezone":0,"before":0,"after":0,"precision":9,"calendarmodel":"http://www.wikidata.org/entity/Q1985727"},"type":"time"},"datatype":"time"}]},"qualifiers-order":["P585"],"id":"Q219716$191c7c9a-4b2d-7dfe-b098-c677e6f52518","rank":"normal","references":[{"hash":"717ca3288721ab069e308165ba5e3070c1af33ca","snaks":{"P854":[{"snaktype":"value","property":"P854","datavalue":{"value":"http://www.laskerfoundation.org/awards/1998basic.htm","type":"string"},"datatype":"url"}]},"snaks-order":["P854"]}]},{"mainsnak":{"snaktype":"value","property":"P166","datavalue":{"value":{"entity-type":"item","numeric-id":80061,"id":"Q80061"},"type":"wikibase-entityid"},"datatype":"wikibase-item"},"type":"statement","id":"Q219716$5DABA4D3-0D7E-4A23-B064-B50C2208B342","rank":"normal"},{"mainsnak":{"snaktype":"value","property":"P166","datavalue":{"value":{"entity-type":"item","numeric-id":28003,"id":"Q28003"},"type":"wikibase-entityid"},"datatype":"wikibase-item"},"type":"statement","qualifiers":{"P585":[{"snaktype":"value","property":"P585","hash":"c0d59b2afb736f83a0e2c24e687ffb4d1ab645d4","datavalue":{"value":{"time":"+2005-01-01T00:00:00Z","timezone":0,"before":0,"after":0,"precision":9,"calendarmodel":"http://www.wikidata.org/entity/Q1985727"},"type":"time"},"datatype":"time"}]},"qualifiers-order":["P585"],"id":"Q219716$F552627D-2E4E-417D-B5DB-734EB030B58A","rank":"normal"},{"mainsnak":{"snaktype":"value","property":"P166","datavalue":{"value":{"entity-type":"item","numeric-id":746756,"id":"Q746756"},"type":"wikibase-entityid"},"datatype":"wikibase-item"},"type":"statement","id":"Q219716$4E0004D4-944D-41AF-8060-73CC9E7083B5","rank":"normal"},{"mainsnak":{"snaktype":"value","property":"P166","datavalue":{"value":{"entity-type":"item","numeric-id":1287930,"id":"Q1287930"},"type":"wikibase-entityid"},"datatype":"wikibase-item"},"type":"statement","id":"Q219716$73F69BA3-AA60-4789-854D-90DE4DE85224","rank":"normal"},{"mainsnak":{"snaktype":"value","property":"P166","datavalue":{"value":{"entity-type":"item","numeric-id":6766365,"id":"Q6766365"},"type":"wikibase-entityid"},"datatype":"wikibase-item"},"type":"statement","id":"Q219716$DA1BA433-6364-4281-BF2D-81D1801DFD27","rank":"normal"},{"mainsnak":{"snaktype":"value","property":"P166","datavalue":{"value":{"entity-type":"item","numeric-id":20278696,"id":"Q20278696"},"type":"wikibase-entityid"},"datatype":"wikibase-item"},"type":"statement","id":"Q219716$568C73D1-F3E8-43C1-A5DC-CF4C2CF700DB","rank":"normal"},{"mainsnak":{"snaktype":"value","property":"P166","datavalue":{"value":{"entity-type":"item","numeric-id":1031994,"id":"Q1031994"},"type":"wikibase-entityid"},"datatype":"wikibase-item"},"type":"statement","id":"Q219716$3E6FA4E9-5172-4DA3-AC0C-2B3957F61461","rank":"normal"},{"mainsnak":{"snaktype":"value","property":"P166","datavalue":{"value":{"entity-type":"item","numeric-id":26268243,"id":"Q26268243"},"type":"wikibase-entityid"},"datatype":"wikibase-item"},"type":"statement","id":"Q219716$16ca6b04-43e4-0336-9228-a6994fb79088","rank":"normal"}],"P463":[{"mainsnak":{"snaktype":"value","property":"P463","datavalue":{"value":{"entity-type":"item","numeric-id":123885,"id":"Q123885"},"type":"wikibase-entityid"},"datatype":"wikibase-item"},"type":"statement","id":"q219716$A11C9252-4B1E-4C8D-8FAA-09927AA1CA3C","rank":"normal"},{"mainsnak":{"snaktype":"value","property":"P463","datavalue":{"value":{"entity-type":"item","numeric-id":270794,"id":"Q270794"},"type":"wikibase-entityid"},"datatype":"wikibase-item"},"type":"statement","id":"Q219716$BD937D1B-E829-4A8B-AB9C-F1FBCCBFCC99","rank":"normal"},{"mainsnak":{"snaktype":"value","property":"P463","datavalue":{"value":{"entity-type":"item","numeric-id":265058,"id":"Q265058"},"type":"wikibase-entityid"},"datatype":"wikibase-item"},"type":"statement","id":"Q219716$3C65B52D-7528-4AF4-AB17-8683F4666439","rank":"normal"},{"mainsnak":{"snaktype":"value","property":"P463","datavalue":{"value":{"entity-type":"item","numeric-id":463303,"id":"Q463303"},"type":"wikibase-entityid"},"datatype":"wikibase-item"},"type":"statement","id":"Q219716$29A07A6E-9969-4533-8F20-C58BC62CF9BA","rank":"normal"},{"mainsnak":{"snaktype":"value","property":"P463","datavalue":{"value":{"entity-type":"item","numeric-id":1376791,"id":"Q1376791"},"type":"wikibase-entityid"},"datatype":"wikibase-item"},"type":"statement","id":"Q219716$0F6AB28B-A017-4257-8B2F-ED37F07650B2","rank":"normal"}],"P373":[{"mainsnak":{"snaktype":"value","property":"P373","datavalue":{"value":"Paul
+        Nurse","type":"string"},"datatype":"string"},"type":"statement","id":"q219716$D1BCF803-D65D-4B29-BE0F-BFB76E6CF0F4","rank":"normal","references":[{"hash":"dbe2189e7b0d3953de6f69cc1cc88109a79605a4","snaks":{"P143":[{"snaktype":"value","property":"P143","datavalue":{"value":{"entity-type":"item","numeric-id":8449,"id":"Q8449"},"type":"wikibase-entityid"},"datatype":"wikibase-item"}]},"snaks-order":["P143"]}]}],"P345":[{"mainsnak":{"snaktype":"value","property":"P345","datavalue":{"value":"nm1532560","type":"string"},"datatype":"external-id"},"type":"statement","id":"q219716$BF36FF2D-266E-4EA0-A745-185D3CAE304F","rank":"normal","references":[{"hash":"7eb64cf9621d34c54fd4bd040ed4b61a88c4a1a0","snaks":{"P143":[{"snaktype":"value","property":"P143","datavalue":{"value":{"entity-type":"item","numeric-id":328,"id":"Q328"},"type":"wikibase-entityid"},"datatype":"wikibase-item"}]},"snaks-order":["P143"]}]}],"P349":[{"mainsnak":{"snaktype":"value","property":"P349","datavalue":{"value":"00924863","type":"string"},"datatype":"external-id"},"type":"statement","id":"q219716$C585E0A7-89C9-4D26-B29C-8FCBA031656D","rank":"normal"}],"P108":[{"mainsnak":{"snaktype":"value","property":"P108","datavalue":{"value":{"entity-type":"item","numeric-id":34433,"id":"Q34433"},"type":"wikibase-entityid"},"datatype":"wikibase-item"},"type":"statement","id":"q219716$C9402417-07E5-4624-9A1E-460FEFA834C8","rank":"normal","references":[{"hash":"7eb64cf9621d34c54fd4bd040ed4b61a88c4a1a0","snaks":{"P143":[{"snaktype":"value","property":"P143","datavalue":{"value":{"entity-type":"item","numeric-id":328,"id":"Q328"},"type":"wikibase-entityid"},"datatype":"wikibase-item"}]},"snaks-order":["P143"]}]},{"mainsnak":{"snaktype":"value","property":"P108","datavalue":{"value":{"entity-type":"item","numeric-id":326044,"id":"Q326044"},"type":"wikibase-entityid"},"datatype":"wikibase-item"},"type":"statement","id":"Q219716$7bc139b5-4b2d-2141-7402-e81ccee3e171","rank":"normal"}],"P69":[{"mainsnak":{"snaktype":"value","property":"P69","datavalue":{"value":{"entity-type":"item","numeric-id":223429,"id":"Q223429"},"type":"wikibase-entityid"},"datatype":"wikibase-item"},"type":"statement","id":"Q219716$C8791172-F30B-4B9C-BF1E-3E5E9C4D3ABD","rank":"normal","references":[{"hash":"7eb64cf9621d34c54fd4bd040ed4b61a88c4a1a0","snaks":{"P143":[{"snaktype":"value","property":"P143","datavalue":{"value":{"entity-type":"item","numeric-id":328,"id":"Q328"},"type":"wikibase-entityid"},"datatype":"wikibase-item"}]},"snaks-order":["P143"]}]},{"mainsnak":{"snaktype":"value","property":"P69","datavalue":{"value":{"entity-type":"item","numeric-id":1045828,"id":"Q1045828"},"type":"wikibase-entityid"},"datatype":"wikibase-item"},"type":"statement","id":"Q219716$6D9C67FA-13D5-4825-9E36-3F3C953DCEE5","rank":"normal"}],"P31":[{"mainsnak":{"snaktype":"value","property":"P31","datavalue":{"value":{"entity-type":"item","numeric-id":5,"id":"Q5"},"type":"wikibase-entityid"},"datatype":"wikibase-item"},"type":"statement","id":"Q219716$D5C4E109-218E-4C2E-9A2B-C0F080FF51E6","rank":"normal","references":[{"hash":"d6e3ab4045fb3f3feea77895bc6b27e663fc878a","snaks":{"P143":[{"snaktype":"value","property":"P143","datavalue":{"value":{"entity-type":"item","numeric-id":206855,"id":"Q206855"},"type":"wikibase-entityid"},"datatype":"wikibase-item"}]},"snaks-order":["P143"]}]}],"P569":[{"mainsnak":{"snaktype":"value","property":"P569","datavalue":{"value":{"time":"+1949-01-25T00:00:00Z","timezone":0,"before":0,"after":0,"precision":11,"calendarmodel":"http://www.wikidata.org/entity/Q1985727"},"type":"time"},"datatype":"time"},"type":"statement","id":"Q219716$DA8C9321-3033-48CE-840B-1B5711208141","rank":"normal","references":[{"hash":"d6e3ab4045fb3f3feea77895bc6b27e663fc878a","snaks":{"P143":[{"snaktype":"value","property":"P143","datavalue":{"value":{"entity-type":"item","numeric-id":206855,"id":"Q206855"},"type":"wikibase-entityid"},"datatype":"wikibase-item"}]},"snaks-order":["P143"]}]}],"P18":[{"mainsnak":{"snaktype":"value","property":"P18","datavalue":{"value":"Paul
+        Nurse portrait.jpg","type":"string"},"datatype":"commonsMedia"},"type":"statement","id":"Q219716$A0668EE0-B8A9-4BEC-80FE-153FB33F05E8","rank":"normal","references":[{"hash":"d6e3ab4045fb3f3feea77895bc6b27e663fc878a","snaks":{"P143":[{"snaktype":"value","property":"P143","datavalue":{"value":{"entity-type":"item","numeric-id":206855,"id":"Q206855"},"type":"wikibase-entityid"},"datatype":"wikibase-item"}]},"snaks-order":["P143"]}]}],"P906":[{"mainsnak":{"snaktype":"value","property":"P906","datavalue":{"value":"236504","type":"string"},"datatype":"external-id"},"type":"statement","id":"Q219716$8CAE4C0B-73E5-4C11-A841-ADE646881AFD","rank":"normal","references":[{"hash":"baeb59aa4da4514dcf71fea9cb1e9c5794d6b44b","snaks":{"P143":[{"snaktype":"value","property":"P143","datavalue":{"value":{"entity-type":"item","numeric-id":877583,"id":"Q877583"},"type":"wikibase-entityid"},"datatype":"wikibase-item"}]},"snaks-order":["P143"]}]}],"P646":[{"mainsnak":{"snaktype":"value","property":"P646","datavalue":{"value":"/m/05qwvn","type":"string"},"datatype":"external-id"},"type":"statement","id":"Q219716$3FF76CFF-8B1C-4EF0-8AD4-5995AA75E5FD","rank":"normal","references":[{"hash":"af38848ab5d9d9325cffd93a5ec656cc6ca889ed","snaks":{"P248":[{"snaktype":"value","property":"P248","datavalue":{"value":{"entity-type":"item","numeric-id":15241312,"id":"Q15241312"},"type":"wikibase-entityid"},"datatype":"wikibase-item"}],"P577":[{"snaktype":"value","property":"P577","datavalue":{"value":{"time":"+2013-10-28T00:00:00Z","timezone":0,"before":0,"after":0,"precision":11,"calendarmodel":"http://www.wikidata.org/entity/Q1985727"},"type":"time"},"datatype":"time"}]},"snaks-order":["P248","P577"]}]}],"P269":[{"mainsnak":{"snaktype":"value","property":"P269","datavalue":{"value":"081543115","type":"string"},"datatype":"external-id"},"type":"statement","id":"Q219716$4A003874-5765-4140-94EC-AAC89A389EB4","rank":"normal","references":[{"hash":"a51d6594fee36c7452eaed2db35a4833613a7078","snaks":{"P143":[{"snaktype":"value","property":"P143","datavalue":{"value":{"entity-type":"item","numeric-id":54919,"id":"Q54919"},"type":"wikibase-entityid"},"datatype":"wikibase-item"}]},"snaks-order":["P143"]}]}],"P106":[{"mainsnak":{"snaktype":"value","property":"P106","datavalue":{"value":{"entity-type":"item","numeric-id":2919046,"id":"Q2919046"},"type":"wikibase-entityid"},"datatype":"wikibase-item"},"type":"statement","id":"Q219716$791B9DD8-D924-45DB-AC67-6862737772D5","rank":"normal"},{"mainsnak":{"snaktype":"value","property":"P106","datavalue":{"value":{"entity-type":"item","numeric-id":3126128,"id":"Q3126128"},"type":"wikibase-entityid"},"datatype":"wikibase-item"},"type":"statement","id":"Q219716$BA709513-F3E9-4D87-9FFD-759E35BC049A","rank":"normal","references":[{"hash":"527e37d09f6b28f81ecbcbfa85dc4b79d783b297","snaks":{"P143":[{"snaktype":"value","property":"P143","datavalue":{"value":{"entity-type":"item","numeric-id":48952,"id":"Q48952"},"type":"wikibase-entityid"},"datatype":"wikibase-item"}]},"snaks-order":["P143"]}]},{"mainsnak":{"snaktype":"value","property":"P106","datavalue":{"value":{"entity-type":"item","numeric-id":593644,"id":"Q593644"},"type":"wikibase-entityid"},"datatype":"wikibase-item"},"type":"statement","id":"Q219716$F05BF3F1-65F9-4897-A69B-AE638E85F516","rank":"normal"}],"P19":[{"mainsnak":{"snaktype":"value","property":"P19","datavalue":{"value":{"entity-type":"item","numeric-id":146858,"id":"Q146858"},"type":"wikibase-entityid"},"datatype":"wikibase-item"},"type":"statement","id":"Q219716$90441FFA-5BEA-417B-9197-0816A6961B8F","rank":"normal","references":[{"hash":"50f57a3dbac4708ce4ae4a827c0afac7fcdb4a5c","snaks":{"P143":[{"snaktype":"value","property":"P143","datavalue":{"value":{"entity-type":"item","numeric-id":11920,"id":"Q11920"},"type":"wikibase-entityid"},"datatype":"wikibase-item"}]},"snaks-order":["P143"]}]}],"P27":[{"mainsnak":{"snaktype":"value","property":"P27","datavalue":{"value":{"entity-type":"item","numeric-id":145,"id":"Q145"},"type":"wikibase-entityid"},"datatype":"wikibase-item"},"type":"statement","id":"Q219716$58758628-0685-499A-9240-FA5E08F9C2A3","rank":"normal","references":[{"hash":"50f57a3dbac4708ce4ae4a827c0afac7fcdb4a5c","snaks":{"P143":[{"snaktype":"value","property":"P143","datavalue":{"value":{"entity-type":"item","numeric-id":11920,"id":"Q11920"},"type":"wikibase-entityid"},"datatype":"wikibase-item"}]},"snaks-order":["P143"]}]}],"P735":[{"mainsnak":{"snaktype":"value","property":"P735","datavalue":{"value":{"entity-type":"item","numeric-id":4925623,"id":"Q4925623"},"type":"wikibase-entityid"},"datatype":"wikibase-item"},"type":"statement","id":"Q219716$556A253B-07D7-4F42-A741-D0C7E08EDA3A","rank":"normal"}],"P1006":[{"mainsnak":{"snaktype":"value","property":"P1006","datavalue":{"value":"159809975","type":"string"},"datatype":"external-id"},"type":"statement","id":"Q219716$F40B2DF7-2171-494A-8D64-6525B5900535","rank":"normal","references":[{"hash":"4ddbd82bb3dbf5850f85bee6ba2f9c7b4bce3a9c","snaks":{"P248":[{"snaktype":"value","property":"P248","datavalue":{"value":{"entity-type":"item","numeric-id":54919,"id":"Q54919"},"type":"wikibase-entityid"},"datatype":"wikibase-item"}],"P813":[{"snaktype":"value","property":"P813","datavalue":{"value":{"time":"+2014-12-16T00:00:00Z","timezone":0,"before":0,"after":0,"precision":11,"calendarmodel":"http://www.wikidata.org/entity/Q1985727"},"type":"time"},"datatype":"time"}],"P854":[{"snaktype":"value","property":"P854","datavalue":{"value":"http://viaf.org/viaf/13695505","type":"string"},"datatype":"url"}]},"snaks-order":["P248","P813","P854"]}]}],"P2021":[{"mainsnak":{"snaktype":"value","property":"P2021","datavalue":{"value":{"amount":"+4","unit":"1","upperBound":"+4","lowerBound":"+4"},"type":"quantity"},"datatype":"quantity"},"type":"statement","id":"Q219716$60865CE7-119E-4AFB-907D-45318A2500E3","rank":"normal"}],"P1816":[{"mainsnak":{"snaktype":"value","property":"P1816","datavalue":{"value":"mp67539","type":"string"},"datatype":"external-id"},"type":"statement","id":"Q219716$A30C29B0-F80E-40E0-8A45-021958DBDFC3","rank":"normal"}],"P1153":[{"mainsnak":{"snaktype":"value","property":"P1153","datavalue":{"value":"7101733795","type":"string"},"datatype":"external-id"},"type":"statement","id":"Q219716$f2a586e7-4daa-2853-9cfc-df30d1318795","rank":"normal"}]},"sitelinks":{"arwiki":{"site":"arwiki","title":"\u0628\u0648\u0644
+        \u0646\u0631\u0633","badges":[]},"bewiki":{"site":"bewiki","title":"\u041f\u043e\u043b
+        \u041d\u0435\u0440\u0441","badges":[]},"bgwiki":{"site":"bgwiki","title":"\u041f\u043e\u043b
+        \u041d\u044a\u0440\u0441","badges":[]},"bnwiki":{"site":"bnwiki","title":"\u09aa\u09b2
+        \u09a8\u09be\u09b0\u09cd\u09b8","badges":[]},"cawiki":{"site":"cawiki","title":"Paul
+        Nurse","badges":[]},"commonswiki":{"site":"commonswiki","title":"Category:Paul
+        Nurse","badges":[]},"cswiki":{"site":"cswiki","title":"Paul Nurse","badges":[]},"dawiki":{"site":"dawiki","title":"Paul
+        M. Nurse","badges":[]},"dewiki":{"site":"dewiki","title":"Paul Nurse","badges":[]},"enwiki":{"site":"enwiki","title":"Paul
+        Nurse","badges":[]},"enwikiquote":{"site":"enwikiquote","title":"Paul Nurse","badges":[]},"eswiki":{"site":"eswiki","title":"Paul
+        Nurse","badges":[]},"fawiki":{"site":"fawiki","title":"\u067e\u0627\u0626\u0648\u0644
+        \u0646\u0631\u0633","badges":[]},"fiwiki":{"site":"fiwiki","title":"Paul Nurse","badges":[]},"frwiki":{"site":"frwiki","title":"Paul
+        Nurse","badges":[]},"gawiki":{"site":"gawiki","title":"Paul Maxime Nurse","badges":[]},"hrwiki":{"site":"hrwiki","title":"Paul
+        Maxime Nurse","badges":[]},"huwiki":{"site":"huwiki","title":"Paul Nurse","badges":[]},"iawiki":{"site":"iawiki","title":"Paul
+        Nurse","badges":[]},"idwiki":{"site":"idwiki","title":"Paul Maxime Nurse","badges":[]},"iowiki":{"site":"iowiki","title":"Paul
+        Nurse","badges":[]},"itwiki":{"site":"itwiki","title":"Paul Nurse","badges":[]},"jawiki":{"site":"jawiki","title":"\u30dd\u30fc\u30eb\u30fb\u30ca\u30fc\u30b9","badges":[]},"kkwiki":{"site":"kkwiki","title":"\u041f\u043e\u043b
+        \u041d\u0435\u0440\u0441","badges":[]},"kowiki":{"site":"kowiki","title":"\ud3f4
+        \ub108\uc2a4","badges":[]},"nlwiki":{"site":"nlwiki","title":"Paul Nurse","badges":[]},"nowiki":{"site":"nowiki","title":"Paul
+        Nurse","badges":[]},"ocwiki":{"site":"ocwiki","title":"Paul Nurse","badges":[]},"plwiki":{"site":"plwiki","title":"Paul
+        Nurse","badges":[]},"pnbwiki":{"site":"pnbwiki","title":"\u067e\u0627\u0644
+        \u0646\u0631\u0633","badges":[]},"ptwiki":{"site":"ptwiki","title":"Paul Nurse","badges":[]},"ruwiki":{"site":"ruwiki","title":"\u041d\u0435\u0440\u0441,
+        \u041f\u043e\u043b","badges":[]},"simplewiki":{"site":"simplewiki","title":"Paul
+        Nurse","badges":[]},"slwiki":{"site":"slwiki","title":"Paul Nurse","badges":[]},"svwiki":{"site":"svwiki","title":"Paul
+        Nurse","badges":[]},"swwiki":{"site":"swwiki","title":"Paul Nurse","badges":[]},"trwiki":{"site":"trwiki","title":"Paul
+        Nurse","badges":[]},"ukwiki":{"site":"ukwiki","title":"\u041f\u043e\u043b
+        \u041d\u0435\u0440\u0441","badges":[]},"urwiki":{"site":"urwiki","title":"\u067e\u0627\u0648\u0644
+        \u0646\u0631\u0633","badges":[]},"viwiki":{"site":"viwiki","title":"Paul Nurse","badges":[]},"yowiki":{"site":"yowiki","title":"Paul
+        Nurse","badges":[]},"zhwiki":{"site":"zhwiki","title":"\u4fdd\u7f57\u00b7\u7eb3\u65af","badges":[]}}}},"success":1}'
+    http_version: 
+  recorded_at: Sat, 20 Aug 2016 16:14:26 GMT
+recorded_with: VCR 3.0.3

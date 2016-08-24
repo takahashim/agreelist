@@ -39,6 +39,8 @@ group :test do
   gem 'database_cleaner'
   gem 'selenium-webdriver'
   gem 'rack_session_access'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 gem 'pg', '0.17.1'
@@ -47,3 +49,4 @@ gem 'acts-as-taggable-on', '~> 3.4'
 gem "nilify_blanks"
 gem 'bcrypt-ruby'
 gem 'wikipedia-client'
+gem 'wikidata'

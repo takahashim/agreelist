@@ -78,13 +78,19 @@ class Individual < ActiveRecord::Base
 
   def update_profile_from_twitter
     if Rails.env == "production" && twitter.present?
-      user = twitter_client.user(twitter)
-      self.name = user.name if self.name.blank?
-      # self.name = user.name unless %w(gmc jesusencinar arrola jaime_estevez gusbox martaesteve).include?(twitter)
-      self.description = user.description
-      self.followers_count = user.followers_count
-      url = user.profile_image_url_https(:original)
-      self.picture = open(url) if self.update_picture
+      begin
+        user = twitter_client.user(twitter)
+        self.name = user.name if self.name.blank?
+        # self.name = user.name unless %w(gmc jesusencinar arrola jaime_estevez gusbox martaesteve).include?(twitter)
+        self.description = user.description
+        self.followers_count = user.followers_count
+        url = user.profile_image_url_https(:original)
+        self.picture = open(url) if self.update_picture
+      rescue => e
+        if e.message.scan(/User has been suspended/).any?
+          LogMailer.log_email("twitter @#{self.twitter} has been suspended")
+        end
+      end
     end
   end
 

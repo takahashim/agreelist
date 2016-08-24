@@ -11,6 +11,20 @@ class Wikipedia < Thor
     end
   end
 
+  desc "update_bio_from_wikidata",
+       "update_bio_from_wikidata"
+  def update_bio_from_wikidata
+    require './config/environment'
+    Individual.where("bio is null and wikidata_id is not null").find_each do |individual|
+      wikidata = Wikidata::Item.find_by_id(individual.wikidata_id)
+      new_bio = wikidata.description.try(:capitalize)
+      if new_bio
+        puts "Updating #{individual.name}'s bio: #{new_bio}; id: #{individual.id}; to_param: #{individual.to_param}"
+        individual.update_attributes(bio: new_bio)
+      end
+    end
+  end
+
   desc "brexit_import",
        "import Brexit supporters/detractors from wikipedia"
   # Examples:

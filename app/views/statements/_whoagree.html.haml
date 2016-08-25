@@ -9,7 +9,7 @@
         %h4.media-heading
           %span.name= link_to(individual.name.present? ? individual.name : individual.twitter || "user-#{individual.hashed_id}", agreement_path(agreement))
         #br
-        = (individual.bio.present? ? individual.bio : individual.description)[0..93]
+        = (individual.bio.present? ? individual.bio : individual.description).try(:[], 0..93)
         - if admin?
           = link_to "edit", edit_individual_path(individual) + "?back_url=#{request.url}"
           |

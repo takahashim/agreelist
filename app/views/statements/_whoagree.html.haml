@@ -3,7 +3,7 @@
   .media
     .media-left
       = image_tag(individual.picture.url(:thumb), class: "picture media-object")
-    .media-body.statements-media-body
+    .media-body
       %h4.media-heading
         %span.name= link_to(individual.name.present? ? individual.name : individual.twitter || "user-#{individual.hashed_id}", agreement_path(agreement))
       #br

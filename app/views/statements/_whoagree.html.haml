@@ -1,97 +1,46 @@
 %br
 #ol
-  - [agreements_in_favor.size, agreements_against.size].max.times do |index|
-    .row
-      - agreement = agreements_in_favor[index]
-      - if agreement
-        - individual = agreement.individual
-        .col-sm-6
-          .media
-            .media-left
-              = image_tag(individual.picture.url(:thumb), class: "picture media-object")
-            .media-body
-              %h4.media-heading
-                %span.name= link_to(individual.name.present? ? individual.name : individual.twitter || "user-#{individual.hashed_id}", agreement_path(agreement))
-              #br
-              = individual.bio.present? ? individual.bio : individual.description
-              - if admin?
-                = link_to "edit", edit_individual_path(individual) + "?back_url=#{request.url}"
-                |
-                = link_to("delete", agreement, method: :delete, data: { confirm: "You sure?" })
-                |
-                = link_to("thouch", touch_path(agreement, back_url: statement_path(agreement.statement)), method: :post)
-              = render partial: "profession_select", locals: { individual: individual, agreement: agreement }
-              %i= agreement.reason
-              - if individual == current_user
-                - if agreement.reason.present?
-                  = link_to "- edit", edit_reason_path(agreement, back_url: url_for(params))
-                - else
-                  = link_to "Why do you #{agreement.agree? ? "agree" : "disagree"}? Add a reason", edit_reason_path(agreement, back_url: url_for(params))
+  - agreements.each do |agreement|
+    - individual = agreement.individual
+    .media
+      .media-left
+        = image_tag(individual.picture.url(:thumb), class: "picture media-object")
+      .media-body
+        %h4.media-heading
+          %span.name= link_to(individual.name.present? ? individual.name : individual.twitter || "user-#{individual.hashed_id}", agreement_path(agreement))
+        #br
+        = individual.bio.present? ? individual.bio : individual.description
+        - if admin?
+          = link_to "edit", edit_individual_path(individual) + "?back_url=#{request.url}"
+          |
+          = link_to("delete", agreement, method: :delete, data: { confirm: "You sure?" })
+          |
+          = link_to("thouch", touch_path(agreement, back_url: statement_path(agreement.statement)), method: :post)
+        = render partial: "profession_select", locals: { individual: individual, agreement: agreement }
+        %i= agreement.reason
+        - if individual == current_user
+          - if agreement.reason.present?
+            = link_to "- edit", edit_reason_path(agreement, back_url: url_for(params))
+          - else
+            = link_to "Why do you #{agreement.agree? ? "agree" : "disagree"}? Add a reason", edit_reason_path(agreement, back_url: url_for(params))
 
-              %span.source
-                - if agreement.url.present? && agreement.url != "http://"
-                  = link_to "source", agreement.url
+        %span.source
+          - if agreement.url.present? && agreement.url != "http://"
+            = link_to "source", agreement.url
 
-              - if current_user
-                %br
-                - if agreement.upvotes.size == 0
-                  = link_to "Upvote", upvote_agreement_path(agreement), method: :post
-                - else
-                  = link_to "Upvote (#{agreement.upvotes.size})", upvote_agreement_path(agreement), method: :post
-                ·
-                - if agreement.agreement_comments.size > 0
-                  = link_to pluralize(agreement.agreement_comments.size, "comment"), agreement_path(agreement)
-                - else
-                  = link_to "New comment", agreement_path(agreement)
-                - if agreement.individual.wikipedia
-                  ·
-                  = link_to "Wikipedia", agreement.individual.wikipedia
-              = render partial: "reason_category_select", locals: { agreement: agreement }
-          #br
-      - agreement = agreements_against[index]
-      - if agreement
-        - individual = agreement.individual
-        .col-sm-6
-          .media
-            .media-left
-              = image_tag(individual.picture.url(:thumb), class: "picture media-object")
-            .media-body
-              %h4.media-heading
-                %span.name= link_to(individual.name.present? ? individual.name : individual.twitter || "user-#{individual.hashed_id}", agreement_path(agreement))
-              #br
-              = individual.bio.present? ? individual.bio : individual.description
-              - if admin?
-                = link_to "edit", edit_individual_path(individual) + "?back_url=#{request.url}"
-                |
-                = link_to("delete", agreement, method: :delete, data: { confirm: "You sure?" })
-                |
-                = link_to("thouch", touch_path(agreement, back_url: statement_path(agreement.statement)), method: :post)
-              = render partial: "profession_select", locals: { individual: individual, agreement: agreement }
-              %i= agreement.reason
-              - if individual == current_user
-                - if agreement.reason.present?
-                  = link_to "- edit", edit_reason_path(agreement, back_url: url_for(params))
-                - else
-                  = link_to "Why do you #{agreement.agree? ? "agree" : "disagree"}? Add a reason", edit_reason_path(agreement, back_url: url_for(params))
-
-              %span.source
-                - if agreement.url.present? && agreement.url != "http://"
-                  = link_to "source", agreement.url
-
-              - if current_user
-                %br
-                - if agreement.upvotes.size == 0
-                  = link_to "Upvote", upvote_agreement_path(agreement), method: :post
-                - else
-                  = link_to "Upvote (#{agreement.upvotes.size})", upvote_agreement_path(agreement), method: :post
-                ·
-                - if agreement.agreement_comments.size > 0
-                  = link_to pluralize(agreement.agreement_comments.size, "comment"), agreement_path(agreement)
-                - else
-                  = link_to "New comment", agreement_path(agreement)
-                - if agreement.individual.wikipedia
-                  ·
-                  = link_to "Wikipedia", agreement.individual.wikipedia
-              = render partial: "reason_category_select", locals: { agreement: agreement }
-          #br
-    
+        - if current_user
+          %br
+          - if agreement.upvotes.size == 0
+            = link_to "Upvote", upvote_agreement_path(agreement), method: :post
+          - else
+            = link_to "Upvote (#{agreement.upvotes.size})", upvote_agreement_path(agreement), method: :post
+          ·
+          - if agreement.agreement_comments.size > 0
+            = link_to pluralize(agreement.agreement_comments.size, "comment"), agreement_path(agreement)
+          - else
+            = link_to "New comment", agreement_path(agreement)
+          - if agreement.individual.wikipedia
+            ·
+            = link_to "Wikipedia", agreement.individual.wikipedia
+        = render partial: "reason_category_select", locals: { agreement: agreement }
+    #br

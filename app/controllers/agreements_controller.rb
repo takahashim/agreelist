@@ -59,6 +59,7 @@ class AgreementsController < ApplicationController
         reason: params[:comment].present? ? params[:comment] : nil,
         reason_category_id: params[:reason_category_id],
         extent: params[:commit] == "She/he disagrees" ? 0 : 100)
+      expire_fragment "brexit_board"
       redirect_to :back, notice: "Done"
     end
   end

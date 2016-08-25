@@ -1,26 +1,27 @@
 .container
-  .text-center
-    %h1 Brexit. Do you agree?
-    %p
-      = render partial: "statements/professions"
-      |
-      = link_to "All", statement_path(@statement)
-    = link_to "Add an opinion leader", "#gather", class: "btn btn-primary"
-    %p= render partial: "agreements/voting_buttons", locals: { back_url: brexit_board_path }
-  .row
-    .col-sm-6
-      %h3
-        = "Yes, I agree"
-        = link_to "(#{@percentage_in_favor}% of #{pluralize((@votes_in_favor + @votes_against), 'opinion')})", statement_path(@statement)
-      - @categories_in_favor.each do |category|
-        = render partial: "category", locals: {category: category, count: category.agreements.size, agreement: category.top_agreement}
-    .col-sm-6
-      %h3
-        = "No, I disagree"
-        = link_to "(#{100 - @percentage_in_favor}% of #{pluralize((@votes_in_favor + @votes_against), 'opinion')})", statement_path(@statement)
+  - cache "brexit_board", skip_digest: true do
+    .text-center
+      %h1 Brexit. Do you agree?
+      %p
+        = render partial: "statements/professions"
+        |
+        = link_to "All", statement_path(@statement)
+      = link_to "Add an opinion leader", "#gather", class: "btn btn-primary"
+      %p= render partial: "agreements/voting_buttons", locals: { back_url: brexit_board_path }
+    .row
+      .col-sm-6
+        %h3
+          = "Yes, I agree"
+          = link_to "(#{@percentage_in_favor}% of #{pluralize((@votes_in_favor + @votes_against), 'opinion')})", statement_path(@statement)
+        - @categories_in_favor.each do |category|
+          = render partial: "category", locals: {category: category, count: category.agreements.size, agreement: category.top_agreement}
+      .col-sm-6
+        %h3
+          = "No, I disagree"
+          = link_to "(#{100 - @percentage_in_favor}% of #{pluralize((@votes_in_favor + @votes_against), 'opinion')})", statement_path(@statement)
 
-      - @categories_against.each do |category|
-        = render partial: "category", locals: {category: category, count: category.agreements.size, agreement: category.top_disagreement}
+        - @categories_against.each do |category|
+          = render partial: "category", locals: {category: category, count: category.agreements.size, agreement: category.top_disagreement}
   #gather.jumbotron.textcenter
     = render partial: "statements/add_supporter"
 #myModal.modal.fade{role: "dialog"}

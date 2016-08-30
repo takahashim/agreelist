@@ -69,8 +69,8 @@ class Wikipedia < Thor
        "hillary and trump import"
   def hillary_trump_import
     require './config/environment'
-    hillary_or_trump_import("https://s3-eu-west-1.amazonaws.com/agreelist/tmp/trump.txt", "trump", "https://en.wikipedia.org/wiki/List_of_Donald_Trump_presidential_campaign_endorsements,_2016")
     hillary_or_trump_import("https://s3-eu-west-1.amazonaws.com/agreelist/tmp/clinton.txt", "clinton", "https://en.wikipedia.org/wiki/List_of_Hillary_Clinton_presidential_campaign_endorsements,_2016")
+    hillary_or_trump_import("https://s3-eu-west-1.amazonaws.com/agreelist/tmp/trump.txt", "trump", "https://en.wikipedia.org/wiki/List_of_Donald_Trump_presidential_campaign_endorsements,_2016")
   end
 
   # Examples:
@@ -106,7 +106,7 @@ class Wikipedia < Thor
         end
         puts ""
       end
-      sleep 6
+      sleep 2
     end
   end
 end

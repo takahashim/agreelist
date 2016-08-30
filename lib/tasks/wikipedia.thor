@@ -106,7 +106,7 @@ class Wikipedia < Thor
         end
         puts ""
       end
-      sleep 2
+      sleep 1
     end
   end
 end

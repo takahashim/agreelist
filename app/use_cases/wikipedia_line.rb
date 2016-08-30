@@ -28,7 +28,11 @@ class WikipediaLine
   end
 
   def source
-    line.scan(/url=([^\|]*)/).flatten.first.try(:strip) || default_source
+    begin
+      line.scan(/url=([^\||-]*)/).flatten.first.try(:strip) || line.scan(/\[(http[^\s]*)\]/).flatten.first.try(:strip) || default_source
+    rescue
+      default_source
+    end
   end
 
   private

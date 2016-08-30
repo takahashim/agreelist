@@ -46,4 +46,12 @@ describe WikipediaLine do
       expect(wikipedia_line.twitter).to eq "BarackObama"
     end
   end
+
+  it "should return the source" do
+    wikipedia_line = WikipediaLine.new(line: "* [[Bill Clinton]], 42nd [[President of the United States|President]] (1993–2001)<ref>Fitzpatrick, M. [http://www.cbc.ca/news/world/bill-clinton-says-he-ll-be-backstage-as-hillary-campaigns-1.3028361] Bill Clinton says he'll be 'backstage' as Hillary campaigns ''CBC.'' 2015-04-13.</ref>")
+    VCR.use_cassette("use_cases/wikipedia_line_barack_obama") do
+      wikipedia_line.read
+      expect(wikipedia_line.source).to eq "http://www.cbc.ca/news/world/bill-clinton-says-he-ll-be-backstage-as-hillary-campaigns-1.3028361"
+    end
+  end
 end

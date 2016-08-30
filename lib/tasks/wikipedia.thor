@@ -52,8 +52,55 @@ class Wikipedia < Thor
         puts wikipedia_line.wikipedia_url
         puts wikipedia_line.source
         puts wikipedia_line.bio if wikipedia_line.bio
-        unless Individual.exists?(wikidata_id: wikipedia_line.wikidata_id)
+        individual = Individual.where(wikidata_id: wikipedia_line.wikidata_id).first
+        unless individual
           individual = Individual.create(name: wikipedia_line.label, wikidata_id: wikipedia_line.wikidata_id, wikipedia: wikipedia_line.wikipedia_url, twitter: wikipedia_line.twitter, bio: wikipedia_line.bio)
+        end
+        unless Agreement.exists?(statement: statement, individual: individual)
+          agreement = Agreement.create(statement: statement, individual: individual, extent: extent, url: wikipedia_line.source)
+          puts "agreement_id: #{agreement.id}"
+        end
+        puts ""
+      end
+    end
+  end
+
+  desc "hillary_trump_import",
+       "hillary and trump import"
+  def hillary_trump_import
+    require './config/environment'
+    hillary_or_trump_import("https://s3-eu-west-1.amazonaws.com/agreelist/tmp/clinton.txt", "clinton", "https://en.wikipedia.org/wiki/List_of_Hillary_Clinton_presidential_campaign_endorsements,_2016")
+    hillary_or_trump_import("https://s3-eu-west-1.amazonaws.com/agreelist/tmp/trump.txt", "trump", "https://en.wikipedia.org/wiki/List_of_Donald_Trump_presidential_campaign_endorsements,_2016")
+  end
+
+  # Examples:
+  # thor wikipedia:hillary_or_trump_import https://s3-eu-west-1.amazonaws.com/agreelist/tmp/clinton.txt clinton
+  # thor wikipedia:hillary_or_trump_import https://s3-eu-west-1.amazonaws.com/agreelist/tmp/trump.txt trump
+  def hillary_or_trump_import(url, remain_or_leave, default_source)
+    puts "update wikidata ids first"
+    update_wikidata_ids_from_wikipedia_urls
+
+    count = 0
+    statement = Statement.find_by_hashed_id("ped4besqdzdd")
+    extent = (remain_or_leave == "trump" ? 0 : 100)
+    text = Net::HTTP.get(URI(url))
+    #IO.foreach("../remain.txt") do |line|
+    text.split("\n").each do |line|
+      wikipedia_line = WikipediaLine.new(line: line, default_source: default_source)
+      wikipedia_line.read
+      if wikipedia_line.wikidata_id
+        count = count + 1
+        puts count
+        puts "@#{wikipedia_line.twitter}" if wikipedia_line.twitter
+        puts wikipedia_line.wikidata_id
+        puts wikipedia_line.wikipedia_url
+        puts wikipedia_line.source
+        puts wikipedia_line.bio if wikipedia_line.bio
+        individual = Individual.where(wikidata_id: wikipedia_line.wikidata_id).first
+        unless individual
+          individual = Individual.create(name: wikipedia_line.label, wikidata_id: wikipedia_line.wikidata_id, wikipedia: wikipedia_line.wikipedia_url, twitter: wikipedia_line.twitter, bio: wikipedia_line.bio)
+        end
+        unless Agreement.exists?(statement: statement, individual: individual)
           agreement = Agreement.create(statement: statement, individual: individual, extent: extent, url: wikipedia_line.source)
           puts "agreement_id: #{agreement.id}"
         end

@@ -7,8 +7,8 @@ class Export < Thor
     require "csv"
     CSV.open("agreements.csv", "wb") do |csv|
       puts "Exporting agreements"
-      Agreement.select(:id, :statement_id, :individual_id, :reason, :extent).find_each do |a|
-        csv << [a.id, a.statement_id, a.individual_id, a.reason, a.extent]
+      Agreement.select(:id, :statement_id, :individual_id, :reason, :extent, :url).find_each do |a|
+        csv << [a.id, a.statement_id, a.individual_id, a.reason, a.extent, a.url]
         puts a.id
       end
     end

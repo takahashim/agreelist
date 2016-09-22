@@ -155,39 +155,6 @@ class Individual < ActiveRecord::Base
     ""
   end
 
-  WIKIDATA = {
-    educated_at: "P69",
-    occupations: "P106",
-    part_of: "P361"
-  }
-
-  def fetch_from_wikidata(property)
-    Wikidata::Item.find_by_id(self.wikidata_id).claims_for_property_id(property)
-  end
-
-  def occupations_from_wikidata
-    fetch_from_wikidata(WIKIDATA[:occupations]).map do |i|
-      Wikidata::Item.find_by_id(i.mainsnak.datavalue.value.id).label
-    end
-  end
-
-  def educated_at_from_wikidata
-    educated_at_original_from_wikidata + educated_at_extra_from_wikidata
-  end
-
-  def educated_at_original_from_wikidata
-    fetch_from_wikidata(WIKIDATA[:educated_at]).map do |i|
-      Wikidata::Item.find_by_id(i.mainsnak.datavalue.value.id).label
-    end
-  end
-
-  def educated_at_extra_from_wikidata
-    fetch_from_wikidata(WIKIDATA[:educated_at]).map do |i|
-      part_of = Wikidata::Item.find_by_id(i.mainsnak.datavalue.value.id).claims_for_property_id(WIKIDATA[:part_of])
-      part_of.map{|j| Wikidata::Item.find_by_id(j.mainsnak.datavalue.value.id).label } if part_of
-    end.flatten.compact
-  end
-
   private
 
   def update_followers_count

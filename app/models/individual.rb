@@ -155,6 +155,12 @@ class Individual < ActiveRecord::Base
     ""
   end
 
+  def wikidata_occupations
+    Wikidata::Item.find_by_id(self.wikidata_id).claims_for_property_id("P106").map do |i|
+      Wikidata::Item.find_by_id(i.mainsnak.datavalue.value.id).label
+    end
+  end
+
   private
 
   def update_followers_count

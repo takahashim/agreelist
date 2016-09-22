@@ -155,10 +155,34 @@ class Individual < ActiveRecord::Base
     ""
   end
 
+  WIKIDATA = {
+    educated_at: "P69",
+    occupations: "P106"
+  }
+
+  def fetch_from_wikidata(property)
+    Wikidata::Item.find_by_id(self.wikidata_id).claims_for_property_id(property)
+  end
+
   def wikidata_occupations
-    Wikidata::Item.find_by_id(self.wikidata_id).claims_for_property_id("P106").map do |i|
+    fetch_from_wikidata(WIKIDATA[:occupations]).map do |i|
       Wikidata::Item.find_by_id(i.mainsnak.datavalue.value.id).label
     end
+  end
+
+  def wikidata_educated_at
+    fetch_from_wikidata(WIKIDATA[:educated_at]).map do |i|
+      Wikidata::Item.find_by_id(i.mainsnak.datavalue.value.id).label
+    end
+  end
+
+  def wikidata_educated_at2
+    fetch_from_wikidata(WIKIDATA[:educated_at]).map do |i|
+      part_of = Wikidata::Item.find_by_id(i.mainsnak.datavalue.value.id).claims_for_property_id("P361")
+      (part_of || []).map do |j|
+        Wikidata::Item.find_by_id(j.mainsnak.datavalue.value.id).label
+      end
+    end.flatten.compact
   end
 
   private

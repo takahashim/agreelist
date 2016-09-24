@@ -135,7 +135,7 @@ class StatementsController < ApplicationController
   end
 
   def occupations
-    @occupations_count = @statement.individuals.tag_counts_on(:occupations).order(taggings_count: :desc)
+    @occupations_count = @statement.individuals.tag_counts_on(:occupations).where("taggings_count > 50").order(taggings_count: :desc)
   end
 
   private

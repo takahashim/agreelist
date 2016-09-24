@@ -1,0 +1,14 @@
+.container
+  %table.table
+    %tr
+      %th Occupation
+      %th Percentage who agrees
+      %th Count
+    - @occupations_count.each do |occupation|
+      %tr
+        %td= occupation.name
+        - ids = Individual.tagged_with(occupation, on: :occupations)
+        - all = Agreement.where(statement: @statement, individual_id: ids).size
+        - agree = Agreement.where(statement: @statement, individual_id: ids, extent: 100).size
+        %td=  agree * 100 / all
+        %td= occupation.taggings_count

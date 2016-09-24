@@ -9,6 +9,9 @@ Al::Application.routes.draw do
     collection do
       post 'create_and_agree'
     end
+    member do
+      get 'occupations'
+    end
   end
   get "/contact" => "static_pages#contact"
   post "/contact" => "static_pages#contact_send_email"

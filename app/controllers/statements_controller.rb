@@ -1,7 +1,7 @@
 class StatementsController < ApplicationController
   before_action :login_required, only: [:create, :create_and_agree]
   before_action :admin_required, only: [:edit, :update, :destroy, :index]
-  before_action :find_statement, only: [:show, :destroy, :update, :edit]
+  before_action :find_statement, only: [:show, :destroy, :update, :edit, :occupations]
   before_action :redirect_to_statement_url, only: :show
 
   def quick_create
@@ -132,6 +132,10 @@ class StatementsController < ApplicationController
       format.html { redirect_to statements_url }
       format.json { head :no_content }
     end
+  end
+
+  def occupations
+    @occupations_count = @statement.individuals.tag_counts_on(:occupations).order(taggings_count: :desc)
   end
 
   private

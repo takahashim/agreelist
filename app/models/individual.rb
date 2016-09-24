@@ -28,6 +28,7 @@ class Individual < ActiveRecord::Base
   validates_uniqueness_of :email, if: :is_user
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, if: :is_user
 
+  acts_as_taggable_on :occupations, :schools
 
   before_create :update_followers_count, :generate_hashed_id, :generate_activation_digest
   before_save :update_wikidata_id_and_twitter, if: :wikipedia_changed?

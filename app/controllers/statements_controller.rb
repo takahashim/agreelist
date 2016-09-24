@@ -2,6 +2,7 @@ class StatementsController < ApplicationController
   before_action :login_required, only: [:create, :create_and_agree]
   before_action :admin_required, only: [:edit, :update, :destroy, :index]
   before_action :find_statement, only: [:show, :destroy, :update, :edit, :occupations, :educated_at]
+  before_action :set_percentage_and_count, only: [:show, :occupations, :educated_at]
   before_action :redirect_to_statement_url, only: :show
 
   def quick_create
@@ -63,10 +64,6 @@ class StatementsController < ApplicationController
       @agreements_in_favor = @statement.agreements_in_favor(order: params[:order], category_id: category_id, profession: params[:profession], occupation: params[:occupation], educated_at: params[:educated_at], page: params[:page])
       @agreements_against = @statement.agreements_against(order: params[:order], category_id: category_id, profession: params[:profession], occupation: params[:occupation], educated_at: params[:educated_at], page: params[:page])
     end
-    supporters_count = @statement.supporters_count(profession: params[:profession], occupation: params[:occupation], educated_at: params[:educated_at])
-    detractors_count = @statement.detractors_count(profession: params[:profession], occupation: params[:occupation], educated_at: params[:educated_at])
-    @agreements_count = supporters_count + detractors_count
-    @percentage_in_favor = (supporters_count * 100.0 / @agreements_count).round if @agreements_count > 0
     @related_statements = Statement.where.not(id: @statement.id).tagged_with(@statement.tags.first).limit(6)
 
     @comment = Comment.new
@@ -135,11 +132,13 @@ class StatementsController < ApplicationController
   end
 
   def occupations
-    @occupations_count = OccupationsTable.new(statement: @statement, min_count: 25).table
+    @min_count = 25
+    @occupations_count = OccupationsTable.new(statement: @statement, min_count: @min_count).table
   end
 
   def educated_at
-    @schools_count = SchoolsTable.new(statement: @statement, min_count: 10).table
+    @min_count = 25
+    @schools_count = SchoolsTable.new(statement: @statement, min_count: @min_count).table
   end
 
   private
@@ -150,5 +149,12 @@ class StatementsController < ApplicationController
 
   def redirect_to_statement_url
     redirect_to statement_path(@statement) if params[:id] != @statement.to_param
+  end
+
+  def set_percentage_and_count
+    supporters_count = @statement.supporters_count(profession: params[:profession], occupation: params[:occupation], educated_at: params[:educated_at])
+    detractors_count = @statement.detractors_count(profession: params[:profession], occupation: params[:occupation], educated_at: params[:educated_at])
+    @agreements_count = supporters_count + detractors_count
+    @percentage_in_favor = (supporters_count * 100.0 / @agreements_count).round if @agreements_count > 0
   end
 end

@@ -14,7 +14,7 @@
       = render partial: "agreements/voting_buttons", locals: { back_url: statement_path(@statement, order: params[:order]) }
       - if @statement == main_statement
         |
-        = link_to "Back", brexit_board_path
+        = link_to "Board", brexit_board_path
   %br
   - if params[:c]
     = link_to "All", statement_path(@statement)

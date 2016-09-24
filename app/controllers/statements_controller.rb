@@ -1,7 +1,7 @@
 class StatementsController < ApplicationController
   before_action :login_required, only: [:create, :create_and_agree]
   before_action :admin_required, only: [:edit, :update, :destroy, :index]
-  before_action :find_statement, only: [:show, :destroy, :update, :edit, :occupations]
+  before_action :find_statement, only: [:show, :destroy, :update, :edit, :occupations, :educated_at]
   before_action :redirect_to_statement_url, only: :show
 
   def quick_create
@@ -135,7 +135,11 @@ class StatementsController < ApplicationController
   end
 
   def occupations
-    @occupations_count = @statement.individuals.tag_counts_on(:occupations).where("taggings_count > 50").order(taggings_count: :desc)
+    @occupations_count = OccupationsTable.new(statement: @statement, min_count: 50).table
+  end
+
+  def educated_at
+    @schools_count = SchoolsTable.new(statement: @statement, min_count: 50).table
   end
 
   private

@@ -2,10 +2,10 @@
   %h1= @statement.content
   %table.table
     %tr
-      %th Occupation
+      %th University or school
       %th Percentage who agrees
       %th Number of people on AgreeList
-    - @occupations_count.each do |occupation|
+    - @schools_count.each do |occupation|
       %tr
         %td= occupation[:name]
         %td= "#{occupation[:percentage_who_agrees]}%"

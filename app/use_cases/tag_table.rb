@@ -12,6 +12,24 @@ class TagTable
     @occupations.sort_by{|o| [-o[:percentage_who_agrees], -o[:count]]}
   end
 
+  private
+
+  def count_occupation(occupation)
+    ids = Individual.tagged_with(occupation.name, on: tag)
+    all = Agreement.where(statement_id: statement.id, individual_id: ids).size
+    agree = Agreement.where(statement_id: statement.id, individual_id: ids, extent: 100).size
+    percentage = agree * 100 / all
+    @occupations << {name: occupation.name, count: all, percentage_who_agrees: percentage} if all >= min_count
+  end
+
+  def occupations_count
+    statement.individuals.tag_counts_on(tag).where("taggings_count >= ?", min_count)
+  end
+
+  def tag
+    raise NotImplementedError, 'This is an abstract base method. Implement in your subclass.'
+  end
+
   def occupations_count2
     Tag.find_by_sql("
       SELECT tags.*, taggings.tags_count AS count
@@ -27,23 +45,5 @@ class TagTable
                     WHERE agreements.statement_id = #{statement.id}))
       GROUP BY taggings.tag_id HAVING COUNT(taggings.tag_id) > 0) AS taggings ON taggings.tag_id = tags.id
       WHERE (taggings_count >= #{min_count})")
-  end
-
-  private
-
-  def count_occupation(occupation)
-    ids = Individual.tagged_with(occupation.name, on: tag)
-    all = Agreement.where(statement_id: statement.id, individual_id: ids).size
-    agree = Agreement.where(statement_id: statement.id, individual_id: ids, extent: 100).size
-    percentage = agree * 100 / all
-    @occupations << {name: occupation.name, count: all, percentage_who_agrees: percentage} if all > min_count
-  end
-
-  def occupations_count
-    statement.individuals.tag_counts_on(tag).where("taggings_count >= ?", min_count)
-  end
-
-  def tag
-    raise NotImplementedError, 'This is an abstract base method. Implement in your subclass.'
   end
 end

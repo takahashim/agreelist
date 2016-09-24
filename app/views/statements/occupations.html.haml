@@ -4,7 +4,7 @@
     %tr
       %th Occupation
       %th Percentage who agrees
-      %th Number of people on AgreeList
+      %th Number of people
     - @occupations_count.each do |occupation|
       %tr
         - url = statement_path(@statement, occupation: occupation[:name])

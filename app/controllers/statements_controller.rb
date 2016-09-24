@@ -56,15 +56,15 @@ class StatementsController < ApplicationController
   # GET /statements/1.json
   def show
     if params[:c] == "Others"
-      @agreements_in_favor = @statement.agreements_in_favor(order: params[:order], filter_by: :non_categorized, profession: params[:profession], occupation: params[:occupation], page: params[:page])
-      @agreements_against = @statement.agreements_against(order: params[:order], filter_by: :non_categorized, profession: params[:profession], occupation: params[:occupation], page: params[:page])
+      @agreements_in_favor = @statement.agreements_in_favor(order: params[:order], filter_by: :non_categorized, profession: params[:profession], occupation: params[:occupation], educated_at: params[:educated_at], page: params[:page])
+      @agreements_against = @statement.agreements_against(order: params[:order], filter_by: :non_categorized, profession: params[:profession], occupation: params[:occupation], educated_at: params[:educated_at], page: params[:page])
     else
       category_id = ReasonCategory.find_by_name(params[:c]).try(:id)
-      @agreements_in_favor = @statement.agreements_in_favor(order: params[:order], category_id: category_id, profession: params[:profession], occupation: params[:occupation], page: params[:page])
-      @agreements_against = @statement.agreements_against(order: params[:order], category_id: category_id, profession: params[:profession], occupation: params[:occupation], page: params[:page])
+      @agreements_in_favor = @statement.agreements_in_favor(order: params[:order], category_id: category_id, profession: params[:profession], occupation: params[:occupation], educated_at: params[:educated_at], page: params[:page])
+      @agreements_against = @statement.agreements_against(order: params[:order], category_id: category_id, profession: params[:profession], occupation: params[:occupation], educated_at: params[:educated_at], page: params[:page])
     end
-    supporters_count = @statement.supporters_count(profession: params[:profession], occupation: params[:occupation])
-    detractors_count = @statement.detractors_count(profession: params[:profession], occupation: params[:occupation])
+    supporters_count = @statement.supporters_count(profession: params[:profession], occupation: params[:occupation], educated_at: params[:educated_at])
+    detractors_count = @statement.detractors_count(profession: params[:profession], occupation: params[:occupation], educated_at: params[:educated_at])
     @agreements_count = supporters_count + detractors_count
     @percentage_in_favor = (supporters_count * 100.0 / @agreements_count).round if @agreements_count > 0
     @related_statements = Statement.where.not(id: @statement.id).tagged_with(@statement.tags.first).limit(6)

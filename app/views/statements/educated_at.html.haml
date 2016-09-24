@@ -4,7 +4,7 @@
     %tr
       %th University or school
       %th Percentage who agrees
-      %th Number of people on AgreeList
+      %th Number of people
     - @schools_count.each do |educated_at|
       %tr
         - url = statement_path(@statement, educated_at: educated_at[:name])

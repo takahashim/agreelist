@@ -42,6 +42,11 @@ class Statement < ActiveRecord::Base
       a = a.joins("left outer join taggings on taggings.taggable_id = individuals.id")
       a = a.joins("left outer join tags on tags.id = taggings.tag_id")
       a = a.where("taggings.taggable_type = 'Individual'").where("tags.name = '#{args[:occupation]}'").where("taggings.context = 'occupations'")
+    elsif args[:educated_at]
+      a = a.joins("left outer join individuals on agreements.individual_id = individuals.id")
+      a = a.joins("left outer join taggings on taggings.taggable_id = individuals.id")
+      a = a.joins("left outer join tags on tags.id = taggings.tag_id")
+      a = a.where("taggings.taggable_type = 'Individual'").where("tags.name = '#{args[:educated_at]}'").where("taggings.context = 'schools'")
     end
     a.count
   end
@@ -56,6 +61,11 @@ class Statement < ActiveRecord::Base
       a = a.joins("left outer join taggings on taggings.taggable_id = individuals.id")
       a = a.joins("left outer join tags on tags.id = taggings.tag_id")
       a = a.where("taggings.taggable_type = 'Individual'").where("tags.name = '#{args[:occupation]}'").where("taggings.context = 'occupations'")
+    elsif args[:educated_at]
+      a = a.joins("left outer join individuals on agreements.individual_id = individuals.id")
+      a = a.joins("left outer join taggings on taggings.taggable_id = individuals.id")
+      a = a.joins("left outer join tags on tags.id = taggings.tag_id")
+      a = a.where("taggings.taggable_type = 'Individual'").where("tags.name = '#{args[:educated_at]}'").where("taggings.context = 'schools'")
     end
     a = a.includes(:agreement_comments)
     # if args[:order] == "date"

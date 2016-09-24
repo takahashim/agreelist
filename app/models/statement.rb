@@ -37,6 +37,12 @@ class Statement < ActiveRecord::Base
   def filtered_agreements_count(agree_or_disagree, args)
     a = agreements.where(extent: (agree_or_disagree == :agree ? 100 : 0))
     a = a.joins("left outer join individuals on agreements.individual_id = individuals.id").joins("left outer join professions p on p.id = individuals.profession_id").where("p.name = ?", args[:profession]) if args[:profession]
+    if args[:occupation]
+      a = a.joins("left outer join individuals on agreements.individual_id = individuals.id")
+      a = a.joins("left outer join taggings on taggings.taggable_id = individuals.id")
+      a = a.joins("left outer join tags on tags.id = taggings.tag_id")
+      a = a.where("taggings.taggable_type = 'Individual'").where("tags.name = '#{args[:occupation]}'").where("taggings.context = 'occupations'")
+    end
     a.count
   end
 
@@ -45,6 +51,12 @@ class Statement < ActiveRecord::Base
     a = a.where(reason_category_id: args[:category_id]) if args[:category_id]
     a = a.where(reason_category_id: nil) if args[:filter_by] == :non_categorized
     a = a.joins("left outer join individuals on agreements.individual_id = individuals.id").joins("left outer join professions p on p.id = individuals.profession_id").where("p.name = ?", args[:profession]) if args[:profession]
+    if args[:occupation]
+      a = a.joins("left outer join individuals on agreements.individual_id = individuals.id")
+      a = a.joins("left outer join taggings on taggings.taggable_id = individuals.id")
+      a = a.joins("left outer join tags on tags.id = taggings.tag_id")
+      a = a.where("taggings.taggable_type = 'Individual'").where("tags.name = '#{args[:occupation]}'").where("taggings.context = 'occupations'")
+    end
     a = a.includes(:agreement_comments)
     # if args[:order] == "date"
     #   a.sort_by{ |a| - a.created_at.to_i }

@@ -5,8 +5,9 @@
       %th University or school
       %th Percentage who agrees
       %th Number of people on AgreeList
-    - @schools_count.each do |occupation|
+    - @schools_count.each do |educated_at|
       %tr
-        %td= occupation[:name]
-        %td= "#{occupation[:percentage_who_agrees]}%"
-        %td= occupation[:count]
+        - url = statement_path(@statement, educated_at: educated_at[:name])
+        %td= link_to educated_at[:name].titleize, url
+        %td= link_to "#{educated_at[:percentage_who_agrees]}%", url
+        %td= link_to educated_at[:count], url

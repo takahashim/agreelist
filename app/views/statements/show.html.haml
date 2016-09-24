@@ -6,8 +6,6 @@
       = link_to "", "https://twitter.com/share", "class" => "twitter-share-button", "data-url" => "#{root_url}s/#{@statement.hashed_id}", "data-text" => "#{@statement.content} See who agrees on #AgreeList", "data-size" => "large", "data-count" => "none", id: "twitter-share"
     - if main_statement == @statement
       %p= render partial: "professions"
-      |
-    = link_to "Table", occupations_statement_path(@statement)
     = link_to "Add an opinion leader", "#gather", class: "btn btn-primary"
     - if (@agreements_in_favor.size + @agreements_against.size) < 50
       or

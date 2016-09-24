@@ -7,6 +7,7 @@
       %th Number of people on AgreeList
     - @occupations_count.each do |occupation|
       %tr
-        %td= occupation[:name]
-        %td= "#{occupation[:percentage_who_agrees]}%"
-        %td= occupation[:count]
+        - url = statement_path(@statement, occupation: occupation[:name])
+        %td= link_to occupation[:name].titleize, url
+        %td= link_to "#{occupation[:percentage_who_agrees]}%", url
+        %td= link_to occupation[:count], url

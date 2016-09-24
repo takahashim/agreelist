@@ -1,9 +1,11 @@
 require "rails_helper"
 
-describe TagTable do
-  it "should" do
-    table = TagTable.new(statement: @statement)
-    expect(table.map(&:percentage_who_agrees)).to eq [100] 
+describe OccupationsTable do
+  it "should return the table" do
+    seed_data
+    object = OccupationsTable.new(statement: @statement)
+    object.stub(:min_count).and_return(1)
+    expect(object.table).to eq [{name: "politician", count: 1, percentage_who_agrees: 100}, {name: "economist", count: 2, percentage_who_agrees: 50}, {name: "journalist", count: 1, percentage_who_agrees: 0}]
   end
 
   private

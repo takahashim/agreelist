@@ -1,27 +1,55 @@
 require "spec_helper"
 
-feature "tags" do
+feature "Occupations" do
   before do
     seed_data
   end
 
-  scenario "should find two economists" do
-    visit statement_path(@statement)
-    click_on "Table"
-    expect(page).to have_content("economist 2 politician 1 journalist 1")
+  scenario "should list occupations" do
+    OccupationsTable.any_instance.stub(:min_count).and_return(1)
+    visit occupations_statement_path(@statement)
+    expect(page).to have_content("Politician 100% 1 Economist 50% 2 Journalist 0%")
   end
 
   private
 
   def seed_data
     @statement = create(:statement)
-    add_person(occupations: %w(economist politician))
-    add_person(occupations: %w(journalist economist))
+    add_person(occupations: %w(economist politician), extent: 100)
+    add_person(occupations: %w(journalist economist), extent: 0)
   end
 
   def add_person(args)
     individual = create(:individual)
-    Agreement.create(statement: @statement, individual: individual, extent: 100)
+    Agreement.create(statement: @statement, individual: individual, extent: args[:extent] || 100)
+    individual.occupation_list = args[:occupations]
+    individual.save
+  end
+end
+
+feature "Educated at" do
+  before do
+    seed_data
+  end
+
+  scenario "should list universities" do
+    SchoolsTable.any_instance.stub(:min_count).and_return(1)
+    visit educated_at_statement_path(@statement)
+    expect(page).to have_content("Mit 100% 1 Stanford 50% 2 Harvard 0% 1")
+  end
+
+  private
+
+  def seed_data
+    @statement = create(:statement)
+    add_person(educated_at: %w(Stanford MIT), extent: 100)
+    add_person(educated_at: %w(Harvard Stanford), extent: 0)
+  end
+
+  def add_person(args)
+    individual = create(:individual)
+    Agreement.create(statement: @statement, individual: individual, extent: args[:extent] || 100)
+    individual.school_list = args[:educated_at]
     individual.occupation_list = args[:occupations]
     individual.save
   end

@@ -16,9 +16,9 @@
   - if @agrees.empty?
     None
   - else
-    - @agrees.each do |a|
-      = link_to a.content, statement_path(a)
-      = "#{percentage(a)}% agree (#{a.agreements.size} votes)"
+    - @agrees.each do |statement|
+      = link_to statement.content, statement_path(statement)
+      = "#{percentage(statement)}% agree (#{statement.agreements.size} votes)"
       %br
   %br
 

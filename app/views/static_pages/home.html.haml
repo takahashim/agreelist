@@ -1,26 +1,10 @@
-#home.container.text-center
-  - if current_user
-    .jumbotron
-      %h1 AgreeList
-      %h2 The social network that gathers influencers' opinions
-      %h3
-        Our first featured topic was:
-        %p= link_to("BREXIT (#{main_statement.agreements.size} opinions)", "/brexit")
-      %p= link_to(image_tag("https://s3-eu-west-1.amazonaws.com/agreelist/brexit.png"), "/brexit")
-      %p
-        - @brexit_influencers.each do |influencer|
-          = image_tag(influencer.picture.url(:thumb), class: "picture") if influencer
-      %p= link_to "Browse new opinions", new_path
-      %p
-        Follow us on Twitter:
-        = link_to "@arpahector", "http://www.twitter.com/arpahector"
-        = link_to "@emilie_esposito", "http://www.twitter.com/emilie_esposito"
-  - else
+#home.container
+  .text-center
     .jumbotron
       %h1 AgreeList
       %h2 Fixing <i>the biggest problem in the world</i>
       %h5
-        <i>It's not <strike>global warming</strike>, not <strike>war</strike>, but how can we organise among ourselves to make good decisions and carry them out
+        <i>It's not <strike>global warming</strike>, not <strike>war</strike>, but how we can organise among ourselves to make good decisions and carry them out
         </i> - MIT Professor Alex Pentland
       - @influencers.each do |influencer|
         = image_tag(influencer.picture.url(:thumb), class: "picture") if influencer

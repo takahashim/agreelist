@@ -19,27 +19,50 @@
   - else
     .jumbotron
       %h1 AgreeList
-      %h2 The social network that gathers influencers' opinions
+      %h2 Fixing <i>the biggest problem in the world</i>
+      %h5
+        <i>It's not <strike>global warming</strike>, not <strike>war</strike>, but how can we organise among ourselves to make good decisions and carry them out
+        </i> - MIT Professor Alex Pentland
       - @influencers.each do |influencer|
         = image_tag(influencer.picture.url(:thumb), class: "picture") if influencer
-      %h2
-        %i More opinions, better decisions
-      = link_to "Join", signup_path, class: "btn btn-primary btn-lg"
+      %h5 Our mission: Increase the speed and quality of decision making
+      %h2= link_to "Join", signup_path, class: "btn btn-primary btn-lg"
     .row
+      .col-md-4
+        %h4 Promote a cause that matters to you
+        Add influencer's opinions. You only need a source where it can be checked that the influencer agrees.
+        #home-cause= image_tag "https://s3-eu-west-1.amazonaws.com/agreelist/cause.jpg"
       .col-md-4
         %h4 Find who agrees/disagrees
         Bombarded with opinions? Find who agrees and why on something to make up your mind.
         %p= image_tag "https://s3-eu-west-1.amazonaws.com/agreelist/agree-disagree.jpg"
       .col-md-4
         %h4 Filter per profession, country, university
-        Use Google BigQuery and Wikidata (Wikipedia's structured database) together with AgreeList's datasets.
-        %p= image_tag "https://s3-eu-west-1.amazonaws.com/agreelist/wikidata.png"
-
+        E.g.
+        = link_to("#{main_statement.agreements.size} opinions on Brexit", "/brexit")
+        filtered per
+        = link_to("profession", "/s/brexit-sblrlc9vgxp7/occupations")
+        and
+        = link_to("university", "/s/brexit-sblrlc9vgxp7/educated_at")
+        #home-brexit= link_to(image_tag("https://s3-eu-west-1.amazonaws.com/agreelist/brexit.png"), "/brexit")
+    %h3 What do we believe when no interest or time? What our culture, friends and influencers say
+    .row
       .col-md-4
-        %h4 Countribute to public data
-        Download AgreeList's data of which public figures agree on what and why from our site or use Google BigQuery.
-        %p= image_tag "https://s3-eu-west-1.amazonaws.com/agreelist/bigquery.png", id: "home-bigquery-img"
-    %h2 What we are not
+        For example, is climate change real? If NASA, the Royal Society, Obama, the Pope and a friend of mine who knows more about this than I agree, I believe it.
+      .col-md-4
+        Nowadays most people agree that climate change is real, but not so long ago it was quite different and having a database of who agrees and disagrees might have sped up the collective discussion and decision making.
+      .col-md-4
+        There was a time when on TV they mostly interviewed one person who agreed and one who disagreed on climate change, just to be neutral even though most scientists were in agreement.
+    %h3 Findings
+    .row
+      .col-md-6
+        %p= link_to(image_tag("https://cdn-images-1.medium.com/max/800/1*vA-5uY5hANlDrXvABXs4sg.png"), "/s/brexit-sblrlc9vgxp7/occupations")
+      .col-md-6
+        %p= link_to(image_tag("https://cdn-images-1.medium.com/max/800/1*l7IqEGshxWLvGUkYlgnmTg.png"), "/s/hillary-clinton-should-be-president-instead-of-donald-trump-ped4besqdzdd/educated_at")
+
+    %h2= link_to "Join", signup_path, class: "btn btn-primary btn-lg"
+
+    %h2 Similarities with other projects
     .row
       .col-md-4
         %h4 Petitions

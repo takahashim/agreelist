@@ -4,6 +4,7 @@ feature 'voting', js: true do
   before do
     s = Statement.create(content: "Is global warming real?")
     Agreement.create(individual: create(:individual), statement: s, extent: 100)
+    visit "/auth/twitter"
     visit new_path
   end
 
@@ -18,8 +19,7 @@ feature 'voting', js: true do
 
   context "clicking on agree" do
     scenario "should authenticate and vote" do
-      first(".vote-icon").click
-      click_link "vote-twitter-login"
+      first(".vote_link").click
       click_button "Save"
       expect(page).to have_content("Hector Perez")
     end
@@ -27,8 +27,7 @@ feature 'voting', js: true do
 
   context "clicking on disagree" do
     scenario "should authenticate and vote" do
-      all(".vote-icon")[1].click
-      click_link "vote-twitter-login"
+      all(".vote_link")[1].click
       click_button "Save"
       expect(page).to have_content("Hector Perez")
     end
@@ -36,8 +35,6 @@ feature 'voting', js: true do
 
   context "create question" do
     scenario "should authenticate and create statement" do
-      visit "/auth/twitter"
-      visit new_path
       click_link "Create a topic or statement"
       fill_in :statement_content, with: "Does poverty fuel terrorism?"
       click_button "Create"

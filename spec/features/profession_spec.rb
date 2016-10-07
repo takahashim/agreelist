@@ -9,7 +9,6 @@ feature "professions", js: true do
 
   context "non logged user" do
     before do
-      login
       visit statement_path(statement)
     end
 

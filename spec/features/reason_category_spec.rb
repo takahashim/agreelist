@@ -14,11 +14,10 @@ feature "reason categories", js: true do
     end
 
     scenario "should set a category" do
-      click_link "Agree"
-      click_link "vote-twitter-login"
-      Agreement.last.update_attributes(reason: "blablabla")
-      visit statement_path(statement)
-      expect(Agreement.last.present?).to eq true
+      #click_link "Agree"
+      #click_link "vote-twitter-login"
+      # Agreement.last.update_attributes(reason: "blablabla")
+      #visit statement_path(statement)
       select "Economy", from: "reason_category_from_agreement_#{Agreement.last.id}"
       expect(Agreement.last.reason_category.name).to eq "Economy"
     end
@@ -26,7 +25,7 @@ feature "reason categories", js: true do
 
   def seed_data
     @statement = create(:statement)
-    create(:agreement, statement: @statement, individual: create(:individual), extent: 100)
+    create(:agreement, statement: @statement, individual: create(:individual), reason: "blablabla", extent: 100)
     ReasonCategory.create(name: "Economy")
     ReasonCategory.create(name: "Science")
   end

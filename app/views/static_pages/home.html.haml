@@ -3,7 +3,6 @@
     .jumbotron
       %h1 AgreeList
       %h2 The social network that gathers influencers' opinions
-      = link_to "Create a topic or statement", new_statement_path, class: "btn btn-primary btn-lg"
       %h3
         Our first featured topic was:
         %p= link_to("BREXIT (#{main_statement.agreements.size} opinions)", "/brexit")
@@ -30,11 +29,11 @@
     .row
       .col-md-4
         %h4 Promote a cause that matters to you
-        Add influencer's opinions. You only need a source where it can be checked that the influencer agrees.
+        Add influencer's opinions. You only need a source where it can be checked that the influencer agrees
         #home-cause= image_tag "https://s3-eu-west-1.amazonaws.com/agreelist/cause.jpg"
       .col-md-4
         %h4 Find who agrees/disagrees
-        Bombarded with opinions? Find who agrees and why on something to make up your mind.
+        Bombarded with opinions? Find who agrees and why on something to make up your mind
         %p= image_tag "https://s3-eu-west-1.amazonaws.com/agreelist/agree-disagree.jpg"
       .col-md-4
         %h4 Filter per profession, country, university
@@ -49,8 +48,10 @@
     .row
       .col-md-4
         For example, is climate change real? If NASA, the Royal Society, Obama, the Pope and a friend of mine who knows more about this than I agree, I believe it.
+        %p
       .col-md-4
         Nowadays most people agree that climate change is real, but not so long ago it was quite different and having a database of who agrees and disagrees might have sped up the collective discussion and decision making.
+        %p
       .col-md-4
         There was a time when on TV they mostly interviewed one person who agreed and one who disagreed on climate change, just to be neutral even though most scientists were in agreement.
     %h3 Findings

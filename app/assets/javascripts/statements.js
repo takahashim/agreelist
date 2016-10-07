@@ -9,13 +9,14 @@ function statements_observers() {
 
   $(".reason_category").change(function() {
     var reason_category = $(this).find('option:selected').val();
+    var agreement_hashed_id = $(this).attr("agreement_hashed_id");
     var agreement_id = $(this).attr("agreement_id");
     var data_form = $('form[id="edit_agreement_' + agreement_id + '"]');
 
     $.ajax({
       type : 'PUT',
       async : false,
-      url : "/agreements/" + agreement_id,
+      url : "/a/" + agreement_hashed_id,
       data : data_form.serialize(),
       dataType: "json",
       contentType : "application/x-www-form-urlencoded;charset=utf-8"

@@ -1,5 +1,5 @@
 class StatementsController < ApplicationController
-  before_action :login_required, only: [:create, :create_and_agree]
+  before_action :login_required, only: [:new, :create, :create_and_agree]
   before_action :admin_required, only: [:edit, :update, :destroy, :index]
   before_action :find_statement, only: [:show, :destroy, :update, :edit, :occupations, :educated_at]
   before_action :set_percentage_and_count, only: [:show, :occupations, :educated_at]

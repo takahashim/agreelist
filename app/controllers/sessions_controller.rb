@@ -42,7 +42,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to :back, :notice => "Signed out!"
+    redirect_to root_path, :notice => "Thanks for stopping by. See you soon!"
   end
 
   private

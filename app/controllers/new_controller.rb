@@ -1,5 +1,4 @@
 class NewController < ApplicationController
-  before_action :login_required, only: [:index]
   def index
     if params[:all]
       @agreements = Agreement.order(updated_at: :desc).page(params[:page] || 1).per(50).includes(:statement).includes(:individual)

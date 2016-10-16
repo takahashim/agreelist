@@ -30,7 +30,7 @@ Contribute:
 
 Developers:
 -------
-Hector Perez (@arpahector)
+Hector Perez ([@arpahector](https://twitter.com/arpahector))
 
 Feel free to add yourself if you make a pull request
 

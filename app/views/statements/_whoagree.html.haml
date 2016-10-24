@@ -5,7 +5,7 @@
       = image_tag(individual.picture.url(:thumb), class: "picture media-object")
     .media-body
       %h4.media-heading
-        %span.name= link_to(individual.name.present? ? individual.name : individual.twitter || "user-#{individual.hashed_id}", agreement_path(agreement))
+        %span.name= link_to(individual.name.present? ? individual.name : individual.to_param, "/#{individual.to_param}")
       #br
       = (individual.bio.present? ? individual.bio : individual.description).try(:[], 0..93)
       - if admin?

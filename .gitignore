@@ -20,3 +20,4 @@ latest.dump
 r.txt
 public/system/individuals/pictures/*
 dump.rdb
+config/database.yml

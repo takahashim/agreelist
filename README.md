@@ -12,6 +12,9 @@ Install:
 git clone git://github.com/HectorPerez/AgreeList.git
 cd AgreeList
 bundle install
+cp config/database.yml.example config/database.yml
+rake db:create
+rake db:setup
 ```
 
 Contribute:

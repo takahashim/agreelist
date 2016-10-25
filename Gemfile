@@ -37,7 +37,7 @@ gem 'jquery-rails'
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
-  gem 'selenium-webdriver', '2.53.4'
+  gem 'poltergeist'
   gem 'rack_session_access'
   gem 'vcr'
   gem 'webmock'

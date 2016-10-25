@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'statement', js: true do
+feature 'statement' do
   attr_reader :statement
 
   before do

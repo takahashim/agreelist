@@ -77,6 +77,7 @@ class Statement < ActiveRecord::Base
     if args[:order ] == "date"
       a = a.order("created_at DESC")
     else
+      a = a.order("case when individuals.wikipedia is not null THEN 1 END ASC, case when individuals.wikipedia is null THEN 0 END ASC")
       a = a.order("case when agreements.reason is not null THEN 1 END ASC, case when agreements.reason is null THEN 0 END ASC")
       a = a.order("individuals.followers_count DESC")
     end

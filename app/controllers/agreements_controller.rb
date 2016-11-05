@@ -9,7 +9,7 @@ class AgreementsController < ApplicationController
     else
       Upvote.create(agreement: @agreement, individual: current_user)
     end
-    @agreement.update_attributes(upvotes_count: @agreement.upvotes.count)
+    @agreement.update_attribute(:upvotes_count, @agreement.upvotes.count)
     redirect_to statement_path(@agreement.statement)
   end
 

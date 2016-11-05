@@ -9,6 +9,7 @@ class AgreementsController < ApplicationController
     else
       Upvote.create(agreement: @agreement, individual: current_user)
     end
+    @agreement.update_attributes(upvotes_count: @agreement.upvotes.count)
     redirect_to statement_path(@agreement.statement)
   end
 
@@ -57,7 +58,7 @@ class AgreementsController < ApplicationController
         reason: params[:comment].present? ? params[:comment] : nil,
         reason_category_id: params[:reason_category_id],
         extent: params[:commit] == "She/he disagrees" ? 0 : 100,
-        added_by_id: added_by_id(params[:email].strip).try(:id))
+        added_by_id: added_by_id(params[:email].try(:strip)).try(:id))
       expire_fragment "brexit_board"
       redirect_to :back, notice: "Done"
     end

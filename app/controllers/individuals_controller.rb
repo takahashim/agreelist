@@ -14,6 +14,7 @@ class IndividualsController < ApplicationController
       session[:user_id] = @individual.id
       redirect_to edit_individual_path(@individual, back_url: params[:back_url] || root_path)
     else
+      flash[:error] = @individual.errors.full_messages.join(". ")
       render action: :new
     end
   end

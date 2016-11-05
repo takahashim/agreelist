@@ -50,3 +50,4 @@ gem "nilify_blanks"
 gem 'bcrypt-ruby'
 gem 'wikipedia-client'
 gem 'wikidata'
+gem 'airbrake', '~> 5.4'

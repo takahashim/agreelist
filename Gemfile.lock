@@ -30,6 +30,9 @@ GEM
     acts-as-taggable-on (3.5.0)
       activerecord (>= 3.2, < 5)
     addressable (2.3.8)
+    airbrake (5.6.1)
+      airbrake-ruby (~> 1.6)
+    airbrake-ruby (1.6.0)
     arel (5.0.1.20140414130214)
     autoprefixer-rails (5.2.1)
       execjs
@@ -272,6 +275,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on (~> 3.4)
+  airbrake (~> 5.4)
   aws-sdk (< 2.0)
   bcrypt-ruby
   better_errors

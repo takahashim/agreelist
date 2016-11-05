@@ -39,12 +39,10 @@ class AgreementsController < ApplicationController
       LogMailer.log_email("spam? params: #{params.inspect}").deliver unless statement_used_by_spammers?
     else
       twitter = params[:name][0] == "@" ? params[:name].gsub("@", "") : nil
-      voter = MagicVoter.new(email: params[:email].try(:strip),
-                             name: twitter ? nil : params[:name],
+      voter = MagicVoter.new(name: twitter ? nil : params[:name],
                              twitter: twitter,
                              profession_id: params[:profession_id],
                              current_user: current_user,
-                             adding_myself: params[:add] == "myself"
                             ).find_or_create!
       voter.bio = params[:biography] if params[:biography].present?
       voter.picture_from_url = params[:picture_from_url] if params[:picture_from_url].present?
@@ -58,7 +56,8 @@ class AgreementsController < ApplicationController
         url: params[:source],
         reason: params[:comment].present? ? params[:comment] : nil,
         reason_category_id: params[:reason_category_id],
-        extent: params[:commit] == "She/he disagrees" ? 0 : 100)
+        extent: params[:commit] == "She/he disagrees" ? 0 : 100,
+        added_by_id: added_by_id(params[:email].strip).try(:id))
       expire_fragment "brexit_board"
       redirect_to :back, notice: "Done"
     end
@@ -97,5 +96,13 @@ class AgreementsController < ApplicationController
 
   def redirect_to_default
     redirect_to root_path
+  end
+
+  def added_by_id(email)
+    if current_user
+      current_user
+    elsif email.present?
+      Individual.find_by_email(email) || Individual.create(email: email)
+    end
   end
 end

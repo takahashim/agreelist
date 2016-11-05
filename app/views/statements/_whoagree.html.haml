@@ -15,6 +15,7 @@
         |
         = link_to("thouch", touch_path(agreement, back_url: statement_path(agreement.statement)), method: :post)
       = render partial: "profession_select", locals: { individual: individual, agreement: agreement }
+      .reason
       %i= agreement.reason
       - if individual == current_user
         - if agreement.reason.present?

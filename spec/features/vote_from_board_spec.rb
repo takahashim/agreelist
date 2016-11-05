@@ -96,6 +96,32 @@ feature 'voting', js: true do
       expect{ click_button "She/he agrees" }.to change{ Individual.count }.by(2)
     end
 
+    scenario 'should set added_by_id' do
+      fill_in 'name', with: 'Hector Perez'
+      fill_in 'source', with: 'http://...'
+      fill_in 'email', with: 'hhh@jjj.com'
+
+      click_button "She/he agrees"
+      expect(Agreement.last.added_by_id).to eq Individual.find_by_email("hhh@jjj.com").id
+    end
+
+    scenario 'should not other user if the email exists - add supporter' do
+      fill_in 'name', with: 'Hector Perez'
+      fill_in 'source', with: 'http://...'
+      fill_in 'email', with: 'same@jjj.com'
+
+      expect{ click_button "She/he agrees" }.to change{ Individual.count }.by(2)
+
+      fill_in 'name', with: 'Other user'
+      fill_in 'source', with: 'http://...'
+      fill_in 'email', with: 'same@jjj.com'
+
+      expect{ click_button "She/he agrees" }.to change{ Individual.count }.by(1)
+      agreements = Individual.find_by_email("same@jjj.com").added_agreements_from_others
+      expect(agreements.size).to eq 2
+      expect(agreements.map{|a| a.added_by_id}).to eq [Individual.find_by_email("same@jjj.com").id] * 2
+    end
+
     scenario 'add someone who disagrees with its twitter' do
       fill_in 'name', with: "@arpahector"
       click_button "She/he disagree"

@@ -12,6 +12,7 @@ class Individual < ActiveRecord::Base
     medium: '300x300>'
   }
   has_many :agreements, dependent: :destroy
+  has_many :added_agreements_from_others, class_name: "Agreement", foreign_key: :added_by_id
   has_many :statements, :through => :agreements
   has_many :comments, dependent: :destroy
   has_many :upvotes

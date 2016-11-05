@@ -29,10 +29,11 @@
 
       - if current_user
         %br
-        - if agreement.upvotes.size == 0
-          = link_to "Upvote", upvote_agreement_path(agreement), method: :post
+        - n = agreement.upvotes.count == 0 ? "" : " (#{agreement.upvotes.count})"
+        - if agreement.upvotes.where(individual: current_user).present?
+          = link_to "Upvoted!#{n}", upvote_agreement_path(agreement), method: :post
         - else
-          = link_to "Upvote (#{agreement.upvotes.size})", upvote_agreement_path(agreement), method: :post
+          = link_to "Upvote#{n}", upvote_agreement_path(agreement), method: :post
         ·
         - if agreement.agreement_comments.size > 0
           = link_to pluralize(agreement.agreement_comments.size, "comment"), agreement_path(agreement)

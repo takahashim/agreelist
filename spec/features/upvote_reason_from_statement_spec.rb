@@ -12,13 +12,13 @@ feature 'upvote', js: true do
       visit statement_path(statement)
     end
 
-    scenario "should change text to Upvote (1)" do
+    scenario "should change text to Upvoted! (1)" do
       click_link "Agree"
       click_link "vote-twitter-login"
       click_button "Save"
-      expect(page).not_to have_content("Upvote (1)")
+      expect(page).not_to have_content("Upvoted! (1)")
       expect{ click_link "Upvote" }.to change{ Upvote.count }.by(1)
-      expect(page).to have_content("Upvote (1)")
+      expect(page).to have_content("Upvoted! (1)")
     end
 
     scenario "should change upvotes_count" do
@@ -37,7 +37,7 @@ feature 'upvote', js: true do
         click_link "vote-twitter-login"
         click_button "Save"
         click_link "Upvote"
-        expect{ click_link "Upvote" }.to change{ Upvote.count }.by(-1)
+        expect{ click_link "Upvoted! (1)" }.to change{ Upvote.count }.by(-1)
       end
     end
   end

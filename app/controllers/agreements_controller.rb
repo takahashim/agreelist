@@ -6,8 +6,10 @@ class AgreementsController < ApplicationController
   def upvote
     if upvote = Upvote.where(agreement: @agreement, individual: current_user).first
       upvote.destroy
+      flash[:notice] = "Upvote removed!"
     else
       Upvote.create(agreement: @agreement, individual: current_user)
+      flash[:notice] = "Upvoted!"
     end
     @agreement.update_attribute(:upvotes_count, @agreement.upvotes.count)
     redirect_to statement_path(@agreement.statement)

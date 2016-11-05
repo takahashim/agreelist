@@ -26,6 +26,12 @@ $(document).ready(function() {
     $("#vote-twitter-login").attr("href", "/auth/twitter?task=voting&vote=" + vote + "&statement_id=" + statement_id + "&back_url=" + back_url)
   });
 
+  $(".upvote").click(function(event) {
+    var agreement_id = $(this).attr("agreement_id");
+    var back_url = $(this).attr("back_url");
+    $("#upvote-twitter-login").attr("href", "/auth/twitter?task=upvote&agreement_id=" + agreement_id + "&back_url=" + back_url)
+  });
+
   $("#create-question").click(function(event) {
     var question = $("#content").val();
     $("#create-twitter-login").attr("href", "/auth/twitter?task=post&content=" + question + "&back_url=/new");

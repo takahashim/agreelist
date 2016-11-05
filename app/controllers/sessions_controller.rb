@@ -5,8 +5,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    individual = Individual.find_by_email(params[:email])
-    if individual.authenticate(params[:password])
+    if individual.try(:authenticate, params[:password])
       session[:user_id] = individual.id
       redirect_to params[:back_url] || root_url, :notice => "Logged in!"
     else
@@ -35,6 +34,15 @@ class SessionsController < ApplicationController
         extent: 100
       ).vote!
       redirect_to(params[:back_url] || root_path, notice: "Signed in!")
+    elsif params["task"] == "upvote"
+      agreement = Agreement.find(params["agreement_id"])
+      if Upvote.exists?(individual: current_user, agreement: agreement)
+        redirect_to(params[:back_url] || root_path, notice: "Already was upvoted!")
+      else
+        Upvote.create(individual: current_user, agreement: agreement)
+        agreement.update_attribute(:upvotes_count, agreement.upvotes.count)
+        redirect_to(params[:back_url] || root_path, notice: "Upvoted!")
+      end
     else
       redirect_to(params[:back_url] || root_path, notice: "Signed in!")
     end
@@ -49,5 +57,9 @@ class SessionsController < ApplicationController
 
   def redirect_to_default
     redirect_to root_path
+  end
+
+  def individual
+    Individual.find_by_email(params[:email]) if params[:email].present?
   end
 end

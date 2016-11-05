@@ -26,20 +26,21 @@
       %span.source
         - if agreement.url.present? && agreement.url != "http://"
           = link_to "source", agreement.url
-
+      %br
+      - n = agreement.upvotes.count == 0 ? "" : " (#{agreement.upvotes.count})"
       - if current_user
-        %br
-        - n = agreement.upvotes.count == 0 ? "" : " (#{agreement.upvotes.count})"
         - if agreement.upvotes.where(individual: current_user).present?
           = link_to "Upvoted!#{n}", upvote_agreement_path(agreement), method: :post
         - else
           = link_to "Upvote#{n}", upvote_agreement_path(agreement), method: :post
+      - else
+        = link_to "Upvote#{n}", "#", "data-toggle" => "modal", "data-target" => "#upvoteModal", agreement_id: agreement.id, class: "upvote", back_url: statement_path(agreement.statement)
+      ·
+      - if agreement.agreement_comments.size > 0
+        = link_to pluralize(agreement.agreement_comments.size, "comment"), agreement_path(agreement)
+      - else
+        = link_to "New comment", agreement_path(agreement)
+      - if agreement.individual.wikipedia
         ·
-        - if agreement.agreement_comments.size > 0
-          = link_to pluralize(agreement.agreement_comments.size, "comment"), agreement_path(agreement)
-        - else
-          = link_to "New comment", agreement_path(agreement)
-        - if agreement.individual.wikipedia
-          ·
-          = link_to "Wikipedia", agreement.individual.wikipedia
+        = link_to "Wikipedia", agreement.individual.wikipedia
       = render partial: "reason_category_select", locals: { agreement: agreement }

@@ -7,7 +7,7 @@ feature 'upvote', js: true do
     seed_data
   end
 
-  context 'non logged user' do
+  context 'logged user' do
     before do
       visit statement_path(statement)
     end
@@ -42,9 +42,22 @@ feature 'upvote', js: true do
     end
   end
 
+  context 'non logged user' do
+    before do
+      visit statement_path(statement)
+    end
+
+    scenario "upvote" do
+      click_link "Upvote"
+      click_link "upvote-twitter-login"
+      expect(page).to have_content("Upvoted! (1)")
+    end
+  end
+
   private
 
   def seed_data
     @statement = create(:statement)
+    @agreement = create(:agreement, statement: @statement, individual: create(:individual), extent: 100)
   end
 end

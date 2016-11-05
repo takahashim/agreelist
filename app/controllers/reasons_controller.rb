@@ -5,6 +5,6 @@ class ReasonsController < ApplicationController
 
   def update
     Agreement.update_attributes(params.require(@agreement).permit(:reason))
-    redirect_to params[:back_url] || root_path
+    redirect_to(params[:back_url] || root_path, notice: "Vote/opinion added")
   end
 end

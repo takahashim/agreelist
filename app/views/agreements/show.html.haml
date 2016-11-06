@@ -11,8 +11,12 @@
           = link_to @agreement.statement.content, statement_path(@agreement.statement)
       %span.bio
         %p= individual.bio.present? ? individual.bio : individual.description
-      %span.reason
-        %p= @agreement.reason
+      .reason_and_source
+        %span.reason
+          %p= @agreement.reason
+        %span.source
+          - if @agreement.url.present?
+            = link_to "source", @agreement.url
       %span
         - if admin?
           = link_to "edit", edit_individual_path(individual) + "?back_url=#{request.url}"
@@ -48,3 +52,5 @@
           = link_to "Back", url_for(:back)
   - else
     = link_to "Log in to comment", login_path(back_url: request.original_url)
+    ·
+    = link_to "Back", url_for(:back)

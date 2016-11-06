@@ -72,6 +72,7 @@ class StatementsController < ApplicationController
 
     @categories = ReasonCategory.all
     @professions = Profession.all
+    @admin = admin?
 
     respond_to do |format|
       format.html # show.html.erb

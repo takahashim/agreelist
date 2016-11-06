@@ -27,7 +27,7 @@
         - if agreement.url.present? && agreement.url != "http://"
           = link_to "source", agreement.url
       %br
-      - n = agreement.upvotes.count == 0 ? "" : " (#{agreement.upvotes.count})"
+      - n = agreement.upvotes.count == 0 || !@admin ? "" : " (#{agreement.upvotes.count})"
       - if current_user
         - upvote_link = current_user.upvoted?(agreement) ? "Upvoted!#{n}" : "Upvote#{n}"
         = link_to upvote_link, upvote_agreement_path(agreement), method: :post

@@ -29,10 +29,8 @@
       %br
       - n = agreement.upvotes.count == 0 ? "" : " (#{agreement.upvotes.count})"
       - if current_user
-        - if agreement.upvotes.where(individual: current_user).present?
-          = link_to "Upvoted!#{n}", upvote_agreement_path(agreement), method: :post
-        - else
-          = link_to "Upvote#{n}", upvote_agreement_path(agreement), method: :post
+        - upvote_link = current_user.upvoted?(agreement) ? "Upvoted!#{n}" : "Upvote#{n}"
+        = link_to upvote_link, upvote_agreement_path(agreement), method: :post
       - else
         = link_to "Upvote#{n}", "#", "data-toggle" => "modal", "data-target" => "#upvoteModal", agreement_id: agreement.id, class: "upvote", back_url: statement_path(agreement.statement)
       ·

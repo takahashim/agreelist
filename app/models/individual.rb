@@ -111,6 +111,10 @@ class Individual < ActiveRecord::Base
     Agreement.where(individual: self, statement: statement).any?
   end
 
+  def upvoted?(agreement)
+    agreement.upvotes.where(individual: self).present?
+  end
+
   def self.find_or_create(params)
     self.find_by_email(params[:email]) || self.create(params)
   end

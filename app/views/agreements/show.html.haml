@@ -44,7 +44,7 @@
       = f.hidden_field :agreement_id, value: @agreement.id
       .field
         = f.label :new_comment
-        = f.text_field :content, class: "form-control"
+        = f.text_area :content, class: "form-control"
       %p
         .actions
           = f.submit "Send", class: "btn btn-primary"

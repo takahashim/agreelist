@@ -15,7 +15,7 @@
       = label_tag :password
       = "-"
       = link_to "Forgot?", new_reset_password_path
-      = text_field_tag :password, "", class: "form-control"
+      = password_field_tag :password, "", class: "form-control"
     %p
       .actions
         = hidden_field_tag :back_url, params[:back_url]

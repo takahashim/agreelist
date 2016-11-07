@@ -21,6 +21,16 @@
     >
     = params[:c]
   %br
+  - if params[:occupation]
+    = "Active filter: #{params[:occupation].pluralize}"
+    ·
+    = link_to "Remove and see all opinions", statement_path(@statement)
+    %br
+  - if params[:educated_at]
+    = "Active filter: #{params[:educated_at].pluralize}"
+    ·
+    = link_to "Remove and see all opinions", statement_path(@statement)
+    %br
   - if [@agreements_in_favor.size, @agreements_against.size].max > 3
     Ordered by
     - if params[:order] == "date"

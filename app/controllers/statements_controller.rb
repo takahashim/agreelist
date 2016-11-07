@@ -133,12 +133,12 @@ class StatementsController < ApplicationController
   end
 
   def occupations
-    @min_count = params[:min].to_i || 25
+    @min_count = (params[:min] || 25).to_i
     @occupations_count = OccupationsTable.new(statement: @statement, min_count: @min_count).table
   end
 
   def educated_at
-    @min_count = params[:min].to_i || 25
+    @min_count = (params[:min] || 25).to_i
     @schools_count = SchoolsTable.new(statement: @statement, min_count: @min_count).table
   end
 

@@ -21,6 +21,7 @@ class Voter
     self.voter = find_or_build_voter
     self.voter.name = name if name.present?
     self.voter.profession_id = profession_id if profession_id.present?
+    self.voter.wikipedia = wikipedia
     self.voter.save!
   end
 

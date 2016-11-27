@@ -42,10 +42,11 @@ class AgreementsController < ApplicationController
       LogMailer.log_email("spam? params: #{params.inspect}").deliver unless statement_used_by_spammers?
     else
       twitter = params[:name][0] == "@" ? params[:name].gsub("@", "") : nil
-      voter = MagicVoter.new(name: twitter ? nil : params[:name],
+      voter = Voter.new(name: twitter ? nil : params[:name],
                              twitter: twitter,
                              profession_id: params[:profession_id],
                              current_user: current_user,
+                             wikipedia: params[:wikipedia],
                             ).find_or_create!
       voter.bio = params[:biography] if params[:biography].present?
       voter.picture_from_url = params[:picture_from_url] if params[:picture_from_url].present?

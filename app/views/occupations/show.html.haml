@@ -1,4 +1,5 @@
 .container
+  %h3= "#{@occupation.pluralize.titleize} on AgreeList:"
   - @individuals.each do |individual|
     .media
       .media-left
@@ -7,3 +8,4 @@
         %h4.media-heading
           %span.name= link_to(individual.visible_name, "/#{individual.to_param}")
         %p= individual.visible_bio
+  = link_to "Back", url_for(:back)

@@ -14,7 +14,7 @@
           = "- More on "
           = link_to "Wikipedia", @individual.wikipedia
       - if @school_list.any?
-        Studied at:
+        Educated at:
         %p
           - @school_list.each_with_index do |school, index|
             = link_to school, school_path(school.gsub(" ", "_"))

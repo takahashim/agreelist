@@ -42,6 +42,6 @@ class Voter
   end
 
   def find_user_on_wikipedia
-    Individual.find_by_wikipedia(wikipedia)
+    Individual.find_by_wikipedia(wikipedia) if wikipedia.present?
   end
 end

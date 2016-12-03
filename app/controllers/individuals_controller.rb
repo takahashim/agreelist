@@ -34,6 +34,8 @@ class IndividualsController < ApplicationController
   def show
     @agrees = @individual.agrees
     @disagrees = @individual.disagrees
+    @school_list = @individual.school_list
+    @occupation_list = @individual.occupation_list
   end
 
   def edit

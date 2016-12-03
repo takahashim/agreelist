@@ -8,7 +8,23 @@
         = link_to "Follow #{@individual.twitter}", "https://twitter.com/#{@individual.twitter}", class: "twitter-follow-button", "data-show-count" => "true", "data-size" => "large" if @individual.twitter.present?
       = link_to("Edit Profile", edit_individual_path, class: "btn btn-primary") if admin? || current_user == @individual
 
-      %p= @individual.bio.present? ? @individual.bio : @individual.description
+      %p
+        = @individual.visible_bio
+        - if @individual.wikipedia.present?
+          = "- More on "
+          = link_to "Wikipedia", @individual.wikipedia
+      - if @school_list.any?
+        Studied at:
+        %p
+          - @school_list.each_with_index do |school, index|
+            = link_to school, school_path(school.gsub(" ", "_"))
+            = "·" unless index == @school_list.size - 1
+      - if @occupation_list.any?
+        Occupations:
+        %p
+          - @occupation_list.each_with_index do |occupation, index|
+            = link_to occupation.titleize, occupation_path(occupation.gsub(" ", "_"))
+            = "·" unless index == @occupation_list.size - 1
   %br
 
   %strong Agrees:

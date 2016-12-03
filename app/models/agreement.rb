@@ -25,6 +25,10 @@ class Agreement < ActiveRecord::Base
     extent == 100
   end
 
+  def agree_or_disagree?
+    agree? ? "agree" : "disagree"
+  end
+
   def to_param
     self.hashed_id
   end

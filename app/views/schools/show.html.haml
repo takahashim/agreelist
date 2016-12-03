@@ -1,0 +1,9 @@
+.container
+  - @individuals.each do |individual|
+    .media
+      .media-left
+        = link_to(image_tag(individual.picture.url(:mini), class: "picture media-object"), "/#{individual.to_param}")
+      .media-body
+        %h4.media-heading
+          %span.name= link_to(individual.visible_name, "/#{individual.to_param}")
+        %p= individual.visible_bio

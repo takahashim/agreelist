@@ -141,8 +141,16 @@ class Individual < ActiveRecord::Base
     search.blank? ? [] : self.where("content LIKE ?", "%#{search}%")
   end
 
+  def visible_name
+    name.present? ? name : to_param
+  end
+
   def to_param
     twitter.present? ? twitter : "user-#{hashed_id}"
+  end
+
+  def visible_bio
+    (bio.present? ? bio : description).try(:[], 0..93)
   end
 
   def in_favor?(statement)

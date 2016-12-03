@@ -22,6 +22,8 @@ Al::Application.routes.draw do
   resources :reason_categories, except: :show
   resources :professions, except: :show
   resources :reasons, only: [:edit, :update]
+  resources :occupations, only: [:index, :show]
+  resources :schools, only: [:index, :show]
   post '/vote', to: 'new#vote', as: :vote
   get '/entrepreneurs', to: 'static_pages#advice_for_entrepreneurs'
   post '/save_email' => 'individuals#save_email'

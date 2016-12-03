@@ -105,7 +105,7 @@ feature 'voting', js: true do
       expect(Agreement.last.added_by_id).to eq Individual.find_by_email("hhh@jjj.com").id
     end
 
-    scenario 'should not other user if the email exists - add supporter' do
+    scenario 'should not create another user if the email exists - add supporter' do
       fill_in 'name', with: 'Hector Perez'
       fill_in 'source', with: 'http://...'
       fill_in 'email', with: 'same@jjj.com'

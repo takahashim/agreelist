@@ -6,4 +6,8 @@ module ApplicationHelper
   def tag_path(t)
     "/tags/#{t}"
   end
+
+  def percentage_of_supporters(statement)
+    statement.number_of_supporters * 100 / statement.number_of_opinions
+  end
 end

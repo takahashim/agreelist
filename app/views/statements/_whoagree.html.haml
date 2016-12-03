@@ -5,9 +5,9 @@
       = image_tag(individual.picture.url(:thumb), class: "picture media-object")
     .media-body
       %h4.media-heading
-        %span.name= link_to(individual.name.present? ? individual.name : individual.to_param, "/#{individual.to_param}")
+        %span.name= link_to(individual.visible_name, "/#{individual.to_param}")
       #br
-      = (individual.bio.present? ? individual.bio : individual.description).try(:[], 0..93)
+      = individual.visible_bio
       - if admin?
         = link_to "edit", edit_individual_path(individual) + "?back_url=#{request.url}"
         |

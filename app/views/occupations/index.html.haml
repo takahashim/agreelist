@@ -1,0 +1,3 @@
+.container
+  - @occupations.each do |occupation|
+    %p= link_to "#{occupation.name} (#{occupation.taggings_count})", occupation_path(occupation.name.gsub(" ", "_"))

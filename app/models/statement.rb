@@ -1,5 +1,5 @@
 class Statement < ActiveRecord::Base
-  MAXIMUM_LENGTH = 90
+  MAXIMUM_LENGTH = 140
   has_many :agreements, dependent: :destroy
   has_many :individuals, :through => :agreements
   has_many :comments

@@ -17,11 +17,11 @@
       = render partial: "profession_select", locals: { individual: individual, agreement: agreement }
       .reason
       %i= agreement.reason
-      - if individual == current_user
+      - if individual == current_user || admin?
         - if agreement.reason.present?
           = link_to "- edit", edit_reason_path(agreement, back_url: url_for(params))
         - else
-          = link_to "Why do you #{agreement.agree? ? "agree" : "disagree"}? Add a reason", edit_reason_path(agreement, back_url: url_for(params))
+          = link_to "Add a reason", edit_reason_path(agreement, back_url: url_for(params))
 
       %span.source
         - if agreement.url.present? && agreement.url != "http://"

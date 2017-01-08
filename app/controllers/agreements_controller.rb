@@ -16,12 +16,17 @@ class AgreementsController < ApplicationController
   end
 
   def update
-    @agreement.reason = params[:agreement][:reason]
-    @agreement.reason_category_id = params[:agreement][:reason_category_id].to_i
-    @agreement.save
-    respond_to do |format|
-      format.html { redirect_to(params[:back_url] || statement_path(@agreement.statement)) }
-      format.js { render json: @agreement.to_json, status: :ok }
+    if @agreement.individual == current_user || admin?
+      @agreement.reason = params[:agreement][:reason]
+      @agreement.url = params[:agreement][:url]
+      @agreement.reason_category_id = params[:agreement][:reason_category_id].to_i
+      @agreement.save
+      respond_to do |format|
+        format.html { redirect_to(params[:back_url] || statement_path(@agreement.statement)) }
+        format.js { render json: @agreement.to_json, status: :ok }
+      end
+    else
+      redirect_to(params[:back_url] || root_path, error: "Permission denied")
     end
   end
 

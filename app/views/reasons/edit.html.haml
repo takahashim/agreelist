@@ -1,10 +1,17 @@
 .container
   %h1= @agreement.statement.content
-  %h3= "Why do you #{(@agreement.agree? ? "agree" : "disagree")}? (optional)"
+  - if @agreement.individual == current_user
+    %h3= "Why do you #{(@agreement.agree? ? "agree" : "disagree")}? (optional)"
+  - else
+    %h3= "Why does she/he #{(@agreement.agree? ? "agree" : "disagree")}? (optional)"
   = form_for @agreement do |f|
     .form-group
       = f.text_area :reason, class: "form-control"
     = hidden_field_tag :back_url, params[:back_url]
+    - if @agreement.individual != current_user
+      .form-group
+        %h5 Source:
+        = f.text_field :url, class: "form-control", placeholder: "URL/source where the quote comes from"
     = f.submit "Save", class: "btn btn-primary"
     or
     = link_to "Back", (params[:back_url] || root_path), class: "btn btn-default"

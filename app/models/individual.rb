@@ -31,8 +31,11 @@ class Individual < ActiveRecord::Base
 
   acts_as_taggable_on :occupations, :schools
 
-  before_create :update_followers_count, :generate_hashed_id, :generate_activation_digest
+  before_create :generate_hashed_id, :generate_activation_digest
+
   before_save :update_wikidata_id_and_twitter, if: :wikipedia_changed?
+  # TODO: this should be done in the background:
+  before_create :update_followers_count, :update_occupations_and_schools_from_wikidata
   before_save :update_profile_from_twitter, if: :twitter_changed?
   before_save :downcase_email
 
@@ -215,5 +218,12 @@ class Individual < ActiveRecord::Base
 
   def password_is_present?
     password.present?
+  end
+
+  def update_occupations_and_schools_from_wikidata
+    if wikidata_id
+      self.occupation_list = WikidataPerson.new(wikidata_id: wikidata_id).occupations
+      self.school_list = WikidataPerson.new(wikidata_id: wikidata_id).educated_at
+    end
   end
 end

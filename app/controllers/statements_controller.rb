@@ -73,6 +73,10 @@ class StatementsController < ApplicationController
     @categories = ReasonCategory.all
     @professions = Profession.all
     @admin = admin?
+    if session[:added_voter].present?
+      @just_added_voter = Individual.find_by_hashed_id(session[:added_voter])
+      @shortened_url_without_params = Rails.env.test? ? request.url : Google::UrlShortener.shorten!(request.base_url + request.path)
+    end
 
     respond_to do |format|
       format.html # show.html.erb

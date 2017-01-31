@@ -32,6 +32,18 @@ class Statement < ActiveRecord::Base
     "#{content.parameterize}-#{hashed_id}"
   end
 
+  def shortened_content(limit)
+    if content_with_abbreviations.size > limit
+      content_with_abbreviations[0..(limit-4)] + "..."
+    else
+      content_with_abbreviations
+    end
+  end
+
+  def content_with_abbreviations
+    content.gsub("Advanced Artificial Intelligence", "AI")
+  end
+
   private
 
   def filtered_agreements_count(agree_or_disagree, args)

@@ -67,6 +67,7 @@ class AgreementsController < ApplicationController
         extent: params[:commit] == "She/he disagrees" ? 0 : 100,
         added_by_id: added_by_id(params[:email].try(:strip)).try(:id))
       expire_fragment "brexit_board"
+      session[:added_voter] = voter.hashed_id if voter.twitter.present?
       redirect_to :back, notice: "Done"
     end
   end

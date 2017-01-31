@@ -27,6 +27,13 @@ feature 'voting', js: true do
       expect(Agreement.last.individual.profession.name).to eq "Politician"
     end
 
+
+    scenario 'should open share on twitter modal window' do
+      fill_in 'name', with: "@barackobama"
+      click_button "She/he agrees"
+      expect(page).to have_content "Wanna tweet you added @barackobama?"
+    end
+
     scenario "agree" do
       click_link "Agree"
       click_button "Save"

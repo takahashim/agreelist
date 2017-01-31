@@ -37,4 +37,11 @@ describe Statement do
     create(:agreement, extent: 0, statement_id: statement.id)
     expect(statement.agreements_in_favor).to eq [a]
   end
+
+  context "#shortened_content" do
+    it "should shorten the content" do
+      s = create(:statement, content: "0123456789")
+      expect(s.shortened_content(7)).to eq "0123..."
+    end
+  end
 end

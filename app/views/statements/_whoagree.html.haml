@@ -23,8 +23,8 @@
             = link_to "- edit", edit_reason_path(agreement, back_url: url_for(params))
           - else
             = link_to "Add a reason", edit_reason_path(agreement, back_url: url_for(params))
-      %span.source
-        - if admin? && individual.twitter.present?
+      - if admin? && individual.twitter.present?
+        %span.source
           = "-"
           = link_to "tweet", "https://twitter.com/intent/tweet?url=&text=@#{individual.try(:twitter)} I added you to the list of who does and who does not support '#{@statement.shortened_content(35)}' #{@shortened_url_without_params}", id: "tweet-supporter-added-2", "data-dismiss" => "modal"
       %span.source

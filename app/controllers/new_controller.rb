@@ -7,6 +7,8 @@ class NewController < ApplicationController
       @agreements = Kaminari.paginate_array(one_agreement_per_statement.sort_by{|a| a.updated_at}.reverse!).page(params[:page] || 1).per(50)
     end
     @statement = Statement.new
+    @influencers = Individual.where("lower(twitter) in (?)", %w(barackobama stephenhawking8 hillaryclinton pontifex billgates oprah elonmusk)).order(ranking: :desc, followers_count: :desc)
+    @brexit_statement = main_statement
   end
 
   def vote

@@ -122,6 +122,7 @@ feature 'voting', js: true do
     scenario 'adds two times the same @user' do
       fill_in 'name', with: "@arpahector"
       click_button "She/he agrees"
+      click_link 'Back'
       fill_in 'name', with: "@arpahector"
       click_button "She/he agrees"
       expect(Individual.all.order(:twitter).map(&:twitter)).to eq %w(arpahector seed)

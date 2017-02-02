@@ -35,7 +35,7 @@ feature 'voting', js: true do
 
   context "create question" do
     scenario "should authenticate and create statement" do
-      click_link "Create a topic or statement"
+      click_link "Create a topic or statement", match: :first
       fill_in :statement_content, with: "Does poverty fuel terrorism?"
       click_button "Create"
       expect(page).to have_content("Does poverty fuel terrorism?")

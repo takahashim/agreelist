@@ -1,6 +1,6 @@
 Al::Application.routes.draw do
 
-  root to: "static_pages#home"
+  root to: "new#index"
   get "/new", to: "new#index", as: :new
   get "/brexit", to: "boards#brexit", as: :brexit_board
   get "/boards/brexit" => redirect("/brexit")
@@ -28,7 +28,7 @@ Al::Application.routes.draw do
   get '/entrepreneurs', to: 'static_pages#advice_for_entrepreneurs'
   post '/save_email' => 'individuals#save_email'
   post '/statements/quick' => 'statements#quick_create'
-  resources :individuals, only: [:edit, :update, :destroy, :create] do
+  resources :individuals, only: [:edit, :update, :destroy, :create], path: "" do
     member do
       get :activation
     end

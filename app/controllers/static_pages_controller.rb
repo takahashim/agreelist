@@ -29,14 +29,6 @@ class StaticPagesController < ApplicationController
   def polar
   end
 
-  def home
-    if current_user
-      redirect_to new_path
-    else
-      @influencers = Individual.where("lower(twitter) in (?)", %w(barackobama stephenhawking8 hillaryclinton pontifex billgates oprah elonmusk)).order(ranking: :desc, followers_count: :desc)
-    end
-  end
-
   def about
     if Rails.env == "test"
       @hector = Individual.first

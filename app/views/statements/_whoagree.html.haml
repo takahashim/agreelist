@@ -18,17 +18,18 @@
       .reason
       %i= agreement.reason
       - if individual == current_user || admin?
-        - if agreement.reason.present?
-          = link_to "- edit", edit_reason_path(agreement, back_url: url_for(params))
-        - else
-          = link_to "Add a reason", edit_reason_path(agreement, back_url: url_for(params))
-        = "-"
-      %span
+        %span.source
+          - if agreement.reason.present?
+            = link_to "- edit", edit_reason_path(agreement, back_url: url_for(params))
+          - else
+            = link_to "Add a reason", edit_reason_path(agreement, back_url: url_for(params))
+      %span.source
         - if admin? && individual.twitter.present?
-          = link_to "tweet", "https://twitter.com/intent/tweet?url=&text=@#{individual.try(:twitter)} I added you to the list of who does and who does not support '#{@statement.shortened_content(35)}' #{@shortened_url_without_params}", id: "tweet-supporter-added-2", "data-dismiss" => "modal"
           = "-"
-      %span
+          = link_to "tweet", "https://twitter.com/intent/tweet?url=&text=@#{individual.try(:twitter)} I added you to the list of who does and who does not support '#{@statement.shortened_content(35)}' #{@shortened_url_without_params}", id: "tweet-supporter-added-2", "data-dismiss" => "modal"
+      %span.source
         - if agreement.url.present? && agreement.url != "http://"
+          = "-"
           = link_to "source", agreement.url
       %br
       - n = agreement.upvotes.count == 0 || !@admin ? "" : " (#{agreement.upvotes.count})"

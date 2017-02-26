@@ -76,7 +76,7 @@ class StatementsController < ApplicationController
     if session[:added_voter].present?
       @just_added_voter = Individual.find_by_hashed_id(session[:added_voter])
     end
-    @shortened_url_without_params = Rails.env.test? ? request.url : Google::UrlShortener.shorten!(request.base_url + request.path)
+    @shortened_url_without_params = Rails.env.test? ? request.url : Shortener.new(full_url: request.base_url + request.path, object: @statement).get
 
     respond_to do |format|
       format.html # show.html.erb

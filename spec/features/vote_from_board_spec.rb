@@ -117,7 +117,7 @@ feature 'voting', js: true do
       fill_in 'email', with: 'same@jjj.com'
 
       expect{ click_button "She/he agrees" }.to change{ Individual.count }.by(1)
-      agreements = Individual.find_by_email("same@jjj.com").added_agreements_from_others
+      agreements = Individual.find_by_email("same@jjj.com").agreements_added_from_others
       expect(agreements.size).to eq 2
       expect(agreements.map{|a| a.added_by_id}).to eq [Individual.find_by_email("same@jjj.com").id] * 2
     end

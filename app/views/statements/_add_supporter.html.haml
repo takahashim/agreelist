@@ -1,4 +1,10 @@
-%h3 Add an opinion leader
+%h3
+  Add an opinion leader
+  - unless current_user
+    %span.small
+      = " ·"
+      = link_to "Log in", login_path(back_url: request.url)
+      first if you want karma! - optional
 = form_tag("/add_supporter", :method => "post") do
   %p= text_field_tag(:name,"", class: "form-control", placeholder: "Name or @twitter. E.g. @barackobama")
   %p= text_field_tag(:wikipedia,"", class: "form-control", placeholder: "Wikipedia page of her/him")

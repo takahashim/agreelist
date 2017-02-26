@@ -12,7 +12,7 @@ class Individual < ActiveRecord::Base
     medium: '300x300>'
   }
   has_many :agreements, dependent: :destroy
-  has_many :added_agreements_from_others, class_name: "Agreement", foreign_key: :added_by_id
+  has_many :agreements_added_from_others, class_name: "Agreement", foreign_key: :added_by_id
   has_many :statements, :through => :agreements
   has_many :comments, dependent: :destroy
   has_many :upvotes
@@ -172,7 +172,19 @@ class Individual < ActiveRecord::Base
     ""
   end
 
+  def karma
+    agreements.size + agreements_added_from_others_without_reason.size * 2 + agreements_added_from_others_with_reason.size * 3
+  end
+
   private
+
+  def agreements_added_from_others_with_reason
+    agreements_added_from_others.where("reason is not null and reason != ''")
+  end
+
+  def agreements_added_from_others_without_reason
+    agreements_added_from_others.where("reason is null or reason = ''")
+  end
 
   def update_followers_count
     self.followers_count = 0 if self.followers_count.nil?

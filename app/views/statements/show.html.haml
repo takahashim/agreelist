@@ -3,7 +3,7 @@
     %h1
       = @statement.content
       = "- Do you agree?"
-      = link_to "", "https://twitter.com/share", "class" => "twitter-share-button", "data-url" => "#{root_url}s/#{@statement.hashed_id}", "data-text" => "#{@statement.content} See who agrees on #AgreeList", "data-size" => "large", "data-count" => "none", id: "twitter-share"
+      = link_to "", "https://twitter.com/share", "class" => "twitter-share-button", "data-url" => "#{root_url}s/#{@statement.hashed_id}", "data-text" => "List of who does and who does not agree '#{@statement.content}' #{@shortened_url_without_params}", "data-size" => "large", "data-count" => "none", id: "twitter-share"
     - if main_statement == @statement
       %p= render partial: "professions"
     = link_to "Add an opinion leader", "#gather", class: "btn btn-primary"

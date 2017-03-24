@@ -7,6 +7,7 @@ describe Shortener do
 
   it "should shorten an url using Google's Shortener" do
     s = described_class.new(object: @statement, full_url: "http://www.agreelist.com")
+    s.clean_cache
     allow(Google::UrlShortener).to receive(:shorten!).and_return("http://short.com")
     expect(s.get).to eq "http://short.com"
   end
@@ -14,6 +15,7 @@ describe Shortener do
   it "should returned the cached shortened url from redis" do
     # First we store it on redis:
     s = described_class.new(object: @statement, full_url: "http://www.agreelist.com")
+    s.clean_cache
     allow(Google::UrlShortener).to receive(:shorten!).and_return("http://short.com")
     expect(s.get).to eq "http://short.com"
 

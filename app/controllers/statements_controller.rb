@@ -1,6 +1,6 @@
 class StatementsController < ApplicationController
   before_action :login_required, only: [:new, :create, :create_and_agree]
-  before_action :admin_required, only: [:edit, :update, :destroy, :index]
+  before_action :admin_required, only: [:edit, :update, :destroy]
   before_action :find_statement, only: [:show, :destroy, :update, :edit, :occupations, :educated_at]
   before_action :set_percentage_and_count, only: [:show, :occupations, :educated_at]
   before_action :redirect_to_statement_url, only: :show
@@ -45,7 +45,7 @@ class StatementsController < ApplicationController
   # GET /statements
   # GET /statements.json
   def index
-    @statements = Statement.order("created_at DESC")
+    @statements = Statement.select("statements.id, statements.content, statements.hashed_id, count(agreements.id) as agreements_count").joins("left join agreements on statements.id=agreements.statement_id").group("statements.id").order("agreements_count DESC, statements.created_at DESC")
 
     respond_to do |format|
       format.html # index.html.erb

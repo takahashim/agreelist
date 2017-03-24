@@ -6,7 +6,7 @@
     %span{class: "small"}
       |
       - if params[:all].present?
-        = link_to "Back", new_path
+        = link_to "Back", params[:back_url] || new_path
       - else
         = link_to "Show all", new_path(all: 1)
   .text-center

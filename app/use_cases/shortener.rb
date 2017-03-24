@@ -15,6 +15,10 @@ class Shortener
     end
   end
 
+  def clean_cache
+    $redis.del(key)
+  end
+
   private
 
   def cached_shortened_url

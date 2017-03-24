@@ -1,36 +1,37 @@
 require 'spec_helper'
 
-feature 'statement' do
+feature 'statements' do
   attr_reader :statement
 
   before do
     seed_data
   end
 
-  scenario "filter per profession" do
-    create(:agreement, statement: @statement, individual: create(:individual), extent: 100)
-    create(:agreement, statement: @statement, individual: create(:individual, profession: @profession), extent: 100)
-    visit statement_path(@statement) + "?profession=#{@profession.name}"
-    expect(page).to have_content("100% of 1 opinion")
+  context "non logged user" do
+    scenario "should list opinions" do
+      visit statements_path
+      expect(page).to have_content("#{@statement.content} · 2 opinions")
+    end
+
+    scenario "should allow to destroy a statement" do
+      visit statements_path
+      expect(page).not_to have_link("Destroy")
+    end
   end
 
-  scenario "new issue or statement" do
-    visit "/auth/twitter"
-    click_link "Create a topic or statement", match: :first
-    fill_in :statement_content, with: "We should do more to tacle global warming"
-    click_button "Create"
-    expect(page).to have_content("Statement was successfully created")
-  end
-
-  scenario "button pay should go and fill form" do
-    visit statement_path(@statement)
-    click_link "Pay $100 and we'll find 50 influencers"
-    expect(page).to have_selector("input[value='Help me to find influencers']")
-    expect(page).to have_content("I'd like to pay $100 so you can help me to find 50 influencers for the topic or statement: #{@statement.content}")
+  context "logged in as hector" do
+    scenario "should allow to destroy statement" do
+      visit "/auth/twitter"
+      visit statements_path
+      click_link "Destroy"
+      expect(page).not_to have_content("#{@statement.content} · 2 opinions")
+    end
   end
 
   def seed_data
     @statement = create(:statement)
     @profession = create(:profession, name: "Economist")
+    create(:agreement, statement: @statement, individual: create(:individual), extent: 100)
+    create(:agreement, statement: @statement, individual: create(:individual, profession: @profession), extent: 100)
   end
 end

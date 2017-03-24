@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  helper_method :current_user, :signed_in?, :admin?, :has_admin_category_rights?, :main_statement, :has_profession_rights?, :has_update_individual_rights?
+  helper_method :current_user, :signed_in?, :admin?, :can_delete_statements?, :has_admin_category_rights?, :main_statement, :has_profession_rights?, :has_update_individual_rights?
   private
 
   def current_user
@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
 
   def admin?
     %w(arpahector emilie_esposito).include?(current_user.try(:twitter).try(:downcase))
+  end
+
+  def can_delete_statements?
+    current_user.try(:twitter).try(:downcase) == "arpahector"
   end
 
   def has_admin_category_rights?

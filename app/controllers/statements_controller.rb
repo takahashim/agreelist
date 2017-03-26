@@ -45,7 +45,7 @@ class StatementsController < ApplicationController
   # GET /statements
   # GET /statements.json
   def index
-    @statements = Statement.select("statements.id, statements.content, statements.hashed_id, count(agreements.id) as agreements_count").joins("left join agreements on statements.id=agreements.statement_id").group("statements.id").order("agreements_count DESC, statements.created_at DESC")
+    @statements = Statement.select("statements.id, statements.content, statements.hashed_id, count(agreements.id) as agreements_count").joins("left join agreements on statements.id=agreements.statement_id").group("statements.id").order("agreements_count DESC, statements.created_at ASC")
 
     respond_to do |format|
       format.html # index.html.erb

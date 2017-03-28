@@ -82,7 +82,7 @@ class Individual < ActiveRecord::Base
       if wikidata_id
         begin
           tw = wikidata.claims_for_property_id("P2002").first
-          self.twitter = tw.mainsnak.value.data_hash.string if tw
+          self.twitter = tw.mainsnak.value.data_hash.string.try(:downcase) if tw
         rescue => e
           LogMailer.log_email("error updating twitter @#{self.twitter} from wikidata: #{e.message}; backtrace: #{e.backtrace}").deliver
         end

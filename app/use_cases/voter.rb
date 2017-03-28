@@ -26,7 +26,7 @@ class Voter
   end
 
   def find_or_build_voter
-    twitter ? find_or_build_twitter_user : find_user_on_wikipedia || build_user
+    twitter ? find_or_build_twitter_user : (find_user_on_wikipedia || build_user)
   end
 
   def build_user

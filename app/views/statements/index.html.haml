@@ -6,8 +6,8 @@
   %ol
     - @statements.each do |statement|
       %li
-        = "Advice for entrepreneurs: " if statement.tag_list.include?("entrepreneurship")
         = link_to statement.content, statement
+        = "(entrepreneurship)" if statement.tag_list.include?("entrepreneurship")
         ·
         = pluralize(statement.agreements_count, "opinion")
         = link_to 'Edit', edit_statement_path(statement) if admin?

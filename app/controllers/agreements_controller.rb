@@ -48,7 +48,7 @@ class AgreementsController < ApplicationController
     else
       twitter = params[:name][0] == "@" ? params[:name].gsub("@", "") : nil
       voter = Voter.new(name: twitter ? nil : params[:name],
-                             twitter: twitter.downcase,
+                             twitter: twitter.try(:downcase),
                              profession_id: params[:profession_id],
                              current_user: current_user,
                              wikipedia: params[:wikipedia],

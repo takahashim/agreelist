@@ -1,0 +1,15 @@
+= form_for(@statement) do |f|
+  - if @statement.errors.any?
+    #error_explanation
+      %h2= pluralize(@statement.errors.count, "error") + "prohibited this statement from being saved:"
+
+      %ul
+      - @statement.errors.full_messages.each do |msg|
+        %li= msg
+  .field
+    = f.text_field :content, class: "form-control"
+  .field
+    Tags (comma separated):
+    = f.text_field :tag_list, class: "form-control"
+  .actions
+    = f.submit "Update", class: "btn btn-primary"

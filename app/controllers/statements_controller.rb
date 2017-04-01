@@ -115,8 +115,8 @@ class StatementsController < ApplicationController
   # PUT /statements/1.json
   def update
     respond_to do |format|
-      if @statement.update_attributes(params.require(:statement).permit(:content))
-        format.html { redirect_to edit_statement_path(Statement.where("id > #{@statement.id}").first), notice: 'Statement was successfully updated.' }
+      if @statement.update_attributes(params.require(:statement).permit(:content, :tag_list))
+        format.html { redirect_to params[:back_url] || statements_path, notice: 'Statement was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

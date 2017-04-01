@@ -20,11 +20,21 @@ feature 'statements' do
   end
 
   context "logged in as hector" do
-    scenario "should allow to destroy statement" do
+    before do
       visit "/auth/twitter"
       visit statements_path
+    end
+
+    scenario "should allow to destroy statement" do
       click_link "Destroy"
       expect(page).not_to have_content("#{@statement.content} · 2 opinions")
+    end
+
+    scenario "should add a tag" do
+      click_link "Edit"
+      fill_in :statement_tag_list, with: "Space"
+      click_button "Update Statement"
+      expect(page).to have_content("Space")
     end
   end
 

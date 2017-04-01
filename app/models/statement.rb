@@ -8,7 +8,7 @@ class Statement < ActiveRecord::Base
   acts_as_taggable
 
   validates :content, presence: true, length: { maximum: MAXIMUM_LENGTH }
-  before_create :generate_hashed_id, :set_entrepreneurship_tag
+  before_create :generate_hashed_id, :set_none_tag
 
   def agreements_in_favor(args = {})
     filtered_agreements(:agree, args)
@@ -42,6 +42,10 @@ class Statement < ActiveRecord::Base
 
   def content_with_abbreviations
     content.gsub("Advanced Artificial Intelligence", "AI")
+  end
+
+  def tags?
+    tag_list != ["none"]
   end
 
   private
@@ -109,7 +113,7 @@ class Statement < ActiveRecord::Base
     end
   end
 
-  def set_entrepreneurship_tag
-    self.tag_list.add("others") unless self.tag_list.any?
+  def set_none_tag
+    self.tag_list.add("none") unless self.tag_list.any?
   end
 end

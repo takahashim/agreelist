@@ -96,6 +96,6 @@ class StaticPagesController < ApplicationController
   end
 
   def twitters
-    %w(reidhoffman edyson elonmusk paulg guykawasaki GMC tferriss richardbranson dilbert_daily)
+    %w(reidhoffman edyson elonmusk paulg guykawasaki gmc tferriss richardbranson dilbert_daily)
   end
 end

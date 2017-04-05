@@ -33,7 +33,7 @@ feature 'statements' do
     scenario "should add a tag" do
       click_link "Edit"
       fill_in :statement_tag_list, with: "Space"
-      click_button "Update Statement"
+      click_button "Update"
       expect(page).to have_content("Space")
     end
   end

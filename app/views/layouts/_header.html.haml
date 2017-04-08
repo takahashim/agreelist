@@ -9,7 +9,7 @@
       #logo-and-subtitle
         #logo-div
           = link_to "AgreeList", root_path, id: "logo"
-        %span#logo-subtitle Tracking influencers' opinions on important issues
+        %span#logo-subtitle Tracking influencers' opinions
       .collapse.navbar-collapse#navbar-collapse
         %ul.nav.navbar-nav.pull-right
           %li= link_to "Sign in", login_path(back_url: request.url) unless current_user

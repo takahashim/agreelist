@@ -6,7 +6,10 @@
         %span{class: "icon-bar"}
         %span{class: "icon-bar"}
         %span{class: "icon-bar"}
-      = link_to "AgreeList", root_path, id: "logo"
+      #logo-and-subtitle
+        #logo-div
+          = link_to "AgreeList", root_path, id: "logo"
+        %span#logo-subtitle Tracking influencers' opinions on important issues
       .collapse.navbar-collapse#navbar-collapse
         %ul.nav.navbar-nav.pull-right
           %li= link_to "Sign in", login_path(back_url: request.url) unless current_user
@@ -17,6 +20,5 @@
           %li= link_to "Contact", contact_path
           %li= link_to "Sign Out", signout_path if current_user
           %a{href: "#", class: "dropdown-toggle", "data-toggle" => "dropdown", role: "button", "aria-expanded" => "false"}
-
       .navbar-collapse.collapse.navbar-responsive-collapse
         %ul.nav.navbar-nav.pull-right

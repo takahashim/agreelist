@@ -14,10 +14,6 @@ feature "reason categories", js: true do
     end
 
     scenario "should set a category" do
-      #click_link "Agree"
-      #click_link "vote-twitter-login"
-      # Agreement.last.update_attributes(reason: "blablabla")
-      #visit statement_path(statement)
       select "Economy", from: "reason_category_from_agreement_#{Agreement.last.id}"
       expect(Agreement.last.reason_category.name).to eq "Economy"
     end

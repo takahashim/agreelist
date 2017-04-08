@@ -14,7 +14,7 @@
         = link_to("delete", agreement, method: :delete, data: { confirm: "You sure?" })
         |
         = link_to("thouch", touch_path(agreement, back_url: statement_path(agreement.statement)), method: :post)
-      = render partial: "profession_select", locals: { individual: individual, agreement: agreement }
+      = render partial: "profession_select", locals: { individual: individual, agreement: agreement } if board?
       .reason
       %i= agreement.reason
       - if individual == current_user || admin?
@@ -46,4 +46,4 @@
       - if agreement.individual.wikipedia
         ·
         = link_to "Wikipedia", agreement.individual.wikipedia
-      = render partial: "reason_category_select", locals: { agreement: agreement }
+      = render partial: "reason_category_select", locals: { agreement: agreement } if board?

@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  helper_method :current_user, :signed_in?, :admin?, :can_delete_statements?, :has_admin_category_rights?, :main_statement, :has_profession_rights?, :has_update_individual_rights?
+  helper_method :current_user, :signed_in?, :admin?, :can_delete_statements?, :has_admin_category_rights?, :main_statement, :has_profession_rights?, :has_update_individual_rights?, :board?
   private
 
   def current_user
@@ -49,5 +49,9 @@ class ApplicationController < ActionController::Base
 
   def main_statement
     Rails.env.test? ? Statement.first : Statement.find(7)
+  end
+
+  def board?
+    @statement == main_statement
   end
 end

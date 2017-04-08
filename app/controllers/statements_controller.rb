@@ -105,6 +105,7 @@ class StatementsController < ApplicationController
     @statement = Statement.new(params.require(:statement).permit(:content))
 
     if @statement.save
+      LogMailer.log_email("New statement: #{@statement.content} created by @#{current_user.try(:twitter)}, email: #{current_user.try(:email)}, ip: #{request.remote_ip}").deliver
       redirect_to @statement, notice: 'Statement was successfully created'
     else
       render action: "new"

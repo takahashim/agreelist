@@ -13,13 +13,13 @@
   #source_box
     %p= text_field_tag(:source, "", class: "form-control", placeholder: "URL/source where the quote comes from (mandatory)")
   = hidden_field_tag(:statement_id, @statement.id)
-  - if has_admin_category_rights?
+  - if board? && has_admin_category_rights?
     %p
       Category:
       = select_tag :reason_category_id, options_from_collection_for_select(ReasonCategory.all, "id", "name"), include_blank: true
       = link_to "Edit categories", reason_categories_path
   %p= text_field_tag(:biography, "", class: "form-control", placeholder: "Short biography (taken from Twitter if used)", maxlength: 100)
-  - if has_profession_rights?
+  - if board? && has_profession_rights?
     %p
       Profession:
       = select_tag :profession_id, options_from_collection_for_select(Profession.all, "id", "name"), include_blank: true

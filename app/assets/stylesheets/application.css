@@ -81,3 +81,10 @@ span.small{
   padding-top: 5px;
 }
 
+.transparent{
+  background:rgba(150,150,150,0.3);
+}
+
+.opinion{
+  padding: 10px;
+}

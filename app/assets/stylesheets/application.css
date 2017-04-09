@@ -25,6 +25,10 @@ span.source{
   font-size: 10px;
 }
 
+span.bio{
+  font-size: 11px;
+}
+
 span.small{
   font-size: 10px;
 }
@@ -84,4 +88,95 @@ span.small{
 .opinion{
   padding: 10px;
   background:rgba(150,150,150,0.2);
+}
+
+.statement-percentage{
+  padding: 10px;
+  float: left;
+  width: 46%;
+  background:rgba(150,150,150,0.4)
+}
+.percentages{
+  display: block;
+}
+.percentage-bar{
+  /*float: left;*/
+  display: inline;
+}
+.you{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  float: left;
+  width: 8%;
+}
+
+@media screen and (max-width: 540px){
+  .statement-percentage{
+    width: 40%;
+  }
+  .you{
+    width: 20%;
+  }
+}
+
+.underline{
+  text-decoration: underline;
+}
+/*.rowhec{
+  display: block;
+}
+.middle-space{
+  display: inline;
+  float: left;
+  width: 6%;
+  height: 1px;
+}*/
+/*.hec{
+  display: inline;
+  float: left;
+  width: 47%;
+}*/
+
+.col-sm-6.kky-left{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.col-sm-6.kky-right{
+  float:right;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+/*.hecheck{
+  width: 92%;
+}*/
+
+@media (min-width: 540px){
+  .hecheck{
+    width: 92%;
+  }
+}
+
+@media screen and (min-width: 540px){
+  .hide_for_mobile{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 539px){
+  .hide_for_mobile{
+    display: inline;
+  }
+}
+
+.jjj{
+  float:right;
+}
+
+.opinions{
+  display: block;
+  margin: 0px 15px 0px 15px;
+}
+
+#statement-filter{
+  padding: 30px;
 }

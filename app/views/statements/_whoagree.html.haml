@@ -1,19 +1,16 @@
 - agreements.each do |agreement|
   - individual = agreement.individual
-  .media.opinion
+  .media.opinion.hecheck{class: "#{side == :right ? 'jjj' : ''}"}
     .media-left
       = image_tag(individual.picture.url(:thumb), class: "picture media-object")
     .media-body
       %h4.media-heading
-        %span.name= link_to(individual.visible_name, "/#{individual.to_param}")
-      #br
-      = individual.visible_bio
-      - if admin?
-        = link_to "edit", edit_individual_path(individual) + "?back_url=#{request.url}"
-        |
-        = link_to("delete", agreement, method: :delete, data: { confirm: "You sure?" })
-        |
-        = link_to("thouch", touch_path(agreement, back_url: statement_path(agreement.statement)), method: :post)
+        %span.name
+          = link_to(individual.visible_name, "/#{individual.to_param}")
+        %span.bio
+          = individual.visible_bio
+          - if admin?
+            = link_to "edit", edit_individual_path(individual) + "?back_url=#{request.url}"
       = render partial: "profession_select", locals: { individual: individual, agreement: agreement } if board?
       .reason
       %i= agreement.reason
@@ -47,3 +44,5 @@
         ·
         = link_to "Wikipedia", agreement.individual.wikipedia
       = render partial: "reason_category_select", locals: { agreement: agreement } if board?
+      ·
+      = link_to("Delete", agreement, method: :delete, data: { confirm: "You sure?" })

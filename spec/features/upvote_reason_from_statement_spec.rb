@@ -33,7 +33,8 @@ feature 'upvote', js: true do
 
     context "when updating twice" do
       scenario "should destroy the upvote" do
-        click_link "Agree"
+        click_link "You?"
+        click_link "I agree"
         click_link "vote-twitter-login"
         click_button "Save"
         click_upvote

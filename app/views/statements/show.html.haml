@@ -2,25 +2,49 @@
   .text-center
     %h1
       = @statement.content
-      = "- Do you agree?"
       = link_to "", "https://twitter.com/share", "class" => "twitter-share-button", "data-url" => "#{root_url}s/#{@statement.hashed_id}", "data-text" => "List of who does and who does not agree '#{@statement.content}' #{@shortened_url_without_params}", "data-size" => "large", "data-count" => "none", id: "twitter-share"
     - if main_statement == @statement
       %p= render partial: "professions"
-    = link_to "Add an opinion leader", "#gather", class: "btn btn-primary"
-    - if (@statement.agreements.size) < 50
-      or
-      = link_to "Pay $100 and we'll find 50 influencers", contact_path(statement: @statement.hashed_id, subject: "Help me to find influencers", body: "Hi,\n\nI'd like to pay $100 so you can help me to find 50 influencers for the topic or statement: #{@statement.content}\n\nCheers", back_url: statement_path(@statement)), class: "btn btn-primary"
-    %p
-      = render partial: "agreements/voting_buttons", locals: { back_url: statement_path(@statement, order: params[:order]) }
-      - if @statement == main_statement
-        |
-        = link_to "Board", brexit_board_path
-  %br
+    %br
+    Opinions from
+    = pluralize(@statement.agreements.size, "influencer")
+    = succeed ")" do
+      = succeed link_to "add more?", "#gather", class: "underline" do
+        = "("
+    of which:
+    %br
+    %br
+    .percentages
+      .percentage-bar.statement-percentage.text-right
+        Agree
+        = "#{@percentage_in_favor}%"
+      .you.percentage-bar.underline
+        .dropdown
+          = link_to "You?", "", class: "dropdown-toggle", id: "dropdownMenu1", :"data-toggle" => "dropdown", :"aria-haspopup" => "true", :"aria-expanded" => "true"
+          %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
+            - back_url = statement_path(@statement, order: params[:order])
+            - if current_user
+              %li= link_to "I agree", vote_path(statement_id: @statement.id, vote: "agree", back_url: "#{back_url}"), method: :post, class: "text-center"
+              - already_voted = false
+            - else
+              %li= link_to "I agree", "#", "data-toggle" => "modal", "data-target" => "#agreeModal", vote: "agree", statement_id: @statement.id, class: "text-center", back_url: "#{back_url}"
+            - if current_user
+              %li= link_to "I disagree", vote_path(statement_id: @statement.id, vote: "disagree", back_url: "#{back_url}"), method: :post, class: "text-center"
+              - already_voted = false
+            - else
+              %li= link_to "I disagree", "#", "data-toggle" => "modal", "data-target" => "#disagreeModal", vote: "disagree", statement_id: @statement.id, class: "text-center", back_url: "#{back_url}"
+      .percentage-bar.statement-percentage.text-left
+        = "#{100 - @percentage_in_favor}%"
+        Disagree
+    -# if (@statement.agreements.size) < 50
+      =# "or"
+      =# link_to "Pay $100 and we'll find 50 influencers", contact_path(statement: @statement.hashed_id, subject: "Help me to find influencers", body: "Hi,\n\nI'd like to pay $100 so you can help me to find 50 influencers for the topic or statement: #{@statement.content}\n\nCheers", back_url: statement_path(@statement)), class: "btn btn-primary"
+  #statement-filter
   - if params[:c]
     = link_to "All", statement_path(@statement)
     >
     = params[:c]
-  %br
+    %br
   - if params[:occupation]
     = "Active filter: #{params[:occupation].pluralize}"
     ·
@@ -31,25 +55,26 @@
     ·
     = link_to "Remove and see all opinions", statement_path(@statement)
     %br
-  - if [@agreements_in_favor.size, @agreements_against.size].max > 3
-    Ordered by
-    - if params[:order] == "date"
-      Date
-      |
-      = link_to "Votes", statement_path(@statement, order: nil)
-    - else
-      Votes
-      |
-      = link_to "Date", statement_path(@statement, order: "date")
-  .row
-    .col-sm-6
-      .add_me
-        %h4= @agreements_count > 0 ? "Who agrees (#{@percentage_in_favor}% of #{pluralize(@agreements_count, 'opinion')}):" : "Nobody agrees yet"
-      = render partial: "whoagree", locals: { agreements: @agreements_in_favor }
-    .col-sm-6
-      .add_me
-        %h4= @agreements_count > 0 ? "Who disagrees (#{100 - @percentage_in_favor}% of #{pluralize(@agreements_count, 'opinion')}):" : "Nobody disagrees yet"
-      = render partial: "whoagree", locals: { agreements: @agreements_against }
+    - if [@agreements_in_favor.size, @agreements_against.size].max > 3
+      Ordered by
+      - if params[:order] == "date"
+        Date
+        |
+        = link_to "Votes", statement_path(@statement, order: nil)
+      - else
+        Votes
+        |
+        = link_to "Date", statement_path(@statement, order: "date")
+  .opinions
+    .row
+      .kky-left.col-sm-6
+        #agree.hide_for_mobile
+          %h3 Agree:
+        = render partial: "whoagree", locals: { agreements: @agreements_in_favor, side: :left }
+      .kky-right.col-sm-6
+        #disagree.hide_for_mobile
+          %h3 Disagree:
+        = render partial: "whoagree", locals: { agreements: @agreements_against, side: :right }
 .text-center
   = paginate (@agreements_in_favor.size > @agreements_against.size ? @agreements_in_favor : @agreements_against)
 .container
@@ -71,13 +96,24 @@
           %br
   #gather.jumbotron.textcenter
     = render partial: "add_supporter"
-#myModal.modal.fade{role: "dialog"}
+#agreeModal.modal.fade{role: "dialog"}
   .modal-dialog
     .modal-content
       .modal-header.text-center
         %h3 Log in to give your opinion
       .modal-body.text-center
-        = link_to image_tag("twitter-login.png"), "/auth/twitter", id: "vote-twitter-login"
+        = link_to image_tag("twitter-login.png"), "/auth/twitter?back_url=#{request.original_url}&task=voting&vote=agree&statement_id=#{@statement.id}", id: "vote-twitter-login"
+        %h3 No Twitter?
+        = link_to "Log in with your email", login_path(back_url: request.original_url), class: "btn btn-primary"
+        |
+        = link_to "Back", "#", "data-dismiss" => "modal"
+#disagreeModal.modal.fade{role: "dialog"}
+  .modal-dialog
+    .modal-content
+      .modal-header.text-center
+        %h3 Log in to give your opinion
+      .modal-body.text-center
+        = link_to image_tag("twitter-login.png"), "/auth/twitter?back_url=#{request.original_url}&task=voting&vote=disagree&statement_id=#{@statement.id}", id: "vote-twitter-login"
         %h3 No Twitter?
         = link_to "Log in with your email", login_path(back_url: request.original_url), class: "btn btn-primary"
         |

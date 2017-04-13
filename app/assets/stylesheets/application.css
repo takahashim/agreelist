@@ -25,6 +25,14 @@ span.source{
   font-size: 10px;
 }
 
+span.small{
+  font-size: 10px;
+}
+
+.opinion-links{
+  font-size: 10px;
+}
+
 span.bio{
   font-size: 11px;
 }

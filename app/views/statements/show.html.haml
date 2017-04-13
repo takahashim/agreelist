@@ -7,7 +7,7 @@
       %p= render partial: "professions"
     %br
     Opinions from
-    = pluralize(@statement.agreements.size, "influencer")
+    = pluralize(@agreements_count, "influencer")
     = succeed ")" do
       = succeed link_to "add more?", "#gather", class: "underline" do
         = "("
@@ -24,15 +24,15 @@
           %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
             - back_url = statement_path(@statement, order: params[:order])
             - if current_user
-              %li= link_to "I agree", vote_path(statement_id: @statement.id, vote: "agree", back_url: "#{back_url}"), method: :post, class: "text-center"
+              %li= link_to "I agree", vote_path(statement_id: @statement.id, vote: "agree", back_url: "#{back_url}"), method: :post, class: "text-center underline"
               - already_voted = false
             - else
-              %li= link_to "I agree", "#", "data-toggle" => "modal", "data-target" => "#agreeModal", vote: "agree", statement_id: @statement.id, class: "text-center", back_url: "#{back_url}"
+              %li= link_to "I agree", "#", "data-toggle" => "modal", "data-target" => "#agreeModal", vote: "agree", statement_id: @statement.id, class: "text-center underline", back_url: "#{back_url}"
             - if current_user
-              %li= link_to "I disagree", vote_path(statement_id: @statement.id, vote: "disagree", back_url: "#{back_url}"), method: :post, class: "text-center"
+              %li= link_to "I disagree", vote_path(statement_id: @statement.id, vote: "disagree", back_url: "#{back_url}"), method: :post, class: "text-center underline"
               - already_voted = false
             - else
-              %li= link_to "I disagree", "#", "data-toggle" => "modal", "data-target" => "#disagreeModal", vote: "disagree", statement_id: @statement.id, class: "text-center", back_url: "#{back_url}"
+              %li= link_to "I disagree", "#", "data-toggle" => "modal", "data-target" => "#disagreeModal", vote: "disagree", statement_id: @statement.id, class: "text-center underline", back_url: "#{back_url}"
       .percentage-bar.statement-percentage.text-left
         = "#{100 - @percentage_in_favor}%"
         Disagree
@@ -55,16 +55,16 @@
     ·
     = link_to "Remove and see all opinions", statement_path(@statement)
     %br
-    - if [@agreements_in_favor.size, @agreements_against.size].max > 3
-      Ordered by
-      - if params[:order] == "date"
-        Date
-        |
-        = link_to "Votes", statement_path(@statement, order: nil)
-      - else
-        Votes
-        |
-        = link_to "Date", statement_path(@statement, order: "date")
+  - if [@agreements_in_favor.size, @agreements_against.size].max > 3
+    Ordered by
+    - if params[:order] == "date"
+      Date
+      |
+      = link_to "Votes", statement_path(@statement, order: nil)
+    - else
+      Votes
+      |
+      = link_to "Date", statement_path(@statement, order: "date")
   .opinions
     .row
       .kky-left.col-sm-6

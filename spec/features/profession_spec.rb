@@ -13,7 +13,8 @@ feature "professions", js: true do
     end
 
     scenario "should set a profession" do
-      click_link "Agree"
+      click_link "You?"
+      click_link "I agree"
       click_link "vote-twitter-login"
       Agreement.last.update_attributes(reason: "blablabla")
       visit statement_path(statement)
@@ -25,9 +26,9 @@ feature "professions", js: true do
 
   scenario "should filter per profession" do
     visit statement_path(statement)
-    expect(page).to have_content("2 opinions")
+    expect(page).to have_content("Opinions from 2 influencers")
     click_link "Politicians"
-    expect(page).to have_content("1 opinion")
+    expect(page).to have_content("Opinions from 1 influencer")
   end
 
   def seed_data

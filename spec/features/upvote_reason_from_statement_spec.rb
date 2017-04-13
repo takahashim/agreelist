@@ -12,13 +12,13 @@ feature 'upvote', js: true do
       visit statement_path(statement)
     end
 
-    scenario "should change text to Upvoted! (1)" do
+    scenario "should change text to upvoted! (1)" do
       click_link "Agree"
       click_link "vote-twitter-login"
       click_button "Save"
-      expect(page).not_to have_content("Upvoted! (1)")
-      expect{ click_upvote }.to change{ Upvote.count }.by(1)
-      expect(page).to have_content("Upvoted! (1)")
+      expect(page).not_to have_content("upvoted! (1)")
+      expect{ click_upvote }.to change{ upvote.count }.by(1)
+      expect(page).to have_content("upvoted! (1)")
     end
 
     scenario "should change upvotes_count" do
@@ -38,7 +38,7 @@ feature 'upvote', js: true do
         click_link "vote-twitter-login"
         click_button "Save"
         click_upvote
-        expect{ click_link "Upvoted! (1)" }.to change{ Upvote.count }.by(-1)
+        expect{ click_link "upvoted! (1)" }.to change{ upvote.count }.by(-1)
       end
     end
   end
@@ -49,16 +49,16 @@ feature 'upvote', js: true do
     end
 
     scenario "upvote" do
-      click_link "Upvote"
+      click_link "upvote"
       click_link "upvote-twitter-login"
-      expect(page).to have_content("Upvoted! (1)")
+      expect(page).to have_content("upvoted! (1)")
     end
   end
 
   private
 
   def click_upvote
-    first(:link, "Upvote").click # click_link "Upvote" seems to find two links, wtf?
+    first(:link, "upvote").click # click_link "upvote" seems to find two links, wtf?
   end
 
   def seed_data

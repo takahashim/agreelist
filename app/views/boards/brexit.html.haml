@@ -11,14 +11,14 @@
     .row
       .col-sm-6
         %h3
-          = "Yes, I agree"
-          = link_to "(#{@percentage_in_favor}% of #{pluralize((@votes_in_favor + @votes_against), 'opinion')})", statement_path(@statement)
+          = "Yes, I agree -"
+          = link_to "#{@percentage_in_favor}%", statement_path(@statement)
         - @categories_in_favor.each do |category|
           = render partial: "category", locals: {category: category, count: category.agreements.size, agreement: category.top_agreement}
       .col-sm-6
         %h3
-          = "No, I disagree"
-          = link_to "(#{100 - @percentage_in_favor}% of #{pluralize((@votes_in_favor + @votes_against), 'opinion')})", statement_path(@statement)
+          = "No, I disagree -"
+          = link_to "#{100 - @percentage_in_favor}%", statement_path(@statement)
 
         - @categories_against.each do |category|
           = render partial: "category", locals: {category: category, count: category.agreements.size, agreement: category.top_disagreement}

@@ -18,7 +18,7 @@ feature 'voting', js: true do
         click_link("Agree")
       }.to change{Agreement.count}.by(1)
       click_button "Save"
-      expect(page).to have_content("Yes, I agree (100% of 2 opinions)")
+      expect(page).to have_content("Yes, I agree - 100%")
     end
 
     scenario "disagree" do
@@ -26,7 +26,7 @@ feature 'voting', js: true do
         click_link("Disagree")
       }.to change{Agreement.count}.by(1)
       click_button "Save"
-      expect(page).to have_content("No, I disagree (50% of 2 opinions)")
+      expect(page).to have_content("No, I disagree - 50%")
     end
 
     scenario 'add someone who disagrees' do
@@ -69,7 +69,7 @@ feature 'voting', js: true do
         click_link "vote-twitter-login"
       }.to change{Agreement.count}.by(1)
       click_button "Save"
-      expect(page).to have_content("Yes, I agree (100% of 2 opinions)")
+      expect(page).to have_content("Yes, I agree - 100%")
     end
 
     scenario "disagree" do
@@ -78,7 +78,7 @@ feature 'voting', js: true do
         click_link "vote-twitter-login"
       }.to change{Agreement.count}.by(1)
       click_button "Save"
-      expect(page).to have_content("No, I disagree (50% of 2 opinions)")
+      expect(page).to have_content("No, I disagree - 50%")
     end
 
     scenario 'add someone who disagrees' do

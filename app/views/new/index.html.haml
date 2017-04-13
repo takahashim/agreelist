@@ -1,14 +1,7 @@
 .container
   .text-center
     = link_to "Create a topic or statement", new_statement_path, class: "btn btn-primary btn-lg"
-  %h3
-    Discover new opinions
-    %span{class: "small"}
-      |
-      - if params[:all].present?
-        = link_to "Back", params[:back_url] || new_path
-      - else
-        = link_to "Show all", new_path(all: 1)
+  %br
   .text-center
     .row
       .col-md-4

@@ -12,14 +12,16 @@
       = link_to "Pay $100 and we'll find 50 influencers", contact_path(statement: @statement.hashed_id, subject: "Help me to find influencers", body: "Hi,\n\nI'd like to pay $100 so you can help me to find 50 influencers for the topic or statement: #{@statement.content}\n\nCheers", back_url: statement_path(@statement)), class: "btn btn-primary"
     %p
       = render partial: "agreements/voting_buttons", locals: { back_url: statement_path(@statement, order: params[:order]) }
-      - if @statement == main_statement
-        |
-        = link_to "Board", brexit_board_path
   %br
-  - if params[:c]
-    = link_to "All", statement_path(@statement)
+  - if params[:c] && @statement == main_statement
+    = link_to "Board", brexit_board_path
     >
     = params[:c]
+    %br
+  - if params[:profession] && @statement == main_statement
+    = link_to "Board", brexit_board_path
+    >
+    = params[:profession]
   %br
   - if params[:occupation]
     = "Active filter: #{params[:occupation].pluralize}"

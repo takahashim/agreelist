@@ -2,7 +2,7 @@
   %h1
     = @statement.content
     = link_to "", "https://twitter.com/share", "class" => "twitter-share-button", "data-url" => "#{root_url}s/#{@statement.hashed_id}", "data-text" => "List of who does and who does not agree '#{@statement.content}' #{@shortened_url_without_params}", "data-size" => "large", "data-count" => "none", id: "twitter-share"
-  %span.small= link_to "See Board", brexit_board_path
+  %span.small= link_to "See Board", brexit_board_path if board?
   %br
   - occupations_cache_count = @statement.occupations_cache.try(:size)
   - if occupations_cache_count && occupations_cache_count >= 3

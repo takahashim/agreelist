@@ -13,16 +13,18 @@ feature 'upvote', js: true do
     end
 
     scenario "should change text to upvoted! (1)" do
-      click_link "Agree"
+      click_link "You?"
+      click_link "I agree"
       click_link "vote-twitter-login"
       click_button "Save"
       expect(page).not_to have_content("upvoted! (1)")
-      expect{ click_upvote }.to change{ upvote.count }.by(1)
+      expect{ click_upvote }.to change{ Upvote.count }.by(1)
       expect(page).to have_content("upvoted! (1)")
     end
 
     scenario "should change upvotes_count" do
-      click_link "Agree"
+      click_link "You?"
+      click_link "I agree"
       click_link "vote-twitter-login"
       click_button "Save"
       before_counter = Agreement.last.upvotes_count
@@ -38,7 +40,7 @@ feature 'upvote', js: true do
         click_link "vote-twitter-login"
         click_button "Save"
         click_upvote
-        expect{ click_link "upvoted! (1)" }.to change{ upvote.count }.by(-1)
+        expect{ click_link "upvoted! (1)" }.to change{ Upvote.count }.by(-1)
       end
     end
   end

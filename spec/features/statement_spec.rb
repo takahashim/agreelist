@@ -11,7 +11,8 @@ feature 'statement' do
     create(:agreement, statement: @statement, individual: create(:individual), extent: 100)
     create(:agreement, statement: @statement, individual: create(:individual, profession: @profession), extent: 100)
     visit statement_path(@statement) + "?profession=#{@profession.name}"
-    expect(page).to have_content("100% of 1 opinion")
+    expect(page).to have_content("100%")
+    expect(page).to have_content("1 influencer")
   end
 
   scenario "new issue or statement" do
@@ -24,7 +25,7 @@ feature 'statement' do
 
   scenario "button pay should go and fill form" do
     visit statement_path(@statement)
-    click_link "Pay $100 and we'll find 50 influencers"
+    click_link "pay $100 and we'll find 50 influencers"
     expect(page).to have_selector("input[value='Help me to find influencers']")
     expect(page).to have_content("I'd like to pay $100 so you can help me to find 50 influencers for the topic or statement: #{@statement.content}")
   end

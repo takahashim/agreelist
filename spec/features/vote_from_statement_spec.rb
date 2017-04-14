@@ -35,17 +35,21 @@ feature 'voting', js: true do
     end
 
     scenario "agree" do
-      click_link "Agree"
+      click_link "You?"
+      click_link "I agree"
       click_button "Save"
       expect(page).to have_content("Hector Perez")
-      expect(page).to have_content("Who agrees (100% of 2 opinions)")
+      expect(page).to have_content("Agree 100%")
+      expect(page).to have_content("2 influencers")
     end
 
     scenario "disagree" do
-      click_link "Disagree"
+      click_link "You?"
+      click_link "I disagree"
       click_button "Save"
       expect(page).to have_content("Hector Perez")
-      expect(page).to have_content("Who disagrees (50% of 2 opinions)")
+      expect(page).to have_content("50% Disagree")
+      expect(page).to have_content("2 influencers")
     end
 
     scenario 'adds someone who disagrees' do
@@ -68,19 +72,23 @@ feature 'voting', js: true do
     end
 
     scenario "agree" do
-      click_link "Agree"
+      click_link "You?"
+      click_link "I agree"
       click_link "vote-twitter-login"
       click_button "Save"
       expect(page).to have_content("Hector Perez")
-      expect(page).to have_content("Who agrees (100% of 2 opinions)")
+      expect(page).to have_content("Agree 100%")
+      expect(page).to have_content("2 influencers")
     end
 
     scenario "disagree" do
-      click_link "Disagree"
+      click_link "You?"
+      click_link "I disagree"
       click_link "vote-twitter-login"
       click_button "Save"
       expect(page).to have_content("Hector Perez")
-      expect(page).to have_content("Who disagrees (50% of 2 opinions)")
+      expect(page).to have_content("Agree 50%")
+      expect(page).to have_content("2 influencers")
     end
 
     scenario 'adds someone who disagrees' do

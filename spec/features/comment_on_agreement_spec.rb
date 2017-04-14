@@ -5,7 +5,7 @@ feature 'comment', js: true do
   	seed_data
   	authenticate_as(@individual2)
   	visit statement_path(@statement)
-    click_link "New comment"
+    click_link "comment"
   end
 
   scenario "new" do

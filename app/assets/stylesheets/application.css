@@ -102,15 +102,42 @@ span.small{
   padding: 10px;
   float: left;
   width: 46%;
-  background:rgba(150,150,150,0.4)
+  background:rgba(150,150,150,0.4);
 }
+
+.top-left-percentage1{
+  float: left;
+  width: 46%;
+}
+.top-left-percentage2{
+  padding: 3px 10px 3px 10px;
+  float: right;
+  /*width: 20%;*/
+  background:rgba(150,150,150,0.9);
+}
+.top-right-percentage{
+  padding: 3px 10px 3px 10px;
+  float: left;
+  /*width: 46%;*/
+  background:rgba(150,150,150,0.9);
+}
+
+.top-you{
+  padding-top: 3px;
+  padding-bottom: 3px;
+  float: left;
+  width: 8%;
+}
+
 .percentages{
   display: block;
 }
+
 .percentage-bar{
   /*float: left;*/
   display: inline;
 }
+
 .you{
   padding-top: 10px;
   padding-bottom: 10px;

@@ -2,8 +2,7 @@
   %h1
     = @statement.content
     = link_to "", "https://twitter.com/share", "class" => "twitter-share-button", "data-url" => "#{root_url}s/#{@statement.hashed_id}", "data-text" => "List of who does and who does not agree '#{@statement.content}' #{@shortened_url_without_params}", "data-size" => "large", "data-count" => "none", id: "twitter-share"
-  - if main_statement == @statement
-    %p= render partial: "professions"
+  %span.small= link_to "See Board", brexit_board_path
   %br
   - occupations_cache_count = @statement.occupations_cache.try(:size)
   - if occupations_cache_count && occupations_cache_count >= 3
@@ -17,7 +16,7 @@
           %li= link_to "#{occupation['name'].pluralize} (#{occupation['count']})", statement_path(@statement, occupation: occupation['name'])
   - else
     Opinions from
-    = pluralize(@agreements_count, "influencer")
+    = pluralize(@agreements_count, params["occupation"] || "influencer")
   = succeed ")" do
     = succeed link_to "add more?", "#gather", class: "underline" do
       = "("

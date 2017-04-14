@@ -1,8 +1,0 @@
-- if has_profession_rights?
-  = form_for individual do |f|
-    Profession:
-    = f.select :profession_id, @professions.map{|c| [c.name, c.id]}, {include_blank: true}, class: "profession", id: "profession_from_agreement_#{agreement.id}", individual_hashed_id: individual.hashed_id, individual_id: individual.id
-    = link_to "Edit professions", professions_path
-- else
-  %br
-  %br

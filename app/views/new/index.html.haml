@@ -11,8 +11,8 @@
         %h4= link_to("Artificial Intelligence", statement_path("4mtqyes0jrqy"))
         %p= link_to(image_tag("https://s3-eu-west-1.amazonaws.com/agreelist/ai.png", class: "home-img"), statement_path("4mtqyes0jrqy"))
       .col-md-4
-        %h4= link_to("Brexit", "/brexit")
-        %p= link_to(image_tag("https://s3-eu-west-1.amazonaws.com/agreelist/brexit.png", class: "home-img"), "/brexit")
+        %h4= link_to("Brexit", statement_path("sblrlc9vgxp7"))
+        %p= link_to(image_tag("https://s3-eu-west-1.amazonaws.com/agreelist/brexit.png", class: "home-img"), statement_path("sblrlc9vgxp7"))
   - @agreements.each do |agreement|
     - individual = agreement.individual
     .row.col-md-12

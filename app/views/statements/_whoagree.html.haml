@@ -11,8 +11,6 @@
           = individual.visible_bio
           - if admin?
             = link_to "edit", edit_individual_path(individual) + "?back_url=#{request.url}"
-      = render partial: "profession_select", locals: { individual: individual, agreement: agreement } if board?
-      .reason
       %i= agreement.reason
       - if individual == current_user || admin?
         %span.small

@@ -11,6 +11,7 @@ class Agreement < ActiveRecord::Base
 
   before_create :generate_hashed_id
   after_create :rm_opposite_agreement, :update_counters, :update_statement_occupations_cache
+  after_destroy :update_statement_occupations_cache
   #after_save :update_entrepreneurship_statements_count
   #after_destroy :update_entrepreneurship_statements_count
 

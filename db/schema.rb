@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161105124053) do
+ActiveRecord::Schema.define(version: 20170414114908) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -114,12 +114,13 @@ ActiveRecord::Schema.define(version: 20161105124053) do
 
   create_table "statements", force: true do |t|
     t.string   "content"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "hashed_id"
-    t.integer  "agree_counter",    default: 0
-    t.integer  "disagree_counter", default: 0
+    t.integer  "agree_counter",     default: 0
+    t.integer  "disagree_counter",  default: 0
     t.integer  "individual_id"
+    t.json     "occupations_cache"
   end
 
   add_index "statements", ["hashed_id"], name: "index_statements_on_hashed_id", using: :btree

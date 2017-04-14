@@ -188,3 +188,7 @@ span.small{
 #statement-filter{
   padding: 30px;
 }
+
+.div-inline{
+    display:inline-block;
+}

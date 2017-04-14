@@ -68,7 +68,7 @@ class AgreementsController < ApplicationController
         added_by_id: added_by_id(params[:email].try(:strip)).try(:id))
       expire_fragment "brexit_board"
       session[:added_voter] = voter.hashed_id if voter.twitter.present?
-      redirect_to :back, notice: "Done"
+      redirect_to back_url_with_no_parameters || statement_path(statement), notice: "Done"
     end
   end
 

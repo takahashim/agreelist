@@ -5,8 +5,19 @@
   - if main_statement == @statement
     %p= render partial: "professions"
   %br
-  Opinions from
-  = pluralize(@agreements_count, "influencer")
+  - occupations_cache_count = @statement.occupations_cache.try(:size)
+  - if occupations_cache_count && occupations_cache_count >= 3
+    .div-inline.dropdown
+      %div{:class => "dropdown-toggle", :id => "occupationMenu", :"data-toggle" => "dropdown", :"aria-haspopup" => "true", :"aria-expanded" => "true"}
+        Opinions from
+        %span.underline= pluralize(@agreements_count, params["occupation"] || "influencer")
+      %ul.dropdown-menu{:"aria-labelledby" => "occupationMenu"}
+        %li= link_to "all (#{@statement.agreements.count})", statement_path(@statement)
+        - @statement.occupations_cache[0..10].each do |occupation|
+          %li= link_to "#{occupation['name'].pluralize} (#{occupation['count']})", statement_path(@statement, occupation: occupation['name'])
+  - else
+    Opinions from
+    = pluralize(@agreements_count, "influencer")
   = succeed ")" do
     = succeed link_to "add more?", "#gather", class: "underline" do
       = "("
@@ -19,8 +30,8 @@
       = "#{@percentage_in_favor}%" if @percentage_in_favor
     .you.percentage-bar.underline
       .dropdown
-        = link_to "You?", "", class: "dropdown-toggle", id: "dropdownMenu1", :"data-toggle" => "dropdown", :"aria-haspopup" => "true", :"aria-expanded" => "true"
-        %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
+        = link_to "You?", "", class: "dropdown-toggle", id: "dropdownMenu1k", :"data-toggle" => "dropdown", :"aria-haspopup" => "true", :"aria-expanded" => "true"
+        %ul.dropdown-menu{:"aria-labelledby" => "dropdownMenu1k"}
           - back_url = statement_path(@statement, order: params[:order])
           - if current_user
             %li= link_to "I agree", vote_path(statement_id: @statement.id, vote: "agree", back_url: "#{back_url}"), method: :post, class: "text-center underline"

@@ -5,7 +5,11 @@ describe OccupationsTable do
     seed_data
     object = OccupationsTable.new(statement: @statement)
     object.stub(:min_count).and_return(1)
-    expect(object.table).to eq [{name: "politician", count: 1, percentage_who_agrees: 100}, {name: "economist", count: 2, percentage_who_agrees: 50}, {name: "journalist", count: 1, percentage_who_agrees: 0}]
+    expect(object.table).to eq [
+      {name: "economist", count: 2, percentage_who_agrees: 50},
+      {name: "politician", count: 1, percentage_who_agrees: 100},
+      {name: "journalist", count: 1, percentage_who_agrees: 0}
+    ]
   end
 
   private

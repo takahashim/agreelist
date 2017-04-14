@@ -9,7 +9,7 @@ class TagTable
   def table
     @occupations = []
     occupations_count.each{|occupation| count_occupation(occupation)}
-    @occupations.sort_by{|o| [-o[:percentage_who_agrees], -o[:count]]}
+    @occupations.sort_by{|o| [-o[:count], -o[:percentage_who_agrees]]}
   end
 
   private

@@ -54,4 +54,8 @@ class ApplicationController < ActionController::Base
   def board?
     @statement == main_statement
   end
+
+  def back_url_with_no_parameters
+    request.referer.gsub(/\?.*/,'')
+  end
 end

@@ -219,7 +219,3 @@ span.small{
 .div-inline{
     display:inline-block;
 }
-
-#sticky_navigation .navbar-toggle{
- z-index: 10000;
-}

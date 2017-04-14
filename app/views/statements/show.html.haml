@@ -17,7 +17,7 @@
     .percentages
       .percentage-bar.statement-percentage.text-right
         Agree
-        = "#{@percentage_in_favor}%"
+        = "#{@percentage_in_favor}%" if @percentage_in_favor
       .you.percentage-bar.underline
         .dropdown
           = link_to "You?", "", class: "dropdown-toggle", id: "dropdownMenu1", :"data-toggle" => "dropdown", :"aria-haspopup" => "true", :"aria-expanded" => "true"
@@ -34,7 +34,7 @@
             - else
               %li= link_to "I disagree", "#", "data-toggle" => "modal", "data-target" => "#disagreeModal", vote: "disagree", statement_id: @statement.id, class: "text-center underline", back_url: "#{back_url}"
       .percentage-bar.statement-percentage.text-left
-        = "#{100 - @percentage_in_favor}%"
+        = "#{100 - @percentage_in_favor}%" if @percentage_in_favor
         Disagree
     -# if (@statement.agreements.size) < 50
       =# "or"

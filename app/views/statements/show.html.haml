@@ -36,24 +36,26 @@
       .percentage-bar.statement-percentage.text-left
         = "#{100 - @percentage_in_favor}%" if @percentage_in_favor
         Disagree
-    -# if (@statement.agreements.size) < 50
-      =# "or"
-      =# link_to "Pay $100 and we'll find 50 influencers", contact_path(statement: @statement.hashed_id, subject: "Help me to find influencers", body: "Hi,\n\nI'd like to pay $100 so you can help me to find 50 influencers for the topic or statement: #{@statement.content}\n\nCheers", back_url: statement_path(@statement)), class: "btn btn-primary"
-  #statement-filter
-  - if params[:c]
-    = link_to "All", statement_path(@statement)
+  %br
+  - if params[:c] && @statement == main_statement
+    = link_to "Board", brexit_board_path
     >
     = params[:c]
     %br
+  - if params[:profession] && @statement == main_statement
+    = link_to "Board", brexit_board_path
+    >
+    = params[:profession]
+    %br
   - if params[:occupation]
-    = "Active filter: #{params[:occupation].pluralize}"
-    ·
-    = link_to "Remove and see all opinions", statement_path(@statement)
+    = link_to "All", statement_path(@statement)
+    >
+    = params[:occupation]
     %br
   - if params[:educated_at]
-    = "Active filter: #{params[:educated_at].pluralize}"
-    ·
-    = link_to "Remove and see all opinions", statement_path(@statement)
+    = link_to "All", statement_path(@statement)
+    >
+    = params[:educated_at]
     %br
   - if [@agreements_in_favor.size, @agreements_against.size].max > 3
     Ordered by

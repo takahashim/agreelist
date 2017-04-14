@@ -1,10 +1,12 @@
 %h3
   Add an opinion leader
-  - unless current_user
+  - if (@statement.agreements.size) < 50
     %span.small
-      = " ·"
-      = link_to "Log in", login_path(back_url: request.url)
-      first if you want karma! - optional
+      or
+      = link_to "pay $100 and we'll find 50 influencers", contact_path(statement: @statement.hashed_id, subject: "Help me to find influencers", body: "Hi,\n\nI'd like to pay $100 so you can help me to find 50 influencers for the topic or statement: #{@statement.content}\n\nCheers", back_url: statement_path(@statement))
+- unless current_user
+  = link_to "Log in", login_path(back_url: request.url)
+  first if you want karma! - optional
 = form_tag("/add_supporter", :method => "post") do
   %p= text_field_tag(:name,"", class: "form-control", placeholder: "Name or @twitter. E.g. @barackobama")
   %p= text_field_tag(:wikipedia,"", class: "form-control", placeholder: "Wikipedia page of her/him")

@@ -2,8 +2,8 @@ class BoardsController < ApplicationController
   def brexit
     @statement = main_statement
     categories = ReasonCategory.includes(:agreements)
-    @categories_in_favor = categories.where(agreements: {extent: 100}).sort_by{|c| - c.agreements.size} << InFavorOthersCategory.new(statement: @statement)
-    @categories_against = categories.where(agreements: {extent: 0}).sort_by{|c| - c.agreements.size} << AgainstOthersCategory.new(statement: @statement)
+    @categories_in_favor = categories.where(agreements: {extent: 100}).sort_by{|c| - c.agreements.size}
+    @categories_against = categories.where(agreements: {extent: 0}).sort_by{|c| - c.agreements.size}
     agreements = Agreement.where(statement: @statement)
     @votes_in_favor = agreements.where(agreements: {extent: 100}).count
     @votes_against = agreements.where(agreements: {extent: 0}).count

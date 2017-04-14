@@ -1,82 +1,7 @@
 .container
-  .text-center
-    %h1
-      = @statement.content
-      = link_to "", "https://twitter.com/share", "class" => "twitter-share-button", "data-url" => "#{root_url}s/#{@statement.hashed_id}", "data-text" => "List of who does and who does not agree '#{@statement.content}' #{@shortened_url_without_params}", "data-size" => "large", "data-count" => "none", id: "twitter-share"
-    - if main_statement == @statement
-      %p= render partial: "professions"
-    %br
-    Opinions from
-    = pluralize(@agreements_count, "influencer")
-    = succeed ")" do
-      = succeed link_to "add more?", "#gather", class: "underline" do
-        = "("
-    of which:
-    %br
-    %br
-    .percentages
-      .percentage-bar.statement-percentage.text-right
-        Agree
-        = "#{@percentage_in_favor}%" if @percentage_in_favor
-      .you.percentage-bar.underline
-        .dropdown
-          = link_to "You?", "", class: "dropdown-toggle", id: "dropdownMenu1", :"data-toggle" => "dropdown", :"aria-haspopup" => "true", :"aria-expanded" => "true"
-          %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
-            - back_url = statement_path(@statement, order: params[:order])
-            - if current_user
-              %li= link_to "I agree", vote_path(statement_id: @statement.id, vote: "agree", back_url: "#{back_url}"), method: :post, class: "text-center underline"
-              - already_voted = false
-            - else
-              %li= link_to "I agree", "#", "data-toggle" => "modal", "data-target" => "#agreeModal", vote: "agree", statement_id: @statement.id, class: "text-center underline", back_url: "#{back_url}"
-            - if current_user
-              %li= link_to "I disagree", vote_path(statement_id: @statement.id, vote: "disagree", back_url: "#{back_url}"), method: :post, class: "text-center underline"
-              - already_voted = false
-            - else
-              %li= link_to "I disagree", "#", "data-toggle" => "modal", "data-target" => "#disagreeModal", vote: "disagree", statement_id: @statement.id, class: "text-center underline", back_url: "#{back_url}"
-      .percentage-bar.statement-percentage.text-left
-        = "#{100 - @percentage_in_favor}%" if @percentage_in_favor
-        Disagree
-  %br
-  - if params[:c] && @statement == main_statement
-    = link_to "Board", brexit_board_path
-    >
-    = params[:c]
-    %br
-  - if params[:profession] && @statement == main_statement
-    = link_to "Board", brexit_board_path
-    >
-    = params[:profession]
-    %br
-  - if params[:occupation]
-    = link_to "All", statement_path(@statement)
-    >
-    = params[:occupation]
-    %br
-  - if params[:educated_at]
-    = link_to "All", statement_path(@statement)
-    >
-    = params[:educated_at]
-    %br
-  - if [@agreements_in_favor.size, @agreements_against.size].max > 3
-    Ordered by
-    - if params[:order] == "date"
-      Date
-      |
-      = link_to "Votes", statement_path(@statement, order: nil)
-    - else
-      Votes
-      |
-      = link_to "Date", statement_path(@statement, order: "date")
-  .opinions
-    .row
-      .kky-left.col-sm-6
-        #agree.hide_for_mobile
-          %h3 Agree:
-        = render partial: "whoagree", locals: { agreements: @agreements_in_favor, side: :left }
-      .kky-right.col-sm-6
-        #disagree.hide_for_mobile
-          %h3 Disagree:
-        = render partial: "whoagree", locals: { agreements: @agreements_against, side: :right }
+  = render partial: "header"
+  = render partial: "filters"
+  = render partial: "opinions"
 .text-center
   = paginate (@agreements_in_favor.size > @agreements_against.size ? @agreements_in_favor : @agreements_against)
 .container
@@ -85,67 +10,10 @@
       %h3 Comments:
       = render template: "comments/index"
       -#= render template: "comments/new"
-  - unless Rails.env == "test" || @related_statements.size < 6 || @related_statements.first.tag_list == ["Others"]
-    %h3 Other topics and statements
-    .row
-      .col-sm-6
-        - @related_statements[0..2].each do |related|
-          = link_to related.content, related
-          %br
-      .col-sm-6
-        - @related_statements[3..5].each do |related|
-          = link_to related.content, related
-          %br
+  = render partial: "related_statements"
   #gather.jumbotron.textcenter
     = render partial: "add_supporter"
-#agreeModal.modal.fade{role: "dialog"}
-  .modal-dialog
-    .modal-content
-      .modal-header.text-center
-        %h3 Log in to give your opinion
-      .modal-body.text-center
-        = link_to image_tag("twitter-login.png"), "/auth/twitter?back_url=#{request.original_url}&task=voting&vote=agree&statement_id=#{@statement.id}", id: "vote-twitter-login"
-        %h3 No Twitter?
-        = link_to "Log in with your email", login_path(back_url: request.original_url), class: "btn btn-primary"
-        |
-        = link_to "Back", "#", "data-dismiss" => "modal"
-#disagreeModal.modal.fade{role: "dialog"}
-  .modal-dialog
-    .modal-content
-      .modal-header.text-center
-        %h3 Log in to give your opinion
-      .modal-body.text-center
-        = link_to image_tag("twitter-login.png"), "/auth/twitter?back_url=#{request.original_url}&task=voting&vote=disagree&statement_id=#{@statement.id}", id: "vote-twitter-login"
-        %h3 No Twitter?
-        = link_to "Log in with your email", login_path(back_url: request.original_url), class: "btn btn-primary"
-        |
-        = link_to "Back", "#", "data-dismiss" => "modal"
-#upvoteModal.modal.fade{role: "dialog"}
-  .modal-dialog
-    .modal-content
-      .modal-header.text-center
-        %h3 Log in to upvote
-      .modal-body.text-center
-        = link_to image_tag("twitter-login.png"), "/auth/twitter", id: "upvote-twitter-login"
-        %h3 No Twitter?
-        = link_to "Log in with your email", login_path(back_url: request.original_url), class: "btn btn-primary"
-        |
-        = link_to "Back", "#", "data-dismiss" => "modal"
-- if session[:added_voter]
-  #tweetModal.modal.fade{role: "dialog"}
-    .modal-dialog
-      .modal-content
-        .modal-header.text-center
-          %h3= "Wanna tweet you added @#{@just_added_voter.twitter}?"
-        .modal-body.text-center
-          You'll be able to change the tweet and confirm or cancel in the next window
-
-          %br
-          %br
-          = link_to "Yes, share on Twitter", "https://twitter.com/intent/tweet?url=&text=@#{@just_added_voter.try(:twitter)} I added you to the list of who does and who does not support '#{@statement.shortened_content(35)}' #{@shortened_url_without_params}", class: "btn btn-primary", id: "tweet-supporter-added-2", "data-dismiss" => "modal"
-          or
-          = link_to "Back", "#", "data-dismiss" => "modal"
-= link_to "Tweet supporter added", "#", "data-toggle" => "modal", "data-target" => "#tweetModal", statement_id: @statement.id, class: "vote hidden", id: "tweet-supporter-added"
+= render partial: "modal_windows"
 :javascript
   !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
 - if session[:added_voter]

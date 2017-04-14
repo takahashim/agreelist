@@ -1,0 +1,37 @@
+.text-center
+  %h1
+    = @statement.content
+    = link_to "", "https://twitter.com/share", "class" => "twitter-share-button", "data-url" => "#{root_url}s/#{@statement.hashed_id}", "data-text" => "List of who does and who does not agree '#{@statement.content}' #{@shortened_url_without_params}", "data-size" => "large", "data-count" => "none", id: "twitter-share"
+  - if main_statement == @statement
+    %p= render partial: "professions"
+  %br
+  Opinions from
+  = pluralize(@agreements_count, "influencer")
+  = succeed ")" do
+    = succeed link_to "add more?", "#gather", class: "underline" do
+      = "("
+  of which:
+  %br
+  %br
+  .percentages
+    .percentage-bar.statement-percentage.text-right
+      Agree
+      = "#{@percentage_in_favor}%" if @percentage_in_favor
+    .you.percentage-bar.underline
+      .dropdown
+        = link_to "You?", "", class: "dropdown-toggle", id: "dropdownMenu1", :"data-toggle" => "dropdown", :"aria-haspopup" => "true", :"aria-expanded" => "true"
+        %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
+          - back_url = statement_path(@statement, order: params[:order])
+          - if current_user
+            %li= link_to "I agree", vote_path(statement_id: @statement.id, vote: "agree", back_url: "#{back_url}"), method: :post, class: "text-center underline"
+            - already_voted = false
+          - else
+            %li= link_to "I agree", "#", "data-toggle" => "modal", "data-target" => "#agreeModal", vote: "agree", statement_id: @statement.id, class: "text-center underline", back_url: "#{back_url}"
+          - if current_user
+            %li= link_to "I disagree", vote_path(statement_id: @statement.id, vote: "disagree", back_url: "#{back_url}"), method: :post, class: "text-center underline"
+            - already_voted = false
+          - else
+            %li= link_to "I disagree", "#", "data-toggle" => "modal", "data-target" => "#disagreeModal", vote: "disagree", statement_id: @statement.id, class: "text-center underline", back_url: "#{back_url}"
+    .percentage-bar.statement-percentage.text-left
+      = "#{100 - @percentage_in_favor}%" if @percentage_in_favor
+      Disagree

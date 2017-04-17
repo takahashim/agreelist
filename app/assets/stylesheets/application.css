@@ -115,13 +115,16 @@ span.small{
   /*width: 20%;*/
   background:rgba(150,150,150,0.9);
 }
-.top-right-percentage{
-  padding: 3px 10px 3px 10px;
+.top-right-percentage1{
   float: left;
-  /*width: 46%;*/
-  background:rgba(150,150,150,0.9);
+  width: 46%;
 }
 
+.top-right-percentage2{
+  padding: 3px 10px 3px 10px;
+  float: left;
+  background:rgba(150,150,150,0.9);
+}
 .top-you{
   padding-top: 3px;
   padding-bottom: 3px;
@@ -149,7 +152,16 @@ span.small{
   .statement-percentage{
     width: 40%;
   }
+  .top-left-percentage1{
+    width: 40%;
+  }
+  .top-right-percentage1{
+    width: 40%;
+  }
   .you{
+    width: 20%;
+  }
+  .top-you{
     width: 20%;
   }
 }
@@ -181,12 +193,9 @@ span.small{
   padding-left: 0px;
   padding-right: 0px;
 }
-/*.hecheck{
-  width: 92%;
-}*/
 
 @media (min-width: 540px){
-  .hecheck{
+  .dynamic_width{
     width: 92%;
   }
 }
@@ -203,7 +212,7 @@ span.small{
   }
 }
 
-.jjj{
+.float_right{
   float:right;
 }
 

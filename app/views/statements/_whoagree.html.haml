@@ -1,6 +1,6 @@
 - agreements.each do |agreement|
   - individual = agreement.individual
-  .media.opinion.hecheck{class: "#{side == :right ? 'jjj' : ''}"}
+  .media.opinion.dynamic_width{class: "#{side == :right ? 'float_right' : ''}"}
     .media-left
       = image_tag(individual.picture.url(:thumb), class: "picture media-object")
     .media-body

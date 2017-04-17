@@ -22,12 +22,13 @@
   of which:
   %br
   %br
-  / - if @percentage_in_favor
-  /   .percentages
-  /     .percentage-bar.top-left-percentage1
-  /       .percentage-bar.top-left-percentage2{style: "width: #{@percentage_in_favor}%"}
-  /     .top-you
-  /     .percentage-bar.top-right-percentage.text-left{style: "width: #{(100 - @percentage_in_favor) * 46 / 100}%"}
+  - if @percentage_in_favor
+    .percentages
+      .percentage-bar.top-left-percentage1
+        .percentage-bar.top-left-percentage2{style: "width: #{@percentage_in_favor}%"}
+      .top-you
+      .percentage-bar.top-right-percentage1
+        .percentage-bar.top-right-percentage2.text-left{style: "width: #{100 - @percentage_in_favor}%"}
   .percentages
     .percentage-bar.statement-percentage.text-right
       Agree

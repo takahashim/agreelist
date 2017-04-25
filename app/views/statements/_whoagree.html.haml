@@ -38,7 +38,7 @@
           = link_to pluralize(agreement.agreement_comments.size, "comment"), agreement_path(agreement)
         - else
           = link_to "comment", agreement_path(agreement)
-        - if agreement.individual.wikipedia
+        - if agreement.individual.wikipedia.present?
           ·
           = link_to "wikipedia", agreement.individual.wikipedia
         - if admin?

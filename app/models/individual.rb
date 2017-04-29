@@ -3,6 +3,8 @@ require "open-uri"
 class Individual < ActiveRecord::Base
   attr_accessor :is_user, :reset_token, :activation_token
   has_secure_password(validations: false)
+  acts_as_follower
+  acts_as_followable
 
   nilify_blanks only: [:twitter]
   has_attached_file :picture, s3_host_name: "s3-eu-west-1.amazonaws.com", :default_url => '/assets/missing-:style.jpg', styles: {

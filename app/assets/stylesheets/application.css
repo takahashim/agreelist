@@ -228,3 +228,7 @@ span.small{
 .div-inline{
     display:inline-block;
 }
+
+.supporter_fields input{
+  color: black;
+}

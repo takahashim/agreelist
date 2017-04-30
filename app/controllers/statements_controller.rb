@@ -2,6 +2,7 @@ class StatementsController < ApplicationController
   before_action :login_required, only: [:new, :create, :create_and_agree]
   before_action :admin_required, only: [:edit, :update, :destroy]
   before_action :find_statement, only: [:show, :destroy, :update, :edit, :occupations, :educated_at]
+  before_action :find_related_statements, only: :show
   before_action :set_percentage_and_count, only: [:show, :occupations, :educated_at]
   before_action :redirect_to_statement_url, only: :show
 
@@ -64,8 +65,6 @@ class StatementsController < ApplicationController
       @agreements_in_favor = @statement.agreements_in_favor(order: params[:order], category_id: category_id, profession: params[:profession], occupation: params[:occupation], educated_at: params[:educated_at], page: params[:page])
       @agreements_against = @statement.agreements_against(order: params[:order], category_id: category_id, profession: params[:profession], occupation: params[:occupation], educated_at: params[:educated_at], page: params[:page])
     end
-    @related_statements = Statement.where.not(id: @statement.id).tagged_with(@statement.tags.first).limit(6)
-
     @comment = Comment.new
     @comments = {}
     @statement.comments.each{|comment| @comments[comment.individual.id] = comment}
@@ -162,5 +161,13 @@ class StatementsController < ApplicationController
     detractors_count = @statement.detractors_count(profession: params[:profession], occupation: params[:occupation], educated_at: params[:educated_at])
     @agreements_count = supporters_count + detractors_count
     @percentage_in_favor = (supporters_count * 100.0 / @agreements_count).round if @agreements_count > 0
+  end
+
+  def find_related_statements
+    tags = @statement.tag_list
+    tags.delete("top")
+    tag = tags.first
+    tag = "top" if tag.nil? || tag == "none"
+    @related_statements = Statement.where.not(id: @statement.id).tagged_with(tag).limit(6)
   end
 end

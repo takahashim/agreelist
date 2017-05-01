@@ -40,9 +40,6 @@
           - else
             = link_to(image_tag("agree.png", class: "vote-icon"), "#", "data-toggle" => "modal", "data-target" => "#myModal", vote: "agree", statement_id: agreement.statement_id, class: "vote", back_url: new_path)
             = link_to(image_tag("disagree.png", class: "vote-icon"), "#", "data-toggle" => "modal", "data-target" => "#myModal", vote: "disagree", statement_id: agreement.statement_id, class: "vote", back_url: new_path)
-          - if agreement.agreement_comments.size > 0
-            ·
-            = link_to pluralize(agreement.agreement_comments.size, "comment"), agreement_path(agreement)
   %br
   .text-center
     = paginate @agreements

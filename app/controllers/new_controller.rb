@@ -3,7 +3,6 @@ class NewController < ApplicationController
     @agreements = Agreement.order(updated_at: :desc).page(params[:page] || 1).per(50).includes(:statement).includes(:individual)
     @statement = Statement.new
     @influencers = Individual.where("lower(twitter) in (?)", %w(barackobama stephenhawking8 hillaryclinton pontifex billgates oprah elonmusk)).order(ranking: :desc, followers_count: :desc)
-    @brexit_statement = main_statement
   end
 
   def vote

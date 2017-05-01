@@ -8,21 +8,21 @@ describe do
   feature "about" do
     scenario "should have the contact email" do
       visit "/about"
-      expect(page).to have_text("feedback@agreelist.com")
+      expect(page).to have_text("hello@agreelist.org")
     end
   end
 
   feature "faq" do
     scenario "should have the contact email" do
       visit "/faq"
-      expect(page).to have_text("feedback@agreelist.com")
+      expect(page).to have_text("hello@agreelist.org")
     end
   end
   feature "contact" do
     context "non logged in" do
       scenario "should send an email" do
         visit "/"
-        click_link "Contact"
+        first(:link, "Contact").click
         fill_in :name, with: "Hector"
         fill_in :email, with: "my@email.com"
         fill_in :phone, with: "000"
@@ -38,7 +38,7 @@ describe do
     context "logged in" do
       scenario "should send an email" do
         visit "/auth/twitter"
-        click_link "Contact"
+        first(:link, "Contact").click
         fill_in :name, with: "Hector"
         fill_in :email, with: "my@email.com"
         fill_in :phone, with: "000"

@@ -2,7 +2,7 @@ AgreeList
 =============
 Gathering all the people who agree and disagree on issues such as Brexit
 
-http://www.AgreeList.com
+http://www.AgreeList.org
 
 [![Code Climate](https://codeclimate.com/github/HectorPerez/AgreeList/badges/gpa.svg)](https://codeclimate.com/github/HectorPerez/AgreeList)
 

@@ -100,19 +100,20 @@
     - else
       %h2= link_to "Join", signup_path, class: "btn btn-primary btn-lg"
 
-    %h2 Similarities with other projects
-    .row
-      .col-md-4
-        %h4 Petitions
-        Petitions are useful to show support, but on AgreeList you find diversity of opinions.
-        %p= image_tag "https://s3-eu-west-1.amazonaws.com/agreelist/petitions.jpg"
-      .col-md-4
-        %h4 Polls
-        Polls are anonymous and easily biased. On AgreeList you can understand the people you trust.
-        %p= image_tag "https://s3-eu-west-1.amazonaws.com/agreelist/polls.png", id: "home-polls-img"
-      .col-md-4
-        %h4 Wikipedia
-        Wikipedia focuses on facts. We track opinions and favour constructive debates.
-        %p= image_tag "https://s3-eu-west-1.amazonaws.com/agreelist/wikipedia.jpeg", id: "home-wikipedia-img"
+    .text-center
+      = link_to "Open Source", "https://github.com/HectorPerez/AgreeList"
+      ·
+      Open Data
+      ·
+      Non-profit
+      ·
+      = link_to "Privacy", privacy_path
+      ·
+      = link_to "Terms", terms_path
+      ·
+      = link_to "Contact", contact_path
+
+    %br
+    = link_to "hello@agreelist.org", "mailto://hello@agreelist.org"
 :javascript
   var logged_in = #{signed_in?};

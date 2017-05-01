@@ -86,5 +86,5 @@ Al::Application.configure do
           :password       => ENV['SENDGRID_PASSWORD'],
           :domain         => 'heroku.com'
   }
-  config.action_mailer.default_url_options = { :host => 'agreelist.com' }
+  config.action_mailer.default_url_options = { :host => 'agreelist.org' }
 end

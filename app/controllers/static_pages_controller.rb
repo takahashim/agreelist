@@ -8,7 +8,7 @@ class StaticPagesController < ApplicationController
 
   def contact_send_email
     ContactMailer.contact(current_user, params).deliver
-    flash[:notice] = "Done. We'll reply soon. If not, you can email us directly to feedback@agreelist.com or via Twitter at @arpahector"
+    flash[:notice] = "Done. We'll reply soon. If not, you can email us directly to hello@agreelist.org or via Twitter at @arpahector"
     redirect_to params[:back_url] || root_path
   end
 
@@ -70,16 +70,16 @@ class StaticPagesController < ApplicationController
   end
 
   def urls
-    %w(http://www.agreelist.com/s/launch-early-get-feedback-and-start-iterating-kibothy610sj
-       http://www.agreelist.com/s/entrepreneurs-should-have-a-sense-of-purpose-0u5gaxuav1w8
-       http://www.agreelist.com/s/seek-out-negative-feedback-5brqzh7xaj5b
-       http://www.agreelist.com/s/a-single-founder-in-a-startup-is-a-mistake-5udqtimqiicb
-       http://www.agreelist.com/s/consider-crowdfunding-to-fund-your-startup-1cp4tkljelvw
-       http://www.agreelist.com/s/stay-self-funded-as-long-as-possible-73rbrkrvztwb
-       http://www.agreelist.com/s/don-t-go-all-in-with-your-business-re3xkpjeunfp
-       http://www.agreelist.com/s/go-with-your-gut-rx54xxorby6y
-       http://www.agreelist.com/s/don-t-give-up-olyhqve6j6sf
-       http://www.agreelist.com/s/set-goals-4m7m7oidosa8)
+    %w(http://www.agreelist.org/s/launch-early-get-feedback-and-start-iterating-kibothy610sj
+       http://www.agreelist.org/s/entrepreneurs-should-have-a-sense-of-purpose-0u5gaxuav1w8
+       http://www.agreelist.org/s/seek-out-negative-feedback-5brqzh7xaj5b
+       http://www.agreelist.org/s/a-single-founder-in-a-startup-is-a-mistake-5udqtimqiicb
+       http://www.agreelist.org/s/consider-crowdfunding-to-fund-your-startup-1cp4tkljelvw
+       http://www.agreelist.org/s/stay-self-funded-as-long-as-possible-73rbrkrvztwb
+       http://www.agreelist.org/s/don-t-go-all-in-with-your-business-re3xkpjeunfp
+       http://www.agreelist.org/s/go-with-your-gut-rx54xxorby6y
+       http://www.agreelist.org/s/don-t-give-up-olyhqve6j6sf
+       http://www.agreelist.org/s/set-goals-4m7m7oidosa8)
   end
 
   def contents

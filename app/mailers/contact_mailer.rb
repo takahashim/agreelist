@@ -3,6 +3,6 @@ class ContactMailer < ActionMailer::Base
     @individual = individual
     @body = args[:body]
     @args = args
-    mail(to: "hi@hectorperezarenas.com", from: "feedback@agreelist.com", subject: args[:subject])
+    mail(to: "hi@hectorperezarenas.com", from: "hello@agreelist.org", subject: args[:subject])
   end
 end

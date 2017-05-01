@@ -43,9 +43,6 @@
   %br
   .text-center
     = paginate @agreements
-    - unless params[:all]
-      ·
-      = link_to "Show all (instead of one per topic)", new_path(all: 1)
 #myModal.modal.fade{role: "dialog"}
   .modal-dialog
     .modal-content

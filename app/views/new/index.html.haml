@@ -68,20 +68,9 @@
 
 #home.container
   .text-center
-    .jumbotron
-      %h1 AgreeList
-      %h2 Fixing <i>the biggest problem in the world</i>
-      %h5
-        <i>It's not <strike>global warming</strike>, not <strike>war</strike>, but how we can organise among ourselves to make good decisions and carry them out
-        </i> - MIT Professor Alex Pentland
-      - @influencers.each do |influencer|
-        = link_to(image_tag(influencer.picture.url(:thumb), class: "picture"), individual_path(influencer))
-      %h5 Our mission: Increase the quality of decision making
-      - if current_user
-        = link_to "Create a topic or statement", new_statement_path, class: "btn btn-primary btn-lg"
-      - else
-        %h2= link_to "Join", signup_path, class: "btn btn-primary btn-lg"
     .row
+      #about
+        %h1 About
       .col-md-4
         %h4 Promote a debate that matters to you
         Add influencer's opinions. You only need a source supporting the influencer’s agreement

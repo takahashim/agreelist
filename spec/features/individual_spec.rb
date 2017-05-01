@@ -23,7 +23,8 @@ feature 'create statement from individual profile' do
     expect(page).to have_content("We should go to Mars")
   end
 
-  scenario "should show user's karma" do
+  scenario "should show user's karma if user has email" do
+    @hector.update_attributes(email: "bla@bla.com")
     visit "/#{@hector.to_param}"
     expect(page).to have_content("Karma: #{@hector.karma}")
   end

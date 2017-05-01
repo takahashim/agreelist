@@ -5,17 +5,24 @@
     .media-body
       %h1.media-heading
         = @individual.name
-        = link_to "Follow #{@individual.twitter}", "https://twitter.com/#{@individual.twitter}", class: "twitter-follow-button", "data-show-count" => "true", "data-size" => "large" if @individual.twitter.present?
+        %span.small
+          - if current_user
+            - if current_user.following?(@individual)
+              = link_to "Following", follow_path(1, individual_id: @individual.id), method: :delete
+            - else
+              = link_to "Follow", follows_path(individual_id: @individual.id), method: :post
+
       = link_to("Edit Profile", edit_individual_path, class: "btn btn-primary") if admin? || current_user == @individual
-      = "Karma: #{@individual.karma}"
-      = "- More info: "
-      = link_to "FAQ", faq_path
+      = "Karma: #{@individual.karma}" if @individual.email.present?
 
       %p
         = @individual.visible_bio
         - if @individual.wikipedia.present?
-          = "- More on "
-          = link_to "Wikipedia", @individual.wikipedia
+          ·
+          = link_to "wikipedia", @individual.wikipedia
+        - if @individual.twitter.present?
+          ·
+          = link_to "twitter", "https://twitter.com/#{@individual.twitter}"
       - if @school_list.any?
         Educated at:
         %p

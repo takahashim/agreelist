@@ -1,7 +1,12 @@
 .text-center
   %h1
     = @statement.content
-    = link_to "", "https://twitter.com/share", "class" => "twitter-share-button", "data-url" => "#{root_url}s/#{@statement.hashed_id}", "data-text" => "List of who does and who does not agree '#{@statement.content}' #{@shortened_url_without_params}", "data-size" => "large", "data-count" => "none", id: "twitter-share"
+    %span.small
+      - if current_user
+        - if current_user.following?(@statement)
+          = link_to "Following", follow_path(1, statement_id: @statement.id), method: :delete
+        - else
+          = link_to "Follow", follows_path(statement_id: @statement.id), method: :post
   %span.small= link_to "See Board", brexit_board_path if board?
   %br
   - occupations_cache_count = @statement.occupations_cache.try(:size)

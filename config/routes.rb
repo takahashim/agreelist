@@ -16,6 +16,7 @@ Al::Application.routes.draw do
   end
   get "/contact" => "static_pages#contact"
   post "/contact" => "static_pages#contact_send_email"
+  resources :follows, only: [:create, :destroy]
   resources :agreement_comments, only: :create
   resources :comments, only: :create
   resources :votes, only: :create

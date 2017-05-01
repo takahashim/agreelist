@@ -1,5 +1,6 @@
 class Statement < ActiveRecord::Base
   MAXIMUM_LENGTH = 140
+  acts_as_followable
   has_many :agreements, dependent: :destroy
   has_many :individuals, :through => :agreements
   has_many :comments

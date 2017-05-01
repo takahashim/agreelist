@@ -53,3 +53,4 @@ gem 'wikidata'
 gem 'airbrake', '~> 5.4'
 gem 'google_url_shortener'
 gem 'redis-rails'
+gem "acts_as_follower"

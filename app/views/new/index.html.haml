@@ -100,20 +100,21 @@
     - else
       %h2= link_to "Join", signup_path, class: "btn btn-primary btn-lg"
 
-    .text-center
-      = link_to "Open Source", "https://github.com/HectorPerez/AgreeList"
-      ·
-      Open Data
-      ·
-      Non-profit
-      ·
-      = link_to "Privacy", privacy_path
-      ·
-      = link_to "Terms", terms_path
-      ·
-      = link_to "Contact", contact_path
+    .home-footer
+      .text-center
+        = link_to "Open Source", "https://github.com/HectorPerez/AgreeList"
+        ·
+        Open Data
+        ·
+        Non-profit
+        ·
+        = link_to "Privacy", privacy_path
+        ·
+        = link_to "Terms", terms_path
+        ·
+        = link_to "Contact", contact_path
 
-    %br
-    = link_to "hello@agreelist.org", "mailto://hello@agreelist.org"
+    .home-footer
+      = link_to "hello@agreelist.org", "mailto://hello@agreelist.org"
 :javascript
   var logged_in = #{signed_in?};

@@ -4,8 +4,8 @@ class Agreement < ActiveRecord::Base
 
   belongs_to :statement
   belongs_to :individual
-  belongs_to :reason_category
-  belongs_to :added_by
+  belongs_to :reason_category, optional: true
+  belongs_to :added_by, optional: true
   has_many :agreement_comments
   has_many :upvotes
 

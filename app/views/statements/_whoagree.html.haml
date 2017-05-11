@@ -15,9 +15,9 @@
       - if individual == current_user || admin?
         %span.small
           - if agreement.reason.present?
-            = link_to "edit", edit_reason_path(agreement, back_url: url_for(params))
+            = link_to "edit", edit_reason_path(agreement)
           - else
-            = link_to "Add a reason", edit_reason_path(agreement, back_url: url_for(params))
+            = link_to "Add a reason", edit_reason_path(agreement)
       - if admin? && individual.twitter.present?
         %span.small
           = "·"

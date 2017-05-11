@@ -4,12 +4,12 @@ class FollowsController < ApplicationController
 
   def create
     current_user.follow(@object)
-    redirect_to :back
+    redirect_back
   end
 
   def destroy
     current_user.stop_following(@object)
-    redirect_to :back
+    redirect_back
   end
 
   private

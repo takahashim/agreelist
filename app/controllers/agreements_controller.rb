@@ -1,7 +1,6 @@
 class AgreementsController < ApplicationController
   before_action :admin_required, only: [:destroy, :touch]
   before_action :find_agreement, only: [:upvote, :update, :touch, :destroy]
-  rescue_from ActionController::RedirectBackError, with: :redirect_to_default
 
   def upvote
     if upvote = Upvote.where(agreement: @agreement, individual: current_user).first
@@ -17,12 +16,9 @@ class AgreementsController < ApplicationController
 
   def update
     if @agreement.individual == current_user || admin?
-      @agreement.reason = params[:agreement][:reason]
-      @agreement.url = params[:agreement][:url]
-      @agreement.reason_category_id = params[:agreement][:reason_category_id].to_i
-      @agreement.save
+      @agreement.update_attributes(params[:agreement].permit(:reason, :url, :reason_category_id ))
       respond_to do |format|
-        format.html { redirect_to(params[:back_url] || statement_path(@agreement.statement)) }
+        format.html { redirect_to statement_path(@agreement.statement) }
         format.js { render json: @agreement.to_json, status: :ok }
       end
     else

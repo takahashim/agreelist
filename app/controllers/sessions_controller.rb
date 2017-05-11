@@ -1,6 +1,4 @@
 class SessionsController < ApplicationController
-  rescue_from ActionController::RedirectBackError, with: :redirect_to_default
-
   def new
   end
 

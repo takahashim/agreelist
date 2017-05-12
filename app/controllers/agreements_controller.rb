@@ -39,7 +39,7 @@ class AgreementsController < ApplicationController
 
   def add_supporter
     if spam?
-      render status: 401, text: "Your message has to be approved because it seemed spam. Sorry for the inconvenience."
+      render status: 401, plain: "Your message has to be approved because it seemed spam. Sorry for the inconvenience."
       LogMailer.log_email("spam? params: #{params.inspect}").deliver unless statement_used_by_spammers?
     else
       twitter = params[:name][0] == "@" ? params[:name].gsub("@", "") : nil

@@ -11,7 +11,7 @@ describe "Referer blacklist", type: :request do
       spammers = ["http://darodar.com", "http://theguardlan.com/"]
 
       spammers.each do |spammer|
-        get root_path, {}, { "HTTP_REFERER" => spammer }
+        get root_path, params: {}, headers: { "HTTP_REFERER" => spammer }
 
         expect(response).to be_forbidden
       end
@@ -20,7 +20,7 @@ describe "Referer blacklist", type: :request do
 
   describe "regular referer" do
     it "is not blocked" do
-      get root_path, {}, { "HTTP_REFERER" => "google.com" }
+      get root_path, params: {}, headers: { "HTTP_REFERER" => "google.com" }
 
       expect(response).not_to be_redirect
     end

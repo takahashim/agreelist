@@ -1,4 +1,5 @@
 class NewController < ApplicationController
+  before_action :set_back_url_to_current_page, only: :index
   def index
     @agreements = Agreement.order(updated_at: :desc).page(params[:page] || 1).per(50).includes(:statement).includes(:individual)
     @statement = Statement.new
@@ -16,7 +17,7 @@ class NewController < ApplicationController
         extent: params[:vote] == "agree" ? 100 : 0)
     end
     agreement.save
-    redirect_to edit_reason_path(agreement, back_url: params[:back_url]) || new_path
+    redirect_to edit_reason_path(agreement) || new_path
   end
 
   private

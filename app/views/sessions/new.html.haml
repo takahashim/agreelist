@@ -3,7 +3,7 @@
   %p
     = radio_button_tag :login_with, "twitter"
     = "Yes, log in with Twitter"
-    = link_to image_tag("twitter-login.png"), "/auth/twitter?back_url=#{params["back_url"]}", id: "twitter-login"
+    = link_to image_tag("twitter-login.png"), "/auth/twitter", id: "twitter-login"
   %p
     = radio_button_tag :login_with, "email"
     = "No, log in with my email account:"
@@ -18,8 +18,7 @@
       = password_field_tag :password, "", class: "form-control"
     %p
       .actions
-        = hidden_field_tag :back_url, params[:back_url]
         = submit_tag "Log in", class: "btn btn-primary"
     %h3
       New to AgreeList?
-      = link_to "Sign up!", signup_path(back_url: params[:back_url]), class: "btn btn-primary"
+      = link_to "Sign up!", signup_path, class: "btn btn-primary"

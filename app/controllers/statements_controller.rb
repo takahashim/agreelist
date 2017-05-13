@@ -5,6 +5,7 @@ class StatementsController < ApplicationController
   before_action :find_related_statements, only: :show
   before_action :set_percentage_and_count, only: [:show, :occupations, :educated_at]
   before_action :redirect_to_statement_url, only: :show
+  before_action :set_back_url_to_current_page, only: [:show, :index]
 
   def quick_create
     @statement = Statement.new(content: params[:question])
@@ -36,7 +37,7 @@ class StatementsController < ApplicationController
         individual_id: params[:individual_id] || current_user.id,
         url: params[:url],
         extent: 100)
-      redirect_to params[:back_url] || new_path
+      redirect_back(fallback_location: get_and_delete_back_url || new_path)
     else
       flash[:error] = @statement.errors.full_messages.first
       redirect_to new_path
@@ -116,7 +117,7 @@ class StatementsController < ApplicationController
   def update
     respond_to do |format|
       if @statement.update_attributes(params.require(:statement).permit(:content, :tag_list))
-        format.html { redirect_to params[:back_url] || statements_path, notice: 'Statement was successfully updated.' }
+        format.html { redirect_to(get_and_delete_back_url || statements_path, notice: 'Statement was successfully updated.') }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

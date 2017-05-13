@@ -24,7 +24,7 @@ class ResetPasswordController < ApplicationController
     if @individual.update_attributes(params.require(:reset_password).permit(:password, :password_confirmation))
       session[:user_id] = @individual.id
       flash[:notice] = "Your password has been changed"
-      redirect_to params[:back_url] || root_path
+      redirect_to get_and_delete_back_url || root_path
     else
       @key = params[:id]
       flash.now[:error] = @individual.errors.full_messages.join("\n")

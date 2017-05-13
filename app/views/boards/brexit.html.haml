@@ -23,14 +23,3 @@
           = render partial: "category", locals: {category: category, count: category.agreements.size, agreement: category.top_disagreement}
   #gather.jumbotron.textcenter
     = render partial: "statements/add_supporter"
-#myModal.modal.fade{role: "dialog"}
-  .modal-dialog
-    .modal-content
-      .modal-header.text-center
-        %h3 Log in to give your opinion
-      .modal-body.text-center
-        = link_to image_tag("twitter-login.png"), "/auth/twitter?back_url=/brexit", id: "vote-twitter-login"
-        %h3 No Twitter?
-        = link_to "Log in with your email", login_path(back_url: request.original_url), class: "btn btn-primary"
-        |
-        = link_to "Back", "#", "data-dismiss" => "modal"

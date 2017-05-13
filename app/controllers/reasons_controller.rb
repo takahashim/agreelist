@@ -7,9 +7,9 @@ class ReasonsController < ApplicationController
     # do we use this or agreements#update?
     if @agreement.individual == current_user || admin?
       a = Agreement.update_attributes(params.require(@agreement).permit(:reason, :url))
-      redirect_to(params[:back_url] || root_path, notice: "Vote/opinion added")
+      redirect_to(get_and_delete_back_url || root_path, notice: "Vote/opinion added")
     else
-      redirect_to(params[:back_url] || root_path, error: "Permission denied")
+      redirect_to(get_and_delete_back_url || root_path, error: "Permission denied")
     end
   end
 end

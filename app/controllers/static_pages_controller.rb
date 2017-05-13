@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
   before_action :statements_to_vote, only: :advice_for_entrepreneurs
   def contact
-    if current_user
+    if current_user && params[:body] =~ /pay\ \$100/
       LogMailer.log_email("user: #{current_user.name} (#{current_user.email}) clicked on Pay on the statement #{Statement.find_by_hashed_id(params['statement']).try(:content)}; ip: #{request.ip}").deliver
     end
   end
@@ -9,7 +9,7 @@ class StaticPagesController < ApplicationController
   def contact_send_email
     ContactMailer.contact(current_user, params).deliver
     flash[:notice] = "Done. We'll reply soon. If not, you can email us directly to hello@agreelist.org or via Twitter at @arpahector"
-    redirect_back(fallback_location: get_and_delete_back_url || root_path)
+    redirect_to get_and_delete_back_url || root_path
   end
 
   def join

@@ -50,7 +50,7 @@ gem "nilify_blanks"
 gem 'bcrypt-ruby'
 gem 'wikipedia-client'
 gem 'wikidata'
-gem 'airbrake', '~> 5.4'
+gem 'airbrake'
 gem 'google_url_shortener'
 gem 'redis-rails'
 gem "acts_as_follower"

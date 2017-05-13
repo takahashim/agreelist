@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 ruby "2.4.1"
-gem 'rails', '>= 5.0.0.rc2'
+gem 'rails', '>= 5.1.1'
 gem 'bootstrap-sass'
 gem "paperclip"
 gem 'aws-sdk', '< 2.0'

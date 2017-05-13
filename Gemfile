@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby "2.4.1"
 gem 'rails', '>= 5.1.1'
 gem 'bootstrap-sass'
-gem "paperclip"
+gem 'paperclip', git: 'https://github.com/thoughtbot/paperclip', ref: '523bd46c768226893f23889079a7aa9c73b57d68'
 gem 'aws-sdk', '< 2.0'
 gem "twitter"
 gem "haml-rails"

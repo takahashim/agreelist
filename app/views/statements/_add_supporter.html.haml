@@ -3,7 +3,7 @@
   - if (@statement.agreements.size) < 50
     %span.small
       or
-      = link_to "pay $100 and we'll find 50 influencers", contact_path(statement: @statement.hashed_id, subject: "Help me to find influencers", body: "Hi,\n\nI'd like to pay $100 so you can help me to find 50 influencers for the topic or statement: #{@statement.content}\n\nCheers", back_url: statement_path(@statement))
+      = link_to "pay $100 and we'll find 50 influencers", contact_path(statement: @statement.hashed_id, subject: "Help me to find influencers", body: "Hi,\n\nI'd like to pay $100 so you can help me to find 50 influencers for the topic or statement: #{@statement.content}\n\nCheers")
 - unless current_user
   = link_to "Log in", login_path(back_url: request.url)
   first if you want karma! - optional

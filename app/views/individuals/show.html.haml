@@ -75,7 +75,6 @@
             = text_field_tag :url, "", placeholder: "http:// where it's clear that #{@individual.name} agrees", class: "form-control"
 
           = hidden_field_tag :individual_id, @individual.id
-          = hidden_field_tag :back_url, "/#{@individual.twitter}"
       .text-center
         - if signed_in?
           = submit_tag "Add", class: "btn btn-primary"

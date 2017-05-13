@@ -6,13 +6,13 @@ FactoryGirl.define do
   end
 
   factory :beta_email do
-    
+
   end
 
   factory :comment do
     text "MyText"
-    individual_id 1
-    statement_id 1
+    association :statement, factory: :statement
+    association :individual, factory: :individual
   end
 
   factory :email do
@@ -31,8 +31,8 @@ FactoryGirl.define do
 
   factory :agreement do
     url { Faker::Internet.url }
-    statement
-    individual
+    association :statement, factory: :statement
+    association :individual, factory: :individual
   end
 
   factory :profession do

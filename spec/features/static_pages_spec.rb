@@ -39,6 +39,7 @@ describe do
 
     context "logged in" do
       scenario "should send an email" do
+        visit root_path
         visit "/auth/twitter"
         first(:link, "Contact").click
         fill_in :name, with: "Hector"

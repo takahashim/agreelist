@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  helper_method :current_user, :signed_in?, :admin?, :can_delete_statements?, :has_admin_category_rights?, :main_statement, :has_profession_rights?, :has_update_individual_rights?, :board?
+  helper_method :current_user, :signed_in?, :admin?, :can_delete_statements?, :has_admin_category_rights?, :main_statement, :has_profession_rights?, :has_update_individual_rights?, :board?, :back_url
   private
 
   def current_user
@@ -32,7 +32,10 @@ class ApplicationController < ActionController::Base
   end
 
   def login_required
-    redirect_to login_path(back_url: request.url), notice: "login required" unless signed_in?
+    unless signed_in?
+      session[:back_url] = request.url
+      redirect_to login_path(notice: "login required")
+    end
   end
 
   def admin_required
@@ -57,5 +60,21 @@ class ApplicationController < ActionController::Base
 
   def back_url_with_no_parameters
     request.referer.gsub(/\?.*/,'')
+  end
+
+  def back_url
+    session[:back_url]
+  end
+
+  def get_and_delete_back_url
+    url = back_url
+    if url
+      session[:back_url] = nil
+      url
+    end
+  end
+
+  def set_back_url_to_current_page
+    session[:back_url] = request.url
   end
 end

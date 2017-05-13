@@ -1,6 +1,7 @@
 class AgreementsController < ApplicationController
   before_action :admin_required, only: [:destroy, :touch]
   before_action :find_agreement, only: [:upvote, :update, :touch, :destroy]
+  before_action :set_back_url_to_current_page, only: :show
 
   def upvote
     if upvote = Upvote.where(agreement: @agreement, individual: current_user).first
@@ -22,19 +23,19 @@ class AgreementsController < ApplicationController
         format.js { render json: @agreement.to_json, status: :ok }
       end
     else
-      redirect_to(params[:back_url] || root_path, error: "Permission denied")
+      redirect_back(fallback_location: (get_and_delete_back_url || root_path), notice: "Access denied")
     end
   end
 
   def touch
     @agreement.touch if @agreement
-    redirect_to params[:back_url] || root_path
+    redirect_back(fallback_location: (get_and_delete_back_url || root_path))
   end
 
   def destroy
     statement = @agreement.statement
     @agreement.destroy
-    redirect_to params[:back_url] || statement_path(statement)
+    redirect_back(fallback_location: (get_and_delete_back_url || statement_path(statement)))
   end
 
   def add_supporter

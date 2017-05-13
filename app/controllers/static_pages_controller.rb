@@ -9,7 +9,7 @@ class StaticPagesController < ApplicationController
   def contact_send_email
     ContactMailer.contact(current_user, params).deliver
     flash[:notice] = "Done. We'll reply soon. If not, you can email us directly to hello@agreelist.org or via Twitter at @arpahector"
-    redirect_to params[:back_url] || root_path
+    redirect_back(fallback_location: get_and_delete_back_url || root_path)
   end
 
   def join

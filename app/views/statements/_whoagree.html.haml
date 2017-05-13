@@ -10,7 +10,7 @@
         %span.bio
           = individual.visible_bio
           - if admin?
-            = link_to "edit", edit_individual_path(individual) + "?back_url=#{request.url}"
+            = link_to "edit", edit_individual_path(individual)
       %i= agreement.reason
       - if individual == current_user || admin?
         %span.small
@@ -32,7 +32,7 @@
           - upvote_link = current_user.upvoted?(agreement) ? "upvoted!#{n}" : "upvote#{n}"
           = link_to upvote_link, upvote_agreement_path(agreement), method: :post
         - else
-          = link_to "upvote#{n}", "#", "data-toggle" => "modal", "data-target" => "#upvoteModal", agreement_id: agreement.id, class: "upvote", back_url: statement_path(agreement.statement)
+          = link_to "upvote#{n}", "#", "data-toggle" => "modal", "data-target" => "#upvoteModal", agreement_id: agreement.id, class: "upvote"
         ·
         - if agreement.agreement_comments.size > 0
           = link_to pluralize(agreement.agreement_comments.size, "comment"), agreement_path(agreement)

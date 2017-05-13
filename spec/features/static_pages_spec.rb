@@ -18,6 +18,7 @@ describe do
       expect(page).to have_text("hello@agreelist.org")
     end
   end
+
   feature "contact" do
     context "non logged in" do
       scenario "should send an email" do
@@ -35,6 +36,7 @@ describe do
         expect(email.body.raw_source).to eq "body body body\n\nDetails from sender:\nName: Hector\nEmail: my@email.com\nPhone: 000\n"
       end
     end
+
     context "logged in" do
       scenario "should send an email" do
         visit "/auth/twitter"
@@ -49,7 +51,6 @@ describe do
         expect(email.to).to eq ["hi@hectorperezarenas.com"]
         expect(email.subject).to eq "subj"
         expect(email.body.raw_source).to eq "body body body\n\nDetails from sender:\nName: Hector\nEmail: my@email.com\nPhone: 000\nUser logged in as:\nHector Perez\n@arpahector\nhecpeare@gmail.com\n"
-
       end
     end
   end

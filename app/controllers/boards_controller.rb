@@ -1,4 +1,6 @@
 class BoardsController < ApplicationController
+  before_action :set_back_url_to_current_page
+
   def brexit
     @statement = main_statement
     categories = ReasonCategory.includes(:agreements)

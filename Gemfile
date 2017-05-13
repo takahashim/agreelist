@@ -10,7 +10,6 @@ gem "haml-rails"
 gem 'kaminari'
 
 gem "omniauth-twitter"
-gem 'rack-attack'
 
 group :development, :test do
   gem 'rspec-rails'

@@ -1,9 +1,8 @@
 AgreeList
 =============
-Gathering all the people who agree and disagree on issues such as Brexit
-
 [![Code Climate](https://codeclimate.com/github/hectorperez/agreelist/badges/gpa.svg)](https://codeclimate.com/github/hectorperez/agreelist)
 
+Tracking influencers' opinions
 http://www.agreelist.org
 
 Install:

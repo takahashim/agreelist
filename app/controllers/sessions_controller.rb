@@ -1,13 +1,11 @@
 class SessionsController < ApplicationController
-  rescue_from ActionController::RedirectBackError, with: :redirect_to_default
-
   def new
   end
 
   def create
     if individual.try(:authenticate, params[:password])
       session[:user_id] = individual.id
-      redirect_to params[:back_url] || root_url, :notice => "Logged in!"
+      redirect_back(fallback_location: get_and_delete_back_url || root_url, :notice => "Logged in!")
     else
       flash.now[:error] = "Invalid email or password"
       render "new"
@@ -25,7 +23,7 @@ class SessionsController < ApplicationController
         individual_id: user.id,
         extent: params["vote"] == "agree" ? 100 : 0
       ).vote!
-      redirect_to(edit_reason_path(vote, back_url: params[:back_url]))
+      redirect_to(edit_reason_path(vote))
     elsif params["task"] == "post"
       s = Statement.create(content: params["content"], individual_id: user.id)
       Vote.new(
@@ -33,18 +31,18 @@ class SessionsController < ApplicationController
         individual_id: user.id,
         extent: 100
       ).vote!
-      redirect_to(params[:back_url] || root_path, notice: "Signed in!")
+      redirect_back(fallback_location: get_and_delete_back_url || root_path, notice: "Signed in!")
     elsif params["task"] == "upvote"
       agreement = Agreement.find(params["agreement_id"])
       if Upvote.exists?(individual: current_user, agreement: agreement)
-        redirect_to(params[:back_url] || root_path, notice: "Already was upvoted!")
+        redirect_back(fallback_location: get_and_delete_back_url || root_path, notice: "Already was upvoted!")
       else
         Upvote.create(individual: current_user, agreement: agreement)
         agreement.update_attribute(:upvotes_count, agreement.upvotes.count)
-        redirect_to(params[:back_url] || root_path, notice: "Upvoted!")
+        redirect_back(fallback_location: get_and_delete_back_url || root_path, notice: "Upvoted!")
       end
     else
-      redirect_to(params[:back_url] || root_path, notice: "Signed in!")
+      redirect_back(fallback_location: get_and_delete_back_url || root_path, notice: "Signed in!")
     end
   end
 

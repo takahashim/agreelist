@@ -2,6 +2,7 @@ class IndividualsController < ApplicationController
   before_action :login_required, only: [:update, :save_email]
   before_action :load_individual, except: [:save_email, :new, :create]
   before_action :has_update_individual_rights?, only: :update
+  before_action :set_back_url_to_current_page, only: :show
 
   def new
     @individual = Individual.new
@@ -12,7 +13,7 @@ class IndividualsController < ApplicationController
     if @individual.save
       @individual.send_activation_email
       session[:user_id] = @individual.id
-      redirect_to edit_individual_path(@individual, back_url: params[:back_url] || root_path)
+      redirect_to edit_individual_path(@individual)
     else
       flash[:error] = @individual.errors.full_messages.join(". ")
       render action: :new
@@ -51,7 +52,7 @@ class IndividualsController < ApplicationController
     if result
       respond_to do |format|
         format.json { render status: 200, json: @individual }
-        format.html { redirect_to(params[:back_url].present? ? params[:back_url].gsub(" ", "+") : "/#{@individual.to_param}", notice: 'Successfully updated.') }
+        format.html { redirect_to(get_and_delete_back_url || individual_path(@individual), notice: 'Successfully updated.') }
       end
     else
       render action: "edit"

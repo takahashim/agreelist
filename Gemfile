@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-ruby "2.1.3"
-gem 'rails', '~> 4.1.8'
+ruby "2.4.1"
+gem 'rails', '>= 5.1.1'
 gem 'bootstrap-sass'
 gem "paperclip"
 gem 'aws-sdk', '< 2.0'
@@ -9,8 +9,7 @@ gem "twitter"
 gem "haml-rails"
 gem 'kaminari'
 
-gem "omniauth-twitter", '1.2.1'
-gem 'rack-attack'
+gem "omniauth-twitter"
 
 group :development, :test do
   gem 'rspec-rails'
@@ -24,12 +23,13 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'rack-mini-profiler'
+  gem 'listen'
 end
 
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
-  gem 'uglifier', '>= 1.0.3'
+  gem 'uglifier'
 end
 
 gem 'jquery-rails'
@@ -43,9 +43,9 @@ group :test do
   gem 'webmock'
 end
 
-gem 'pg', '0.17.1'
+gem 'pg'
 gem 'rails_12factor', group: :production
-gem 'acts-as-taggable-on', '~> 3.4'
+gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on'
 gem "nilify_blanks"
 gem 'bcrypt-ruby'
 gem 'wikipedia-client'

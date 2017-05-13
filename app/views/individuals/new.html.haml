@@ -3,7 +3,7 @@
   %p
     = radio_button_tag :login_with, "twitter"
     = "Yes, log in with Twitter"
-    = link_to image_tag("twitter-login.png"), "/auth/twitter?back_url=#{params["back_url"]}", id: "twitter-login"
+    = link_to image_tag("twitter-login.png"), "/auth/twitter", id: "twitter-login"
   %p
     = radio_button_tag :login_with, "email"
     = "No, log in with my email account:"
@@ -25,7 +25,6 @@
     = f.hidden_field :is_user, value: true
     %p
       .actions
-        = f.hidden_field :back_url, value: params[:back_url]
         = f.submit "Sign up", class: "btn btn-primary"
     %h3
       Already a user?

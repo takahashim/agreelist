@@ -19,11 +19,11 @@
             = link_to "source", @agreement.url
       %span
         - if admin?
-          = link_to "edit", edit_individual_path(individual) + "?back_url=#{request.url}"
+          = link_to "edit", edit_individual_path(individual)
           |
           = link_to("delete", @agreement, method: :delete, data: { confirm: "You sure?" })
           |
-          = link_to("thouch", touch_path(@agreement, back_url: "/new"), method: :post)
+          = link_to("thouch", touch_path(@agreement), method: :post)
   - if @agreement.agreement_comments.size == 0
     %h3 No comments yet
   - else
@@ -51,6 +51,6 @@
           ·
           = link_to "Back", url_for(:back)
   - else
-    = link_to "Log in to comment", login_path(back_url: request.original_url)
+    = link_to "Log in to comment", login_path
     ·
     = link_to "Back", url_for(:back)

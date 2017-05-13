@@ -42,17 +42,16 @@
       .dropdown
         = link_to "You?", "", class: "dropdown-toggle", id: "dropdownMenu1k", :"data-toggle" => "dropdown", :"aria-haspopup" => "true", :"aria-expanded" => "true"
         %ul.dropdown-menu{:"aria-labelledby" => "dropdownMenu1k"}
-          - back_url = statement_path(@statement, order: params[:order])
           - if current_user
-            %li= link_to "I agree", vote_path(statement_id: @statement.id, vote: "agree", back_url: "#{back_url}"), method: :post, class: "text-center underline"
+            %li= link_to "I agree", vote_path(statement_id: @statement.id, vote: "agree"), method: :post, class: "text-center underline"
             - already_voted = false
           - else
-            %li= link_to "I agree", "#", "data-toggle" => "modal", "data-target" => "#agreeModal", vote: "agree", statement_id: @statement.id, class: "text-center underline", back_url: "#{back_url}"
+            %li= link_to "I agree", "#", "data-toggle" => "modal", "data-target" => "#agreeModal", vote: "agree", statement_id: @statement.id, class: "text-center underline"
           - if current_user
-            %li= link_to "I disagree", vote_path(statement_id: @statement.id, vote: "disagree", back_url: "#{back_url}"), method: :post, class: "text-center underline"
+            %li= link_to "I disagree", vote_path(statement_id: @statement.id, vote: "disagree"), method: :post, class: "text-center underline"
             - already_voted = false
           - else
-            %li= link_to "I disagree", "#", "data-toggle" => "modal", "data-target" => "#disagreeModal", vote: "disagree", statement_id: @statement.id, class: "text-center underline", back_url: "#{back_url}"
+            %li= link_to "I disagree", "#", "data-toggle" => "modal", "data-target" => "#disagreeModal", vote: "disagree", statement_id: @statement.id, class: "text-center underline"
     .percentage-bar.statement-percentage.text-left
       = "#{100 - @percentage_in_favor}%" if @percentage_in_favor
       Disagree

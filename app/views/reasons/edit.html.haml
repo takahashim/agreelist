@@ -7,11 +7,10 @@
   = form_for @agreement do |f|
     .form-group
       = f.text_area :reason, class: "form-control"
-    = hidden_field_tag :back_url, params[:back_url]
     - if @agreement.individual != current_user
       .form-group
         %h5 Source:
         = f.text_field :url, class: "form-control", placeholder: "URL/source where the quote comes from"
     = f.submit "Save", class: "btn btn-primary"
     or
-    = link_to "Back", (params[:back_url] || root_path), class: "btn btn-default"
+    = link_to "Back", (back_url || root_path), class: "btn btn-default"

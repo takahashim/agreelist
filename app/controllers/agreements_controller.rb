@@ -1,7 +1,7 @@
 class AgreementsController < ApplicationController
   before_action :admin_required, only: [:destroy, :touch]
   before_action :find_agreement, only: [:upvote, :update, :touch, :destroy]
-  rescue_from ActionController::RedirectBackError, with: :redirect_to_default
+  before_action :set_back_url_to_current_page, only: :show
 
   def upvote
     if upvote = Upvote.where(agreement: @agreement, individual: current_user).first
@@ -17,33 +17,30 @@ class AgreementsController < ApplicationController
 
   def update
     if @agreement.individual == current_user || admin?
-      @agreement.reason = params[:agreement][:reason]
-      @agreement.url = params[:agreement][:url]
-      @agreement.reason_category_id = params[:agreement][:reason_category_id].to_i
-      @agreement.save
+      @agreement.update_attributes(params[:agreement].permit(:reason, :url, :reason_category_id ))
       respond_to do |format|
-        format.html { redirect_to(params[:back_url] || statement_path(@agreement.statement)) }
+        format.html { redirect_to statement_path(@agreement.statement) }
         format.js { render json: @agreement.to_json, status: :ok }
       end
     else
-      redirect_to(params[:back_url] || root_path, error: "Permission denied")
+      redirect_back(fallback_location: (get_and_delete_back_url || root_path), notice: "Access denied")
     end
   end
 
   def touch
     @agreement.touch if @agreement
-    redirect_to params[:back_url] || root_path
+    redirect_back(fallback_location: (get_and_delete_back_url || root_path))
   end
 
   def destroy
     statement = @agreement.statement
     @agreement.destroy
-    redirect_to params[:back_url] || statement_path(statement)
+    redirect_back(fallback_location: (get_and_delete_back_url || statement_path(statement)))
   end
 
   def add_supporter
     if spam?
-      render status: 401, text: "Your message has to be approved because it seemed spam. Sorry for the inconvenience."
+      render status: 401, plain: "Your message has to be approved because it seemed spam. Sorry for the inconvenience."
       LogMailer.log_email("spam? params: #{params.inspect}").deliver unless statement_used_by_spammers?
     else
       twitter = params[:name][0] == "@" ? params[:name].gsub("@", "") : nil

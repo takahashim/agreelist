@@ -49,6 +49,10 @@ class Statement < ActiveRecord::Base
     tag_list != ["none"]
   end
 
+  def brexit?
+    id == 7
+  end
+
   private
 
   def filtered_agreements_count(agree_or_disagree, args)

@@ -108,9 +108,9 @@ feature 'voting', js: true do
 
     scenario 'bio' do
       fill_in 'name', with: "Hector Perez"
-      fill_in 'biography', with: "Hero"
+      fill_in 'biography', with: "bla"
       click_button "She/he agrees"
-      expect(page).to have_text('Hero')
+      expect(page).to have_text('bla')
     end
 
     scenario 'should create two users when adding someone else' do

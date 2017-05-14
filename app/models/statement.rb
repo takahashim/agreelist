@@ -54,18 +54,27 @@ class Statement < ActiveRecord::Base
   def filtered_agreements_count(agree_or_disagree, args)
     a = agreements.where(extent: (agree_or_disagree == :agree ? 100 : 0))
     a = a.joins("left outer join individuals on agreements.individual_id = individuals.id").joins("left outer join professions p on p.id = individuals.profession_id").where("p.name = ?", args[:profession]) if args[:profession]
-    if args[:occupation]
-      a = a.joins("left outer join individuals on agreements.individual_id = individuals.id")
-      a = a.joins("left outer join taggings on taggings.taggable_id = individuals.id")
-      a = a.joins("left outer join tags on tags.id = taggings.tag_id")
-      a = a.where("taggings.taggable_type = 'Individual'").where(tags: { name: args[:occupation] }).where("taggings.context = 'occupations'")
-    elsif args[:educated_at]
-      a = a.joins("left outer join individuals on agreements.individual_id = individuals.id")
-      a = a.joins("left outer join taggings on taggings.taggable_id = individuals.id")
-      a = a.joins("left outer join tags on tags.id = taggings.tag_id")
-      a = a.where("taggings.taggable_type = 'Individual'").where(tags: { name: args[:educated_at] }).where("taggings.context = 'schools'")
-    end
+    a = tag_filters(a, args)
     a.count
+  end
+
+  def tag_filters(a, args)
+    tag = args[:occupation] || args[:educated_at]
+    if tag
+      context = args[:occupation] ? 'occupations' : 'schools'
+      a = tag_joins(a)
+      a = a.where("taggings.taggable_type = 'Individual'")
+      a = a.where(tags: { name: tag })
+      a = a.where(taggings: { context: context })
+    else
+      a
+    end
+  end
+
+  def tag_joins(a)
+    b = a.joins("left outer join individuals on agreements.individual_id = individuals.id")
+    b = b.joins("left outer join taggings on taggings.taggable_id = individuals.id")
+    b = b.joins("left outer join tags on tags.id = taggings.tag_id")
   end
 
   def filtered_agreements(agree_or_disagree, args)
@@ -73,17 +82,7 @@ class Statement < ActiveRecord::Base
     a = a.where(reason_category_id: args[:category_id]) if args[:category_id]
     a = a.where(reason_category_id: nil) if args[:filter_by] == :non_categorized
     a = a.joins("left outer join individuals on agreements.individual_id = individuals.id").joins("left outer join professions p on p.id = individuals.profession_id").where("p.name = ?", args[:profession]) if args[:profession]
-    if args[:occupation]
-      a = a.joins("left outer join individuals on agreements.individual_id = individuals.id")
-      a = a.joins("left outer join taggings on taggings.taggable_id = individuals.id")
-      a = a.joins("left outer join tags on tags.id = taggings.tag_id")
-      a = a.where("taggings.taggable_type = 'Individual'").where(tags: { name: args[:occupation] }).where("taggings.context = 'occupations'")
-    elsif args[:educated_at]
-      a = a.joins("left outer join individuals on agreements.individual_id = individuals.id")
-      a = a.joins("left outer join taggings on taggings.taggable_id = individuals.id")
-      a = a.joins("left outer join tags on tags.id = taggings.tag_id")
-      a = a.where("taggings.taggable_type = 'Individual'").where(tags: { name: args[:educated_at] }).where("taggings.context = 'schools'")
-    end
+    a = tag_filters(a, args)
     a = a.includes(:agreement_comments)
     # if args[:order] == "date"
     #   a.sort_by{ |a| - a.created_at.to_i }

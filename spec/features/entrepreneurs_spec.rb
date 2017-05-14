@@ -13,9 +13,7 @@ feature 'entrepreneurs' do
   end
 
   def seed_data
-    @statement = create(:statement)
-    @profession = create(:profession, name: "Economist")
-    create(:agreement, statement: @statement, individual: create(:individual), extent: 100)
-    create(:agreement, statement: @statement, individual: create(:individual, profession: @profession), extent: 100)
+    create(:statement)
+    create(:individual)
   end
 end

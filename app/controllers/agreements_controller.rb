@@ -119,10 +119,6 @@ class AgreementsController < ApplicationController
     @agreement = Agreement.find_by_hashed_id(params[:id])
   end
 
-  def redirect_to_default
-    redirect_to root_path
-  end
-
   def added_by_id(email)
     if current_user
       current_user

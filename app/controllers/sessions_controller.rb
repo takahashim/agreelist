@@ -18,29 +18,11 @@ class SessionsController < ApplicationController
     session[:user_id] = user.id
     LogMailer.log_email("#{user.name} (@#{user.twitter}) just signed in!").deliver
     if params["task"] == "voting"
-      vote = Vote.new(
-        statement_id: params["statement_id"],
-        individual_id: user.id,
-        extent: params["vote"] == "agree" ? 100 : 0
-      ).vote!
-      redirect_to(edit_reason_path(vote))
+      vote(user)
     elsif params["task"] == "post"
-      s = Statement.create(content: params["content"], individual_id: user.id)
-      Vote.new(
-        statement_id: s.id,
-        individual_id: user.id,
-        extent: 100
-      ).vote!
-      redirect_back(fallback_location: get_and_delete_back_url || root_path, notice: "Signed in!")
+      create_statement_and_agree(user)
     elsif params["task"] == "upvote"
-      agreement = Agreement.find(params["agreement_id"])
-      if Upvote.exists?(individual: current_user, agreement: agreement)
-        redirect_back(fallback_location: get_and_delete_back_url || root_path, notice: "Already was upvoted!")
-      else
-        Upvote.create(individual: current_user, agreement: agreement)
-        agreement.update_attribute(:upvotes_count, agreement.upvotes.count)
-        redirect_back(fallback_location: get_and_delete_back_url || root_path, notice: "Upvoted!")
-      end
+      upvote
     else
       redirect_back(fallback_location: get_and_delete_back_url || root_path, notice: "Signed in!")
     end
@@ -53,8 +35,34 @@ class SessionsController < ApplicationController
 
   private
 
-  def redirect_to_default
-    redirect_to root_path
+  def vote(user)
+    vote = Vote.new(
+      statement_id: params["statement_id"],
+      individual_id: user.id,
+      extent: params["vote"] == "agree" ? 100 : 0
+    ).vote!
+    redirect_to(edit_reason_path(vote))
+  end
+
+  def upvote
+    agreement = Agreement.find(params["agreement_id"])
+    if Upvote.exists?(individual: current_user, agreement: agreement)
+      redirect_back(fallback_location: get_and_delete_back_url || root_path, notice: "Already was upvoted!")
+    else
+      Upvote.create(individual: current_user, agreement: agreement)
+      agreement.update_attribute(:upvotes_count, agreement.upvotes.count)
+      redirect_back(fallback_location: get_and_delete_back_url || root_path, notice: "Upvoted!")
+    end
+  end
+
+  def create_statement_and_agree(user)
+    s = Statement.create(content: params["content"], individual_id: user.id)
+    Vote.new(
+      statement_id: s.id,
+      individual_id: user.id,
+      extent: 100
+    ).vote!
+    redirect_back(fallback_location: get_and_delete_back_url || root_path, notice: "Signed in!")
   end
 
   def individual

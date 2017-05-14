@@ -185,13 +185,13 @@ span.small{
 }*/
 
 .col-sm-6.kky-left{
-  padding-left: 0px;
-  padding-right: 0px;
+  padding-left: 0;
+  padding-right: 0;
 }
 .col-sm-6.kky-right{
   float:right;
-  padding-left: 0px;
-  padding-right: 0px;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 @media (min-width: 540px){
@@ -218,7 +218,7 @@ span.small{
 
 .opinions{
   display: block;
-  margin: 0px 15px 0px 15px;
+  margin: 0 15px 0 15px;
 }
 
 #statement-filter{

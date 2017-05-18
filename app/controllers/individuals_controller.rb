@@ -37,6 +37,7 @@ class IndividualsController < ApplicationController
     @disagrees = @individual.disagrees
     @school_list = @individual.school_list
     @occupation_list = @individual.occupation_list
+    @agreements = @individual.agreements.order(created_at: :desc)
   end
 
   def edit

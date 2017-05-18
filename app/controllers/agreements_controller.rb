@@ -85,7 +85,7 @@ class AgreementsController < ApplicationController
   end
 
   def twitter
-    @twitter ||= (params[:name][0] == "@" ? params[:name].gsub("@", "") : nil)
+    @twitter ||= (twitter? ? params[:name].gsub("@", "") : nil)
   end
 
   def check_if_spam
@@ -101,10 +101,6 @@ class AgreementsController < ApplicationController
 
   def twitter?
     params[:name][0] == "@"
-  end
-
-  def twitter
-    params[:name].gsub("@", "")
   end
 
   def first_and_surname?

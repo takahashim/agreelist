@@ -37,32 +37,35 @@
             = "·" unless index == @occupation_list.size - 1
   %br
 
-  %strong Agrees:
-  %br
-  - if @agrees.empty?
-    None
-  - else
-    - @agrees.each do |statement|
-      = link_to statement.content, statement_path(statement)
-      = "#{percentage(statement)}% agree (#{statement.agreements.size} votes)"
-      %br
-  %br
+  - @agreements.each do |agreement|
+    - statement = agreement.statement
+    .profile-agreement-container
+      .profile-agreement
+        = link_to(statement.content, statement_path(statement))
+        %span.small
+          - if agreement.agree?
+            %span.green agreed
+            - same_opinion_counter = statement.agree_counter
+          - else
+            %span.red disagreed
+            - same_opinion_counter = statement.disagree_counter
+          by
+          = @individual.name
+          and
+          = pluralize(same_opinion_counter, "other")
+          out of
+          = statement.agree_counter + statement.disagree_counter
 
-  %strong Disagrees:
-  %br
-  - if @disagrees.empty?
-    None
-  - else
-    - @disagrees.each do |a|
-      = link_to a.content, statement_path(a)
-      = "#{percentage(a)}% agree (#{a.agreements.size} votes)"
-      %br
+        - if agreement.reason.present?
+          .profile-reason
+            = agreement.reason
+
   .jumbotron
     = form_tag("/s/create_and_agree", class: "form-horizontal") do |f|
       %br
       .form-group
         %h3.text-center
-          Write a new statement endorsed by
+          Write a new topic or statement endorsed by
           = @individual.name
 
         .col-sm-1

@@ -30,7 +30,7 @@ class Statement < ActiveRecord::Base
   end
 
   def to_param
-    "#{content.parameterize}-#{hashed_id}"
+    "#{content[0..30].parameterize}-#{hashed_id}"
   end
 
   def shortened_content(limit)

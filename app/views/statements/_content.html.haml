@@ -1,0 +1,7 @@
+= @statement.content
+%span.small
+  - if current_user
+    - if current_user.following?(@statement)
+      = link_to "Following", follow_path(1, statement_id: @statement.id), method: :delete
+    - else
+      = link_to "Follow", follows_path(statement_id: @statement.id), method: :post

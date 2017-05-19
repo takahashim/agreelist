@@ -99,22 +99,5 @@
       = link_to "Create a topic or statement", new_statement_path, class: "btn btn-primary btn-lg"
     - else
       %h2= link_to "Join", signup_path, class: "btn btn-primary btn-lg"
-
-    .home-footer
-      .text-center
-        = link_to "Open Source", "https://github.com/hectorperez/agreelist"
-        ·
-        Open Data
-        ·
-        Non-profit
-        ·
-        = link_to "Privacy", privacy_path
-        ·
-        = link_to "Terms", terms_path
-        ·
-        = link_to "Contact", contact_path
-
-    .home-footer
-      = link_to "hello@agreelist.org", "mailto://hello@agreelist.org"
 :javascript
   var logged_in = #{signed_in?};

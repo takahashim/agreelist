@@ -51,10 +51,6 @@
             - same_opinion_counter = statement.disagree_counter
           by
           = @individual.name
-          and
-          = pluralize(same_opinion_counter, "other")
-          out of
-          = statement.agree_counter + statement.disagree_counter
 
         - if agreement.reason.present?
           .profile-reason

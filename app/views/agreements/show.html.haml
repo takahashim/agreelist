@@ -23,7 +23,7 @@
           |
           = link_to("delete", @agreement, method: :delete, data: { confirm: "You sure?" })
           |
-          = link_to("thouch", touch_path(@agreement), method: :post)
+          = link_to("promote", touch_path(@agreement), method: :post)
   - if @agreement.agreement_comments.size == 0
     %h3 No comments yet
   - else

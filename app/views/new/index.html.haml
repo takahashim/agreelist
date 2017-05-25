@@ -31,7 +31,7 @@
               |
               = link_to("delete", agreement_path(agreement), method: :delete, data: { confirm: "You sure?" })
               |
-              = link_to("thouch", touch_path(agreement), method: :post)
+              = link_to("promote", touch_path(agreement), method: :post)
           %br
           - if current_user
             = link_to("agree", vote_path(statement_id: agreement.statement_id, vote: 'agree'), method: :post, class: "vote_link")

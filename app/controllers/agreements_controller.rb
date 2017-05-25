@@ -21,23 +21,23 @@ class AgreementsController < ApplicationController
     if @agreement.individual == current_user || admin?
       @agreement.update_attributes(params[:agreement].permit(:reason, :url, :reason_category_id ))
       respond_to do |format|
-        format.html { redirect_to statement_path(@agreement.statement) }
+        format.html { redirect_to(get_and_delete_back_url || statement_path(@agreement.statement)) }
         format.js { render json: @agreement.to_json, status: :ok }
       end
     else
-      redirect_back(fallback_location: (get_and_delete_back_url || root_path), notice: "Access denied")
+      redirect_to(get_and_delete_back_url || root_path, notice: "Access denied")
     end
   end
 
   def touch
     @agreement.touch if @agreement
-    redirect_back(fallback_location: (get_and_delete_back_url || root_path))
+    redirect_to(get_and_delete_back_url || root_path)
   end
 
   def destroy
     statement = @agreement.statement
     @agreement.destroy
-    redirect_back(fallback_location: (get_and_delete_back_url || statement_path(statement)))
+    redirect_to(get_and_delete_back_url || statement_path(statement))
   end
 
   def add_supporter

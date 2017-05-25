@@ -27,7 +27,7 @@
             = agreement.reason
           %span
             - if admin?
-              = link_to "edit", edit_individual_path(individual)
+              = link_to "edit", edit_reason_path(agreement)
               |
               = link_to("delete", agreement_path(agreement), method: :delete, data: { confirm: "You sure?" })
               |

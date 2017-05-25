@@ -33,11 +33,9 @@ class IndividualsController < ApplicationController
   end
 
   def show
-    @agrees = @individual.agrees
-    @disagrees = @individual.disagrees
     @school_list = @individual.school_list
     @occupation_list = @individual.occupation_list
-    @agreements = @individual.agreements.order(created_at: :desc)
+    @agreements = @individual.agreements.order(upvotes_count: :desc)
   end
 
   def edit

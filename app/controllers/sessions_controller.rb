@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def create
     if individual.try(:authenticate, params[:password])
       session[:user_id] = individual.id
-      redirect_back(fallback_location: get_and_delete_back_url || root_url, :notice => "Logged in!")
+      redirect_to(get_and_delete_back_url || root_url, :notice => "Logged in!")
     else
       flash.now[:error] = "Invalid email or password"
       render "new"
@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
     elsif params["task"] == "upvote"
       upvote
     else
-      redirect_back(fallback_location: get_and_delete_back_url || root_path, notice: "Signed in!")
+      redirect_to(get_and_delete_back_url || root_path, notice: "Signed in!")
     end
   end
 
@@ -47,11 +47,11 @@ class SessionsController < ApplicationController
   def upvote
     agreement = Agreement.find(params["agreement_id"])
     if Upvote.exists?(individual: current_user, agreement: agreement)
-      redirect_back(fallback_location: get_and_delete_back_url || root_path, notice: "Already was upvoted!")
+      redirect_to(get_and_delete_back_url || root_path, notice: "Already was upvoted!")
     else
       Upvote.create(individual: current_user, agreement: agreement)
       agreement.update_attribute(:upvotes_count, agreement.upvotes.count)
-      redirect_back(fallback_location: get_and_delete_back_url || root_path, notice: "Upvoted!")
+      redirect_to(get_and_delete_back_url || root_path, notice: "Upvoted!")
     end
   end
 
@@ -62,7 +62,7 @@ class SessionsController < ApplicationController
       individual_id: user.id,
       extent: 100
     ).vote!
-    redirect_back(fallback_location: get_and_delete_back_url || root_path, notice: "Signed in!")
+    redirect_to(get_and_delete_back_url || root_path, notice: "Signed in!")
   end
 
   def individual

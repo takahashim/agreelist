@@ -34,14 +34,6 @@
               = link_to("delete", agreement_path(agreement), method: :delete, data: { confirm: "You sure?" })
               |
               = link_to("promote", touch_path(agreement), method: :post)
-          %br
-          - if current_user
-            = link_to("agree", vote_path(statement_id: agreement.statement_id, vote: 'agree'), method: :post, class: "vote_link")
-            ·
-            = link_to("disagree", vote_path(statement_id: agreement.statement_id, vote: 'disagree'), method: :post, class: "vote_link")
-          - else
-            = link_to(image_tag("agree.png", class: "vote-icon"), "#", "data-toggle" => "modal", "data-target" => "#myModal", vote: "agree", statement_id: agreement.statement_id, class: "vote")
-            = link_to(image_tag("disagree.png", class: "vote-icon"), "#", "data-toggle" => "modal", "data-target" => "#myModal", vote: "disagree", statement_id: agreement.statement_id, class: "vote")
   %br
   .text-center
     = paginate @agreements

@@ -45,10 +45,8 @@
         %span.small
           - if agreement.agree?
             %span.green agreed
-            - same_opinion_counter = statement.agree_counter
           - else
             %span.red disagreed
-            - same_opinion_counter = statement.disagree_counter
           by
           = @individual.name
 

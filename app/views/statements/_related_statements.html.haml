@@ -3,9 +3,9 @@
   .row
     .col-sm-6
       - @related_statements[0..2].each do |related|
-        = link_to related.content, related
+        = link_to(shorten_if_too_long(related.content), related)
         %br
     .col-sm-6
       - @related_statements[3..5].each do |related|
-        = link_to related.content, related
+        = link_to(shorten_if_too_long(related.content), related)
         %br

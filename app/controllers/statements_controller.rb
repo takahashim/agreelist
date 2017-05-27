@@ -169,6 +169,6 @@ class StatementsController < ApplicationController
     tags.delete("top")
     tag = tags.first
     tag = "top" if tag.nil? || tag == "none"
-    @related_statements = Statement.where.not(id: @statement.id).tagged_with(tag).limit(6)
+    @related_statements = Statement.where.not(id: @statement.id).tagged_with(tag).order(created_at: :desc).limit(6)
   end
 end

@@ -250,6 +250,14 @@ span.small{
   font-style: italic;
 }
 
+.home-page-agreement-container{
+  padding: 5px;
+}
+.home-page-agreement{
+  padding: 10px;
+  background:rgba(150,150,150,0.2);
+}
+
 .red{
   color: red;
 }

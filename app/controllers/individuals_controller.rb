@@ -2,7 +2,7 @@ class IndividualsController < ApplicationController
   before_action :login_required, only: [:update, :save_email]
   before_action :load_individual, except: [:save_email, :new, :create]
   before_action :has_update_individual_rights?, only: :update
-  before_action :set_back_url_to_current_page, only: :show
+  before_action :set_back_url_to_current_page, only: :show, if: :individual?
 
   def new
     @individual = Individual.new
@@ -33,9 +33,13 @@ class IndividualsController < ApplicationController
   end
 
   def show
-    @school_list = @individual.school_list
-    @occupation_list = @individual.occupation_list
-    @agreements = @individual.agreements.order(upvotes_count: :desc)
+    if @individual
+      @school_list = @individual.school_list
+      @occupation_list = @individual.occupation_list
+      @agreements = @individual.agreements.order(upvotes_count: :desc)
+    else
+      render action: "missing"
+    end
   end
 
   def edit
@@ -71,5 +75,9 @@ class IndividualsController < ApplicationController
 
   def load_individual
     @individual = Individual.where('lower(twitter) = ?', params[:id].downcase).first || Individual.find_by_hashed_id(params[:id].gsub("user-", ""))
+  end
+
+  def individual?
+    @individual.present?
   end
 end

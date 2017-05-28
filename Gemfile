@@ -44,17 +44,13 @@ group :test do
 end
 
 gem 'pg'
-
-group :production do
-  gem 'rails_12factor'
-  gem 'airbrake'
-end
-
+gem 'rails_12factor', group: :production
 gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on'
 gem "nilify_blanks"
 gem 'bcrypt-ruby'
 gem 'wikipedia-client'
 gem 'wikidata'
+gem 'airbrake'
 gem 'google_url_shortener'
 gem 'redis-rails'
 gem "acts_as_follower"

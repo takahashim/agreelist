@@ -1,6 +1,8 @@
 .container
-  .text-center
-    = link_to "Create a new topic or statement", new_statement_path
+  #home-header.text-center
+    = link_to "new topic or opinion", new_statement_path
+    ·
+    = link_to "search", new_search_path
   - @agreements.each do |agreement|
     - individual = agreement.individual
     .home-page-agreement-container

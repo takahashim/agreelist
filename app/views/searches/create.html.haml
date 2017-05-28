@@ -1,0 +1,14 @@
+.container
+  = "Search: #{params[:search]}"
+  %h3= pluralize(@individuals.size, "person") + " found"
+  %ul
+    - @individuals.each do |individual|
+      %li= link_to(individual.visible_name, individual_path(individual))
+  %h3= pluralize(@statements.size, "topic") + " found"
+  %ul
+    - @statements.each do |statement|
+      %li= link_to(statement.content, statement_path(statement))
+  %h3= pluralize(@agreements.size, "opinion") + " found"
+  %ul
+    - @agreements.each do |agreement|
+      %li= link_to(agreement.reason, agreement_path(agreement))

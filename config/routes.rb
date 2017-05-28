@@ -25,6 +25,8 @@ Al::Application.routes.draw do
   resources :reasons, only: [:edit, :update]
   resources :occupations, only: [:index, :show]
   resources :schools, only: [:index, :show]
+  get "/search", to: 'searches#new', as: :new_search
+  post "/search", to: 'searches#create', as: :search
   post '/vote', to: 'new#vote', as: :vote
   get '/entrepreneurs', to: 'static_pages#advice_for_entrepreneurs'
   post '/save_email' => 'individuals#save_email'

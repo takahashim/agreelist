@@ -9,7 +9,7 @@ Install:
 -------
 ```ruby
 git clone git://github.com/hectorperez/agreelist.git
-cd AgreeList
+cd agreelist
 bundle install
 cp config/database.yml.example config/database.yml
 rake db:create

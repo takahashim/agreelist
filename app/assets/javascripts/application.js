@@ -27,8 +27,8 @@ $(document).ready(function() {
 
   $(".upvote").click(function(event) {
     var agreement_id = $(this).attr("agreement_id");
-    var back_url = $(this).attr("back_url");
     $("#upvote-twitter-login").attr("href", "/auth/twitter?task=upvote&agreement_id=" + agreement_id);
+    $("#upvote-email-login").attr("href", "/login?task=upvote&agreement_id=" + agreement_id);
   });
 
   $("#create-question").click(function(event) {

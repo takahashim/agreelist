@@ -1,11 +1,16 @@
 class SessionsController < ApplicationController
+  include DelayedUpvote
   def new
   end
 
   def create
     if individual.try(:authenticate, params[:password])
       session[:user_id] = individual.id
-      redirect_to(get_and_delete_back_url || root_url, :notice => "Logged in!")
+      if params["task"] == "upvote"
+        upvote(redirect_to: get_and_delete_back_url, agreement_id: params[:agreement_id])
+      else
+        redirect_to(get_and_delete_back_url || root_url, :notice => "Logged in!")
+      end
     else
       flash.now[:error] = "Invalid email or password"
       render "new"
@@ -22,7 +27,7 @@ class SessionsController < ApplicationController
     elsif params["task"] == "post"
       create_statement_and_agree(user)
     elsif params["task"] == "upvote"
-      upvote
+      upvote(redirect_to: get_and_delete_back_url, agreement_id: params[:agreement_id])
     else
       redirect_to(get_and_delete_back_url || root_path, notice: "Signed in!")
     end
@@ -30,7 +35,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_path, :notice => "Thanks for stopping by. See you soon!"
+    redirect_to(get_and_delete_back_url || root_path, :notice => "Thanks for stopping by. See you soon!")
   end
 
   private
@@ -42,17 +47,6 @@ class SessionsController < ApplicationController
       extent: params["vote"] == "agree" ? 100 : 0
     ).vote!
     redirect_to(edit_reason_path(vote))
-  end
-
-  def upvote
-    agreement = Agreement.find(params["agreement_id"])
-    if Upvote.exists?(individual: current_user, agreement: agreement)
-      redirect_to(get_and_delete_back_url || root_path, notice: "Already was upvoted!")
-    else
-      Upvote.create(individual: current_user, agreement: agreement)
-      agreement.update_attribute(:upvotes_count, agreement.upvotes.count)
-      redirect_to(get_and_delete_back_url || root_path, notice: "Upvoted!")
-    end
   end
 
   def create_statement_and_agree(user)

@@ -28,7 +28,7 @@
       .modal-body.text-center
         = link_to image_tag("twitter-login.png"), "/auth/twitter", id: "upvote-twitter-login"
         %h3 No Twitter?
-        = link_to "Log in with your email", login_path(back_url: request.original_url), class: "btn btn-primary"
+        = link_to "Log in with your email", login_path, class: "btn btn-primary", id: "upvote-email-login"
         |
         = link_to "Back", "#", "data-dismiss" => "modal"
 - if session[:added_voter]

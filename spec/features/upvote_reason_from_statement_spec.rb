@@ -50,10 +50,25 @@ feature 'upvote', js: true do
       visit statement_path(statement)
     end
 
-    scenario "upvote" do
-      click_link "upvote"
-      click_link "upvote-twitter-login"
-      expect(page).to have_content("upvoted! (1)")
+    context 'sign in with twitter' do
+      scenario "upvote" do
+        click_link "upvote"
+        click_link "upvote-twitter-login"
+        expect(page).to have_content("upvoted! (1)")
+      end
+    end
+
+    context 'sign in with email' do
+      scenario "upvote" do
+        click_link "upvote"
+        click_link "upvote-email-login"
+        click_link "Sign up!"
+        fill_in :individual_email, with: "whatever@email.com"
+        fill_in :individual_password, with: "whatever-password"
+        fill_in :individual_password_confirmation, with: "whatever-password"
+        click_button "Sign up"
+        expect(page).to have_content("Upvoted!")
+      end
     end
   end
 

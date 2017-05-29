@@ -3,6 +3,7 @@ class IndividualsController < ApplicationController
   before_action :load_individual, except: [:save_email, :new, :create]
   before_action :has_update_individual_rights?, only: :update
   before_action :set_back_url_to_current_page, only: :show, if: :individual?
+  include DelayedUpvote
 
   def new
     @individual = Individual.new
@@ -13,7 +14,11 @@ class IndividualsController < ApplicationController
     if @individual.save
       @individual.send_activation_email
       session[:user_id] = @individual.id
-      redirect_to edit_individual_path(@individual)
+      if params[:task] == "upvote" || params[:individual].try(:[], :task) == "upvote"
+        upvote(redirect_to: edit_individual_path(@individual), agreement_id: params[:agreement_id] || params[:individual].try(:[], :agreement_id))
+      else
+        redirect_to edit_individual_path(@individual)
+      end
     else
       flash[:error] = @individual.errors.full_messages.join(". ")
       render action: :new

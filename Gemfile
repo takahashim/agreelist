@@ -44,7 +44,6 @@ group :test do
 end
 
 gem 'pg'
-gem 'rails_12factor', group: :production
 gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on'
 gem "nilify_blanks"
 gem 'bcrypt-ruby'

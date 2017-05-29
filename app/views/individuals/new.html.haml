@@ -23,6 +23,8 @@
       = f.label :password_confirmation
       = f.password_field :password_confirmation, class: "form-control"
     = f.hidden_field :is_user, value: true
+    = hidden_field_tag :task, params[:task] || params[:individual].try(:[], :task)
+    = hidden_field_tag :agreement_id, params[:agreement_id] || params[:individual].try(:[], :agreement_id)
     %p
       .actions
         = f.submit "Sign up", class: "btn btn-primary"

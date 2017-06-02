@@ -264,3 +264,14 @@ span.small{
 .green{
   color: green;
 }
+
+i.back_line{border-top:1px solid #E2C247;position:absolute;top:50%;left:0;width:100%;z-index:1}
+.back_liner{color:#928038;position:relative;font-size:.85em;text-align:center;margin-bottom:2em}
+.back_liner span{background:#FFF;position:relative;padding:0 .5em;z-index:2}
+.back_line::before{border-top:1px solid red;background:orange}
+#profile-page{
+  padding-left: 5px;
+}
+#profile-page-agreements{
+  padding-top: 10px;
+}

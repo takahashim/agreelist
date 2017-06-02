@@ -3,8 +3,8 @@
     .kky-left.col-sm-6
       #agree.hide_for_mobile
         %h3 Agree:
-      = render partial: "whoagree", locals: { agreements: @agreements_in_favor, side: :left }
+      = render partial: "statements/whoagree", locals: { agreements: @agreements_in_favor, side: :left }
     .kky-right.col-sm-6
       #disagree.hide_for_mobile
         %h3 Disagree:
-      = render partial: "whoagree", locals: { agreements: @agreements_against, side: :right }
+      = render partial: "statements/whoagree", locals: { agreements: @agreements_against, side: :right }

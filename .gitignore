@@ -22,3 +22,5 @@ public/system/individuals/pictures/*
 dump.rdb
 config/database.yml
 backups/
+.DS_Store
+app/assets/.DS_Store

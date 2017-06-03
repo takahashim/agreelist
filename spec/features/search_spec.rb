@@ -2,11 +2,12 @@ require 'spec_helper'
 
 feature "search", js: true do
   scenario "should find a statement" do
-    Statement.create(content: "Universal Basic Income")
+    statement = create(:statement, content: "Universal Basic Income")
+    create(:agreement, statement: statement)
     visit new_search_path
     fill_in :search, with: "Basic Income"
     click_button "Search"
-    expect(page).to have_content("Universal Basic Income")
+    expect(page).to have_content("Universal Basic Income (1 opinion)")
   end
 
   scenario "should find a person" do

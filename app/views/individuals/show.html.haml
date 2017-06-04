@@ -1,5 +1,5 @@
 .container
-  = render partial: "individuals/profile"
+  = render partial: "individuals/profile", locals: { individual: @individual, agreements: @individual.agreements, school_list: @school_list, occupation_list: @occupation_list }
 
   .jumbotron
     = form_tag("/s/create_and_agree", class: "form-horizontal") do |f|

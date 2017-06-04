@@ -30,13 +30,11 @@
   - @agreements_in_favor = Agreement.find([8530, 8126, 8223])
   - @agreements_against = Agreement.find([8440, 8251, 8133])
   = render partial: "statements/opinions"
-  %p See all opinions on Basic Income
+  %p.text-center= link_to "See all opinions on Basic Income", statement_path(@basic_income)
 
-  = render partial: "back_line", locals: { text: "Example of profile: Bill Gates" }
+  = render partial: "back_line", locals: { text: "Example of profile" }
   -# REPLACE INSTANCE VARIABLES WITH local variables passed to the partial and set in the controller
-  - @individual = Individual.find_by_name("Bill Gates")
-  - @agreements = @individual.agreements
-  = render partial: "individuals/profile", locals: {}
+  = render partial: "individuals/profile", locals: { individual: @bill_gates, agreements: @bill_gates_agreements, school_list: @bill_gates.school_list, occupation_list: @bill_gates.occupation_list }
 .container
   #home-header.text-center
     = link_to "new topic or opinion", new_statement_path
@@ -72,6 +70,7 @@
   %br
   .text-center
     = paginate @agreements
+
 #myModal.modal.fade{role: "dialog"}
   .modal-dialog
     .modal-content

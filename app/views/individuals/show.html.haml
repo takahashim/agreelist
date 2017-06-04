@@ -61,21 +61,11 @@
         %h3.text-center
           Write a new topic or statement endorsed by
           = @individual.name
-
         .col-sm-1
         .col-sm-10
-          = text_field_tag :content, "", placeholder: "Statement", class: "form-control"
+          %p= text_field_tag :content, "", placeholder: "Statement", class: "form-control"
+          %p= text_field_tag :reason, "", placeholder: "Quote or reason why the person you are adding agrees/disagrees (optional)", class: "form-control"
           - if current_user != @individual
-            %br
-            Source or more info url:
-            %br
-            = text_field_tag :url, "", placeholder: "http:// where it's clear that #{@individual.name} agrees", class: "form-control"
-
+            %p= text_field_tag :url, "", placeholder: "URL/source where the opinion from #{@individual.name} comes from", class: "form-control"
           = hidden_field_tag :individual_id, @individual.id
-      .text-center
-        - if signed_in?
-          = submit_tag "Add", class: "btn btn-primary"
-        - else
-          = link_to "Add", "", class: "btn btn-primary", onclick: "alert('Sign in required.')"
-:javascript
-  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      .text-center= submit_tag "Add", class: "btn btn-primary"

@@ -1,5 +1,5 @@
 class StatementsController < ApplicationController
-  before_action :login_required, only: [:new, :create, :create_and_agree]
+  before_action :login_required, only: [:new, :create]
   before_action :admin_required, only: [:edit, :update, :destroy]
   before_action :find_statement, only: [:show, :destroy, :update, :edit, :occupations, :educated_at]
   before_action :find_related_statements, only: :show
@@ -29,12 +29,12 @@ class StatementsController < ApplicationController
 
   def create_and_agree # from new_question_path & from user profiles
     @statement = Statement.new(content: params[:content], individual: current_user)
-
-    LogMailer.log_email("@#{current_user.twitter} has created '#{@statement.content}'").deliver
+    LogMailer.log_email("@#{current_user.try(:visible_name)} has created '#{@statement.content}' and voted from profile").deliver
     if @statement.save
       Agreement.create(
         statement: @statement,
         individual_id: params[:individual_id] || current_user.id,
+        reason: params[:reason],
         url: params[:url],
         extent: 100)
       redirect_to(get_and_delete_back_url || new_path)

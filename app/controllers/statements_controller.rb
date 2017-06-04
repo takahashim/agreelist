@@ -1,5 +1,5 @@
 class StatementsController < ApplicationController
-  before_action :login_required, only: [:new, :create]
+  before_action :login_required, only: [:new, :create, :create_and_vote]
   before_action :admin_required, only: [:edit, :update, :destroy]
   before_action :find_statement, only: [:show, :destroy, :update, :edit, :occupations, :educated_at]
   before_action :find_related_statements, only: :show
@@ -27,8 +27,8 @@ class StatementsController < ApplicationController
     end
   end
 
-  def create_and_agree # from new_question_path & from user profiles
-    @statement = Statement.new(content: params[:content], individual: current_user)
+  def create_and_vote # from new_question_path & from user profiles
+    @statement = find_statement_by_content || Statement.new(content: params[:content], individual: current_user)
     LogMailer.log_email("@#{current_user.try(:visible_name)} has created '#{@statement.content}' and voted from profile").deliver
     if @statement.save
       Agreement.create(
@@ -36,7 +36,7 @@ class StatementsController < ApplicationController
         individual_id: params[:individual_id] || current_user.id,
         reason: params[:reason],
         url: params[:url],
-        extent: 100)
+        extent: ((params[:commit] == "She/he agrees") ? 100 : 0))
       redirect_to(get_and_delete_back_url || new_path)
     else
       flash[:error] = @statement.errors.full_messages.first
@@ -170,5 +170,9 @@ class StatementsController < ApplicationController
     tag = tags.first
     tag = "top" if tag.nil? || tag == "none"
     @related_statements = Statement.where.not(id: @statement.id).tagged_with(tag).order(created_at: :desc).limit(6)
+  end
+
+  def find_statement_by_content
+    Statement.where('lower(content) = ?', params[:content]).first
   end
 end

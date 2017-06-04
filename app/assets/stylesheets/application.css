@@ -264,3 +264,8 @@ span.small{
 .green{
   color: green;
 }
+
+.profile-box{
+  padding-top: 10px;
+  padding-left: 5px;
+}

@@ -1,8 +1,8 @@
 class StaticPagesController < ApplicationController
   before_action :statements_to_vote, only: :advice_for_entrepreneurs
   def contact
-    if current_user && params[:body] =~ /pay\ \$100/
-      LogMailer.log_email("user: #{current_user.name} (#{current_user.email}) clicked on Pay on the statement #{Statement.find_by_hashed_id(params['statement']).try(:content)}; ip: #{request.ip}").deliver
+    if current_user && params[:body] =~ /donate\ \$100/
+      LogMailer.log_email("user: #{current_user.name} (#{current_user.email}) clicked on Donate on the statement #{Statement.find_by_hashed_id(params['statement']).try(:content)}; ip: #{request.ip}").deliver
     end
   end
 

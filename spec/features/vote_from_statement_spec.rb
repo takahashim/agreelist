@@ -59,8 +59,14 @@ feature 'voting', js: true do
       expect(Agreement.last.disagree?).to eq(true)
     end
 
-    scenario 'adds someone who disagrees with its twitter' do
+    scenario 'adds someone who disagrees with its twitter username' do
       fill_in 'name', with: "@arpahector"
+      click_button "She/he disagree"
+      expect(Individual.last.twitter).to eq "arpahector"
+    end
+
+    scenario 'adds someone who disagrees with its twitter url' do
+      fill_in 'name', with: "https://twitter.com/arpahector"
       click_button "She/he disagree"
       expect(Individual.last.twitter).to eq "arpahector"
     end

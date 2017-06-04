@@ -12,14 +12,14 @@ feature 'create statement from individual profile' do
   scenario "should add the creator" do
     visit "/elonmusk"
     fill_in :content, with: "We should go to Mars"
-    click_button "Add"
+    click_button "She/he agrees"
     expect(Statement.last.individual.name).to eq "Hector Perez"
   end
 
   scenario "should add the creator" do
     visit "/elonmusk"
     fill_in :content, with: "We should go to Mars"
-    click_button "Add"
+    click_button "She/he agrees"
     expect(page).to have_content("We should go to Mars")
   end
 

@@ -7,7 +7,7 @@ Al::Application.routes.draw do
   post '/results' => 'home#save_email'
   resources :statements, path: "s" do
     collection do
-      post 'create_and_agree'
+      post 'create_and_vote'
     end
     member do
       get 'occupations'

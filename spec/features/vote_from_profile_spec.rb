@@ -10,14 +10,7 @@ feature 'voting', js: true do
   context 'non logged user' do
     it "should add opinion" do
       visit individual_path(@individual)
-      fill_in :content, with: "climate change is real"
-      fill_in :reason, with: "most scientists agree"
-      fill_in :url, with: "http://whatever.com"
-      expect{ click_button "Add" }.to change{ Agreement.count }.by(1)
-      a = Agreement.last
-      expect(a.statement.content).to eq "climate change is real"
-      expect(a.reason).to eq "most scientists agree"
-      expect(a.url).to eq "http://whatever.com"
+      expect(page).to have_content "Log in to add an opinion from #{@individual.name}"
     end
   end
 
@@ -28,11 +21,12 @@ feature 'voting', js: true do
       fill_in :content, with: "climate change is real"
       fill_in :reason, with: "most scientists agree"
       fill_in :url, with: "http://whatever.com"
-      expect{ click_button "Add" }.to change{ Agreement.count }.by(1)
+      expect{ click_button "She/he disagrees" }.to change{ Agreement.count }.by(1)
       a = Agreement.last
       expect(a.statement.content).to eq "climate change is real"
       expect(a.reason).to eq "most scientists agree"
       expect(a.url).to eq "http://whatever.com"
+      expect(a.extent).to eq 0
     end
   end
 

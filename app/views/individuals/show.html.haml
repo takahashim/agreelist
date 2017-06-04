@@ -1,5 +1,5 @@
 .container
-  .media
+  .media.profile-box
     .media-left
       = image_tag @individual.picture.url(:square)
     .media-body
@@ -54,18 +54,24 @@
           .profile-reason
             = agreement.reason
 
-  .jumbotron
-    = form_tag("/s/create_and_agree", class: "form-horizontal") do |f|
-      %br
+  - if current_user
+    = form_tag("/s/create_and_vote", class: "form-horizontal") do |f|
       .form-group
         %h3.text-center
-          Write a new topic or statement endorsed by
+          Write an opinion from
           = @individual.name
         .col-sm-1
         .col-sm-10
-          %p= text_field_tag :content, "", placeholder: "Statement", class: "form-control"
+          %p= text_field_tag :content, "", placeholder: "Topic or statement agreed or disagreed by #{@individual.visible_name}", class: "form-control"
           %p= text_field_tag :reason, "", placeholder: "Quote or reason why the person you are adding agrees/disagrees (optional)", class: "form-control"
           - if current_user != @individual
-            %p= text_field_tag :url, "", placeholder: "URL/source where the opinion from #{@individual.name} comes from", class: "form-control"
+            %p= text_field_tag :url, "", placeholder: "URL/source where the opinion comes from", class: "form-control"
           = hidden_field_tag :individual_id, @individual.id
-      .text-center= submit_tag "Add", class: "btn btn-primary"
+      .text-center
+        = submit_tag("She/he agrees", class: "btn btn-primary")
+        = submit_tag("She/he disagrees", class: "btn btn-primary")
+  - else
+    .profile-box
+      = link_to "Log in", login_path
+      to add an opinion from
+      = @individual.visible_name

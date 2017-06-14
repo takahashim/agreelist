@@ -3,36 +3,7 @@
     = link_to "new topic or opinion", new_statement_path
     ·
     = link_to "search", new_search_path
-  - @agreements.each do |agreement|
-    - individual = agreement.individual
-    .home-page-agreement-container
-      .home-page-agreement
-        .media
-          .media-left
-            = image_tag(individual.picture.url(:mini), class: "picture media-object")
-          .media-body
-            %h4.media-heading
-              %span.name= link_to(agreement.statement.content, statement_path(agreement.statement))
-              %span.small
-                - if agreement.agree?
-                  %span.green agreed
-                - else
-                  %span.red disagreed
-                by
-              = link_to(individual.name || individual.twitter || 'user-' + individual.hashed_id, individual_path(individual))
-              %span.small>= ", #{individual.bio}"
-            %span.reason
-              = agreement.reason
-            %span
-              - if admin?
-                = link_to "edit", edit_reason_path(agreement)
-                |
-                = link_to("delete", agreement_path(agreement), method: :delete, data: { confirm: "You sure?" })
-                |
-                = link_to("promote", touch_path(agreement), method: :post)
-  %br
-  .text-center
-    = paginate @agreements
+  = render partial: "common/opinions", locals: { agreements: @agreements }
 #myModal.modal.fade{role: "dialog"}
   .modal-dialog
     .modal-content

@@ -1,0 +1,11 @@
+%div{id: name, class: "modal fade", role: "dialog"}
+  .modal-dialog
+    .modal-content
+      .modal-header.text-center
+        %h3= title
+      .modal-body.text-center
+        = link_to image_tag("twitter-login.png"), twitter_url, id: twitter_link_id
+        %h3 No Twitter?
+        = link_to "Log in with your email", login_path, class: "btn btn-primary", id: email_id
+        |
+        = link_to "Back", "#", "data-dismiss" => "modal"

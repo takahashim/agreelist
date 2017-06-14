@@ -1,0 +1,22 @@
+.opinion-links
+  - if agreement.url.present? && agreement.url != "http://"
+    = link_to "source", agreement.url
+    ·
+  - n = (admin? && agreement.upvotes.count != 0) ? " (#{agreement.upvotes.count})" : ""
+  - if current_user
+    - upvote_link = current_user.upvoted?(agreement) ? "upvoted!#{n}" : "upvote#{n}"
+    = link_to upvote_link, upvote_agreement_path(agreement), method: :post
+  - else
+    = link_to "upvote#{n}", "#", "data-toggle" => "modal", "data-target" => "#upvoteModal", agreement_id: agreement.id, class: "upvote"
+  ·
+  - if agreement.agreement_comments.size > 0
+    = link_to pluralize(agreement.agreement_comments.size, "comment"), agreement_path(agreement)
+  - else
+    = link_to "comment", agreement_path(agreement)
+  - if agreement.individual.wikipedia.present?
+    ·
+    = link_to "wikipedia", agreement.individual.wikipedia
+  - if admin?
+    ·
+    = link_to("delete", agreement, method: :delete, data: { confirm: "You sure?" })
+  = render partial: "reason_category_select", locals: { agreement: agreement } if board?

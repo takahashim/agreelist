@@ -23,13 +23,12 @@
               %span.small>= ", #{individual.bio}"
             %span.reason
               = agreement.reason
-            %span
+            %span.small
               - if admin?
                 = link_to "edit", edit_reason_path(agreement)
-                |
-                = link_to("delete", agreement_path(agreement), method: :delete, data: { confirm: "You sure?" })
-                |
+                ·
                 = link_to("promote", touch_path(agreement), method: :post)
+            = render partial: "statements/opinion_links", locals: { agreement: agreement }
   %br
   .text-center
     = paginate @agreements
@@ -89,5 +88,6 @@
       = link_to "Create a topic or statement", new_statement_path, class: "btn btn-primary btn-lg"
     - else
       %h2= link_to "Join", signup_path, class: "btn btn-primary btn-lg"
+= render partial: "statements/upvote_modal_window", locals: {name: "upvoteModal", title: "Log in to upvote", twitter_url: "/auth/twitter", twitter_link_id: "upvote-twitter-login", email_id: "upvote-email-login"}
 :javascript
   var logged_in = #{signed_in?};

@@ -240,6 +240,7 @@ span.small{
 .profile-agreement-container{
   padding: 5px;
 }
+
 .profile-agreement{
   padding: 10px;
   background:rgba(150,150,150,0.2);
@@ -268,4 +269,8 @@ span.small{
 .profile-box{
   padding-top: 10px;
   padding-left: 5px;
+}
+
+.tag-page_title{
+  padding: 5px;
 }

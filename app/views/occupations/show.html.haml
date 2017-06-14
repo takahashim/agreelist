@@ -1,11 +1,5 @@
 .container
-  %h3= "#{@occupation.pluralize.titleize} on AgreeList:"
-  - @individuals.each do |individual|
-    .media
-      .media-left
-        = link_to(image_tag(individual.picture.url(:mini), class: "picture media-object"), "/#{individual.to_param}")
-      .media-body
-        %h4.media-heading
-          %span.name= link_to(individual.visible_name, "/#{individual.to_param}")
-        %p= individual.visible_bio
-  = link_to "Back", url_for(:back)
+  .tag-page_title
+    %h3= "Opinions from #{@occupation.pluralize}"
+    %span.small= link_to "See all schools and universities", schools_path
+  = render partial: "common/opinions", locals: { agreements: @agreements }

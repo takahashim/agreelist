@@ -1,4 +1,7 @@
 .text-center
+  %span.alert.alert-warning
+    If you think the percentages are biased, please help us
+    = link_to "adding more opinions", "#gather", class: "underline"
   - if @statement.content.size < 100
     %h1
       = render partial: "content"

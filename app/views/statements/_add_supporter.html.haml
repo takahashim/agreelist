@@ -15,7 +15,7 @@
     %p= text_field_tag(:name,"", class: "form-control", placeholder: "Name or @twitter. E.g. @barackobama")
     %p= text_field_tag(:wikipedia,"", class: "form-control", placeholder: "Wikipedia page of her/him")
     %p= hidden_field_tag :agg, 'someone_else'
-    %p= text_field_tag(:comment, "", class: "form-control", placeholder: "Quote or reason why the person you are adding agrees/disagrees (optional)", maxlength: 254)
+    %p= text_field_tag(:comment, "", class: "form-control", placeholder: "Quote or reason why the person you are adding agrees/disagrees (optional)", maxlength: 1000)
     #source_box
       %p= text_field_tag(:source, "", class: "form-control", placeholder: "URL/source where the opinion comes from (mandatory)")
     = hidden_field_tag(:statement_id, @statement.id)

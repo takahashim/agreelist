@@ -35,7 +35,7 @@
         .media-body
           %h3.media-heading
             %span.name
-              = link_to(comment.individual.name || individual.twitter || "user-#{individual.hashed_id}", "/#{individual.to_param}")
+              = link_to(comment.individual.name || individual.twitter || "user-#{comment.individual.hashed_id}", "/#{comment.individual.to_param}")
           %p.comment
             = comment.content
   - if current_user

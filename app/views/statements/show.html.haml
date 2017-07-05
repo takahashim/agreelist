@@ -3,7 +3,7 @@
   = render partial: "filters"
   = render partial: "opinions"
 .text-center
-  = paginate (@agreements_in_favor.size > @agreements_against.size ? @agreements_in_favor : @agreements_against)
+  = paginate (@agreements_in_favor.size >= @agreements_against.size ? @agreements_in_favor : @agreements_against)
 .container
   #comments
     - if @comments.size > 0 && @statement.id != 7 # brexit

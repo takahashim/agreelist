@@ -7,31 +7,6 @@
   %p The heart of AgreeList are controversial topics, where influencers do not agree on what the right answer is. We want to gather all opinions in one place and classify them based on whether their authors agree or disagree with a statement embodying the issue at stake. Our platform therefore provides immediate clarity on the position of influencers and shifts (at least part of) the focus to their underpinning arguments. AgreeList will allow you to look at what the people you respect think, inform yourself on unfamiliar opinions and soundly shape your own opinions.
 
   .text-center
-    .row
-      .col-md-4
-        %h4 Promote a debate that matters to you
-        Add influencers' opinions. You only need a source supporting the influencer’s agreement
-        #home-cause= image_tag "https://s3-eu-west-1.amazonaws.com/agreelist/cause.jpg"
-      .col-md-4
-        %h4 Find who agrees/disagrees & why
-        Bombarded with opinions? Inform yourself by finding who agrees and why on something to make up your mind
-        %p= image_tag "https://s3-eu-west-1.amazonaws.com/agreelist/agree-disagree.jpg"
-      .col-md-4
-        %h4 Understand what underpins debates
-        E.g.
-        = link_to("1800 opinions on Brexit", "/brexit")
-        filtered per
-        = link_to("profession", "/s/brexit-sblrlc9vgxp7/occupations")
-        and
-        = link_to("university", "/s/brexit-sblrlc9vgxp7/educated_at")
-        #home-brexit= link_to(image_tag("https://s3-eu-west-1.amazonaws.com/agreelist/brexit.png"), "/brexit")
-    %h3 Findings
-    .row
-      .col-md-2
-      .col-md-4
-        %p= link_to(image_tag("https://s3-eu-west-1.amazonaws.com/agreelist/occupations-pro-brexit.png"), "/s/brexit-sblrlc9vgxp7/occupations")
-      .col-md-4
-        %p= link_to(image_tag("https://s3-eu-west-1.amazonaws.com/agreelist/clinton_over_trump.png"), "/s/hillary-clinton-should-be-president-instead-of-donald-trump-ped4besqdzdd/educated_at")
     - if current_user
       = link_to "Create a topic or statement", new_statement_path, class: "btn btn-primary btn-lg"
     - else

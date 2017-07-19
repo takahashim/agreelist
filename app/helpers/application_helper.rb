@@ -10,4 +10,8 @@ module ApplicationHelper
   def percentage_of_supporters(statement)
     statement.number_of_supporters * 100 / statement.number_of_opinions
   end
+
+  def shortened_url_without_params(statement)
+    Rails.env.test? ? request.url : Shortener.new(full_url: request.base_url + request.path, object: statement).get
+  end
 end

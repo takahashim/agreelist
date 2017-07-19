@@ -42,7 +42,7 @@
 
           %br
           %br
-          = link_to "Yes, share on Twitter", "https://twitter.com/intent/tweet?url=&text=@#{@just_added_voter.try(:twitter)} I added you to the list of who does and who does not support '#{@statement.shortened_content(35)}' #{@shortened_url_without_params}", class: "btn btn-primary", id: "tweet-supporter-added-2", "data-dismiss" => "modal"
+          = link_to "Yes, share on Twitter", "https://twitter.com/intent/tweet?url=&text=@#{@just_added_voter.try(:twitter)} I added you to the list of who does / does not support '#{@statement.shortened_content(35)}' #{@shortened_url_without_params}", class: "btn btn-primary", id: "tweet-supporter-added-2", "data-dismiss" => "modal"
           or
           = link_to "Back", "#", "data-dismiss" => "modal"
 = link_to "Tweet supporter added", "#", "data-toggle" => "modal", "data-target" => "#tweetModal", statement_id: @statement.id, class: "vote hidden", id: "tweet-supporter-added"

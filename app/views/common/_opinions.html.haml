@@ -1,5 +1,6 @@
 - agreements.each do |agreement|
   - individual = agreement.individual
+  - statement = agreement.statement
   .home-page-agreement-container
     .home-page-agreement
       .media
@@ -7,7 +8,7 @@
           = image_tag(individual.picture.url(:mini), class: "picture media-object")
         .media-body
           %h4.media-heading
-            %span.name= link_to(agreement.statement.content, statement_path(agreement.statement))
+            %span.name= link_to(statement.content, statement_path(statement))
             %span.small
               - if agreement.agree?
                 %span.green agreed
@@ -18,12 +19,14 @@
             %span.small>= ", #{individual.bio}"
           %span.reason
             = agreement.reason
-          %span
+          %span.small
             - if admin?
               = link_to "edit", edit_reason_path(agreement)
-              |
+              ·
+              = link_to "tweet", "https://twitter.com/intent/tweet?url=&text=@#{individual.try(:twitter)} I added you to the list of who does / does not support '#{statement.shortened_content(35)}' #{shortened_url_without_params(statement)}", id: "tweet-supporter-added-2", "data-dismiss" => "modal"
+              ·
               = link_to("delete", agreement_path(agreement), method: :delete, data: { confirm: "You sure?" })
-              |
+              ·
               = link_to("promote", touch_path(agreement), method: :post)
 .text-center
   = paginate agreements

@@ -21,7 +21,7 @@
       - if admin? && individual.twitter.present?
         %span.small
           = "·"
-          = link_to "tweet", "https://twitter.com/intent/tweet?url=&text=@#{individual.try(:twitter)} I added you to the list of who does / does not support '#{@statement.shortened_content(35)}' #{@shortened_url_without_params}", "data-dismiss" => "modal"
+          = render partial: "common/tweet", locals: { statement: @statement, individual: individual, shortened_url_without_params: @shortened_url_without_params }
       %br
       .opinion-links
         - if agreement.url.present? && agreement.url != "http://"

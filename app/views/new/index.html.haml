@@ -1,46 +1,48 @@
-#home.container
-  .text-center
-    .row
-      .col-md-4
-        %h4 Promote a debate that matters to you
-        Add influencers' opinions. You only need a source supporting the influencer’s agreement
-        #home-cause= image_tag "https://s3-eu-west-1.amazonaws.com/agreelist/cause.jpg"
-      .col-md-4
-        %h4 Find who agrees/disagrees & why
-        Bombarded with opinions? Inform yourself by finding who agrees and why on something to make up your mind
-        %p= image_tag "https://s3-eu-west-1.amazonaws.com/agreelist/agree-disagree.jpg"
-      .col-md-4
-        %h4 Understand what underpins debates
-        Wikidata - Wikipedia's structured database - allows us to filter per profession, university, country, etc.
-        #home-brexit= link_to(image_tag("https://s3-eu-west-1.amazonaws.com/agreelist/wikipedia.jpeg"), "/brexit")
-
-    = render partial: "back_line", locals: { text: "Example of topics" }
-    .row
-      .col-md-4
-        %p Carbon Tax
-        %p GMOs
-      .col-md-4
-        %p Universal Basic Income
-        %p Artificial Intelligence
-      .col-md-4
-        %p Brexit
-        %p Everyone should learn to code
-  = render partial: "back_line", locals: { text: "One topic: Universal Basic Income" }
-  -# REPLACE INSTANCE VARIABLES WITH local variables passed to the partial and set in the controller
-  - @agreements_in_favor = Agreement.find([8530, 8126, 8223])
-  - @agreements_against = Agreement.find([8440, 8251, 8133])
-  = render partial: "statements/opinions"
-  %p.text-center= link_to "See all opinions on Basic Income", statement_path(@basic_income)
-
-  = render partial: "back_line", locals: { text: "Example of profile" }
-  -# REPLACE INSTANCE VARIABLES WITH local variables passed to the partial and set in the controller
-  = render partial: "individuals/profile", locals: { individual: @bill_gates, agreements: @bill_gates_agreements, school_list: @bill_gates.school_list, occupation_list: @bill_gates.occupation_list }
 .container
   #home-header.text-center
     = link_to "new topic or opinion", new_statement_path
     ·
     = link_to "search", new_search_path
-  - @agreements.each do |agreement|
+  - @agreements[0..2].each do |agreement|
+    - individual = agreement.individual
+    .home-page-agreement-container
+      .home-page-agreement
+        .media
+          .media-left
+            = image_tag(individual.picture.url(:mini), class: "picture media-object")
+          .media-body
+            %h4.media-heading
+              %span.name= link_to(agreement.statement.content, statement_path(agreement.statement))
+              %span.small
+                - if agreement.agree?
+                  %span.green agreed
+                - else
+                  %span.red disagreed
+                by
+              = link_to(individual.name || individual.twitter || 'user-' + individual.hashed_id, individual_path(individual))
+              %span.small>= ", #{individual.bio}"
+            %span.reason
+              = agreement.reason
+            %span
+              - if admin?
+                = link_to "edit", edit_reason_path(agreement)
+                |
+                = link_to("delete", agreement_path(agreement), method: :delete, data: { confirm: "You sure?" })
+                |
+                = link_to("promote", touch_path(agreement), method: :post)
+  = render partial: "back_line", locals: { text: "Some topics" }
+  .row.text-center
+    .col-md-4
+      %p Artificial Intelligence
+      %p GMOs
+    .col-md-4
+      %p Universal Basic Income
+      %p Job Guarantee
+    .col-md-4
+      %p Carbon Tax
+      %p Brexit
+  = render partial: "back_line", locals: { text: "" }
+  - @agreements[3..-1].each do |agreement|
     - individual = agreement.individual
     .home-page-agreement-container
       .home-page-agreement

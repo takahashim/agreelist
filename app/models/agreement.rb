@@ -1,4 +1,5 @@
 class Agreement < ActiveRecord::Base
+  SHORTENED_REASON_MAX_SIZE = 400
   validates :individual_id, presence:true
   validates :statement_id, presence:true
 

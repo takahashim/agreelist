@@ -14100,4 +14100,12 @@ $(document).ready(function() {
     var question = $("#content").val();
     $("#create-twitter-login").attr("href", "/auth/twitter?task=post&content=" + question);
   });
+
+  $(".see_more_reason").click(function() {
+    var agreement_id = $(this).attr("agreement_id");
+    var reason = $("#reason_" + agreement_id)
+    var full_reason = reason.attr("full_reason");
+    reason.text(full_reason);
+    $(this).hide();
+  });
 });

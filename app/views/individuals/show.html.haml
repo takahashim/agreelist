@@ -52,7 +52,7 @@
 
         - if agreement.reason.present?
           .profile-reason
-            = agreement.reason
+            = render partial: "common/reason", locals: { agreement: agreement }
 
   - if current_user
     = form_tag("/s/create_and_vote", class: "form-horizontal") do |f|

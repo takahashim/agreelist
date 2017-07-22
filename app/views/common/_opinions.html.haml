@@ -18,7 +18,7 @@
             = link_to(individual.name || individual.twitter || 'user-' + individual.hashed_id, individual_path(individual))
             %span.small>= ", #{individual.bio}"
           %span.reason
-            = agreement.reason
+            = render partial: "common/reason", locals: { agreement: agreement }
           %span.small
             - if admin?
               = link_to "edit", edit_reason_path(agreement)

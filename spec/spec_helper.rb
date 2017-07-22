@@ -6,7 +6,11 @@ require_relative 'support/wait_for_ajax'
 require 'rspec/autorun'
 require "rack_session_access/capybara"
 require 'capybara/poltergeist'
-Capybara.javascript_driver = :poltergeist
+options = { js_errors: true }
+Capybara.register_driver :poltergeist2 do |app|
+  Capybara::Poltergeist::Driver.new(app, options)
+end
+Capybara.javascript_driver = :poltergeist2
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.

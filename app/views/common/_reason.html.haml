@@ -1,0 +1,7 @@
+- reason = agreement.reason
+- if reason.present?
+  - if reason.size <= Agreement::SHORTENED_REASON_MAX_SIZE
+    = reason
+  - else
+    %span{id: "reason_#{agreement.id}", full_reason: reason}= "#{reason[0..(Agreement::SHORTENED_REASON_MAX_SIZE - 1)]}..."
+    = link_to "See More", "#", agreement_id: agreement.id, class: "see_more_reason", remote: true

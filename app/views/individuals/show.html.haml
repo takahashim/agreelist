@@ -19,10 +19,10 @@
         = @individual.visible_bio
         - if @individual.wikipedia.present?
           ·
-          = link_to "wikipedia", @individual.wikipedia
+          = link_to "wikipedia", @individual.wikipedia, target: :_blank
         - if @individual.twitter.present?
           ·
-          = link_to "twitter", "https://twitter.com/#{@individual.twitter}"
+          = link_to "twitter", "https://twitter.com/#{@individual.twitter}", target: :_blank
       - if @school_list.any?
         Educated at:
         %p
@@ -52,7 +52,7 @@
 
         - if agreement.reason.present?
           .profile-reason
-            = render partial: "common/reason", locals: { agreement: agreement }
+          = render partial: "common/reason", locals: { agreement: agreement }
 
   - if current_user
     = form_tag("/s/create_and_vote", class: "form-horizontal") do |f|

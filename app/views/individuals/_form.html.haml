@@ -26,6 +26,11 @@
           = f.text_field :wikidata_id, class: "form-control"
       .row
         .col-sm-2
+          = f.label "Bio link (when no Wikipedia page)"
+        .col-sm-8
+          = f.text_field :bio_link, class: "form-control"
+      .row
+        .col-sm-2
           = f.label :twitter
         .col-sm-8
           = f.text_field :twitter, class: "form-control"

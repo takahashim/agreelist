@@ -20,6 +20,9 @@
         - if @individual.wikipedia.present?
           ·
           = link_to "wikipedia", @individual.wikipedia, target: :_blank
+        - elsif @individual.bio_link.present?
+          ·
+          = link_to "bio", @individual.bio_link, target: :_blank
         - if @individual.twitter.present?
           ·
           = link_to "twitter", "https://twitter.com/#{@individual.twitter}", target: :_blank

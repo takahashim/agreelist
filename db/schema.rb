@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170514184106) do
+ActiveRecord::Schema.define(version: 20170812122328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,10 +63,10 @@ ActiveRecord::Schema.define(version: 20170514184106) do
   end
 
   create_table "follows", id: :serial, force: :cascade do |t|
-    t.string "followable_type"
     t.integer "followable_id", null: false
-    t.string "follower_type"
+    t.string "followable_type", limit: 255, null: false
     t.integer "follower_id", null: false
+    t.string "follower_type", limit: 255, null: false
     t.boolean "blocked", default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 20170514184106) do
     t.datetime "reset_sent_at"
     t.string "wikipedia", limit: 255
     t.string "wikidata_id", limit: 255
+    t.string "bio_link"
   end
 
   create_table "professions", id: :serial, force: :cascade do |t|

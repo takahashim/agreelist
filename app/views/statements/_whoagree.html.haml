@@ -41,6 +41,9 @@
         - if agreement.individual.wikipedia.present?
           ·
           = link_to "wikipedia", agreement.individual.wikipedia, target: :_blank
+        - elsif agreement.individual.bio_link.present?
+          ·
+          = link_to "bio", agreement.individual.bio_link, target: :_blank
         - if admin?
           ·
           = link_to("delete", agreement, method: :delete, data: { confirm: "You sure?" })

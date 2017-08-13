@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170812122328) do
+ActiveRecord::Schema.define(version: 20170813094247) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(version: 20170812122328) do
     t.datetime "reset_sent_at"
     t.string "wikipedia", limit: 255
     t.string "wikidata_id", limit: 255
-    t.string "bio_link"
+    t.string "bio_link", limit: 255
   end
 
   create_table "professions", id: :serial, force: :cascade do |t|

@@ -8,8 +8,8 @@ feature 'voting', js: true do
   end
 
   context 'non logged user' do
-    it "should add opinion" do
-      visit individual_path(@individual)
+    it "should invite to log in" do
+      visit "/#{@individual.to_param}"
       expect(page).to have_content "Log in to add an opinion from #{@individual.name}"
     end
   end
@@ -34,7 +34,7 @@ feature 'voting', js: true do
 
   def seed_data
     @statement = create(:statement)
-    @individual = create(:individual)
+    @individual = create(:individual, twitter: "someone")
     create(:agreement, statement: @statement, individual: @individual, extent: 100)
   end
 

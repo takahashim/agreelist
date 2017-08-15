@@ -1,5 +1,5 @@
 class StatementsController < ApplicationController
-  before_action :login_required, only: [:new, :create, :create_and_vote]
+  before_action :login_required, only: [:index, :new, :create, :create_and_vote]
   before_action :admin_required, only: [:edit, :update, :destroy]
   before_action :find_statement, only: [:show, :destroy, :update, :edit, :occupations, :educated_at]
   before_action :find_related_statements, only: :show
@@ -47,7 +47,8 @@ class StatementsController < ApplicationController
   # GET /statements
   # GET /statements.json
   def index
-    @statements = Statement.select("statements.id, statements.content, statements.hashed_id, count(agreements.id) as agreements_count").joins("left join agreements on statements.id=agreements.statement_id").group("statements.id").order("agreements_count DESC, statements.created_at ASC")
+    @statements = Statement.select("statements.id, statements.content, statements.hashed_id, count(agreements.id) as agreements_count").where("agreements.reason is not null and agreements.reason != ''").joins("left join agreements on statements.id=agreements.statement_id").group("statements.id").order("agreements_count DESC, statements.created_at ASC")
+    @statements = @statements + Statement.select("id, content, hashed_id, 0 as agreements_count").where("id not in (select distinct statement_id from agreements)")
 
     respond_to do |format|
       format.html # index.html.erb

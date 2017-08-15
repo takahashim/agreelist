@@ -3,6 +3,8 @@
 
   = render 'form'
 
-  = link_to 'Show', @statement
+  = link_to 'Page', @statement
   |
   = link_to 'Back', statements_path
+  |
+  = link_to 'Delete', @statement, method: :delete, data: { confirm: 'Are you sure?' } if @statement.agreements.empty?

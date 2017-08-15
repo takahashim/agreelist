@@ -3,6 +3,8 @@
     = link_to "new topic or opinion", new_statement_path
     ·
     = link_to "search", new_search_path
+    ·
+    = link_to "list of topics", statements_path
   = render partial: "common/opinions", locals: { agreements: @agreements }
 #myModal.modal.fade{role: "dialog"}
   .modal-dialog

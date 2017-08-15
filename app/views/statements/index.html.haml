@@ -1,18 +1,16 @@
 .container
   %h1
-    Listing topics or statements
+    Topics and statements
     = link_to 'New', new_statement_path(back_url: request.path), class: "btn btn-primary"
 
-  %ol
+  %ul
     - @statements.each do |statement|
       %li
         = link_to statement.content, statement
-        = "(#{statement.tag_list})" if statement.tags?
-        ·
-        = pluralize(statement.agreements_count, "opinion")
-        ·
-        = pluralize(statement.followers_count, "follower")
-        = link_to 'Edit', edit_statement_path(statement) if admin?
-        = link_to 'Destroy', statement, method: :delete, data: { confirm: 'Are you sure?' } if can_delete_statements?
-
-
+        = "(#{pluralize(statement.agreements_count, 'opinion')})"
+        - if current_user
+          ·
+          - if current_user.following?(statement)
+            = link_to "Following", follow_path(1, statement_id: statement.id), method: :delete
+          - else
+            = link_to "Follow", follows_path(statement_id: statement.id), method: :post

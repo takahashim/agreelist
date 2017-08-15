@@ -41,6 +41,10 @@ class Individual < ActiveRecord::Base
   before_save :update_profile_from_twitter, if: :twitter_changed?
   before_save :downcase_email
 
+  def to_s
+    name || twitter || "id: #{id}"
+  end
+
   def self.create_with_omniauth(auth)
     create! do |user|
       # user.provider = auth["provider"]

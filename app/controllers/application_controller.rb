@@ -34,7 +34,8 @@ class ApplicationController < ActionController::Base
   def login_required
     unless signed_in?
       session[:back_url] = request.url
-      redirect_to login_path(notice: "login required")
+      flash[:notice] = "Login required for this page"
+      redirect_to login_path
     end
   end
 

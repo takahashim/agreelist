@@ -11,6 +11,10 @@ class Statement < ActiveRecord::Base
   validates :content, presence: true, length: { maximum: MAXIMUM_LENGTH }
   before_create :generate_hashed_id, :set_none_tag
 
+  def to_s
+    content
+  end
+
   def agreements_in_favor(args = {})
     filtered_agreements(:agree, args)
   end

@@ -4,11 +4,13 @@ class FollowsController < ApplicationController
 
   def create
     current_user.follow(@object)
+    LogMailer.log_email("@#{current_user.try(:twitter)}, email: #{params[:email]}, ip: #{request.remote_ip} followed '#{@object.to_s}'").deliver
     redirect_to(get_and_delete_back_url || statement_path(@object))
   end
 
   def destroy
     current_user.stop_following(@object)
+    LogMailer.log_email("@#{current_user.try(:twitter)}, email: #{params[:email]}, ip: #{request.remote_ip} stopped following '#{@object.to_s}'").deliver
     redirect_to(get_and_delete_back_url || statement_path(@object))
   end
 

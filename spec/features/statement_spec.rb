@@ -19,7 +19,7 @@ feature 'statement' do
     visit root_path
     click_link "new topic or opinion"
     click_link "twitter-login"
-    fill_in :statement_content, with: "We should do more to tacle global warming"
+    fill_in :statement_content, with: "We should do more to tackle global warming"
     click_button "Create"
     expect(page).to have_content("Statement was successfully created")
   end

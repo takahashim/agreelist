@@ -1,23 +1,21 @@
-module Friends
-  class Agreelist
-    attr_reader :twitter
+class AgreeListFriends
+  attr_reader :twitter
 
-    def initialize(twitter)
-      @twitter = twitter
-    end
+  def initialize(twitter)
+    @twitter = twitter
+  end
 
-    def find
-      friends_on_twitter & agreelist_users
-    end
+  def find
+    friends_on_twitter & agreelist_users
+  end
 
-    private
+  private
 
-    def friends_on_twitter
-      ::Friends::OnTwitter.new.retrieve(twitter)
-    end
+  def friends_on_twitter
+    ::Friends::OnTwitter.new.retrieve(twitter)
+  end
 
-    def agreelist_users
-      Individual.where("entrepreneurship_statements_count > 0").map(&:twitter)
-    end
+  def agreelist_users
+    Individual.where("twitter is not null and twitter != ''").pluck(:twitter)
   end
 end

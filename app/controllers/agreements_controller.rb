@@ -58,8 +58,8 @@ class AgreementsController < ApplicationController
 
   def find_or_create_voter!
     Voter.new(
-      name: twitter ? nil : params[:name],
-      twitter: twitter.try(:downcase),
+      name: twitter ? nil : params[:name].try(:strip),
+      twitter: twitter.try(:downcase).try(:strip),
       profession_id: params[:profession_id],
       current_user: current_user,
       wikipedia: params[:wikipedia],

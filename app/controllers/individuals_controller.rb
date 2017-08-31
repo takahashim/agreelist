@@ -41,7 +41,6 @@ class IndividualsController < ApplicationController
     if @individual
       @school_list = @individual.school_list
       @occupation_list = @individual.occupation_list
-      # @agreements = @individual.agreements.sort_by{|a| - a.statement.agreements.where("reason is not null and reason != ''").size}
       @agreements = @individual.agreements.order(opinions_count: :desc)
     else
       render action: "missing"

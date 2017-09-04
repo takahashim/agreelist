@@ -7,6 +7,7 @@ class AgreementsController < ApplicationController
 
   def new
     @statement = Statement.find_by_hashed_id(params[:s].gsub(/.*-/, ''))
+    @shortened_url_without_params = Rails.env.test? ? request.url : Shortener.new(full_url: request.base_url + statement_path(@statement), object: @statement).get
     if session[:added_voter].present?
       @just_added_voter = Individual.find_by_hashed_id(session[:added_voter])
     end

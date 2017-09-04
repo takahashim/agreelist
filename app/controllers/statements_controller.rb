@@ -74,9 +74,6 @@ class StatementsController < ApplicationController
     @categories = ReasonCategory.all
     @professions = Profession.all
     @admin = admin?
-    if session[:added_voter].present?
-      @just_added_voter = Individual.find_by_hashed_id(session[:added_voter])
-    end
     @shortened_url_without_params = Rails.env.test? ? request.url : Shortener.new(full_url: request.base_url + request.path, object: @statement).get
 
     respond_to do |format|

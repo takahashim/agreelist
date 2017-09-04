@@ -26,6 +26,7 @@ feature 'statement' do
 
   scenario "button donate should go and fill form" do
     visit statement_path(@statement)
+    click_link "add more?"
     click_link "donate $100 and we'll find 50 influencers"
     expect(page).to have_selector("input[value='Help me to find influencers']")
     expect(page).to have_content("I'd like to donate $100 so you can help me to find 50 influencers for the topic or statement: #{@statement.content}")

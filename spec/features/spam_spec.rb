@@ -7,6 +7,7 @@ feature 'spam filter' do
   scenario 'should filter names without surname' do
     # real people have name and surname separated by a space
     visit statement_path(statement)
+    click_link "add more?"
     fill_in 'name', with: "Spammer"
     click_button "She/he agrees"
     expect(page).to have_text "Your message has to be approved because it seemed spam."

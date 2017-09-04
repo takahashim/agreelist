@@ -1,7 +1,7 @@
 .text-center
   %span.alert.alert-warning
     Biased? Please help us
-    = link_to "adding more opinions", "#gather", class: "underline"
+    = link_to "adding more opinions", new_agreement_path(s: @statement.to_param), class: "underline"
   - if @statement.content.size < 100
     %h1
       = render partial: "content"
@@ -23,7 +23,7 @@
     Opinions from
     = pluralize(@agreements_count, params["occupation"] || "influencer")
   = succeed ")" do
-    = succeed link_to "add more?", "#gather", class: "underline" do
+    = succeed link_to "add more?", new_agreement_path(s: @statement.to_param), class: "underline" do
       = "("
   of which:
   %br

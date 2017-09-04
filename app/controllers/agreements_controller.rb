@@ -2,8 +2,24 @@ class AgreementsController < ApplicationController
   before_action :admin_required, only: [:destroy, :touch]
   before_action :find_agreement, only: [:upvote, :update, :touch, :destroy]
   before_action :set_back_url_to_current_page, only: :show
-  before_action :check_if_spam, only: :add_supporter
-  before_action :find_statement, only: :add_supporter
+  before_action :check_if_spam, only: :create
+  before_action :find_statement, only: :create
+
+  def new
+    @statement = Statement.find_by_hashed_id(params[:s].gsub(/.*-/, ''))
+    if session[:added_voter].present?
+      @just_added_voter = Individual.find_by_hashed_id(session[:added_voter])
+    end
+  end
+
+  def create
+    voter = find_or_create_voter!
+    LogMailer.log_email("@#{current_user.try(:twitter)}, email: #{params[:email]}, ip: #{request.remote_ip} added #{voter.name} (@#{voter.try(:twitter)}) to '#{@statement.content}'").deliver
+    cast_vote(voter)
+    expire_fragment "brexit_board" if @statement.brexit?
+    session[:added_voter] = voter.hashed_id if voter.twitter.present?
+    redirect_to new_agreement_path(s: @statement.to_param), notice: "The opinion has been added"
+  end
 
   def upvote
     if upvote = Upvote.where(agreement: @agreement, individual: current_user).first
@@ -38,15 +54,6 @@ class AgreementsController < ApplicationController
     statement = @agreement.statement
     @agreement.destroy
     redirect_to(get_and_delete_back_url || statement_path(statement))
-  end
-
-  def add_supporter
-    voter = find_or_create_voter!
-    LogMailer.log_email("@#{current_user.try(:twitter)}, email: #{params[:email]}, ip: #{request.remote_ip} added #{voter.name} (@#{voter.try(:twitter)}) to '#{@statement.content}'").deliver
-    cast_vote(voter)
-    expire_fragment "brexit_board" if @statement.brexit?
-    session[:added_voter] = voter.hashed_id if voter.twitter.present?
-    redirect_to back_url_with_no_parameters || statement_path(@statement), notice: "Done"
   end
 
   def show

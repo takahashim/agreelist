@@ -51,7 +51,7 @@ Al::Application.routes.draw do
   get "/signout" => "sessions#destroy", as: :signout
   resources :reset_password, only: [:new, :create, :edit, :update]
   resources :sessions, only: :create
-  resources :agreements, path: "a", only: [:show, :destroy, :update] do
+  resources :agreements, path: "a", only: [:new, :show, :create, :update, :destroy] do
     member do
       post 'upvote'
     end

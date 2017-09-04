@@ -4,7 +4,10 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if individual.try(:authenticate, params[:password])
+    if params[:password].blank? && individual.password_digest.blank?
+      ResetPassword.new(individual).reset!
+      redirect_to login_path, notice: "Email sent with instructions to set your password - as you have never set it"
+    elsif individual.try(:authenticate, params[:password])
       session[:user_id] = individual.id
       if params["task"] == "upvote"
         upvote(redirect_to: get_and_delete_back_url, agreement_id: params[:agreement_id])

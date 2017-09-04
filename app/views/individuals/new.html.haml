@@ -6,13 +6,8 @@
     = link_to image_tag("twitter-login.png"), "/auth/twitter", id: "twitter-login"
   %p
     = radio_button_tag :login_with, "email"
-    = "No, log in with my email account:"
+    = "No, log in with your email account:"
   = form_for @individual do |f|
-    - if @individual.errors.any?
-      .error_messages
-      %ul
-        - for message in @individual.errors.full_messages
-          %li= message
     .field
       = f.label :email
       = f.text_field :email, class: "form-control"

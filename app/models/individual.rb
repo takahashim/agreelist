@@ -26,7 +26,6 @@ class Individual < ActiveRecord::Base
   validates_confirmation_of :password, if: :password_is_present?
   validates :password, length: { minimum: 6, if: :password_is_present? }
 
-  validates_presence_of :password, on: :create, if: :is_user
   validates_presence_of :email, on: :create, if: :is_user
   validates_uniqueness_of :email, if: :is_user
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, if: :is_user

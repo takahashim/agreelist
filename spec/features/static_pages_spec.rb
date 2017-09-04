@@ -26,14 +26,12 @@ describe do
         first(:link, "Contact").click
         fill_in :name, with: "Hector"
         fill_in :email, with: "my@email.com"
-        fill_in :phone, with: "000"
-        fill_in :subject, with: "subj"
         fill_in :body, with: "body body body"
         click_button "Send"
         email = ActionMailer::Base.deliveries.last
         expect(email.to).to eq ["hi@hectorperezarenas.com"]
-        expect(email.subject).to eq "subj"
-        expect(email.body.raw_source).to eq "body body body\n\nDetails from sender:\nName: Hector\nEmail: my@email.com\nPhone: 000\n"
+        expect(email.subject).to eq "contact form"
+        expect(email.body.raw_source).to eq "body body body\n\nDetails from sender:\nName: Hector\nEmail: my@email.com\n"
       end
     end
 
@@ -44,14 +42,12 @@ describe do
         first(:link, "Contact").click
         fill_in :name, with: "Hector"
         fill_in :email, with: "my@email.com"
-        fill_in :phone, with: "000"
-        fill_in :subject, with: "subj"
         fill_in :body, with: "body body body"
         click_button "Send"
         email = ActionMailer::Base.deliveries.last
         expect(email.to).to eq ["hi@hectorperezarenas.com"]
-        expect(email.subject).to eq "subj"
-        expect(email.body.raw_source).to eq "body body body\n\nDetails from sender:\nName: Hector\nEmail: my@email.com\nPhone: 000\nUser logged in as:\nHector Perez\n@arpahector\nhecpeare@gmail.com\n"
+        expect(email.subject).to eq "contact form"
+        expect(email.body.raw_source).to eq "body body body\n\nDetails from sender:\nName: Hector\nEmail: my@email.com\nUser logged in as:\nHector Perez\n@arpahector\nhecpeare@gmail.com\n"
       end
     end
   end

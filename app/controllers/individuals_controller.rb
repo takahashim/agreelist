@@ -12,13 +12,13 @@ class IndividualsController < ApplicationController
   def create
     @individual = Individual.new(params.require(:individual).permit(:email, :password, :password_confirmation, :is_user))
     if @individual.save
+      LogMailer.log_email("#{@individual.name} (#{@individual.email}) just #{params[:subscribed] ? 'subscribed' : 'signed up'}").deliver
       @individual.send_activation_email
       session[:user_id] = @individual.id
       if params[:task] == "follow"
         statement_to_follow = Statement.find(params[:statement_id])
         @individual.follow(statement_to_follow)
       end
-      LogMailer.log_email("#{@individual.name} (#{@individual.email}) just #{params[:subscribed] ? 'subscribed' : 'signed up'}").deliver
       if params[:task] == "upvote" || params[:individual].try(:[], :task) == "upvote"
         upvote(redirect_to: edit_individual_path(@individual), agreement_id: params[:agreement_id] || params[:individual].try(:[], :agreement_id))
       else
@@ -34,8 +34,7 @@ class IndividualsController < ApplicationController
     @individual = Individual.find_by_activation_digest(params[:id])
     if @individual
       @individual.activate
-      flash[:notice] = "Your account has been activated"
-      redirect_to root_path
+      redirect_to root_path, notice: "Your account has been activated"
     else
       flash[:notice] = "Error activating your account"
       redirect_to current_user ? root_path : login_path

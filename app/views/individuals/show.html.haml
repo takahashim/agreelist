@@ -62,7 +62,7 @@
       .form-group
         %h3.text-center
           Write an opinion from
-          = @individual.name
+          = @individual.name || @individual.to_param
         .col-sm-1
         .col-sm-10
           %p= text_field_tag :content, "", placeholder: "Topic or statement agreed or disagreed by #{@individual.visible_name}", class: "form-control"

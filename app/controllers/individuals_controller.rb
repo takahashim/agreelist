@@ -14,10 +14,14 @@ class IndividualsController < ApplicationController
     if @individual.save
       @individual.send_activation_email
       session[:user_id] = @individual.id
+      if params[:task] == "follow"
+        statement_to_follow = Statement.find(params[:statement_id])
+        @individual.follow(statement_to_follow)
+      end
       if params[:task] == "upvote" || params[:individual].try(:[], :task) == "upvote"
         upvote(redirect_to: edit_individual_path(@individual), agreement_id: params[:agreement_id] || params[:individual].try(:[], :agreement_id))
       else
-        redirect_to edit_individual_path(@individual)
+        redirect_to edit_individual_path(@individual), notice: (params[:subscribed] ? "Subscribed" : nil)
       end
     else
       flash[:error] = @individual.errors.full_messages.join(". ")
@@ -52,15 +56,14 @@ class IndividualsController < ApplicationController
 
   def update
     params[:individual][:name] = nil if params[:individual][:name] == ""
-    if admin?
-      result = @individual.update_attributes(params.require(:individual).permit(:name, :twitter, :email, :bio, :picture_from_url, :ranking, :profession_id, :wikipedia))
-    else
-      result = @individual.update_attributes(params.require(:individual).permit(:name, :bio, :picture_from_url, :profession_id, :wikipedia))
-    end
+    whitelisted_params = [:name, :bio, :picture_from_url, :profession_id, :wikipedia]
+    whitelisted_params = whitelisted_params + [:twitter, :email, :ranking] if admin?
+    whitelisted_params = whitelisted_params + [:password, :password_confirmation] if @individual.password_digest.blank? && @individual == current_user
+    result = @individual.update_attributes(params.require(:individual).permit(*whitelisted_params))
     if result
       respond_to do |format|
         format.json { render status: 200, json: @individual }
-        format.html { redirect_to(get_and_delete_back_url || individual_path(@individual), notice: 'Successfully updated.') }
+        format.html { redirect_to(get_and_delete_back_url || root_path, notice: 'Successfully updated.') }
       end
     else
       render action: "edit"

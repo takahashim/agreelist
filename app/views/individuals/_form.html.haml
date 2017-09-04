@@ -60,6 +60,18 @@
         = f.label :picture_url
       .col-sm-8
         = f.text_field :picture_from_url, class: "form-control"
+    - if @individual == current_user && current_user.password_digest.blank?
+      .row
+        .col-sm-2
+          = f.label :password
+        .col-sm-8
+          = f.password_field :password, class: "form-control"
+      .row
+        .col-sm-2
+          = f.label :password_confirmation
+        .col-sm-8
+          = f.password_field :password_confirmation, class: "form-control"
     .text-center
       = f.submit "Continue", class: "btn btn-primary"
-
+      or
+      = link_to "skip", root_path

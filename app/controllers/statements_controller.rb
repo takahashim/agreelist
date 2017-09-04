@@ -76,6 +76,8 @@ class StatementsController < ApplicationController
     @admin = admin?
     @shortened_url_without_params = Rails.env.test? ? request.url : Shortener.new(full_url: request.base_url + request.path, object: @statement).get
 
+    @new_user = Individual.new unless current_user
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @statement }

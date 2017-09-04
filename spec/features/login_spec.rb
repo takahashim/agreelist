@@ -14,6 +14,18 @@ feature 'signup' do
     expect(page).to have_content("Sign Out")
   end
 
+  scenario 'should log in with twitter from login page' do
+    visit '/login'
+    click_link "twitter-login"
+    expect(page).to have_content("Sign Out")
+  end
+
+  scenario 'should log in with twitter from home page' do
+    visit '/'
+    click_link "twitter-login"
+    expect(page).to have_content("Sign Out")
+  end
+
   def seed_data
     create(:agreement, statement: create(:statement), individual: create(:individual), extent: 100)
   end

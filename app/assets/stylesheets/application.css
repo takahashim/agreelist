@@ -274,3 +274,9 @@ span.medium{
 .tag-page_title{
   padding: 5px;
 }
+
+@media screen and (max-width: 767px){
+  .sign_in{
+    padding-top: 25px;
+  }
+}

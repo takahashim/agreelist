@@ -18,6 +18,7 @@ class IndividualsController < ApplicationController
         statement_to_follow = Statement.find(params[:statement_id])
         @individual.follow(statement_to_follow)
       end
+      LogMailer.log_email("#{@individual.name} (#{@individual.email}) just #{params[:subscribed] ? 'subscribed' : 'signed up'}").deliver
       if params[:task] == "upvote" || params[:individual].try(:[], :task) == "upvote"
         upvote(redirect_to: edit_individual_path(@individual), agreement_id: params[:agreement_id] || params[:individual].try(:[], :agreement_id))
       else

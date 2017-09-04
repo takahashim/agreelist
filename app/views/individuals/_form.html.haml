@@ -29,11 +29,13 @@
           = f.label "Bio link (when no Wikipedia page)"
         .col-sm-8
           = f.text_field :bio_link, class: "form-control"
+    - if admin? || (current_user == @individual && (current_user.twitter.blank? || current_user.twitter == ''))
       .row
         .col-sm-2
           = f.label :twitter
         .col-sm-8
           = f.text_field :twitter, class: "form-control"
+    - if admin?
       .row
         .col-sm-2
           = f.label :twitter_description

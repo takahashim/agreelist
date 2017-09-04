@@ -52,21 +52,26 @@ class IndividualsController < ApplicationController
   end
 
   def edit
+    redirect_to root_path, notice: "Sorry, you don't have access to this" if !admin? && @individual != current_user
   end
 
   def update
-    params[:individual][:name] = nil if params[:individual][:name] == ""
-    whitelisted_params = [:name, :bio, :picture_from_url, :profession_id, :wikipedia]
-    whitelisted_params = whitelisted_params + [:twitter, :email, :ranking] if admin?
-    whitelisted_params = whitelisted_params + [:password, :password_confirmation] if @individual.password_digest.blank? && @individual == current_user
-    result = @individual.update_attributes(params.require(:individual).permit(*whitelisted_params))
-    if result
-      respond_to do |format|
-        format.json { render status: 200, json: @individual }
-        format.html { redirect_to(get_and_delete_back_url || root_path, notice: 'Successfully updated.') }
+    if @individual == current_user || admin?
+      params[:individual][:name] = nil if params[:individual][:name] == ""
+      whitelisted_params = [:name, :bio, :picture_from_url, :profession_id, :wikipedia]
+      whitelisted_params = whitelisted_params + [:twitter, :email, :ranking] if admin?
+      whitelisted_params = whitelisted_params + [:password, :password_confirmation] if @individual.password_digest.blank? && @individual == current_user
+      result = @individual.update_attributes(params.require(:individual).permit(*whitelisted_params))
+      if result
+        respond_to do |format|
+          format.json { render status: 200, json: @individual }
+          format.html { redirect_to(get_and_delete_back_url || root_path, notice: 'Successfully updated.') }
+        end
+      else
+        render action: "edit"
       end
     else
-      render action: "edit"
+      redirect_to root_path, notice: "Sorry, you don't have access to this"
     end
   end
 

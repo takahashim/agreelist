@@ -1,5 +1,5 @@
 class IndividualsController < ApplicationController
-  before_action :login_required, only: [:update, :save_email]
+  before_action :login_required, only: [:edit, :update, :save_email]
   before_action :load_individual, except: [:save_email, :new, :create]
   before_action :has_update_individual_rights?, only: :update
   before_action :set_back_url_to_current_page, only: :show, if: :individual?

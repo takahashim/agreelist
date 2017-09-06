@@ -46,5 +46,7 @@
           = link_to "bio", agreement.individual.bio_link, target: :_blank
         - if admin?
           ·
+          = link_to "promote", touch_path(agreement), method: :post
+          ·
           = link_to("delete", agreement, method: :delete, data: { confirm: "You sure?" })
         = render partial: "reason_category_select", locals: { agreement: agreement } if board?

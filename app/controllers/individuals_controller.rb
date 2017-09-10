@@ -45,7 +45,7 @@ class IndividualsController < ApplicationController
     if @individual
       @school_list = @individual.school_list
       @occupation_list = @individual.occupation_list
-      @agreements = @individual.agreements.order(opinions_count: :desc)
+      @agreements = @individual.agreements.joins(:statement).order("statements.opinions_count desc")
     else
       render action: "missing"
     end

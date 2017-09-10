@@ -5,9 +5,9 @@ describe do
     seed_data
   end
 
-  feature "about" do
+  feature "contact" do
     scenario "should have the contact email" do
-      visit "/about"
+      visit "/contact"
       expect(page).to have_text("hello@agreelist.org")
     end
   end

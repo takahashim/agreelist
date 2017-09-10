@@ -3,4 +3,8 @@ Hi,
 Action:
 <%= @text %>
 
+<% @params.each do |k,v| %>
+<%= "#{k}: #{v}" %>
+<% end %>
+
 The AgreeList Team

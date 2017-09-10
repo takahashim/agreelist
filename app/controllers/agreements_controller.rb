@@ -15,8 +15,8 @@ class AgreementsController < ApplicationController
 
   def create
     voter = find_or_create_voter!
-    LogMailer.log_email("@#{current_user.try(:twitter)}, email: #{params[:email]}, ip: #{request.remote_ip} added #{voter.name} (@#{voter.try(:twitter)}) to '#{@statement.content}'").deliver
-    cast_vote(voter)
+    agreement = cast_vote(voter)
+    LogMailer.log_email("@#{current_user.try(:twitter)}, email: #{params[:email]}, ip: #{request.remote_ip} added #{voter.name} (@#{voter.try(:twitter)}) to '#{@statement.content}'", params).deliver
     expire_fragment "brexit_board" if @statement.brexit?
     session[:added_voter] = voter.hashed_id if voter.twitter.present?
     redirect_to new_agreement_path(s: @statement.to_param), notice: "The opinion has been added"
@@ -54,6 +54,7 @@ class AgreementsController < ApplicationController
   def destroy
     statement = @agreement.statement
     @agreement.destroy
+    # OpinionsCounter.new(statement: statement)).decrease_by_one
     redirect_to(get_and_delete_back_url || statement_path(statement))
   end
 

@@ -2,7 +2,6 @@ class StatementsController < ApplicationController
   before_action :login_required, only: [:index, :new, :create, :create_and_vote]
   before_action :admin_required, only: [:edit, :update, :destroy]
   before_action :find_statement, only: [:show, :destroy, :update, :edit, :occupations, :educated_at]
-  before_action :find_statement_from_hashed_id, only: :title_and_hashed_id
   before_action :find_related_statements, only: :show
   before_action :set_percentage_and_count, only: [:show, :occupations, :educated_at]
   before_action :redirect_to_statement_url, only: :show
@@ -58,9 +57,14 @@ class StatementsController < ApplicationController
     end
   end
 
-  def title_and_hashed_id
-    statement = Statement.find_by_hashed_id(params[:id].split("-").last)
-    redirect_to statement_path(statement)
+  def deprecated_show
+    hashed_id = params[:title_and_hashed_id].split("-").last
+    statement = Statement.find_by_hashed_id(hashed_id)
+    if statement
+      redirect_to statement_path(statement)
+    else
+      redirect_to root_path, notice: "Page not found"
+    end
   end
 
   # GET /statements/1
@@ -158,7 +162,7 @@ class StatementsController < ApplicationController
 
   def find_statement
     url = params[:id]
-    @statement = Statement.where(url: url).first || OldStatementUrl.where(url: url).first.try(:statement) || redirect_to(root_path, notice: "page not found")
+    @statement = Statement.where(url: url).first || OldStatementUrl.where(url: url).first.try(:statement) || redirect_to(root_path, notice: "Page not found")
   end
 
   def redirect_to_statement_url

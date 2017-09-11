@@ -6,7 +6,7 @@ Al::Application.routes.draw do
   get "/boards/brexit" => redirect("/brexit")
   post '/results' => 'home#save_email'
   get "/all" => 'statements#index', as: :all
-  get "/s/:title_and_hashed_id" => "statements#title_and_hashed_id" # deprecated
+  get "/s/:title_and_hashed_id" => "statements#deprecated_show" # deprecated
   resources :statements, path: "a" do
     collection do
       post 'create_and_vote'

@@ -11,7 +11,7 @@
           = hidden_field :back, params[:back]
           = f.submit "Next", class: "btn btn-primary"
           or
-          = link_to "skip", params[:back] ? Statement.find_by_hashed_id(params[:back]) : "/"
+          = link_to "skip", root_path
         .col-sm-2
         %br
         %br

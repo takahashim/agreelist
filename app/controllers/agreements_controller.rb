@@ -6,7 +6,7 @@ class AgreementsController < ApplicationController
   before_action :find_statement, only: :create
 
   def new
-    @statement = Statement.find_by_hashed_id(params[:s].gsub(/.*-/, ''))
+    @statement = Statement.where(url: params[:s]).first
     @shortened_url_without_params = Rails.env.test? ? request.url : Shortener.new(full_url: request.base_url + statement_path(@statement), object: @statement).get
     if session[:added_voter].present?
       @just_added_voter = Individual.find_by_hashed_id(session[:added_voter])
@@ -37,7 +37,7 @@ class AgreementsController < ApplicationController
 
   def update
     if @agreement.individual == current_user || admin?
-      @agreement.update_attributes(params[:agreement].permit(:reason, :url, :reason_category_id ))
+      @agreement.update_attributes(params[:agreement].permit(:reason, :url, :hashed_id, :reason_category_id ))
       respond_to do |format|
         format.html { redirect_to(get_and_delete_back_url || statement_path(@agreement.statement)) }
         format.js { render json: @agreement.to_json, status: :ok }

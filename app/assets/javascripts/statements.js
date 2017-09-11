@@ -16,7 +16,7 @@ function statements_observers() {
     $.ajax({
       type : 'PUT',
       async : false,
-      url : "/a/" + agreement_hashed_id,
+      url : "/ag/" + agreement_hashed_id,
       data : data_form.serialize(),
       dataType: "json",
       contentType : "application/x-www-form-urlencoded;charset=utf-8"

@@ -2,6 +2,7 @@ class StatementsController < ApplicationController
   before_action :login_required, only: [:index, :new, :create, :create_and_vote]
   before_action :admin_required, only: [:edit, :update, :destroy]
   before_action :find_statement, only: [:show, :destroy, :update, :edit, :occupations, :educated_at]
+  before_action :find_statement_from_hashed_id, only: :title_and_hashed_id
   before_action :find_related_statements, only: :show
   before_action :set_percentage_and_count, only: [:show, :occupations, :educated_at]
   before_action :redirect_to_statement_url, only: :show
@@ -48,13 +49,18 @@ class StatementsController < ApplicationController
   # GET /statements
   # GET /statements.json
   def index
-    @statements = Statement.select("statements.id, statements.content, statements.hashed_id, count(agreements.id) as agreements_count").where("agreements.reason is not null and agreements.reason != ''").joins("left join agreements on statements.id=agreements.statement_id").group("statements.id").order("agreements_count DESC, statements.created_at ASC")
-    @statements = @statements + Statement.select("id, content, hashed_id, 0 as agreements_count").where("id not in (select distinct statement_id from agreements)")
+    @statements = Statement.select("statements.id, statements.content, statements.url, count(agreements.id) as agreements_count").where("agreements.reason is not null and agreements.reason != ''").joins("left join agreements on statements.id=agreements.statement_id").group("statements.id").order("agreements_count DESC, statements.created_at ASC")
+    @statements = @statements + Statement.select("id, content, url, 0 as agreements_count").where("id not in (select distinct statement_id from agreements)")
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @statements }
     end
+  end
+
+  def title_and_hashed_id
+    statement = Statement.find_by_hashed_id(params[:id].split("-").last)
+    redirect_to statement_path(statement)
   end
 
   # GET /statements/1
@@ -117,7 +123,7 @@ class StatementsController < ApplicationController
   # PUT /statements/1.json
   def update
     respond_to do |format|
-      if @statement.update_attributes(params.require(:statement).permit(:content, :tag_list))
+      if @statement.update_attributes(params.require(:statement).permit(:content, :url, :tag_list))
         format.html { redirect_to(get_and_delete_back_url || statements_path, notice: 'Statement was successfully updated.') }
         format.json { head :no_content }
       else
@@ -151,7 +157,8 @@ class StatementsController < ApplicationController
   private
 
   def find_statement
-    @statement = Statement.find_by_hashed_id(params[:id].split("-").last)
+    url = params[:id]
+    @statement = Statement.where(url: url).first || OldStatementUrl.where(url: url).first.try(:statement) || redirect_to(root_path, notice: "page not found")
   end
 
   def redirect_to_statement_url

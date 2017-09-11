@@ -58,7 +58,7 @@
           = render partial: "common/reason", locals: { agreement: agreement }
 
   - if current_user
-    = form_tag("/s/create_and_vote", class: "form-horizontal") do |f|
+    = form_tag(create_and_vote_statements_path, class: "form-horizontal") do |f|
       .form-group
         %h3.text-center
           Write an opinion from

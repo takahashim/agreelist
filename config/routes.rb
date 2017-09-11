@@ -6,7 +6,8 @@ Al::Application.routes.draw do
   get "/boards/brexit" => redirect("/brexit")
   post '/results' => 'home#save_email'
   get "/all" => 'statements#index', as: :all
-  resources :statements, path: "s" do
+  get "/s/:title_and_hashed_id" => "statements#title_and_hashed_id" # deprecated
+  resources :statements, path: "a" do
     collection do
       post 'create_and_vote'
     end
@@ -51,7 +52,7 @@ Al::Application.routes.draw do
   get "/signout" => "sessions#destroy", as: :signout
   resources :reset_password, only: [:new, :create, :edit, :update]
   resources :sessions, only: :create
-  resources :agreements, path: "a", only: [:new, :show, :create, :update, :destroy] do
+  resources :agreements, path: "ag", only: [:new, :show, :create, :update, :destroy] do
     member do
       post 'upvote'
     end

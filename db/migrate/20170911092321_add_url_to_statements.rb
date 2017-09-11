@@ -3,8 +3,7 @@ class AddUrlToStatements < ActiveRecord::Migration[5.1]
     add_column :statements, :url, :string
 
     Statement.all.each do |s|
-      s.generate_url
-      s.save
+      s.update_columns(url: s.generate_url)
     end
   end
 

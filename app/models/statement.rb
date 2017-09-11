@@ -10,7 +10,7 @@ class Statement < ActiveRecord::Base
 
   validates :content, presence: true, length: { maximum: MAXIMUM_LENGTH }
   before_create :generate_hashed_id, :set_none_tag
-  before_create :generate_url, if: :blank_url?
+  before_create :set_url, if: :blank_url?
   before_update :store_old_url_if_changed
 
   def to_s
@@ -59,8 +59,12 @@ class Statement < ActiveRecord::Base
     id == 7
   end
 
+  def set_url
+    self.url = generate_url
+  end
+
   def generate_url
-    self.url = content.split(" ")[0..7].join("_").gsub(/[^0-9a-z_]/i, '').downcase
+    content.split(" ")[0..9].join("_").gsub(/[^0-9a-z_]/i, '').downcase
   end
 
   private

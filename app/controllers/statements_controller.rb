@@ -89,8 +89,10 @@ class StatementsController < ApplicationController
 
     @new_user = Individual.new unless current_user
 
-    @occupations_count = OccupationsTable.new(statement: @statement, min_count: 1).table[0..6]
-    @schools_count = SchoolsTable.new(statement: @statement, min_count: 1).table[0..6]
+    @occupations_count = OccupationsCache.new(statement: @statement, min_count: 1).read[0..6]
+    @schools_count = SchoolsCache.new(statement: @statement, min_count: 1).read[0..6]
+
+    @occupations_cache = OccupationsCache.new(statement: @statement).read
 
     respond_to do |format|
       format.html # show.html.erb

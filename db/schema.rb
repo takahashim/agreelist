@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170911095603) do
+ActiveRecord::Schema.define(version: 20170912165023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -138,7 +138,6 @@ ActiveRecord::Schema.define(version: 20170911095603) do
     t.integer "agree_counter", default: 0
     t.integer "disagree_counter", default: 0
     t.integer "individual_id"
-    t.json "occupations_cache"
     t.integer "opinions_count", default: 0
     t.string "url"
     t.index ["hashed_id"], name: "index_statements_on_hashed_id"

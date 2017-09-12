@@ -1,0 +1,9 @@
+<script type="text/javascript">
+  google.load("visualization", "1", {packages:["corechart"]});
+  google.setOnLoadCallback(drawSchoolsChart);
+  var schools = [];
+  schools[0] = ['School', 'link', 'Number'];
+  <% @schools_count.each_with_index do |school, index| %>
+    schools[<%= index + 1 %>] = ['<%= school[:name].titleize %>', '<%= statement_path(@statement, educated_at: school[:name]) %>', <%= school[:count] %>];
+  <% end %>
+</script>

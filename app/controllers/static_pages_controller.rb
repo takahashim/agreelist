@@ -6,6 +6,7 @@ class StaticPagesController < ApplicationController
     @statement = Statement.find(177)
     @min_count = (params[:min] || 1).to_i
     @occupations_count = OccupationsTable.new(statement: @statement, min_count: @min_count).table[0..6]
+    @schools_count = SchoolsTable.new(statement: @statement, min_count: @min_count).table[0..6]
   end
 
   def contact

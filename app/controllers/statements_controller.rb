@@ -89,6 +89,9 @@ class StatementsController < ApplicationController
 
     @new_user = Individual.new unless current_user
 
+    @occupations_count = OccupationsTable.new(statement: @statement, min_count: 1).table[0..6]
+    @schools_count = SchoolsTable.new(statement: @statement, min_count: 1).table[0..6]
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @statement }

@@ -20,7 +20,7 @@ class TagsCache
   def self.update_all
     Statement.all.each do |statement|
       Rails.logger.debug("updating #{tag_name} cache for statement #{statement.id}")
-      new(statement: statement).update
+      new(statement: statement).read
     end
   end
 

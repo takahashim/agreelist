@@ -64,7 +64,7 @@ class Statement < ActiveRecord::Base
   end
 
   def generate_url
-    content.split(" ")[0..9].join("-").gsub(/[^0-9a-z_]/i, '').downcase
+    content.split(" ")[0..9].join("-").gsub(/[^0-9a-z-]/i, '').downcase
   end
 
   private

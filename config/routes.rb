@@ -1,6 +1,7 @@
 Al::Application.routes.draw do
 
   root to: "new#index"
+  get "/h", to: "static_pages#h"
   get "/new", to: "new#index", as: :new
   get "/brexit", to: "boards#brexit", as: :brexit_board
   get "/boards/brexit" => redirect("/brexit")

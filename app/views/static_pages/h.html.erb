@@ -1,0 +1,12 @@
+Number of opinions by occupation
+<div id="chart_div" style="width: 500px; height: 400px;"></div>
+
+<script type="text/javascript">
+  google.load("visualization", "1", {packages:["corechart"]});
+  google.setOnLoadCallback(drawChart);
+  var occupations = [];
+  occupations[0] = ['Occupation', 'link', 'Number'];
+  <% @occupations_count.each_with_index do |occupation, index| %>
+    occupations[<%= index + 1 %>] = ['<%= occupation[:name].titleize %>', '<%= statement_path(@statement, occupation: occupation[:name]) %>', <%= occupation[:count] %>];
+  <% end %>
+</script>

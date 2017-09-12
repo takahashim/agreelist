@@ -1,6 +1,13 @@
 class StaticPagesController < ApplicationController
   before_action :set_back_url_to_current_page, only: [:about]
   before_action :statements_to_vote, only: :advice_for_entrepreneurs
+
+  def h
+    @statement = Statement.find(177)
+    @min_count = (params[:min] || 1).to_i
+    @occupations_count = OccupationsTable.new(statement: @statement, min_count: @min_count).table[0..6]
+  end
+
   def contact
     if current_user && params[:body] =~ /donate\ \$100/
       LogMailer.log_email("user: #{current_user.name} (#{current_user.email}) clicked on Donate on the statement #{params['statement']}; ip: #{request.remote_ip}").deliver

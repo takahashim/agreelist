@@ -92,6 +92,8 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    chart (0.1.4.9)
+      rails
     climate_control (0.2.0)
     cliver (0.3.2)
     cocaine (0.5.8)
@@ -376,6 +378,7 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass
   capybara
+  chart
   coffee-rails
   database_cleaner
   factory_girl_rails

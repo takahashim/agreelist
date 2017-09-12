@@ -10,6 +10,8 @@ class Statement < ActiveRecord::Base
 
   validates :content, presence: true, length: { maximum: MAXIMUM_LENGTH }
   before_create :generate_hashed_id, :set_none_tag
+  before_create :set_url, if: :blank_url?
+  before_update :store_old_url_if_changed
 
   def to_s
     content
@@ -34,7 +36,7 @@ class Statement < ActiveRecord::Base
   end
 
   def to_param
-    "#{content[0..30].parameterize}-#{hashed_id}"
+    self.url
   end
 
   def shortened_content(limit)
@@ -55,6 +57,14 @@ class Statement < ActiveRecord::Base
 
   def brexit?
     id == 7
+  end
+
+  def set_url
+    self.url = generate_url
+  end
+
+  def generate_url
+    content.split(" ")[0..9].join("-").gsub(/[^0-9a-z_]/i, '').downcase
   end
 
   private
@@ -123,5 +133,28 @@ class Statement < ActiveRecord::Base
 
   def set_none_tag
     self.tag_list.add("none") unless self.tag_list.any?
+  end
+
+  def blank_url?
+    self.url.blank?
+  end
+
+  def store_old_url_if_changed
+    if self.url_changed?
+      old_url, new_url = self.changes[:url]
+      store_old_url(old_url)
+      rm_new_url_from_old_urls_if_it_was_there(new_url)
+    end
+  end
+
+  def store_old_url(original_url)
+    OldStatementUrl.create(statement_id: self.id, url: original_url) unless OldStatementUrl.exists?(statement_id: self.id, url: original_url)
+  end
+
+  def rm_new_url_from_old_urls_if_it_was_there(new_url)
+    if OldStatementUrl.exists?(url: new_url, statement_id: self.id)
+      old = OldStatementUrl.where(url: new_url, statement_id: self.id).first
+      old.destroy
+    end
   end
 end

@@ -7,9 +7,14 @@
       - @statement.errors.full_messages.each do |msg|
         %li= msg
   .field
+    Title
     = f.text_field :content, class: "form-control"
   .field
     Tags (comma separated):
     = f.text_field :tag_list, class: "form-control"
+  URL (avoid to change this because external links might break):
+  .field
+    agreelist.org/a/
+    = f.text_field :url, class: "form-control"
   .actions
     = f.submit "Update", class: "btn btn-primary"

@@ -40,4 +40,5 @@ class @GoogleAnalytics
     # your google analytics ID(s) here...
     'UA-62041272-1'
 
-GoogleAnalytics.load()
+if window.location.host != 'localhost'
+  GoogleAnalytics.load()

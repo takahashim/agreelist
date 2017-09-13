@@ -7,10 +7,11 @@ class SchoolsController < ApplicationController
   end
 
   def show
-    @school = params[:id].gsub("_", " ")
+    @school = params[:id].gsub("-", " ")
     @agreements = Agreement.
       joins("left join taggings on taggings.taggable_id=agreements.individual_id left join tags on tags.id=taggings.tag_id").
-      where(taggings: {taggable_type: "Individual", context: "schools"}, tags: {name: @school}).
+      where(taggings: {taggable_type: "Individual", context: "schools"}).
+      where("lower(tags.name) = ?", @school).
       order("case when agreements.reason != '' AND agreements.reason is not null THEN 1 END ASC,
              case when agreements.reason is null THEN 0 END ASC").
       order(updated_at: :desc).

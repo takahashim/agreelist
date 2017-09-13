@@ -7,10 +7,11 @@ class OccupationsController < ApplicationController
   end
 
   def show
-    @occupation = params[:id].gsub("_", " ")
+    @occupation = params[:id].gsub("-", " ")
     @agreements = Agreement.
       joins("left join taggings on taggings.taggable_id=agreements.individual_id left join tags on tags.id=taggings.tag_id").
-      where(taggings: {taggable_type: "Individual", context: "occupations"}, tags: {name: @occupation}).
+      where(taggings: {taggable_type: "Individual", context: "occupations"}).
+      where("lower(tags.name) = ?", @occupation).
       order("case when agreements.reason != '' AND agreements.reason is not null THEN 1 END ASC,
              case when agreements.reason is null THEN 0 END ASC").
       order(updated_at: :desc).

@@ -9,7 +9,7 @@
     <% if @statement.present? && @statement.persisted? %>
       <% link = statement_path(@statement, educated_at: name) %>
     <% else %>
-      <% link = "/schools/#{name.gsub(" ", "_")}" %>
+      <% link = school_tag_path(name) %>
     <% end %>
     schools[<%= index + 1 %>] = ['<%= name.titleize %>', '<%= link %>', <%= count %>];
   <% end %>

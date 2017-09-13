@@ -9,7 +9,7 @@
     <% if @statement.present? && @statement.persisted? %>
       <% link = statement_path(@statement, occupation: name) %>
     <% else %>
-      <% link = "/occupations/#{name.gsub(" ", "_")}" %>
+      <% link = occupation_tag_path(name) %>
     <% end %>
     occupations[<%= index + 1 %>] = ['<%= name.titleize %>', '<%= link %>', <%= count %>];
   <% end %>

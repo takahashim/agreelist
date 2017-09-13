@@ -20,6 +20,7 @@ feature "follow_individual", js: true do
   end
 
   def login
+    visit root_path
     visit "/auth/twitter"
   end
 end

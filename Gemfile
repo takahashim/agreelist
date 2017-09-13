@@ -43,6 +43,7 @@ group :test do
   gem 'vcr'
   gem 'webmock'
   gem "fakeredis"
+  gem 'capybara-screenshot'
 end
 
 gem 'pg'

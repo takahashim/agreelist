@@ -36,7 +36,7 @@
         Occupations:
         %p
           - @occupation_list.each_with_index do |occupation, index|
-            = link_to occupation.titleize, occupation_path(occupation.gsub(" ", "-"))
+            = link_to occupation.titleize, occupation_path(occupation.downcase.gsub(" ", "-"))
             = "·" unless index == @occupation_list.size - 1
   %br
 

@@ -6,6 +6,7 @@ require_relative 'support/wait_for_ajax'
 require 'rspec/autorun'
 require "rack_session_access/capybara"
 require 'capybara/poltergeist'
+require 'capybara-screenshot/rspec'
 require "fakeredis"
 Capybara.javascript_driver = :poltergeist
 

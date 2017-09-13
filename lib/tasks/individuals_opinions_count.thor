@@ -4,8 +4,8 @@ class IndividualsOpinionsCount < Thor
   def update_all
     require './config/environment'
     Individual.all.each do |individual|
-      puts individual.id
       count = individual.agreements.where("reason is not null and reason != ''").size
+      puts "#{individual.id} - #{count}"
       individual.update_columns(opinions_count: count)
     end
   end

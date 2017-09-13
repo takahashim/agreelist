@@ -3,4 +3,5 @@
     %h3= "Opinions from #{@school.titleize}'s alumni"
     %span.small= link_to "See all schools and universities", schools_path
   = render partial: "common/opinions", locals: { agreements: @agreements }
-  = render partial: "common/pies" if @occupations_count.size > 2 && @schools_count.size > 2
+  .pies
+    = render partial: "common/pies" if @occupations_count.size > 2 && @schools_count.size > 2

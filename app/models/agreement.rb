@@ -80,8 +80,4 @@ class Agreement < ActiveRecord::Base
   def decr_individual_opinions_count
     individual.update_attributes(opinions_count: individual.opinions_count - 1) if self.reason.present?
   end
-#  def update_entrepreneurship_statements_count
-#    individual.entrepreneurship_statements_count = self.individual.statements.tagged_with("entrepreneurship").size
-#    individual.save
-#  end
 end

@@ -41,6 +41,7 @@ class TagsCache
 
   def self.instance_or_class_update(tag_list, my_key)
     t = tag_list.map{|j| [j[:name], j[:count]]}.flatten
+    $redis.del(my_key)
     $redis.hmset(my_key, *t) if t.any?
   end
 

@@ -14,8 +14,8 @@ class AllTagsTable
   private
 
   def count_occupation(occupation)
-    ids = Individual.where("opinions_count > 0").tagged_with(occupation.name, on: tag)
-    all = Agreement.where(individual_id: ids).size
+    ids = Individual.where("opinions_count > 0").tagged_with(occupation.name, on: tag).pluck(:id)
+    all = Agreement.where(individual_id: ids).where("reason is not null and reason != ''").size
     @occupations << {name: occupation.name, count: all}
   end
 

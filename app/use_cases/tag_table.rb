@@ -15,7 +15,7 @@ class TagTable
   private
 
   def count_occupation(occupation)
-    ids = Individual.tagged_with(occupation.name, on: tag)
+    ids = Individual.tagged_with(occupation.name, on: tag).where("opinions_count > 0")
     all = Agreement.where(statement_id: statement.id, individual_id: ids).where("reason is not null and reason != ''").size
     agree = Agreement.where(statement_id: statement.id, individual_id: ids, extent: 100).where("reason is not null and reason != ''").size
     percentage = all > 0 ? agree * 100 / all : -1

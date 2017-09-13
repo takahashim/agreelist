@@ -7,7 +7,7 @@ class TagsCache
   end
 
   def read
-    Rails.cache.fetch("tag:#{self.class.tag_name}") do
+    Rails.cache.fetch("tag:#{self.class.tag_name}:#{statement.id}") do
       tags
     end
   end

@@ -53,6 +53,7 @@ RSpec.configure do |config|
     end
     DatabaseCleaner.start
     $redis = Redis.new
+    $redis.flushall
   end
 
   config.after do

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170912165023) do
+ActiveRecord::Schema.define(version: 20170913112640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,6 +102,7 @@ ActiveRecord::Schema.define(version: 20170912165023) do
     t.string "wikipedia", limit: 255
     t.string "wikidata_id", limit: 255
     t.string "bio_link", limit: 255
+    t.integer "opinions_count", default: 0
   end
 
   create_table "old_statement_urls", force: :cascade do |t|

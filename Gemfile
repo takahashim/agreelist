@@ -42,6 +42,7 @@ group :test do
   gem 'rack_session_access'
   gem 'vcr'
   gem 'webmock'
+  gem "fakeredis"
 end
 
 gem 'pg'

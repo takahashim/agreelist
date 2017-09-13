@@ -7,15 +7,19 @@ class TagsCache
   end
 
   def read
-    Rails.cache.fetch("tag:#{self.class.tag_name}:#{statement.id}") do
-      tags
-    end
+    read_from_redis_or_update.sort_by{|k,v| -v.to_i}
   end
 
-  # def update
-  #   $redis.sadd(key, tags)
-  #   tags
-  # end
+  def update
+    t = tags.map{|j| [j[:name], j[:count]]}.flatten
+    $redis.hmset(key, *t) if t.any?
+  end
+
+  def add(tag_list, incr = 1)
+    tag_list.each do |tag_name|
+      $redis.hincrby(key, tag_name, incr)
+    end
+  end
 
   def self.update_all
     Statement.all.each do |statement|
@@ -26,6 +30,16 @@ class TagsCache
 
   private
 
+  def read_from_redis_or_update
+    result = $redis.hgetall(key)
+    if result.empty?
+      update
+      $redis.hgetall(key)
+    else
+      result
+    end
+  end
+
   def tags
     # define in child class
   end
@@ -35,6 +49,6 @@ class TagsCache
   end
 
   def key
-    "cache:#{self.class.tag_name}:#{statement.id}"
+    "cache:topic:#{statement.id}:#{self.class.tag_name}"
   end
 end

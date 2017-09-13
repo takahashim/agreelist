@@ -4,6 +4,8 @@
   var schools = [];
   schools[0] = ['School', 'link', 'Number'];
   <% @schools_count.each_with_index do |school, index| %>
-    schools[<%= index + 1 %>] = ['<%= school[:name].titleize %>', '<%= statement_path(@statement, educated_at: school[:name]) %>', <%= school[:count] %>];
+    <% name = school[0] %>
+    <% count = school[1] %>
+    schools[<%= index + 1 %>] = ['<%= name.titleize %>', '<%= statement_path(@statement, educated_at: name) %>', <%= count %>];
   <% end %>
 </script>

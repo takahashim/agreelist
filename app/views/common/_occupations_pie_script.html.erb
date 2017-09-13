@@ -4,6 +4,8 @@
   var occupations = [];
   occupations[0] = ['Occupation', 'link', 'Number'];
   <% @occupations_count.each_with_index do |occupation, index| %>
-    occupations[<%= index + 1 %>] = ['<%= occupation[:name].titleize %>', '<%= statement_path(@statement, occupation: occupation[:name]) %>', <%= occupation[:count] %>];
+    <% name = occupation[0] %>
+    <% count = occupation[1] %>
+    occupations[<%= index + 1 %>] = ['<%= name.titleize %>', '<%= statement_path(@statement, occupation: name) %>', <%= count %>];
   <% end %>
 </script>

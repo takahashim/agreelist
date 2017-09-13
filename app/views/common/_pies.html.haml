@@ -1,7 +1,8 @@
-.row
-  .col-md-6
-    #occupations_pie{style: "width: 500px; height: 400px;"}
-  .col-md-6
-    #schools_pie{style: "width: 500px; height: 400px;"}
-= render partial: "common/occupations_pie_script"
-= render partial: "common/schools_pie_script"
+#stats
+  .row
+    .col-md-6
+      #occupations_pie{style: "width: 500px; height: 400px;"}
+    .col-md-6
+      #schools_pie{style: "width: 500px; height: 400px;"}
+  = render partial: "common/occupations_pie_script"
+  = render partial: "common/schools_pie_script"

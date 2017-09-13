@@ -2,12 +2,16 @@ class TagsCache
   attr_reader :statement
   MIN_COUNT = 1
 
-  def initialize(args)
+  def initialize(args = {})
     @statement = args[:statement]
   end
 
   def read
     read_from_redis_or_update.sort_by{|k,v| -v.to_i}
+  end
+
+  def self.read
+    self.new.read
   end
 
   def update

@@ -11,24 +11,34 @@ class TagsCache
   end
 
   def update
-    t = tags.map{|j| [j[:name], j[:count]]}.flatten
-    $redis.hmset(key, *t) if t.any?
+    self.class.instance_or_class_update(tags, key)
+  end
+
+  def self.update
+    instance_or_class_update(tags, key)
   end
 
   def add(tag_list, incr = 1)
     tag_list.each do |tag_name|
-      $redis.hincrby(key, tag_name, incr)
+      $redis.hincrby(statement_key, tag_name, incr)
+      $redis.hincrby(global_key, tag_name, incr)
     end
   end
 
   def self.update_all
     Statement.all.each do |statement|
       Rails.logger.debug("updating #{tag_name} cache for statement #{statement.id}")
-      new(statement: statement).read
+      new(statement: statement).update
     end
+    update
   end
 
   private
+
+  def self.instance_or_class_update(tag_list, my_key)
+    t = tag_list.map{|j| [j[:name], j[:count]]}.flatten
+    $redis.hmset(my_key, *t) if t.any?
+  end
 
   def read_from_redis_or_update
     result = $redis.hgetall(key)
@@ -41,14 +51,22 @@ class TagsCache
   end
 
   def tags
-    # define in child class
+    raise NotImplementedError, 'This is an abstract base method. Implement in your subclass.'
   end
 
   def self.tag_name
-    # define in child class
+    raise NotImplementedError, 'This is an abstract base method. Implement in your subclass.'
   end
 
   def key
-    "cache:topic:#{statement.id}:#{self.class.tag_name}"
+    if statement
+      "cache:topic:#{statement.id}:#{self.class.tag_name}"
+    else
+      self.class.key
+    end
+  end
+
+  def self.key
+    "cache:all:#{tag_name}"
   end
 end

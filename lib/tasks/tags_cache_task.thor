@@ -1,4 +1,4 @@
-class TagsCache < Thor
+class TagsCacheTask < Thor
   desc 'update_all',
        'Update occupations and schools cache'
 

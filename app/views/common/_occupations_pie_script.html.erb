@@ -6,6 +6,11 @@
   <% @occupations_count.each_with_index do |occupation, index| %>
     <% name = occupation[0] %>
     <% count = occupation[1] %>
-    occupations[<%= index + 1 %>] = ['<%= name.titleize %>', '<%= statement_path(@statement, occupation: name) %>', <%= count %>];
+    <% if @statement.present? && @statement.persisted? %>
+      <% link = statement_path(@statement, occupation: name) %>
+    <% else %>
+      <% link = "/occupations/#{name.gsub(" ", "_")}" %>
+    <% end %>
+    occupations[<%= index + 1 %>] = ['<%= name.titleize %>', '<%= link %>', <%= count %>];
   <% end %>
 </script>

@@ -89,8 +89,7 @@ class StatementsController < ApplicationController
 
     @new_user = Individual.new unless current_user
 
-    @occupations_count = OccupationsCache.new(statement: @statement, min_count: 1).read.first(7)
-    @schools_count = SchoolsCache.new(statement: @statement, min_count: 1).read.first(7)
+    load_occupations_and_schools(statement: @statement, number: 7, min_count: 1)
     @dropdown_occupations = OccupationsCache.new(statement: @statement).read.first(11)
 
     respond_to do |format|

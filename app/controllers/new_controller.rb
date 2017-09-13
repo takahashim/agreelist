@@ -5,6 +5,7 @@ class NewController < ApplicationController
     @statement = Statement.new
     @influencers = Individual.where("lower(twitter) in (?)", %w(barackobama stephenhawking8 hillaryclinton pontifex billgates oprah elonmusk)).order(ranking: :desc, followers_count: :desc)
     @new_user = Individual.new unless current_user
+    load_occupations_and_schools(number: 7, min_count: 50)
   end
 
   def vote

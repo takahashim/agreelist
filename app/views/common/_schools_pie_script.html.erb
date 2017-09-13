@@ -6,6 +6,11 @@
   <% @schools_count.each_with_index do |school, index| %>
     <% name = school[0] %>
     <% count = school[1] %>
-    schools[<%= index + 1 %>] = ['<%= name.titleize %>', '<%= statement_path(@statement, educated_at: name) %>', <%= count %>];
+    <% if @statement.present? && @statement.persisted? %>
+      <% link = statement_path(@statement, educated_at: name) %>
+    <% else %>
+      <% link = "/schools/#{name.gsub(" ", "_")}" %>
+    <% end %>
+    schools[<%= index + 1 %>] = ['<%= name.titleize %>', '<%= link %>', <%= count %>];
   <% end %>
 </script>

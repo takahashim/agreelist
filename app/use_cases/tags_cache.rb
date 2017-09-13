@@ -20,8 +20,8 @@ class TagsCache
 
   def add(tag_list, incr = 1)
     tag_list.each do |tag_name|
-      $redis.hincrby(statement_key, tag_name, incr)
-      $redis.hincrby(global_key, tag_name, incr)
+      $redis.hincrby(key, tag_name, incr)
+      $redis.hincrby(self.class.key, tag_name, incr)
     end
   end
 

@@ -8,7 +8,7 @@ class TagTable
 
   def table
     @occupations = []
-    occupations_count.each{|occupation| count_occupation(occupation)}
+    occupations_count.each{|occupation| count_occupation(occupation)}.compact
     @occupations.sort_by{|o| [-o[:count], -o[:percentage_who_agrees]]}
   end
 
@@ -16,9 +16,9 @@ class TagTable
 
   def count_occupation(occupation)
     ids = Individual.tagged_with(occupation.name, on: tag)
-    all = Agreement.where(statement_id: statement.id, individual_id: ids).size
-    agree = Agreement.where(statement_id: statement.id, individual_id: ids, extent: 100).size
-    percentage = agree * 100 / all
+    all = Agreement.where(statement_id: statement.id, individual_id: ids).where("reason is not null and reason != ''").size
+    agree = Agreement.where(statement_id: statement.id, individual_id: ids, extent: 100).where("reason is not null and reason != ''").size
+    percentage = all > 0 ? agree * 100 / all : -1
     @occupations << {name: occupation.name, count: all, percentage_who_agrees: percentage} if all >= min_count
   end
 

@@ -16,7 +16,7 @@
       Opinions from
       = link_to(pluralize(@agreements_count, params["occupation"] || "influencer"), "", class: "dropdown-toggle underline", id: "occupationMenu", :"data-toggle" => "dropdown", :"aria-haspopup" => "true", :"aria-expanded" => "true")
       %ul.dropdown-menu{:"aria-labelledby" => "occupationMenu"}
-        %li= link_to "all (#{@statement.agreements.count})", statement_path(@statement)
+        %li= link_to "all (#{@statement.agreements.where("reason is not null and reason != ''").count})", statement_path(@statement)
         - @dropdown_occupations.each do |occupation|
           - name = occupation[0]
           - count = occupation[1]

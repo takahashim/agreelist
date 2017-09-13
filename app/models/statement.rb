@@ -70,7 +70,7 @@ class Statement < ActiveRecord::Base
   private
 
   def filtered_agreements_count(agree_or_disagree, args)
-    a = agreements.where(extent: (agree_or_disagree == :agree ? 100 : 0))
+    a = agreements.where(extent: (agree_or_disagree == :agree ? 100 : 0)).where("reason is not null and reason != ''")
     a = a.joins("left outer join individuals on agreements.individual_id = individuals.id").joins("left outer join professions p on p.id = individuals.profession_id").where("p.name = ?", args[:profession]) if args[:profession]
     a = tag_filters(a, args)
     a.count

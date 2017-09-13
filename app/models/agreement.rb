@@ -11,8 +11,8 @@ class Agreement < ActiveRecord::Base
   has_many :upvotes
 
   before_create :generate_hashed_id
-  after_create :rm_opposite_agreement, :update_counters, :incr_statement_tag_caches
-  after_destroy :decr_statement_tag_caches
+  after_create :rm_opposite_agreement, :update_counters, :incr_statement_tag_caches, :incr_individual_opinions_count
+  after_destroy :decr_statement_tag_caches, :decr_individual_opinions_count
   #after_save :update_entrepreneurship_statements_count
   #after_destroy :update_entrepreneurship_statements_count
 
@@ -71,6 +71,14 @@ class Agreement < ActiveRecord::Base
   def decr_statement_tag_caches
     OccupationsCache.new(statement: statement).add(self.individual.occupation_list, -1)
     SchoolsCache.new(statement: statement).add(self.individual.school_list, -1)
+  end
+
+  def incr_individual_opinions_count
+    individual.update_attributes(opinions_count: individual.opinions_count + 1) if self.reason.present?
+  end
+
+  def decr_individual_opinions_count
+    individual.update_attributes(opinions_count: individual.opinions_count - 1) if self.reason.present?
   end
 #  def update_entrepreneurship_statements_count
 #    individual.entrepreneurship_statements_count = self.individual.statements.tagged_with("entrepreneurship").size

@@ -279,7 +279,12 @@ span.medium{
   .sign_in{
     padding-top: 25px;
   }
+
+  #stats{
+    margin-left: -50px;
+  }
 }
+
 
 .footer-line{
   padding-bottom: 20px;
@@ -288,3 +293,4 @@ span.medium{
 .pies{
   padding-top: 20px;
 }
+

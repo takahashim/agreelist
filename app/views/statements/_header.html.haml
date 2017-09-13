@@ -10,15 +10,17 @@
       = render partial: "content"
   %span.small= link_to "See Board", brexit_board_path if board?
   %br
-  - occupations_cache_count = @statement.occupations_cache.try(:size)
+  - occupations_cache_count = @dropdown_occupations.try(:size)
   - if occupations_cache_count && occupations_cache_count >= 3
     .div-inline.dropdown
       Opinions from
       = link_to(pluralize(@agreements_count, params["occupation"] || "influencer"), "", class: "dropdown-toggle underline", id: "occupationMenu", :"data-toggle" => "dropdown", :"aria-haspopup" => "true", :"aria-expanded" => "true")
       %ul.dropdown-menu{:"aria-labelledby" => "occupationMenu"}
         %li= link_to "all (#{@statement.agreements.count})", statement_path(@statement)
-        - @statement.occupations_cache[0..10].each do |occupation|
-          %li= link_to "#{occupation['name'].pluralize} (#{occupation['count']})", statement_path(@statement, occupation: occupation['name'])
+        - @dropdown_occupations.each do |occupation|
+          - name = occupation[0]
+          - count = occupation[1]
+          %li= link_to "#{name.pluralize} (#{count})", statement_path(@statement, occupation: name)
   - else
     Opinions from
     = pluralize(@agreements_count, params["occupation"] || "influencer")

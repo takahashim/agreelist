@@ -82,4 +82,9 @@ class ApplicationController < ActionController::Base
   def set_back_url_to_current_page
     session[:back_url] = request.url
   end
+
+  def load_occupations_and_schools(args)
+    @occupations_count = OccupationsCache.new(statement: args[:statement], min_count: args[:min_count] || 1).read.first(args[:number])
+    @schools_count = SchoolsCache.new(statement: args[:statement], min_count: args[:min_count] || 1).read.first(args[:number])
+  end
 end

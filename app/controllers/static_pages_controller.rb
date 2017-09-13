@@ -1,6 +1,7 @@
 class StaticPagesController < ApplicationController
   before_action :set_back_url_to_current_page, only: [:about]
   before_action :statements_to_vote, only: :advice_for_entrepreneurs
+
   def contact
     if current_user && params[:body] =~ /donate\ \$100/
       LogMailer.log_email("user: #{current_user.name} (#{current_user.email}) clicked on Donate on the statement #{params['statement']}; ip: #{request.remote_ip}").deliver

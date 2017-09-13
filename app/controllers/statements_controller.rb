@@ -89,6 +89,9 @@ class StatementsController < ApplicationController
 
     @new_user = Individual.new unless current_user
 
+    load_occupations_and_schools(statement: @statement, number: 7, min_count: 1)
+    @dropdown_occupations = OccupationsCache.new(statement: @statement).read.first(11)
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @statement }

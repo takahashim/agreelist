@@ -30,13 +30,13 @@
         Educated at:
         %p
           - @school_list.each_with_index do |school, index|
-            = link_to school, school_path(school.gsub(" ", "_"))
+            = link_to school, school_path(school.downcase.gsub(" ", "-"))
             = "·" unless index == @school_list.size - 1
       - if @occupation_list.any?
         Occupations:
         %p
           - @occupation_list.each_with_index do |occupation, index|
-            = link_to occupation.titleize, occupation_path(occupation.gsub(" ", "_"))
+            = link_to occupation.titleize, occupation_path(occupation.downcase.gsub(" ", "-"))
             = "·" unless index == @occupation_list.size - 1
   %br
 

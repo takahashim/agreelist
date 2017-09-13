@@ -1,5 +1,7 @@
 .container
   .tag-page_title
     %h3= "Opinions from #{@occupation.pluralize}"
-    %span.small= link_to "See all schools and universities", schools_path
+    %span.small= link_to "See all occupations", occupations_path
   = render partial: "common/opinions", locals: { agreements: @agreements }
+  .pies
+    = render partial: "common/pies" if @occupations_count.size > 2 && @schools_count.size > 2

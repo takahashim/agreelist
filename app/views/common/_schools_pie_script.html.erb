@@ -1,0 +1,16 @@
+<script type="text/javascript">
+  google.load("visualization", "1", {packages:["corechart"]});
+  google.setOnLoadCallback(drawSchoolsChart);
+  var schools = [];
+  schools[0] = ['School', 'link', 'Number'];
+  <% @schools_count.each_with_index do |school, index| %>
+    <% name = school[0] %>
+    <% count = school[1] %>
+    <% if @statement.present? && @statement.persisted? %>
+      <% link = statement_path(@statement, educated_at: name) %>
+    <% else %>
+      <% link = school_tag_path(name) %>
+    <% end %>
+    schools[<%= index + 1 %>] = ['<%= name.titleize %>', '<%= link %>', <%= count %>];
+  <% end %>
+</script>

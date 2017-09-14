@@ -21,6 +21,8 @@ class Individual < ActiveRecord::Base
   belongs_to :category_id, optional: true
   belongs_to :profession, optional: true
 
+  scope :group_by_month, -> { group("date_trunc('month', created_at)") }
+
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
   validates_uniqueness_of :twitter, allow_nil: true
   validates_confirmation_of :password, if: :password_is_present?

@@ -13,8 +13,8 @@ class Agreement < ActiveRecord::Base
   before_create :generate_hashed_id
   after_create :rm_opposite_agreement, :update_counters, :incr_statement_tag_caches, :incr_individual_opinions_count
   after_destroy :decr_statement_tag_caches, :decr_individual_opinions_count
-  #after_save :update_entrepreneurship_statements_count
-  #after_destroy :update_entrepreneurship_statements_count
+
+  scope :group_by_month, -> { group("date_trunc('month', created_at)") }
 
   def short_url
     url.gsub(/.*http:\/\//,'').gsub(/.*www\./,'')[0..15] + "..."

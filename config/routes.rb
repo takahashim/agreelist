@@ -7,6 +7,7 @@ Al::Application.routes.draw do
   post '/results' => 'home#save_email'
   get "/all" => 'statements#index', as: :all
   get "/s/:title_and_hashed_id" => "statements#deprecated_show" # deprecated
+  resources :kpis, only: :index
   resources :statements, path: "a" do
     collection do
       post 'create_and_vote'

@@ -1,0 +1,14 @@
+.container
+  %h1 KPIs from database
+  %h3 Number of new users
+  %ul
+    - @individuals_count.each do |individual_count|
+      - individuals = Individual.where("created_at >= ? and created_at < ?", individual_count[0], individual_count[0] + 1.month).where("email is not null and email != ''")
+      %li
+        = "#{individual_count[0].strftime('%Y-%m')} - #{individual_count[1]} - "
+        - individuals.each do |individual|
+          = link_to(individual.name, individual_path(individual))
+          = ","
+  %h3 Number of new opinions
+  - @opinions_count.each do |opinions_count|
+    %li= "#{opinions_count[0].strftime('%Y-%m')} - #{opinions_count[1]}"

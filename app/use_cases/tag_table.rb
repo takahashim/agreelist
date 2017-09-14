@@ -7,9 +7,13 @@ class TagTable
   end
 
   def table
-    @occupations = []
-    occupations_count.each{|occupation| count_occupation(occupation)}.compact
-    @occupations.sort_by{|o| [-o[:count], -o[:percentage_who_agrees]]}
+    if statement.opinions_count > 0
+      @occupations = []
+      occupations_count.each{|occupation| count_occupation(occupation)}.compact
+      @occupations.sort_by{|o| [-o[:count], -o[:percentage_who_agrees]]}
+    else
+      {}
+    end
   end
 
   private

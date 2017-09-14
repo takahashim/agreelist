@@ -1,6 +1,6 @@
 <script type="text/javascript">
-  google.load("visualization", "1", {packages:["corechart"]});
-  google.setOnLoadCallback(drawSchoolsChart);
+  google.charts.load('current', {packages:["corechart"]});
+  google.charts.setOnLoadCallback(drawSchoolsChart);
   var schools = [];
   schools[0] = ['School', 'link', 'Number'];
   <% @schools_count.each_with_index do |school, index| %>

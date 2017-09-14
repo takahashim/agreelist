@@ -1,6 +1,6 @@
 <script type="text/javascript">
-  google.load("visualization", "1", {packages:["corechart"]});
-  google.setOnLoadCallback(drawOccupationsChart);
+  google.charts.load('current', {packages:["corechart"]});
+  google.charts.setOnLoadCallback(drawOccupationsChart);
   var occupations = [];
   occupations[0] = ['Occupation', 'link', 'Number'];
   <% @occupations_count.each_with_index do |occupation, index| %>

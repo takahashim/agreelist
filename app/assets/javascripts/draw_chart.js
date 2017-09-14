@@ -31,7 +31,7 @@ function drawSchoolsChart() {
     view.setColumns([0, 2]);
 
     var options = {
-      title: 'Number of opinions by where they studied'
+      title: 'Number of opinions by alma mater'
     };
 
     var chart = new google.visualization.PieChart(

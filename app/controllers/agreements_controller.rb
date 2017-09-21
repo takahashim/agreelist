@@ -16,7 +16,7 @@ class AgreementsController < ApplicationController
   def create
     voter = find_or_create_voter!
     agreement = cast_vote(voter)
-    LogMailer.log_email("@#{current_user.try(:twitter)}, email: #{params[:email]}, ip: #{request.remote_ip} added #{voter.name} (@#{voter.try(:twitter)}) to '#{@statement.content}'", params).deliver
+    LogMailer.log_email("@#{current_user.try(:twitter)}, email: #{params[:email]}, ip: #{request.remote_ip} added #{voter.name} (@#{voter.try(:twitter)}) to '#{@statement.content}'", params.except(:authenticity_token)).deliver
     OpinionsCounter.new(statement: Statement.find(params[:statement_id])).increase_by_one if params[:comment].present?
     expire_fragment "brexit_board" if @statement.brexit?
     session[:added_voter] = voter.hashed_id if voter.twitter.present?

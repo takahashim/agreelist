@@ -1,5 +1,6 @@
 class NewController < ApplicationController
   before_action :set_back_url_to_current_page, only: :index
+  before_action :replace_page_type, only: :index
   def index
     @agreements = Agreement.joins("left join individuals on individuals.id=agreements.individual_id").where("individuals.wikipedia is not null and individuals.wikipedia != ''").order(updated_at: :desc).page(params[:page] || 1).per(50).includes(:statement).includes(:individual)
     @statement = Statement.new
@@ -26,5 +27,9 @@ class NewController < ApplicationController
 
   def extent
     params[:vote] == "agree" ? 100 : 0
+  end
+
+  def replace_page_type
+    @page_type = 'home'
   end
 end

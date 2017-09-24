@@ -11,7 +11,14 @@
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
     = javascript_include_tag "https://www.gstatic.com/charts/loader.js", async: true
-
+    :javascript
+      logged_in = #{signed_in?};
+      dataLayer = [
+        { 'pageType': '#{@page_type}'}
+      ];
+      if(logged_in){
+        dataLayer.push({'user_id': '#{current_user.try(:id)}'});
+      }
   %body
     %section.main-container
       = render 'layouts/header'

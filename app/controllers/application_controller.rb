@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :current_user, :signed_in?, :admin?, :can_delete_statements?, :has_admin_category_rights?, :main_statement, :has_profession_rights?, :has_update_individual_rights?, :board?, :back_url
+  before_action :set_page_type
+
   private
 
   def current_user
@@ -86,5 +88,9 @@ class ApplicationController < ActionController::Base
   def load_occupations_and_schools(args)
     @occupations_count = OccupationsCache.new(statement: args[:statement], min_count: args[:min_count] || 1).read.first(args[:number])
     @schools_count = SchoolsCache.new(statement: args[:statement], min_count: args[:min_count] || 1).read.first(args[:number])
+  end
+
+  def set_page_type
+    @page_type = "#{params[:controller]}-#{params[:action]}"
   end
 end

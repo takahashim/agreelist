@@ -37,7 +37,6 @@ class StatementsController < ApplicationController
         reason: params[:reason],
         url: params[:url],
         extent: ((params[:commit] == "She/he agrees") ? 100 : 0))
-      OpinionsCounter.new(statement: @statement).increase_by_one
       redirect_to(get_and_delete_back_url || new_path)
     else
       flash[:error] = @statement.errors.full_messages.first

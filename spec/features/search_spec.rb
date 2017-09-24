@@ -3,7 +3,7 @@ require 'spec_helper'
 feature "search", js: true do
   scenario "should find a statement" do
     statement = create(:statement, content: "Universal Basic Income")
-    create(:agreement, statement: statement)
+    create(:agreement, statement: statement, reason: "blabla")
     visit new_search_path
     fill_in :search, with: "Basic Income"
     click_button "Search"

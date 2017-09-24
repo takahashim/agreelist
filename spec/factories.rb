@@ -31,6 +31,7 @@ FactoryGirl.define do
 
   factory :agreement do
     url { Faker::Internet.url }
+    reason { Faker::Lorem.sentence }
     association :statement, factory: :statement
     association :individual, factory: :individual
   end

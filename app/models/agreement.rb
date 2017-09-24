@@ -11,8 +11,8 @@ class Agreement < ActiveRecord::Base
   has_many :upvotes
 
   before_create :generate_hashed_id
-  after_create :rm_opposite_agreement, :update_counters, :incr_statement_tag_caches, :incr_individual_opinions_count
-  after_destroy :decr_statement_tag_caches, :decr_individual_opinions_count
+  after_create :rm_opposite_agreement, :update_counters, :incr_statement_tag_caches, :incr_individual_opinions_count, :incr_statement_opinions_count
+  after_destroy :decr_statement_tag_caches, :decr_individual_opinions_count, :decr_statement_opinions_count
 
   scope :group_by_month, -> { group("date_trunc('month', created_at)") }
 
@@ -79,5 +79,13 @@ class Agreement < ActiveRecord::Base
 
   def decr_individual_opinions_count
     individual.update_attributes(opinions_count: individual.opinions_count - 1) if self.reason.present?
+  end
+
+  def incr_statement_opinions_count
+    statement.update_attributes(opinions_count: statement.opinions_count + 1) if self.reason.present?
+  end
+
+  def decr_statement_opinions_count
+    statement.update_attributes(opinions_count: statement.opinions_count - 1) if self.reason.present?
   end
 end

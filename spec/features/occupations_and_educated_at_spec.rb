@@ -21,7 +21,7 @@ feature "Occupations" do
 
   def add_person(args)
     individual = create(:individual)
-    Agreement.create(statement: @statement, individual: individual, extent: args[:extent] || 100)
+    Agreement.create(statement: @statement, individual: individual, extent: args[:extent] || 100, reason: "blabla")
     individual.occupation_list = args[:occupations]
     individual.save
   end
@@ -48,7 +48,7 @@ feature "Educated at" do
 
   def add_person(args)
     individual = create(:individual)
-    Agreement.create(statement: @statement, individual: individual, extent: args[:extent] || 100)
+    Agreement.create(statement: @statement, individual: individual, extent: args[:extent] || 100, reason: "blabla")
     individual.school_list = args[:educated_at]
     individual.occupation_list = args[:occupations]
     individual.save

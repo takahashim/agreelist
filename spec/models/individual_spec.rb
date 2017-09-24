@@ -42,7 +42,7 @@ describe Individual do
     it "+2 when you add that someone agrees on something WITHOUT providing an opinion/reason" do
       individual = create(:individual)
       karma1 = individual.karma
-      a = create(:agreement, individual: create(:individual), added_by_id: individual.id)
+      create(:agreement, individual: create(:individual), added_by_id: individual.id, reason: nil)
       individual.reload
       expect(individual.karma).to eq karma1 + 2
     end

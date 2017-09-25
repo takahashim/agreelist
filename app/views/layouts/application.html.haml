@@ -14,7 +14,8 @@
     :javascript
       logged_in = #{signed_in?};
       dataLayer = [
-        { 'pageType': '#{@page_type}'}
+        { 'pageType': '#{@page_type}'},
+        { 'env': '#{Rails.env}'}
       ];
       if(logged_in){
         dataLayer.push({'user_id': '#{current_user.try(:id)}'});

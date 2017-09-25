@@ -57,3 +57,4 @@ gem 'google_url_shortener'
 gem 'redis-rails'
 gem "acts_as_follower"
 gem "chart"
+gem 'newrelic_rpm'

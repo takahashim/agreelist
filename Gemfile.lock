@@ -209,6 +209,7 @@ GEM
     multipart-post (2.0.0)
     naught (1.1.0)
     netrc (0.11.0)
+    newrelic_rpm (4.4.0.336)
     nilify_blanks (1.2.1)
       activerecord (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -397,6 +398,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   listen
+  newrelic_rpm
   nilify_blanks
   omniauth-twitter
   paperclip!

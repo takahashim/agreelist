@@ -1,0 +1,21 @@
+common: &default_settings
+  license_key: not-here
+  app_name: Agreelist
+  # Logging level for log/newrelic_agent.log
+  log_level: info
+
+development:
+  <<: *default_settings
+  app_name: Agreelist (Development)
+
+test:
+  <<: *default_settings
+  # It doesn't make sense to report to New Relic from automated test runs.
+  monitor_mode: false
+
+staging:
+  <<: *default_settings
+  app_name: Agreelist (Staging)
+
+production:
+  <<: *default_settings

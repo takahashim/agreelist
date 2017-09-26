@@ -59,3 +59,4 @@ gem "acts_as_follower"
 gem "chart"
 gem 'newrelic_rpm'
 gem 'resque'
+gem 'resque-heroku-signals'

@@ -5,10 +5,12 @@ class SessionsController < ApplicationController
 
   def create
     if params[:password].blank? && individual.password_digest.blank?
+      # We create a user when someone leaves their email in the subscribe form so we need her to set her password
       ResetPassword.new(individual).reset!
       redirect_to login_path, notice: "Email sent with instructions to set your password - as you have never set it"
     elsif individual.try(:authenticate, params[:password])
       session[:user_id] = individual.id
+      EventNotifier.new(event: :login, individual_id: individual.id, ip: request.remote_ip).notify
       if params["task"] == "upvote"
         upvote(redirect_to: get_and_delete_back_url, agreement_id: params[:agreement_id])
       else
@@ -24,7 +26,8 @@ class SessionsController < ApplicationController
     auth = request.env["omniauth.auth"]
     user = Individual.find_by_twitter(auth["info"]["nickname"].downcase) || Individual.create_with_omniauth(auth)
     session[:user_id] = user.id
-    LogMailer.log_email("#{user.name} (@#{user.twitter}) just signed in!").deliver
+    EventNotifier.new(event: :login, individual_id: user.id, ip: request.remote_ip).notify
+
     if params["task"] == "voting"
       vote(user)
     elsif params["task"] == "post"

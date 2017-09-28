@@ -6,6 +6,7 @@ class EventNotifier
   end
 
   def notify
-    Resque.enqueue(EventJob, args)
+    EventJob.perform_async(args)
+    # Resque.enqueue(EventJob, args)
   end
 end

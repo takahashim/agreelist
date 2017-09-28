@@ -1,4 +1,11 @@
+require 'sidekiq/web'
+require 'sidekiq_web_constraint'
 Al::Application.routes.draw do
+  extend SidekiqWebContraint
+
+  constraints sidekiq_web_constraint do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 
   root to: "new#index"
   get "/new", to: "new#index", as: :new

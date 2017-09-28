@@ -42,6 +42,10 @@ class Individual < ActiveRecord::Base
   before_save :update_profile_from_twitter, if: :twitter_changed?
   before_save :downcase_email
 
+  def can_access_sidekiq?
+    self.twitter == "arpahector"
+  end
+
   def to_s
     name || twitter || "id: #{id}"
   end

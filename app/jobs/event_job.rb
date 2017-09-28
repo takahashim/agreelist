@@ -1,7 +1,7 @@
 class EventJob
-  @queue = :default
+  include Sidekiq::Worker
 
-  def self.perform(args)
+  def perform(args)
     event = args["event"]
     i = Individual.find(args["individual_id"])
     ip = args["ip"]

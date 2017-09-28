@@ -5,6 +5,18 @@ AgreeList
 Tracking influencers' opinions
 http://www.agreelist.org
 
+Prerequisites:
+-------
+```bash
+# Redis
+sudo dnf install redis # Fedora
+sudo apt-get install redis-server # Ubuntu
+
+# PostgreSQL
+sudo dnf install postgresql postgresql-server postgresql-devel # Fedora
+sudo apt-get install postgresql postgresql-contrib libpq-dev # Ubuntu
+```
+
 Install:
 -------
 ```ruby

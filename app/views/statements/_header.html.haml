@@ -1,7 +1,7 @@
 .text-center
   %span.alert.alert-warning
-    Biased? Please help us
-    = link_to "adding more opinions", new_agreement_path(s: @statement.to_param), class: "underline"
+    Biased? Please
+    = link_to "add more opinions", new_agreement_path(s: @statement.to_param), class: "underline"
   - if @statement.content.size < 100
     %h1
       = render partial: "content"

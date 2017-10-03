@@ -8,6 +8,9 @@ require "rack_session_access/capybara"
 require 'capybara/poltergeist'
 require 'capybara-screenshot/rspec'
 require "fakeredis"
+require 'sidekiq/testing'
+Sidekiq::Testing.fake!
+
 Capybara.javascript_driver = :poltergeist
 
 # Requires supporting ruby files with custom matchers and macros, etc,

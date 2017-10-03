@@ -1,4 +1,4 @@
-class EventJob
+class EventWorker
   include Sidekiq::Worker
 
   def perform(args)

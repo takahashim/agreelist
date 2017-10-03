@@ -11,6 +11,7 @@ Prerequisites:
 # Redis
 sudo dnf install redis # Fedora
 sudo apt-get install redis-server # Ubuntu
+brew install redis # Mac
 
 # PostgreSQL
 sudo dnf install postgresql postgresql-server postgresql-devel # Fedora
@@ -28,6 +29,12 @@ rake db:create
 rake db:setup
 ```
 
+Start local server:
+```
+redis-server
+bundle exec sidekiq
+rails s
+```
 Contribute:
 --------
 1. Find or create an issue

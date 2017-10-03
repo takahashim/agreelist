@@ -10,7 +10,7 @@ feature 'add opinion from influencer', js: true do
   context 'links' do
     scenario "links should go to the same page" do
       visit statement_path(statement)
-      click_link "adding more opinions"
+      click_link "add more opinions"
       expect(page).to have_current_path(new_agreement_path(s: statement.to_param))
 
       visit statement_path(statement)
@@ -23,7 +23,7 @@ feature 'add opinion from influencer', js: true do
     before do
       login
       visit statement_path(statement)
-      click_link "adding more opinions"
+      click_link "add more opinions"
     end
 
     scenario 'adds reason category' do
@@ -70,7 +70,7 @@ feature 'add opinion from influencer', js: true do
   context 'non logged user' do
     before do
       visit statement_path(statement)
-      click_link "adding more opinions"
+      click_link "add more opinions"
     end
 
     scenario 'adds someone who disagrees' do
